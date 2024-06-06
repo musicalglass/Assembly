@@ -1,0 +1,51 @@
+Moving right along here. Let me go to Vice over here. I'm gonna go ALT D for full screen. Now I could print a value, a String value to the screen. In quotations like typing in "A". That is a regular A although it appears in capital. If I were to hold SHIFT A, I get something else. So just a normal A. Let's close the " ", hit ENTER, and it prints the A at the Command Prompt, or the "blinky cursor thing" (either).
+Let's say I want to print that same A at a specific location in memory. I'm going to go ALT D to get out of here for a second. Going over to The Commodore 64 Programmers Reference Manual which you can find at a variety of addresses. And here it says starting at 1024 to 2039. That would be 1000 slots in screen memory. And it overlaps a little, so in case things go off screen. 
+Okay so here's the value we're going to be using 1024, the beginning of screen memory. Let me go ALT D. Okay so I can put a value into a location in the Commodore 64's built-in memory by using POKE command and... What did I say? 1024 is the beginning of Screen Memory and I want to put a value of 1 in there, and that is the A. If I hit ENTER, I get my A at the very first position in Screen Memory up here, see?
+So... 
+Let's say I want to go 2 slots over from there. I would add 2 more to this value. So that would be POKE 1026.
+Let's try another value of 2 and I get a B for the second value here, see?
+Let's say I want to add color to one of these memory slots. Let me go back to the programmer's reference manual here. And down here it says Color RAM. And these are the values associated with the color of each of the locations on the screen there.
+So beginning at 55296
+
+Go back to Vice here. ALT D and that is POKE 55296 
+I'll put a value of 1. That should be white. And sure enough. If it makes the A up here white, using the same logic, if I add 2 more to this address I should get this spot that would be POKE 55298.
+Let's try another color value here, and it makes the B red.
+Now you have 16 colors available on the Commodore 64 and here on the WIKI is a list of the values and the colors associated with them. 
+So if 16 colors, however one of those of course is going to be the same color as your background. So you could experiment and try different number values here. But one of them will appear that nothing has happened because the letter now appears invisible because it's the same color as the background, see? Okay and just for the heck of it I'm going to reset back to default 
+and we're going to do the same thing using Assembly now. So I'm going to right click on Assembly Files here add a new file we'll call this Screen Character, or Char for short. 
+Okay, let me hit ENTER one time
+and we want to enter the value of where we're starting in memory. That would be = 2064. Good to go. Arrow up and go to Tools/Generate SYS Call. Good to go. Delete up. Delete up.
+Okay I have cleaned that up. Now we want to load a value into memory. In Assembly of course, first thing we want to do is load that value into the Accumulator.
+#1 
+Okay, and then we're going to store the Accumulator at screen location 1024, Like that. That's it. Then let's go ahead and signify end of program so it returns back to BASIC. Launch that, and there's our A, see?
+So same as last tutorial let's go load... let's say 3 here, and we will go store that at 1026.
+Launch that..
+
+and now we have a C. So same thing I could go colorize that. I could load a color LDA 4 whoops! #4! Sorry. Immediate mode #4. Store that in 55296 and of course I have to store it. So there we go. Store the Accumulator value
+
+and it colorizes the A...
+you see? 
+I could also...
+Here I've loaded a 1. Let's say I want to make this value white. I can just reuse that same 1 there by storing... 
+55296 and change this to an 8, like that. 
+There.
+So I've used the value of 1 for the A which I stored in Screen Memory and I've also recycled that same 1 to store in the Color Memory, you see? 
+So I could do, uh let's see...
+Here, let's change this to say, 16.
+
+There. And I get a different color. Uh okay, I'm sorry. I get a NO color because it's over 15. But I get a the value of the letter P which is 16. If I wanted to colorize that again, let me load a... say 12. 12, and store it in the color location there.
+
+There.
+So, changed the color of my P
+#16 to the color value #12. Which over here is Grey, you see? There we go.
+So now there are 16 values... I'm sorry SCREEN values there are...
+The screen is 40 characters across by 25 characters down. So that would be starting from 0 to 39. So if I wanted to maybe put a letter over here in the right hand corner, let me just run over to my calculator here real quick and CLEAR. That would be 1024 plus 39 is 1063. So here if I put a 1063
+
+63 like that
+
+It puts the P over here in the right hand corner. That's 39. 
+So if I did 1064 here, it would go to the next line. So that would be 40.
+40 slots from the top.
+
+Okay so for your little homework assignment I'd like to see you try and put an X in each of the four corners of the screen here. Remember it's 1000 slots from 0 to 999 all the way down here, and let's make each of those X's a different color. 
+Should be simple enough based on what you've learned. ;)

@@ -1,0 +1,48 @@
+Let's say you're writing a program and you find yourself reusing the same bit of code over and over again. Now of course you could just copy that bit of code and paste it over and over again in your program. But then you may find that your program gets a bit long. So one way of creating a bit of reusable code is to create a Subroutine. I'm going to go over here to CBM, go full screen, and we'll start from BASIC here. Add a new file Subroutine.bas
+
+Okay. Very first thing I'm gonna go Clear the Screen. You remember how to do that. PRINT CHR$(147) There. That should clear our screen in BASIC. Then let me just print a bit of text at the top that says what the program does. 
+Subroutine example 
+Okay. Line 30. Okay so now you're plugging along your program and then you want to call on a bit of code that does something. So the way to do that is you say GOSUB (Go to Subroutine) and it'll be on some line or other. So I'm just going to pencil something in there for the moment. I've printed a bit of text and then I'm gonna do something else. I'm going to put another line between this and whatever else I'm going to do to do that. I could just use an empty PRINT command and that will create a new line. Okay. Now I'm going to print out a variable. Again let me just pencil this in real quick. 
+Now 60 end of program. That is it, except we haven't created our Subroutine yet. Let me turn line numbering off for a second so I can go down a couple lines without creating a new number. Just to make space. 
+So line 70, apparently will be the beginning of my Subroutine, and I'm just going to declare a Variable and then put a value in it. How about the variable A equals the String A? Kind of redundant, but you know. We'll just keep it simple huh? ...and on line 80 return This is important in your Subroutine. So on this line we're going to call the Subroutine that is at line 70, and then when it's done doing whatever it's going to do it's gonna store a value in a variable. Then it will return right back to the point where you called the Subroutine and continue on from there. Okay, we now know what the name of our variable happens to be. It is A. See? Not "A" in quotations. Just the value A standing for the name of our Variable. Right? Simple enough. Okay, let us run that see what we get.
+
+We get a mismatch A... ah!
+A$ I did not declare a String. A$ = a String. Oh bloody blatant error! Here we go. There's our A. Good to go. Very simple you know. We're calling a subroutine returning back and continuing from there until the end of the program in BASIC. Let's do the same thing using Assembly shall we? I will create a new file.
+
+routine.asm (for assembly file)
+
+Okay. Now let's say we're in memory. We want to start normally I might go 2064 but I want to reserve a slot or two up at the beginning to use for another purpose. So I'll say 2066 here you know I've told it where to start. Let's uh put in the SYS call.
+
+go. good. Alright. So first thing I did in BASIC was to Clear the Screen. 
+Now this is interesting. We've already used Subroutines! Jump to Subroutine. Of course this is a Subroutine that's built in to the operating system 58692.
+
+There. And then when it's done it will return back to here after it's done clearing the screen. Now this time we're going to create our own Subroutine. I'm just gonna skip the part where I print the line of text as I did in the BASIC example because I haven't actually shown you how to do that yet so we'll just plug along here and call our subroutine Jump to Subroutine which is yet to be written. So let's pencil that in. Let's go... Why don't we jump straight down and write our subroutine then? and then I can fill in some more code. So our Subroutine will just load. Let's use the PETSCII value A here. We used PETSCII earlier. We'll use it again.
+
+Number 65 for A yes? And then this time let's say I want to store whatever I've done in my Subroutine so I can retrieve the information in my program. And I'm just going to do that. Store that value at the memory location 2064 which I reserved at the start of my program a couple slots earlier. So I'm going to reuse that slot 2064 to store this value, Okay, and then very important here: return from subroutine. Now we've used this before to signify the end of the program and basically what it's doing is returning back from your program to BASIC. So in essence your entire assembly program is a subroutine running under BASIC you follow?
+Okay there. Now... so I said jump to Subroutine, which is the same as a GOSUB really. Calling GOSUB in BASIC. Now that I've written a value in memory in my Subroutine that I called, I want to retrieve it. So I'm going to load the values stored in 2064. You see? So, now it's not in Immediate Mode. (It's not a number). So if that # sign is not there that says that this is a Memory Location now, okay? So we've loaded that.
+Now let's call another Subroutine built into the Operating System and that is 65490 which we've used in a previous tutorial to print our PETSCII code to the screen. Okay there. So then before (in BASIC) I wrote a bit of text, and then I wanted to jump a line. I did that with an empty PRINT command. This time to do the same thing from Assembly I can create a Carriage Return. And the way to do that is to load Immediate Mode #13 Let me go over here to PETSCII. Where is that? Return! See? Value #13. So I want to call return which will create a new line so essentially there as you can see. LDA 13 and then Jump to the Subroutine 65490 same thing. 6 5 4 9 0 Storing the PETSCII code for the Return and that value is the same as Hexadecimal FFD2 I believe. So you could use that Hexadecimal value there if you like. Okay, the only thing missing now is we didn't know where our Subroutine was earlier when I penciled this in. Now we do. I'm going to go down here to the Options and under Assembler ensure that Assembly Dump is on, which it is. Turned it on a little earlier. Okay, so now if I just go generate the program what do we got here? Line 8... Okay, I have to put a value in there. It won't accept penciled in note. So I'm at 2066. Let's just go 2070 That's within the range of our program so it won't give us an error. There. 
+Now let's have a look here at our bit of code. We want to jump down to here. This line, which is 823 in Hexadecimal. Observe those numbers are the same because this is just an empty space before this starts. So 823 Hex. Cancel out of there.
+
+Go to Subroutine. What did I just say? $823 which if I hold my mouse over this is 2083 in Decimal. 2083 like that. Let us run this...
+
+There. Prints the A. Also skips a line before returning back to BASIC. So you get a little space between this and that. There you go. How to call a Subroutine in both BASIC & Assembly... let's see...
+
+load PETSCII A
+
+store in memory
+
+up here
+
+retrieve value from memory (do something)
+
+print PETSCII value to screen
+
+load PETSCII carriage return
+and execute.
+
+There you go!
+
+This should be
+clear screen
+
+That is Subroutines!

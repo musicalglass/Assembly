@@ -1,0 +1,184 @@
+I'm going to do a quick rundown on the basics of BASIC. 
+BASIC is a pretty standardized language that will probably run on other platforms as well. So some of these lessons may apply to other computers or operating systems. 
+Of course, instead of using a hardware Commodore 64 I will be using the VICE Emulator which you can find here: https://vice-emu.sourceforge.io/
+and when you fire it up it looks like this. Exactly like it would have on the hardware computer 40 years ago. 
+I said in the previous tutorial that if you're in full screen mode and you want to get out you can hit ALT Escape. However, if I go back to VICE again it's still in fullscreen mode. If I want to exit fullscreen mode to go to normal mode I can hit ALT D and that minimizes it. I can switch between ALT D to maximize, ALT D to minimize like that.
+
+Okay, when the Commodore 64 first fires up it's running BASIC. Commodore 64 BASIC Version 2. And you can type commands right from the Command Prompt. 
+I remember my landlord years ago had a used one that he let me play around with, and I turned it on and I get this, you know. And then of course you try everything; 
+hello ERROR!
+Yeah. Run something,
+
+You know, all you do is get a lot of errors. So the computer wasn't much good by itself unless you had a manual or a book on BASIC.
+Okay, so another nice thing, let me go ALT D here, about the emulator: In the old days if you did something you could go down and overwrite some bit of memory that would mess up the way the computer was working, and you would have to turn it off and turn it back on again. But with the emulator, I could just go RESET like that and it takes it right back as if you had restarted the computer. So let me go ALT D. I'm in full screen mode.
+So let's do a little Commodore 64 BASIC here. So I could type a Print Command and just say PRINT 1 [ENTER] and the computer prints a 1. 
+I could also go PRINT 1 + 2. There, and it prints the solution. Also, let's say... I could go PRINT 2 (for multiplication use an asterisk) 2 * 5, there's your answer. Or I could also by the way, instead of typing "PRINT" for a shortcut you can just use a question mark.
+? 42 like that say, just for shorthand. 
+So continuing along here, I could go
+PRINT let's go 2 * 5 + 3. 
+And there's the answer.
+Now observe that it uses an Order of Operations. So if I were to do let's say,
+PRINT 2 + 3 * 5 
+You see it does the multiplication first then the addition. That's the Order of Operations.
+
+Now let's say I wanted to print some text to the screen. If I just went PRINT HELLO I'd get an error, or it wouldn't print what I told it to. That's because this is text which needs to be a String. In order to define a String I have to put it into quotations. So it would be PRINT "HELLO" like that, and the computer prints hello.
+
+Let me... this time I'm going to actually write more than one line of code. So I could do a single line of code right from the Command Line.
+
+If I want to do more than one, I tell the computer I want to write a NEW [ENTER] program. Now I'm in program mode, and the lines of code need to be numbered. 
+So I'm just going to start at number 10 here. I want to define a Variable, and that Variable is going to be stored in an A. So I could say
+A = 42 and then line 20 print A. 
+That's it. So now I'm done writing my program so I can just type RUN [ENTER] and there. It prints the variable to the screen.
+
+Okay let us do another one here. NEW [ENTER]. Type another program this time. 
+10 S = 3 + 4
+20 PRINT S 
+Let's RUN that and see what we get. There you go. So you see it goes ahead and does the math for you, stores it in the Variable, and then when I call the PRINT command, there's the answer.
+Okay, so let's do another one here.
+
+NEW [Enter]
+
+10... I could go A = 1
+20 B = 2 
+30 C = A + B
+And then let's print it to the screen. 
+40 Print C
+like that. 
+Okay so we'll run it. There.
+So here I've done some math and stored it in the Variable. Here I've done the same thing. I've declared 2 Variables and then added them together into another Variable, and printed that to the screen. 
+Let's see... Now let's say I want to store some text in a Variable. 
+So I wouldn't just go A = HELLO. Because this is text. A String they call it.
+So in order to define that this A is a String you put a $ sign like that. A$ = Bob.
+At 20 I could say PRINT "HELLO " <--- space inside quotation
+
+and then right on the tail end of that I'm going to use a semicolon ( ; ) and print my variable A$ like that. So let me go RUN my program, and I get hello Bob.
+
+Okay. So let us continue shall we?
+NEW program.
+
+Now you can write little notes to yourself in your code. So I could use a REM for REMinder, or REMark, whatever works for you. 
+I will say that this is NAMES OF FRUITS. There.
+So when the computer compiles the code, which it does at runtime with BASIC, it will ignore anything with the REM in there.
+
+Right, so let me go say
+
+PRINT "ORANGE"
+
+line 30 PRINT, let's say, "BEAR" here
+and 40 PRINT "APPLE"
+There. So let's say I've got my program and I run it, and only then do I see that I have made an error, and I want to go back and change it. How do I get back here? Well let me go LIST my program. There it is. 
+So now I could just go Arrow key UP, Arrow Right until I'm right over the bit that I want to fix. Enter the new bit of code. Enter the P in this case, and then hit the ENTER key and it has made the correction. So now I could go down here and type LIST and you see that the code has been updated. I can RUN it and there is my fixed bit of code.
+
+Now oftentimes in BASIC you see how I've gone 10 20 30 40 instead of 1 2 3 4? 
+The lines do need to be numbered, and oftentimes the reason they'll go 10 20 30 is: maybe I decide later I want to put some more code here. I can still do that because I have some space between numbers 20 and 30.
+So let me go 25 
+PRINT 
+"GRAPE"
+and hit Enter. 
+And now if I LIST my program you can see that there is now a new line of code inserted there. I could also, let's say I don't like "pear" or I want to update my code at this point. I could also overwrite that line just by typing over like that. And now when I LIST my program you see that it has overwritten line 30. 
+Let's say later I don't want line 25 in here. Well to get rid of that, I just go type the line number and hit Enter, and see it has overwritten a blank there. The line no longer exists. I could also, let's say I want to insert a bit of code here. I'm going to go here to over the A and 
+if I hit SHIFT INSERT it will back up. And if I hit SHIFT DELETE, it will add spaces. 
+So I could replace that way. So I'm going to go SHIFT 1 SHIFT DELETE
+
+oops nope nope nope I'm going to 
+INSERT
+I'm just going to write "pineapple" like that. There. So if once you hit Enter it will overwrite that bit of code like that. I can reuse my R here type RUN there Whoops! and again another mistake there. Let me just go down here and LIST
+pineapple
+
+if I could go over here to my P and I hit SHIFT DELETE and that added a Space. There. 
+And I can make my correction.
+Now all I do is hit Enter and the update is saved. Go back down here and run my program, and there! The changes have been fixed.
+
+What else can we do?
+Let's do a NEW program. 
+I'm going to go
+10 PRINT "A"...
+
+and then I want to put a little space between this A and the next bit of typing. I can say SPC(3) like that. And then another String. I'm going to just put a number in a String that's not stored numerically, it's stored as text. Hit Enter and run my program. And you see 1, 2, 3 spaces between the A and the 8
+
+1, 2, 3. Correct. There we go.
+So another thing now. I've got all of this code on the screen here and maybe I want to clean it up from the Command Line. 
+I could just... Now if this was a real Commodore 64, there's a key on there to clear the screen. You just hit the Clear Screen key and it clears everything and starts over. 
+But from an emulator, a way to do it would be to go PRINT CHR$ and then in parentheses (147) ENTER there and it clears the screen and everything's all fresh and new. 
+I could do the same thing in a program. Like I want the computer to clear whatever is already on the screen before the program starts. So I could go, let me start on line 100 
+PRINT CHR$(147)
+that and next line of code. Let's try, uh I'm going to define the amount of space in a Tab so let me go uh 10
+
+sorry, space print tab(10). So we'll say how far the tabs or the columns are apart from each other. Let me just demonstrate 
+"ABC"
+I'm going to go TAB 
+(100)
+"DEF" 
+close the quotations. I'm all done here. Let me run my program. There. So I have defined how how far the Tab is.
+
+and so I'm 10 spaces in on "ABC" and then another 100 spaces to "DEF" Alright, so let us type a new program:
+new 
+Let's say I want to have the user type something into the computer and input it into a Variable. So the way that's done
+10 
+line 10
+you type INPUT and then the name of the Variable you want the input to be stored in. In this case I want to store a String so I want to define the variable as a String.
+I'll go 20 PRINT
+
+"YOU TYPED "
+
+in and add an extra space at the end inside the quotations. And I will use the semicolon and then call on the
+
+String Variable that we've just input.
+Let me go ahead and hit Enter and we'll run that program.
+Okay, so it's displaying a question mark. That means that the computer wants some input.
+So I'm just going to say YO and when I hit ENTER it's prints out the variable.
+So here I've put 2 commands on a single line: print this bit of text, and then right on the tail end of it, using a semicolon print the String Variable which the user has input. Okay?
+So I could also... let me input a numerical value this time.
+I'm going to go 
+NEW
+program 
+we'll say this time
+INPUT 
+let's say X comma Y. X X comma Y okay oops uh what did I do wrong anybody spot my error? Write a number on the line of code! So I'm just gonna write 2 3, use SHIFT DELETE to insert a bit of space there.
+There's my 10 
+if I hit enter, then the line of code has been updated. I can now go print that out. Let's go 
+20 PRINT
+X, Y 
+there's my little bit of code. Let's run that.
+So it wants some input. I'm going to just type, it's looking for a number, so I'm just going to put in a 4 and hit Enter. And now it wants some more input as defined by the comma. So I'm going to put a 5. There it prints 4, and because there's a comma, it goes to the next Tab, next column (4 columns). I will show you that in a second.
+So let me LIST this program here again. So I could also here, instead of the comma I'm going to use that semicolon as I showed in a previous snippet here. Enter to overwrite it. I'm just going to reuse the R in Ready. Let me Arrow ahead. BACKSPACE or DELETE back. Write "UN" for RUN, and it's asking me for this data. 
+I could also just go 12 comma 42. See? So if you only put one input of text it will ask you again for the next one and the next one and the next one. 
+Or I could just enter them separated by a comma you see? 
+Okay, so and now this time it didn't use the full Tab because I used a semicolon instead of a comma, right?
+Okay, next let's say... let me type 
+NEW
+I'm going to say line 1
+
+INPUT W, X, Y, and Z
+
+now on line 10 here I'm gonna say Define a new Variable: 
+T = W + X + Y + Z
+and let's go 
+20 PRINT "TOTAL EQUALS"
+I'm not going to put the space in there this time.
+
+Semicolon T and we'll go RUN that. There.
+So it's asking for a number. I'm going to say 4, 5, 6, and 7. And then when I hit Enter it totals the values. 
+To run the program again, it's still in memory as you know, I could type LIST to view it but that program is still dormant in memory. To run it again I just type run again. There see? So I could go 1, 2, 3, 4 and there's my total see? 
+So same thing with String values. I could also... let me type... 
+NEW
+10 INPUT
+
+and now instead of just having a ? there, YOU know what that means but maybe the end user, whoever you're writing the program for doesn't. You might want to print some text on the screen for a prompt. So we'll just say
+"Enter any 4 names" and make a semicolon. Now since I'm going to be entering text this time, I want to say 
+A$, B$, C$, D$. Okay, and enter the next line of code, maybe I want to skip a line in the program, and one way to do that would be to just print an empty bit of code, empty String. Or you could just plain call Print you know. So here we go. Let me go 
+30 print A$, B$, C$, D$.
+Okay there's my program. 
+Let me run that. There. Enter any four names, and it does automatically tack on the question mark whenever it's looking for input. But at least now you have a prompt there so the user knows what to do, you know? So I could type. And I don't have to use the quotations now to enter
+
+Bob, Doug, Euclid whatever, and Joe. 
+Enter. There.
+Okay here it outputs the 4 text strings that I have input.
+
+Okay. that's a little bit of BASIC. I'm not going to get too deep into it. I was drawing primarily for these lessons from a book called Learn BASIC Programming In 14 days On Your Commodore 64. 
+Pretty simple, straightforward, easy to read and understand book. Here's the address you can find it or just type "learn basic programming 14 days" into Google and, there. It exists in a number of different locations.
+Great book. Easy to read, easy to get started, you know. So highly recommended.
+There's plenty of books out there. I swear to God, they would just hand out computer science degrees to anybody that could hit the ON button on a computer back in the old days, and there's a plethora of books that were a complete waste of trees, you know.
+But this one's a good place to start.
+
+Okay so let me just wrap up this tutorial here then.

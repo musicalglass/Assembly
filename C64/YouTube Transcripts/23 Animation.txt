@@ -1,0 +1,122 @@
+I said in an earlier video I'd like to show you how to do some rudimentary animation but I felt you should probably understand a few prerequisites first. Hopefully at this stage of the game I have accomplished that, and you know everything you need to know to do some basic animation. Let's start from BASIC shall we? We'll just call this animation.bas
+
+Let's see if I have Auto Line Numbering on. Let me just make a little needless REM here as if the name of the file wasn't self-explanatory. I always forget that A second A. Okay.
+
+I'm going to go down a couple here.
+POKE 1024
+
+90... That should actually do something. Let's have a look here real quick. "Line 20 has no basic tokens" Yeah yeah. Okay. Error in 30. Well so much for leaving empty blank space. Just delete that for the moment.
+
+Yeah. So I made a diamond for starters. Let's attempt to animate that. We got all this text on the screen why don't we just clear the screen here. How do you do that folks tell me. PRINT CHR$(147) That's one way. Okay, and... Oh it didn't auto fill in the 30 for me. Next we're going to make a For Loop. For i = 0 to 39. Because there are 40 characters across the screen starting from 0 to 39. We'll just take advantage of that. Let's see. Line 50 I'm not going to use at the moment. Let me just go straight to line 80. Here, and say NEXT. And I could say NEXT i . 
+And here. This diamond. I'm going to put it at screen position i (screen position
+
+1024) + i which you may recognize is similar to the, comma, Index X exercise that we just did. See what happens here? Y Okay, we got our rudimentary animation, although it just drew one character after another all the way across the screen from 0 to 39. Okay. So to make a single character what we want to do is: each time the diamond progresses to another position we want to erase the old one, you know. And a way to do that... Let me put in line 70 here, kind of working backwards, would be to draw a blank over the same position. So we'll do that after we draw. But before I get to that...
+
+Once again, here's our animation, and it zooms across the screen, right? So to slow it down... A couple ways to do that, but I'm just going to burn some frames essentially. Burn a few cycles. Let's do a line 60 here. And for that I am going to use a second For Loop. So why don't I specify NEXT i here for this for loop, and then making another For Loop here. And I'm just going to burn a few cycles. I'll call that t for timer. Timing = 0 to
+
+40 oops! I forgot the 2. Trying to talk and type at the same time. Okay, and then instead of making a next line, I'll just on the tail into that make a semicolon (which is more or less the same thing as making a new line) and say NEXT t . Okay. Let's see what happens...
+
+Now there. Now it's some more reasonable speed. By burning 40 frames before progressing to the next draw command, right? 40 cycles of the C64. Alright now. Like I said I want to do is erase each previous Diamond as I draw a new one. Let's do that after we burn some time. So to do that just going to POKE at the 1024. The same position as previously here, + i, (the character number) #32 is a blank. So in theory that should erase at the bottom of the loop after burning a bit of time, then jump back up to the beginning, and draw the next one. You see? So it draws the character here, then it burns what it 1/60th of a second times 40. So almost a full second and then... That's in America because we're NTSC. It would be 50 cycles per second, so if you're doing the same tutorial in Europe you might tweak the number there for different timing, you know? So there. It draws it on the screen. waits a bit, then erases it, before going back and doing it all again, okay?
+So let's see what else can I do here. 
+40 let's go ahead and change the color too while we're at it. That would be POKE 55296
+
+55296 + i and that is the color 1.
+I could just as easily change the color of all text on the screen, you know?
+There. Very nice. Okay, there's our animation in BASIC. Let us attempt to do the same thing in Assembly now. I'm going to add a new (Assembly) file here animation.asm
+Okay, and let's tell it where to start. 
+20 oops! equals = 2068 And auto run.
+Alright. First thing, gonna load X with a 0 signifying the first frame of the animation. We're also going to load the Accumulator with that diamond character. That would be #90 (immediate mode 90). And I'm going to store that for the time being. STA in a memory location 2064.
+Then let's load the color.
+
+LDA (Immediate Mode) color #1 for white, and store that at 2066. Good to go. Next I want to load that blank character into memory. LDA (Immediate Mode) #32 . We'll store that somewhere in memory as well. 2067 should work. Okay. Top of the loop. We're going to Clear the Screen JSR 58692 There we go.
+And we'll start our loop using a Label. Let's see. Now that we're inside the loop, let's grab the diamond from 2064, and store that at screen position 1024, (Index) x. Okay. Have I loaded X? X is already at 0. 
+Okay, so I'll store that in a second here. Then 1024. Let's go LDA load the color value which is stored in 2066, and we will put that into the color RAM, which is 55296, if I'm not mistaken. And also Index X so both the screen memory location and the color RAM will share the same X Index. Right? Okay so now we want to burn some time. Okay. 
+So this is a little bit interesting way to do that. Let us first start...
+
+I'm going to call this first loop INNER like this
+oops! Tab.
+
+So I'll use...
+Oh yes yes yes yes yes! One more thing.
+
+I'm about to use both the X and the Y registers here to burn a little time. So that means whatever X value I'm using up here is going to get overwritten. So I want to store (STX), current X value up here in my animation temporarily, 
+and then I'll retrieve that after I burn some time.
+
+Okay. So I'm inside one loop and now I got another loop happening inside of that I'm going to burn some time with... Basically I will say Decrement X (DEX) which we haven't used. Same as Increment (INX). But here I'm subtracting 1 from X. And let's see. Outside of the loop. I haven't loaded that value yet.
+
+LDX 250 (times)
+and the reason... now I used 40 in BASIC, you know? But this is going to run WAY faster. Way faster. Let's see, I could in fact... 
+I won't worry with the loop. I'm just going to do this linearly here. 
+Decrement X and then Branch if Not Equal back to the loop, which I have named INNER. And the reason I called it INNER will become a little more self-evident in a bit, I guess.
+
+Okay. So this will burn 250 clicks in Assembly, right? However that is not enough! So we're going to put that Loop inside another loop. Uh huh. Let's see here... that is going to work this way. I'm going to go
+
+LDY and I'll use 35. The timing I have chosen in advance here. And now we're going to create that Outer Loop, and then on the Inner Loop we'll declare 250 cycles and then Decrement. So it'll go 249, 248, 247, all the way down to 0, and then jshoomp! back to the outer loop that repeats another 35 times. So we're burning 35 times 250 cycles here to make this happen. Okay, so now I'm going to Decrement the Y value, Branch if Not Equal back to that Outer Loop. 
+Okay there. 
+So this will burn some cycles for us now. Okay? Let us actually do our animation bit now. We'll want to retrieve the X value that we stored up here.
+
+So 2067 is that correct?
+LDX 2065 I see what I did here. This should be... yeah 2065. That's where I stored it right before going into our Timing Loop. We stuck that X in memory. So this value, we're going to retrieve now. We were using X and Y. So that value would have been erased. But now we're can return back to it. I'm going to go load A with the blank character that we stored in memory here:
+
+2067. Put that there. Right. Now we will print our blank character 1024 at The X Index. And now we want to update the character. INX . There that's all I need to do. To advance 1 frame in the animation we'll compare the X to 40 here. So there'll be 40 frames in our animation, and if that's Not Equal, go right back to Loop RTS. End of program. Okay. I did that linearly instead of in bits and pieces but it works. So there you go. We can adjust the timing of our animation here. If I put 100 now.
+
+; adjust time, or do it this way. ; adjust timing here. Okay? So that should slow it down even more. 
+There.
+So now it's 100 times 250 frames. So just for reference. Let me put this, like a 2. And you can just kind of see how blindingly fast... Zip! It zipped so fast that it wasn't even able to display it on the screen. Come up a bit. I'm going to burn 40 frames here
+Still too fast to see. 
+That's how much faster programming in Assembly is, over programming the same thing in... Oh! I actually saw a bit there and a bit there that time. Let's go 128
+
+Just zoom zoom! Just go 250. There. I mean I'm burning 250 frames and it still just zips across the screen. So you can see how blindingly fast that is now. Okay. So now I'm going to burn 250 frames in this tiny little inner loop here 10 times. So yeah 2,500 frames 2,500 clicks or computer ticks. There now see? Now we're getting more into the ballpark of something that it's actually visible.
+
+30 Yeah. That's pretty nice. There you go. So hope you were following everything that was going on there. You know, we just started a little later in memory than our 2064. (Beginning of User Memory), leaving a few slots to store some Variables. X here. I ended up storing down here after I have used it, you know? And before going into that Loop you know? And then there's our Diamond character. Store the graphic (character) in memory, store the color in memory, store the blank character also in memory. And I'm clearing the screen before the loop. You know, so everything gets erased one time at the top Another way... I mean you can clear the screen each loop as well but didn't really need to do that because I was erasing the character here. Drawing a blank.
+; Draw a blank char to erase 
+Like that.
+Let's see. As well just add more comments for the heck of it here.
+Load X position.
+
+Adjust Timing.
+
+Store X position before timing Loop, see?
+Let's see. What do we got here?
+
+Load diamond character
+
+Store in memory
+
+Load color white
+also store in memory
+
+load blank character
+
+clear the screen
+
+enter main game Loop 
+(or animation loop it's not a game yet but you know)
+
+Load Diamond
+Load the diamond, Draw Diamond at X position... Let me use the proper terminology here: At X index. Comma X index, X screen memory 1024. Index X
+
+Load color
+load the color
+
+Store color in color RAM.
+Store the X position
+
+Adjust timing
+
+Burn cycles
+count one cycle
+
+Repeat 250 times
+Update outer timing 
+Loop timer
+
+Okay. Go to whatever 
+Outer loop, As if this label wasn't evident. Now...
+
+Load memory.
+
+Okay my phone's ringing and the rest should be pretty self obvious from there. End of lesson.
+
+Thank you.
+Hope you enjoyed it.

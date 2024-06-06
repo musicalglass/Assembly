@@ -1,0 +1,61 @@
+Jumping ahead. In the Commodore 64 Assembly Language Programming book from Hayden books. I'm going to Chapter 3 here, and he introduces a couple of new commands; STAX and STAY. Now took me a little bit to translate this bit of code over to modern Assembly code. But I had actually been using it for a while in modern code and didn't realize that's what he meant. Oh and again, I keep saying "he" on this one and there's actually two authors on the book. So I could just as easily use the gender neutral terminology and say "they" whether I'm referring to one author or the other or both and be all politically correct and all that. you know. So let's go do this new bit of code here. Add new (Assembly) file and I'm going to say X_index.asm
+
+Okay.
+
+Okay first things let me just... oops!
+
+Whatever. I was just gonna take a shortcut and copy that out of another one. But I'll just recreate it. Not like it's a huge amount of typing. 2068 I will use here and
+
+we'll add our cheat code.
+Alrighty.
+
+Okay. Very first thing I'm going to load a symbol into the Accumulator. Let's use #90. That would be, let's see heah... 90 right here, The diamond character in the Commodore Screen Codes. There. And then I'm also going to load the X register with 0. Okay.
+So in the book, again
+
+they're using STAX to store a value at the Index X. Stored in A, X index. Okay? So the way you do that over here... I am going to STA 1024 which you're familiar with. Index X. That's all there is to it, believe it or not. RTS That should do our thing. Let us
+
+see what happens here.
+
+there's our Diamond at the X index 0. So I could just as easily put a 6 here
+
+and it'll be at Index 6, you see? So this will come in handy in the upcoming lesson on Animation. Let's take this a little bit further why don't we? I'm just going to declare a couple of Constants here. The first one will be for a Screen Memory. SCREENMEM is good = 1024, which we're familiar with what that value means. And COLORMEM
+
+= 55296 which we should know full well what that means as well now. So this 1024 down here, I can just replace that with the Constant and should get the same result. The X value here. I'm going to store
+
+X register into.. let's say 2064.
+
+There.
+Okay and then
+
+down here... oh well, let's let's just go ahead and store the A value as well. The Accumulator in 2066.
+STA #2066. 
+I usually like to keep the X and Y up at the top of my Variables, although I'm not using Y in this. So just gonna skip a space for the heck of it. Let's see now. I've got each of those values stored in a space in memory. Down here before I use it.
+
+Let's load A with... uh whoops whoops whoops whoops! I see an error there. I used a value (Immediate Mode) instead of memory location. But now it's a Memory location 2066. Loading A with whatever's stored in this position in memory. Also loading X with this. I can just Ctrl Shift drag that value and it copies it. Very nice. Alright. And I declared a Color Memory or... hang on one second here. I haven't declared a color value yet though. Let's go ahead and do that right now. Let's reuse LDA here.
+
+LDA. I will say color value 1 for white, and store the accumulator in 2065. I guess 2065. There we go so...
+
+There. I've loaded my
+
+A back from memory. It was kind of a moot point the way I'm doing this. But it'll serve a higher purpose later. Then using the A, storing the A value heah, and I'm loading my X, and using the X value theah. Okay, so now let us load our color value
+
+which is heah.
+
+Control Shift drag. There. And use that to define our color for the same slot.
+
+COLORMEM, x . So there we go. Let's see how many blatant errors I've made. Looking good. So this is nice. Now as you can clearly see I can change my screen position arbitrarily
+
+to something else now and the color value will also be updated because they both share the same X value, see? There's my diamond down there. Now okay. That is Index X. As I said, in the book, using the assembler that came with the book, they refer to that as STAX. And you can also do the same thing with the Y register (STAY). And just for the heck of it here, to do that I can change this value, and this value to Y. This value, that value, and the other. And let's see here. That should work just as well.
+
+There. Index Y. Say, change 100 to 8,
+you know. Hwah!
+
+Perhaps I could mention at this time: This is from maximum 0 to 255. So if I put 256 here...
+
+Error! Can't use 256 maximum. 265 that's over. Not 256.
+
+Okay. 255 should work.
+That's the maximum value you can store in X or Y.
+
+Yeah.
+Looking good.

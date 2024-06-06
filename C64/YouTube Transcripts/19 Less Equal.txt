@@ -1,0 +1,24 @@
+Another thing I forgot to mention regarding these Branch commands. 
+Here, we did this bit of code. Works fine. But if I put 200 here and say, 73 here, that should be Less Than or Equal To.
+
+Less than or equal to. Correct. But if I were to put a 72 here and run it again...
+
+I get the opposite result so that's incorrect and the reason for that is: If the difference between these two values is more than 128 this compare doesn't work the same. I'll deal with some workarounds for that particular situation in some later tutorials I believe. So let me just set that back to that. I'm going to copy all of this and, let's see... This is Greater Than.
+Let me do
+
+whoops!
+
+LessThanEqual
+
+So there we go.
+Same thang. 
+So previously I was saying, put the 9 in there, if you wanted to get the opposite effect here. Then you could just swap this number with that number. You don't really have to do that here. I could go... Here I'm saying Branch if Positive. If the difference leftover after subtracting this from this is positive. You could also go Branch Minus, in which case these results will be the opposite. 
+Let me just copy Greater into there and then we'll put it down heah.
+
+so okay so now let's see...
+9
+
+Now it should default to Less Than or Equal To unless it's Greater Than and then it will skip over down to here. Yeah.
+So there you go. That is Branch if Minus 
+BMI
+Okay

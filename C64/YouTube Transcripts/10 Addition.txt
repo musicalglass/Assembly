@@ -1,0 +1,27 @@
+I am drawing some rudimentary programming in assembly lessons from the Hayden book Commodore 64 Assembly Language Programming.
+Now normally when I'm teaching a new programming language I usually like to start with a simple animation and then teach various other bits of code relative to that. Such as a For Loop or If Then statement and such things. But I kind of feel in this case you kind of might want to understand a few prerequisites first. You know, otherwise you're just blindly copying code over without necessarily understanding what everything does. Some people prefer to work that way. I like to work in baby steps and understand every little bit and how it all goes together, you know? So not going to go too deeply into that. Here we go. 
+Here's where I started before. I copied over this code, and to be fair to the author this was not the first code example. I said "Oh the first code example is erroneous" well it is but he's not actually telling you to type this in the book He's just kind of saying well here's how you do something in BASIC and and look how ugh streamlined and elegant it is to do it in Assembly. Which is actually not entirely true. This is, as I said Incorrect and in order to make this do that, it would be probably be twice as long, you know. So I don't know where the author was going with that. 
+So here, you know the book is handy for those of you that enjoy reading, in that it goes into in-depth explanations of what everything does, you know? So that's all helpful. 
+Here we go. Our first program 1.1 Let's go ahead and launch that. What is this actually doing?
+
+print
+pretty simple 
+Just print a letter which we have already covered, you know. But something to be learned here. Repetitions really help you to recognize bits of code from memory and stuff I think. 
+Okay so, start address 828 we discussed earlier you're probably better off with 2064 or something like that but again I'm just going to go by the book. Starting address in memory 828
+
+Good... LDAIM which, let me tab in, that is the same as LDA Immediate Mode 0. 
+Okie dokie.
+and then we store it in whatever is loaded into the accumulator into the first position of screen memory. You should be familiar with by now. Also use the same value of zero to define the color 55296. After a while I see you start to just memorize these numbers so that's why I think repetition is useful: slight variances from one program to the next.
+Okay and we don't need to enter the END because that is a command specific to the Hayden assembler. Let's just go ahead and launch that 
+and of course we need to write type SYS you don't need a space 828 and there is the zero uh first character which is a ampersand um and here the he's recycled the same zero for the color which happens to be black okay simple enough let's uh move right along here uh to another. Okay so let's see there, a little bit of... mostly this is telling you how to use the assembler itself, you know. But here's an explanation of ADD with CARRY and such. If you want to get a little deeper into it. Okay. So here's the actual bit of working code and this is done slightly differently than... let me just minimize this move it over so I have room to see all of the code and remarks, comments. There. Let's do another one. What does this do? This is Addition. 
+So I'm going to right click here. Add new file...
+
+addition. Which we've covered addition haven't we? Yeah. But repetitions are good. 
+828 memory location. Okay so here he goes CLD.
+C L D which ah... Clear Decimal which is not explained in the comments so that's... although it's probably explained thereafter in the book. CLC Clear Carry which I demonstrated is necessary for the math to work correctly. LDAIM means immediate mode #1 store that to the first position in Screen Memory, also store the same 1 STA to 55296. See how these arbitrary numbers start to seem familiar after you've seen it several times and it all starts to gel. Alright? Now LDA Immediate Mode 2, yes? Add with Carry... whoops! 
+1 0 2 4! Okay now, this is interesting what he's doing here I believe in an earlier example we stored the value in a memory location. That was 900 in that particular instance. But here, this is interesting what he's doing here he's putting the value into the Screen Memory location and then drawing from that same spot in memory to draw the second... to do the addition. You see. So we're coming from this screen memory location doing the addition. There's the value which he then proceeds to print to the screen STA 1026.
+So we know that that's two slots over from position number 3 on our screen, or we should know by now. 
+STA 55298 colorize the next slot.
+Okay and that's it. RTS , return from sub routine. That should doer.
+Let's see how many errors I've made typing this simple program. Okay, SYS 828. There we go. You see? 
+So here he has colorized the first slot using the 1. Done an ADD with CARRY, and it did not come out to a 2 which we know would have been red. So some result of this came up with the color blue over here. But there you go. We have added two numbers together. We got the correct result. Oh okay there that would be 3 there color number 3 the result from the addition stored in the color value you see? I just thought that was an interesting example how instead of writing to a separate slot in memory he just grabbed the value right back out of the screen memory to do his addition. Okay there. So there you go. There's another lesson I will keep them short and...

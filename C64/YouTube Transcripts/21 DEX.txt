@@ -1,0 +1,54 @@
+I haven't officially introduced you to the Decrement command. So let me just give you a quick rundown on that before the next video. We'll call this dex.asm
+
+And the usual rigmarole equals 2066 here Arrow up. Go to Tools, generate that SYS call. Yada yada. Okay. So I'm gonna draw upon the PETSCII codes for this one. There they are. I'm gonna use the alphabet. So as you can see that starts at 65 and ends at 90. There. So back to CBM. Let us first load into the accumulator Immediate Mode a value of 65 and JSR 65490.
+
+There. Okay. So if I return to the subroutine... Run that...
+
+There it prints an A. I want to take advantage of that Q for this one. That's why I'm using this PETSCII codes instead of the screen codes. Alright. So next thing I'm going to create a little Loop here. doop. Simple enough. And then at the end of this Jump back to Loop. That should create an endless or Infinite Loop, they call it, on and on and on and on. Awesome. Okay. So much for that. Now so we get out of the loop at some time, point I'm going to create a Conditional. So I want to...
+
+Well here first here where... let me... I'm getting ahead of myself one here. I want to
+
+first store this here. STA in memory like that, and then down here, let's go increment. INC 2044.
+
+See what happens. Just playing around.
+
+Not much. I have to unload LDA that value
+
+Oh and it's quickly cycling through. You remember in PETSCII there are some screen commands and you can see there it's clearing the screen, and it's colorizing the text ,and it's doing a whole bunch of stuff real quick. Okay so enough of that garbage. So before the end of the loop, we want to do a quick comparison here. Let's see...
+
+CMP
+
+What did I say from 65 to 90? Yes, and then create a Conditional Branch if not equal.
+
+There and it prints out my alphabet. Okay. So. Now there's also a Decrement (DEC) which will subtract 1 every time through the loop. So let's just change this real quick to 90, and this down here to 65, and run that.
+
+There. And it prints the alphabet backwards. Okay straightforward enough. Let's do the same thing here. I'm going to use... just undo undo undo undo and we're back to 6590. And this time I'm going to use the X register like so. And don't need to store it. I'll just delete that for keep things neat. Okay, so going into the loop we will...
+
+don't need this any longer
+
+and we are comparing X now, and we're decrementing X. whoops! CPX (compare X). Seems like CMX would have been all logical too. Okay this is not quite right. I'm just gonna do it. 
+Invalid Address Mode DEX 2044. Okay. I don't need the dex 2044 just DECrement X
+
+and... NADA. Okay, so let's go... 65 Here's the thing, we have the value in X
+
+But this prints the A accumulator. So we're not seeing anything. So we need to Transfer X to the Accumulator. (TAX)
+
+and there we go! Ugh kay, So why
+
+it is printing... oh I see over here not dex INC! (Increase X) We're starting from 65 going up to 90. So I just went from 90 all the way around to 250 back to 0 again to 65. Everything BUT 65 to 90. Okay there. There is my alphabet. Got that? So now I can do it the other way around. I'll go 90 here, 65 here, and Decrement X.
+
+Lets see what I have overlooked here.
+
+Yeah, and it prints my alphabet backwards. I didn't catch that there I'm short one. Hang on here. Let me back up. ♪ ♫ ♬ Inc X 90 65.
+
+So the X is working a little differently than the Accumulator version ABC through Y! Ah! You see that? So I actually just need to add 1 here. So when it does the comparison to... It'll go ahead and print 90. Then add 1, THEN do the comparison, and exit out of the loop.
+
+There. A through Z. Okay?
+So 90 here, 65 here, and we'll do DEX The name of our file here. Okay.
+
+Yeah, prints backwards up to the A there. So 90 is fine. So we want to go 64. Same similarity that's the last time there. So Z through A You see? Okay that's DEX. And of course we can do the same thing also using the Y register, by changing all of these X's to Y's
+
+There. Same difference. Just using a different register. Okay, so let me go undo undo undo undo. Okay, and I will save that.
+
+And that is
+Decrement X :)

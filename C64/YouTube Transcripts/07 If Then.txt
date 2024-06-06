@@ -1,0 +1,66 @@
+Next we're going to do your basic IF statement. Let's start from BASIC. I could write it directly from here but instead I am just going to write my BASIC file from CBM. So I'll go add a NEW BASIC file and this is: if then.bas
+Okay
+
+Why it's poking along is beyond me. I shall start right away here I'm just gonna.. 
+At the top of the program say what it's all about. If Then. Although that is the title of the BASIC program so that should be self-evident. I want to clear the screen. To do that print CHR$(147). There we go. Okay now we'll get to the meat of the code here. First I'm going to declare a Variable named X and assign a value to X. There. Then I'm going to use an IF statement to check the value. So I'm going to say IF X = 10, then do something. We're going to say go to another line in the code. GOTO 60 which I haven't written yet but that's coming right up and then that's the end of the program. You recall if I was writing Sssembly you would type RTS return from sub routine? In BASIC you END, and it should take you back to the Operating System. So now on line 60 we want to do something to signify that the program actually worked and... 
+I'm just going to print an A to the screen. Nothing fancy, quick down and dirty proof of concept. There we go, and another end to this fabulous program. We then are going to launch it.
+
+Launching VICE is sluggish for some reason..
+
+And it prints the A signifying that X does in fact equal 10 so if I made this into a 9 and run the same program again...
+
+I get nothing.
+So I could even right here
+
+Note that if I put... I have Toggle All or line numbering on. I put a number between 40 and 50 it automatically makes it 45.
+Let's just for the heck of it go PRINT.
+
+Nope. There. So it also signifies that it's not equal.
+
+Nope. So it's not equal. Okay so I'm just going to lose this line okay? So 10 is the value. So you know you could... you're not going to write a program like this. This is just proof of concept, you know. It might be like: if high score equals whatever then plays bells and whistles or whatever. You know.
+Something within the program. Earlier we used a For Loop. If you iterate through the For Loop and the value reaches 255 then end the program or whatever. So there you go.
+Let us save that. Now I am going to do the same thing in Assembly. We'll add a new file here called if then.asm for an assembly file. Okay.
+
+Oh I see Bing is loaded over here for some reason. I don't know how that happened there, and that was probably slowing the heck down on my computer. Thank you Microsoft. You've always been so good to me.
+So let's just tell our program where to start shall we? It will be at 2064. And we want to just go ahead and have it auto start. That is 0810. I could also go $0810. There. Same thing. I'll just clean that up for no apparent reason. Alright. I am writing in Assembly so let me Tab in I want to clear the screen that is jump to subroutine built into the hardware number 58692. That should clear the screen for us. Go down a couple of spaces. There. Let's load the Accumulator with the value of 10. There, that was complicated.
+Now we want to check if the value equals 10, and we're going to do that by using compare (CMP). Let's compare if the value is equal to 10. And the way that works the way compare works is: it basically subtracts this value from that value and then it checks whether what's left over is negative, if it's positive, or if it's zero, and then you can do stuff accordingly. Okay, so let me go, now that it's done the comparison, we'll say branch if it's equal (BEQ), and I'm just going to pencil in the value let's see it's starting at 2064 so I'm going to say 2075.
+
+But if I throw a value that's off the board it will give me an error when I go to compile it. So I'll try and get in the ballpark. But that's just a temporary penciled in value. And END of program return from subroutine to BASIC. Okay, let me go down a couple. And now we're gonna print something to the screen to verify that the program worked. Load a value of 1, store it in 1024, end of program (RTS). So okay. Here, let's find the actual value. And the way I am doing that...
+You recall earlier I showed you how to turn off the Assembly dump by selecting None? I've turned it back on now. So when I compile this I'm going to hit this time generate program instead of launch CBM. We're just going to go to generate a program I'm not actually gonna save the program that I generate. I just... whoops. Oops Oops! I put number instead of $! Why didn't you say something? Here we go. Okay, and generate!
+
+Okay, so here's the number I want. I want it to jump down here in the code okay? 
+And the value is 81A in Hexadecimal. Right?
+So let me close that, and not save it.
+
+Oh I see ugh! That's why Bing keeps launching I don't need that. And I'm just going to cancel out of there.
+
+And
+
+And by now I forgot what my number was because I was playing around with Bing. Up 81A. Okay, you all got that? Remind me if I forget. 081A. Do not save the program. 
+Okay so here. That is $081A and I can see here that it is also Decimal 2074.
+
+2 0 7 4. So you could put either one and it doesn't matter. Decimal value or the Hexadecimal value signifying that here, ; is where the start of 2074 begins. And let me run this and see how many errors I have general... Whoops! I see what, I already messed up didn't I? 2074! Thank you. I missed it by 1. I said 2075. Look at that. So not a bad guess there. Okay. NOW it should do something... theoretically. If I close this it should launch VICE and print that A signifying that it worked. 
+And once again, you know
+if I change this value then it won't jump to here.
+
+Of course many people will point out you know, I could have just used a Label HERE and then say Jump to HERE, Branch IF Equal to the Label called HERE. But I'm doing it this way on purpose so you kind of see what the numbers mean. You know, when your code is compiled in your Assembly dump and everything. So I'll be doing it that way: Using the shortcuts like that. The other thing one could do... let me look at that one more time...
+
+Okay, if I am here...
+
+and there's only one byte between me and Glory... 
+I believe...
+Let me cancel out of that.
+
+I can also go...
+
+* + 1 
+I think it should do the same thing. Let us find out.
+
+No uh, it's maybe... Okay, I think it starts from the beginning of this so that I think there was two. Let me just go ahead and Launch it just so we can count there. There are two bytes in this command one two three total let's see if that actually changes it if I put a 3 here does it in fact jump forward 3 bytes in the program?
+
+It does! There's my A. So that's a "Local" branch value, you know. If I wanted to branch backwards 2 spots or 3, and we just put a minus there. So that goes from there to there as long as you don't add any additional code between here and there or whatever. And in the long run it's the same thing. Um what did I say 2074 was? 2074 is the same as Hexadecimal 81A. I could do the same thing 81A there and that should work as well. 81A in HEX is 2074 in Decimal.
+
+There. Either way. There, so I showed you 3 ways to Branch to a specific spot in your code from assembly. There.
+So that is your IF THEN statement.
+
+And revert back to decimal and save it for later.

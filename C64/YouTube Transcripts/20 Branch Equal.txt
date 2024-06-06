@@ -1,0 +1,32 @@
+Another branching command that you can use. Go back over here. I'm gonna grab all of this and copy it, create a new (Assembly) file, and this is branchEqual.asm
+
+Paste that in there.
+Looking good. Okay. So basically here I can say Branch Equal. If these two values are the same, Branch down to here. So now of course we're gonna want to rename this to Equal. Copy that. Branch if equal, down to here. text EQL whoops! What happened?
+
+Branch EQL there.
+
+Copy that. Paste it over that. Paste it over that. and this is not equal. text
+
+text "not eql"
+
+Copy that. Paste it over that. Paste it over that.
+So now we're going to see if these two values are equal or not. Let's go just set them to equal for the moment....
+
+Whoops! It's going to say greater than. Yeah. Okay but it worked. Okay oops! don't really need to get out of there. Greater Than here. I should say Equal To and Not Equal. Yeah okay. So now if I set this to 251...
+
+So the previous Branch comparison
+
+checked if it was over or under the value there. And now this of course, is testing if it's the same. Otherwise it's one side or the other, you see? Okay, and likewise I'm gonna just grab all of this. Copy that now. What did I say? Branch Equal? Let's just create one more file. BranchNotEqual.asm
+
+Okay.
+
+Paste that in there. The only real difference, instead of BEQ it's Branch Not Equal (BNE) right? And so instead we want to branch to this. And instead of this being the default,
+
+cut that out of there, put it down there. There. So it's testing if the value is not equal. So let's verify that that works.
+
+Not Equal. The two values are not equal. So pretty much the same program except sometime you may want the flow where one happens by default and the other is the exception. So does it say Equal?
+
+Equal To.
+There.
+
+So those are your various Branching commands. :)

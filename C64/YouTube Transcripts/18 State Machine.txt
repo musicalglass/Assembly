@@ -1,0 +1,112 @@
+I oftentimes like to get an animation program going early in the game when doing my programming tutorials and then demonstrate various coding features within the context of the animation. Because, I don't know, I feel it's more rewarding to see some graphical feedback than your left brain programmer types who seem to get their jollies by printing some value to the screen, you know? That's just me. 
+Okay so I think at this point I might also mention you know that I like to in addition to my other files here, I like to create a scratch program or two to try out things on the side, you know? Because let's say... here I'm going to be building on my animation program that I created previously and I find many times, you know you'd be trying out things and that might not work, and you go undo undo undo and then, oh wait, redo (which that would be Ctrl Y by the way in CBM Studio) you know you can go back as well as forwards but when you do that so many times then you sometimes can't get back to your original file. So that's why I always like to create a scratch file, work things out on the side, and then bring them over into my program. But for the purposes of this tutorial I'm just going to copy all that and we'll create a new (BASIC) file. And I'm going to be demonstrating several different things I believe. But I'm just going to call this stateMachine.bas
+
+okay
+
+and why it has to cycle through every file is beyond me. Okay then, I will paste my code in there and then I'm back to my original animation file. Okay so just to rehash and... let me run that real quick and...
+I created a program that animates a character across the screen and then exits. Alright? Now to demonstrate another quirk of the C64 hardware: If I were to turn this part off, and then we'll just put jump in here to create an infinite Loop. There. So now it will no longer exit after 40 frames. Should just continue doing its thing. There. You see? It goes to slot 39 proceeds to 40 on the next line, next line, next line, and then when it gets to 255 zips back to 0. You see? And the reason for that: You know we're working in 8 Bit or 1 Byte. And 256 is the maximum value that you can display. Say I got 1 Bit in this place is equals 1, 2, 4, 8, 16, 32, 64, all the way up to if they're all ones that's 255, right? So here if I have both of those are 1 that's 1 plus 2. That's the value of 3 you see? Or this would be a value of 1 plus 2 plus 4. 7 you see? All right. So once it reaches 255 there's no more room in the 8 Bits of memory and it rolls back to 0. Okay, so that's what's going on here. Reaches 255, flips back to 0 right there see? So now you have 200,,, and you have a thousand slots on the screen though, you know. Going from 0 to 999. What if I want to draw something down here? If I can't input a value higher than 255 then how do I use the rest of the screen there? Well here to demonstrate that, what you can do.
+
+Put this back to 40 for the time being. What one can do is: Here you can add say... Here I'm going to go +250, and let me just control shift drag that there, and another one down here, and we'll go launch that.
+
+There. So now it's starting from position 250. Why don't I I just keep looping that?
+
+Jump to Loop. Go ahead turn that off again
+
+Starting from position 250 and going 255
+
+slots down and when it reaches 255... There. Then it jumps back to 250 again. So likewise here let me go 500. And now it should start in the third quadrant here and draw 255. or let's say 750 here.
+
+And now it will draw in the fourth quadrant. Okay so, however I can't...
+
+Oh I see here 750.
+
+There. You get the idea. So I can from CBM Studio put a much higher value than 255 here. But I just cannot store a value in Assembly higher than 255 for my X value. Okay? So how to do that in code then Well clearly I can do these bits of code um there may be a way I don't know to do this using Least Significant Bit and Most Significant Bit. If anybody out there watching this tutorial knows of a more efficient more elegant way to do this I'm all ears. Feel free to submit some code. That would be very helpful. 
+If you are just one of those people that says "Well you could have done this or that" and not supply a bit of code. That is not helpful. That's like five percent helpful. So don't even waste your time. So let us... Then I want to create 4 different "states" then. Each drawing that X in a different quadrant of the screen. My goal here, if I should state what I'm trying to do, is to make that diamond go start from the very beginning of the screen and cycle all the way down to the bottom. Use up all 1000 slots. Okay so I'm going to divide the screen up into four quadrants and animate each of those separately. So that is my workaround. I'm going to add a couple extra slots of memory here. Actually it's not totally necessary because I'm going to end up freeing up some other memory. But just not hurting anything to go ahead and add a couple memory slots here. I can delete Arrow delete Arrow delete. Oh, and just to be anal put this over here instead. Okay wonderful. There. So it should still Auto Launch. And now I have 2 more slots of memory available. Marvelous! Okay, so... Next step... Now I'm gonna have like I said 4 separate states, and each of those is gonna utilize some bits of code over and over again, such as this Timer. So therefore, right off the bat I'm gonna grab this Timer and create a Subroutine. So here, let me just pencil in that I'm going to Jump to the Subroutine called Timer. That'll help me mark my spot where I was. And we want to keep the bit where it stores the X position at the beginning, and then reloads it afterwards.
+I'm not going to need the part where it says erase character. Here. Let me grab all of this. All the way up to where I store the X position and cut that. I'm going to go down here to the end of the program. Paste it. And instead of this note here, let's just create our Label for our Timer. So when I call the Timer, it'll jump down here. And then at the very end of that we want to return from the Subroutine. There, I've created a Subroutine. I am calling it here because I had the foresight to put that there instead of trying to find out where it had been. Let me see.. If this actually didn't get broken in the process there. There. It's calling the subroutine doing its thing. Wonderful! Another thing I'd like to do next I reckon. Now I'm going to be using every slot on the screen and it'll be colored white. Here where I store color value in each individual slot. That's really no longer necessary. I'm just gonna get rid of that and instead we'll make all the text white.
+
+Should be no problem there. Verify that works. Marvelous! All the slots are white. All white now, baby it's all white now.
+
+See? Yeah okay. So the next step is: I want to create my State Machine, some people call it. And to do that let me... I'm going to start at position, or State 0, I guess. So load 0. And I'm going to store that in
+
+STA 2068 I guess. And here I'm going to do something new. I'm going to create a Constant and I'll just call that STATE. And State equals to memory slot 2068. Just drag that down. There. So now I've created a Pointer essentially to this memory slot here. Okay. I could do the same with my diamond character, my color position, my blank character, and name them diamond or blank. Might help. It can help make coding easier, you know? That way you're naming your Variable. And this is how you do it in Assembly. By naming the memory location in which you store the Variable. Okay? Alright. So next step. I've created my State. So let's create those various States shall we? Let's see here. I am drawing a character, jumping to the Timer, and then drawing the blank character to erase it. So all of this is now going to be one State or another. One of four States. So my first one, I will call State 0. And let me see something here... Oh yes! And so when we're done with that State, we want to go down to the part where it updates the code here. So let me create a Label here now. And when that is finished doing its thing it's going to jump to... Watch if I type U P, it automatically distinguishes that I have created a Label there. And I can just hit Enter and it fills it in. That helps prevent typing errors. Sometimes you can accidentally mistype some bit of code and you don't know why it's broken. So now I'm going to grab State 0 here, and create 3 more States just like it, and call that state1, state2, state3. And inside the State it'll be +250 Oops! I typed minus. There we go. plus 250 here. Plus 250 here. It'll be plus 500. It's just as fast to type it really. 500 plus 750.
+Good. There. So now each of these States will draw in a different quadrant. Yeah I might mention at this time: This is a bit more involved video this time. I have taken a moment to define a new hotkey in my OBS screen capture program. So I can have a hotkey assigned to pause the video in case I get hung up somewhere and I have to figure out where I made my mistake. I don't have to sit there and make you sit there and watch me floundering about. I can't be all egotistical. Here. Burn some time. Burn some time. There. Okay there. I kind of hate being redundant. So this is what each state does. Jump to update. That's pretty self-evident. I don't need to put a comment there. Okay. So now we want to...
+
+Let's me see... This bit doesn't need to be there really I can just load my diamond one time. You know just to
+
+not have more code than is necessary. There. Okay, so it will load the diamond from memory,
+
+do its thing depending on which State is called. Okay. So let's create the part where we call each State. So we want to do that using an If statement, which we covered how to create If statements. Let me see previously... We are going to do a Comparison essentially. So we will load our State, I'm going to use the Y register for this. Load our State. So I don't conflict with the A that I just loaded here. And then we'll do a Comparison on that. 
+Okay this is one feature that kind of bugs me. It doesn't recognize State yet here. So I have to go down here, create a return, and go up one. Okay? That's temporary. LDA State. Compare Y to number three. Branch if Equal
+
+to state 3 here. There.
+
+Okay. So State is still in the Y memory. I can continue a couple more times. State 2,
+
+State One. And for the time being that should be fine. If none of these are true it'll just flow over to this one state 0. Alright. So that means... Let me just run that. Verify what I said is true. It should flow to 0 because none of those conditions were true. Alright. 
+So what if one of them was true now? I'm going to change the State of my program to 1. See if it goes down here. It does! It's now starting from the second quadrant. Continuing from there. And just to be redundant, let's just go ahead and test the other States for errors.
+
+State 2 is operational. State whoops! I'm gonna deal with that in a moment. State 3.
+
+Lovely. Okay, so now all four quadrants of the screen are accounted for. Alright so now what I want it to do is: consecutively when it finishes this state proceed to the next State, and then the next, and then the next. Okay. So down here... Let's see... Here's the end of our program.
+
+After jump I'm going to compare now instead to 250. Because I'm only using that much. And BNE to Loop. So it should, and let me just set this back to 0 for a moment, so now it should go 250 slots instead of 255, and exit the program. 
+I could have speeded up the animation of it so it doesn't take so long to watch. But whatever. It exits at 250. I'm not worried about it being white. That's another tutorial that we covered earlier. Okay.
+So that means it's exiting out of here, proceeding directly to Return from Subroutine back to BASIC. So what I want to do here, for one thing now, is reset it back to 0.
+So let me go load X with a 0 and store that in... what's my X value here again? You could... 2065. I have it down here. 2065 Load X.
+
+I want to store X.
+
+Store the 0 into 65. So now let me just go ahead and set that back to 40 for the moment.
+
+Where is this? Line 72
+
+Oh I LDX'd. Okay. Reload X position. Oh I see. I cut instead of copy paste.
+
+Didn't do what I wanted to though I wanted it to....
+
+when it exits out of here... Oh okay. I am reloading 0, but not going back to the top of my program loop.
+
+There. So when it reaches 40, it resets the value to 0. And now we have an Infinite Loop. Okay. Alright. So next step. What I want... After it has reached 250 here, and reset to 0, I want to increase the value of State.
+INC State.
+
+See what happens.
+
+Well would you look at that! It transitions smoothly from one State to the next! So now the only hitch left is when it gets down here it will increment to a value of 4 which we haven't accommodated for. Okay, so in order to take care of that, up here, let's see I am comparing if it's 3. Let me also compare
+
+if it's 4.
+
+There. And if it's 4 I want to reset it to 0 again so...
+
+Branch to Restate and that's going to go here.
+
+Restate. And that is just gonna load X with a value of 0
+
+and store that in State. There. Okay, so now the part where this flowed automatically into 0is now broken. So we will go ahead and accommodate that as well, right? So if it equals 0, just skip over Restate and go to 0.And let's see what happens.
+
+♫ Ya dada da da da dada da... 
+Okay.
+
+It gets to 250, transitions smoothly to the next State which starts over from 0 to 250 and another quadrant. Very good. And then transitions over to the third state. Yada yada. Looking good. When it reaches the end of the third state, transitions to the fourth state... And here we go. Here's the Moment of Truth folks. Does it work?
+
+It gets to the end. Oh! What did I do wrong?
+
+Restart to 0. Okay. Alright, here I am going to take advantage of my glorious pause video hotkey and just pause this extremely long video that worked all the way up to the very end, and then there's some blatant error I made which I will repair, and get right back to y'all okay?
+
+My pause key is not working! Well that's wonderful isn't it? Why is it not working?
+
+Do not tell me!
+
+And there's no pause anywhere here on the program. Wonderful, wonderful, just wonderful.
+
+Hot keys, pause recording. Why is it not doing what I just told it to do?
+
+Ah! Found on my error. Here it is. I'm loading X, and then storing A instead of storing X. Oh!
+
+My apologies folks.
+
+I did that exact same thing when I was doing a run through of this tutorial.
+
+Alright. Cross your fingers.
+
+Look at that! So it gets to the end of State 3, increments it to 4. And then I have included a check in there that, if it is in fact 4, set it back to 0 and the whole thing starts over again. Very good. I'm so happy.
+Okay. So that is State Machine. And also a kind of hack workaround for how to deal with the four quadrants of the screen. Again there might be a way to do this using only one bit of code and taking advantage of most significant Bits and least significant Bits. So instead of having only eight bits I have 16 bits. That is plenty of room. But I'm not well versed enough to do it that way. So hence the hack. Okay. But at least I got to show you how to use a State Machine. So there you go folks.

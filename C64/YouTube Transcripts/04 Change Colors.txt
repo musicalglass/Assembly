@@ -1,0 +1,64 @@
+I am using a program called OBS for my video screen capture if anyone's interested.
+
+Alright. Interesting thing about computers: A modern day computer is um... all a computer can do essentially is add two numbers together. 
+So maybe you're thinking well what about I have a calculator on my computer it can do subtraction. How does it subtract? Simple! It adds a negative number. 
+Okay.
+Got that. 
+What about multiplication? How does it multiply?
+Well it just adds a number over and over the designated number of times. Okay what about division? How does it divide? 
+Well it just adds a negative number over and over. Each time it does, it adds another 1 to a counter until it runs out of number. and then it Returns the difference. That's how you do division. 
+Okay. So what's happening inside the computer even though you're looking at values like 64, 128, 37 whatever. Those are for YOUR convenience. What's actually happening inside the computer is a lot of little tiny switches that are On or Off and we refer to them as binary numbers. 1 being On, 0 being Off. And what a computer does is: it crunches those numbers. So like here, I have a 1 and a 0. It crunches that and gets a 1 right here. I have a 1 and a 1. If it encounters that then it flows over to the next spot like that you see. And here I have a 1 and a 1. It flows over to the next, and there's already a 1 there so then it flows over to the next. And that is all your computer is doing in a nutshell is constantly crunching numbers blindingly fast. Perhaps millions of times per second on a modern computer. And since processors reached the maximum physics speed that a processor can possibly process now your modern computers will have 2, 4, 8, 20 processors built in and can add numbers simultaneously. 
+Okay, well so much for adding numbers. What about I'm seeing a bunch of colors on the screen and everything how does that how is that accomplished using addition? I will show you. We'll go over here to the C64 emulator. Let me go
+
+fullscreen here
+Ta-da! 
+Okay. Let me just...
+
+Poke a number in here.
+P-O-K-E 
+And we're gonna Poke into a specific place in the computer's memory here: 53280 . And we're going to put a value into memory of 2. We hit Enter, and there you go. We have changed the border color of the computer. So what I have done is add a value to a place in the computer's memory that tells it what color to draw the Border. Okay let us do another one. How about POKE 53281
+
+and we'll put a value of 0 in there and it changes the background color to Black. Let's do another one. Isn't this fun? P-O-K-E and here's a shorter address 646,1. And we have changed the color of text to White. So anything after this point will now appear in white. So you can play around and set the screen color to whatever is easiest on the eyes whether it's late in the evening, early in the morning... So there we have shown you how to add a number to a specific location in the Commodore 64's memory. Let me ALT D to go back to normal size and let me just reset here. Soft Reset and take the Commodore 64 emulator back to default. So I was saying, okay what about screen colors? We've done that. Now let's do the exact same thing in Assembly. I'm going to get out of Vice here and we're going to CBM prg Studio. Very first thing we're going to want to do is create a new project, tell it that it's for the C64. The CBM Studio can output to various types of computers. The earlier C16. Commodore 16, the later Commodore 128, and other various computer types. But we're doing C64. Let's go... we'll call this Video Tutorials. There. And then it's going to the default location, and I'll show you how to set that up next. 
+There. I've created a new project. Very first thing when you run cbm.prg Studio, you want to go to Tools/Options and under Project here, tell it you're outputting to the C64. You'll create a folder on your hard drive and then tell the program where to find that folder. Where it stores all of your code. And we will go down here to emulator control and tell it where to find a device. Okay once you've done that, then it should automatically launch Vice when you publish a program. So let's go ahead and create a quick program in Assembly. I'm going to right click here on Assembly and go Add and... we're just going to call that Change Background.
+
+Enter
+Alright, so the very first thing...so you don't just go 53280 = value. No. That would be nice. But when you're in Assembly you have to first put the value into the Accumulator it's called, and then transfer that over to the memory location. So the way we're going to do that: you go LDA for Load Accumulator with a value. And let's say I want to load a 2 in there. Now if you're loading a value you want to use the hashtag Ampersand (#) whatever before the value to tell it that you're in immediate mode. If you just put a number there it'll think it's a location in memory, see? So we'll have to go #2 and also here where we want to hit Tab, and indent in. If you put a value here, that is for declaring constants or labels and other things that we'll cover later.
+
+Okay, so I've loaded the value into the accumulator. Next I want to store that value into the same memory location 53280 that I did using POKE from BASIC. 
+Okay, and the other thing, you need to tell it where in memory to put the program. So the way we're going to do that is we go *= and we go all the way to the beginning of the user defined memory space 828 that is pretty much it. There's a little bit extra I'll show you in a second. We'll go ahead and launch the program and it dumps the Assembly. And you can actually see the numerical values here. Here's what we input and here is the code in Hexadecimal which is 16 places, as opposed to the normal numbers from 10 places, that because you have 10 fingers. But I'm not getting too deeply into that. It shows you the Hexadecimal values that are going into the computer. But this is just for YOUR convenience. It's all a bunch of 1s and 0s, or Ons and Offs. Little tiny tiny switches being turned on or off.
+Okay, so then when you close that, it should launch Vice, and there. Now the computer program is in memory. But you're not going to see it till you call it. So we told it to store the program at 828. So to launch it we have to type SYS828 and you don't have to put the space in there. There. Now it just changed the background color and then went right back to the default BASIC so it probably happened so fast it may not have even been apparent on the video. So to be able to see that, we're going to have to tell it that the program has ended, and RTS return from subroutine. Or in other words return back to BASIC. 
+Okay, so now let's run that. There's the little assembly dump. You get to see the numbers being stored in the computer's memory. We'll go SYS828, and there. You see? We have changed the border color. Let's do the same thing here. 
+I'm gonna
+LDA #0 Tab STA 53281.
+
+and just go ahead and run that
+
+let's get out of there
+
+SYS828
+There you go. Red border, or reddish, and black background. And same as earlier. Let's go ahead and change the color of the text while we're at it. We will store a value. Load a value into the Accumulator. #1, and then store it in a specific place in memory that tells the computer what color to make the text. Or we ADD a number into memory. As I said all a computer can do is add numbers.
+
+Okay and...
+
+There it is. So from now on now that the program's been executed everything will appear in white text when you... There. I just I just put some garble in there and hit ENTER and it tells me there's an error because it doesn't understand. Alright.
+
+Let's just reset this...
+
+Okay.
+If you get tired of typing SYS828 every time or SYS whatever number you put here, there is a shortcut, heah. 
+I can go up here to Tools and go Generate Syscall, 
+and it will put a little bit of code that will automatically launch the program. 
+Now this is going to give us a little messed up program but I'm going to show you anyways.
+
+Whoa, so if you ever see this, possibly it's because you forgot to put a $ sign there or whatever. The number, this value, is not high enough you know. This value, the starting place in the program is higher than the program itself and there's some overflow problem I guess. So we're going to use a higher value here instead of using a decimal value, a straightforward number. I'm going to use Hexadecimal and that is preceded by a $ sign. I'm going to go 1 0 0 0. That is not the value 1000 as you can see when you hold the cursor over there, it shows you. Let me do it again. There it shows you the value in Binary Octal Decimal and Hex, and it is the value 4096. So let me delete that and I will go back to Tools/Generate syscall. There you see it recognized the value that I have put there as the beginning of my program. I'm going to go okay, and it's going to add the appropriate bit of code. So when you hit here, it should auto launch the program this time.
+
+There you go. So then you don't have to type SYS (this number) to launch the program. It automatically does that for you with this little bit of code there. The other thing... you know when... yeah let me just exit VICE here for a second. When you go Launch, you get this bit of assembly code and you can see here. Here's the code you entered in assembly and these are the numbers that are stored in the computer. This is all the computer reads there's a bunch of numbers and this is just for YOUR convenience. This is written in Hexadecimal. 16 place numbers as opposed to decimal numbers which is 10 places, you know. Because you have 10 fingers. What you're born with. That's relatively easy to relate to when you're a kid. But I'm not gonna get too deep into that. But these numbers are just for YOUR convenience what's really going on inside the computer is a lot of, well
+they call it 1s and 0s. But it's just a lot of little switches being On or Off inside the computer there. 
+So if you don't want to see this assembly dump every time you launch the program you can turn that off as well. I'm going to go ahead and Launch.
+
+don't need that...
+So I can go back here Tools/Options, and under Assembler
+
+Project, General, Assembler. Here where it says Assembly Dump Full, just set this to None. 
+Okay, and now when I launch the program it won't give me a bunch of numbers on the screen. Those are useful you know I mean to look at and understand what's going on under the hood of your computer but you don't need to see it all the time. Okay, let's wrap up this lesson right there and we will continue doing some more Assembly lessons. I'll try and keep them short, you know. So instead of having like a half hour, all-in-wonder video that shows you how to do this and that and that and the other, and then later on you'll be like "Oh, where was that one little bit of code?" and then you got to wade through a half hour video to find out how to do something. I'll try and keep them short. Little simple "one-ups" of just one program that does one thing. And that's the lesson. So from here on out the videos should be fairly short and not so much talking. 
+Alright. Cheers y'all!

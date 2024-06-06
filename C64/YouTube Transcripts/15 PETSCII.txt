@@ -1,0 +1,38 @@
+In an upcoming video tutorial I would be using PETSCII codes. So let me introduce you to how to use them real quick. You may recall in the past we used the Commodore Screen Codes in various values associated with symbols and I mentioned that there's a second set of symbols. These are your standard 0 to 128 ASCII codes. But Commodore on the PET computer introduced some additional codes for graphic symbols, you know, for drawing games and such, and this is a real handy reference. I recommend bookmarking this address for later reference.
+
+So your ASCII codes were from 0 to 127 and Commodore added some additional codes and you see this is a nice interactive map. If I want a Value I just click on it. It tells me over here in Hexadecimal or Decimal or Binary. Handy. So let's say...
+
+We show you real quick how to use a PETSCII code. We have already used PETSCII codes in the past, although I didn't refer to it as that. When we went PRINT CHR$(147) you remember our Clear Screen command right? If we go over here to our interactive map there's Clear. Number 147. You could also put Hexadecimal 193 and get the same result. Okay, so let's try a couple things; Let's say I want to print an A instead of 1 in PETSCII . It is 65. So let us do that PRINT CHR$(65)
+
+and it prints an A. Let's do another here
+PRINT CHR$(66) There's our B 
+Observe that it is printing at the Command Prompt (the little blinky cursor) here. So let's try this: I'm going to go
+CHR$(67) CHR$(68)
+
+and you see it prints them consecutively. So it'll keep printing at the carriage one after another and, as opposed to in the earlier examples where we were printing at a specific spot on the screen. All right let's go over to CBM. We will do the same thing in Assembly. Create a new file PETSCII
+
+There we go. Alright, and I want to tell the IDE where we're gonna start in memory: 2064 Let me go up one and put in the cheat codes. There we go. Good to start.
+
+So to do Clear Screen, you may recall was JSR 58692. Jump to Subroutine which is built into the Commodore 64 hardware or the software emulator. Let me go down. So now let's print that A. That is: Load into the Accumulator in Immediate Mode the value 65. Okay, and now this time instead of storing it, the Accumulator value, we're going to run another subroutine built into the computer and that is 65490.
+
+6 5 4 9 Oh, sorry a dog bit my right hand. So now I must program left-handed. Let's go ahead and tell the computer to return back to BASIC when it's done. Go ahead and run that....
+
+and there's our A
+
+So let's do another one real quick shall we?
+
+That was LDA. I could just copy this too and paste that let's put a 66 there like that.
+
+A B see? So it'll just keep printing consecutively where the blinky cursor may be.
+
+so now
+
+as you note from the PETSCII reference, there's also some command codes in there that tell the computer to do various things turn on reverse mode, home, delete, disable the shift key for whatever reason, and let's see... There's our Clear code see? 147 which we've already used. So I could also like make this change the color of the character here 028. Let's give that a run shall we?
+
+So this time I'm gonna put the command before the text. This will be LDA... what did I say? 28 right? And we will put that at the same subroutine location like so. Run that...
+
+and now our text red. However, our text will remain red even if you finish this program and go on to do something else. So perhaps we might want to return back to the default text color at the end of our program. That would be color number 15 in screen codes that is 154 in PETSCII.
+
+There. So it does the red text, and here it's turned on the color red for all of the characters not just specifically for one, you may have noticed, and now at the end of the program we return back to the default light and bluish color here. 154. Also you could put Hexadecimal $9A and get the same results.
+
+Okay so that is PETSCII.

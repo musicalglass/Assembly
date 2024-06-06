@@ -1,0 +1,51 @@
+Here is the list of the Commodore 64 screen codes you can find it at this address.
+
+Or you can always just Google search Commodore 64 Screen Codes and that is the complete list of the numbers associated with the different characters you can display on your C64. 
+So like here we have the numbers written in Decimal as well as Hexadecimal. You can use either one. And also note that there are two sets of numbers. There's this one, and this one. 
+So I'm going to show you what that's all about here. 
+Let's go to POKE 1024 first with the 1 here for the letter A and we get an A up here at Screen Memory 1024. The first position. 
+Or if I poke in the second number here POKE 1024,129 
+I get reverse mode so instead of it being the text color with a invisible background I get the the text color for the background and invisible letters. So back in the old days of course they didn't have highlighted text, italic, underscore, bold text, you know. So that was a way to kind of highlight or emphasize a bit of text on the early Commodore 64. 
+Another one that's useful to remember number 32 here the blank character I'm gonna go POKE. Let's say you've written something to the screen and you want to go back and erase it there you can just write a blank character over that and it goes away. 
+Or remember that these are reverse. So if I use 160 POKE 1024,160 I get a Block you see that's reversed. So I could go POKE 55296 with 2 for the color red, and now I have a red block. So you could go and fill the screen up with different colored blocks you know make some extremely primitive graphics with that.
+Okay, so the Commodore 64 screen codes are not to be confused with the PETSCII codes which is also in built into the hardware. Why in the world would they have two different sets of Screen Codes? Well I'm guessing this was the early... PET computer used all of these. There's 0, 1, 2 they did all these different things. And then later when somebody defined the commands for the BASIC Programming Language and they dictated that A should be 1, B should be 2, etc., etc. Then they had to go back in and throw in a whole second set of Commodore Screen Codes. A lot of people use the PETSCII codes. We are for this tutorial anyways, going to be using the Screen Codes, just so you can understand the differentiation between the two.
+Alright, we are going over here to CBM studio and I'm going to write a BASIC program real quick and this will be printScreenCodes.bas
+
+for a BASIC
+
+I already had this name. Let's just use "screen codes" 
+I was already working on the same file earlier. There is still a conflict with the name, so whatever.
+
+screen codes.bas
+and let me start with 20 here. 
+I'm going to write, it's called a For Loop. For those of you that aren't familiar with BASIC programming.
+I'm going to say FOR I equals 0 2 2 5 5. 
+Why "I"? I'm guessing way back in the early days in one of the very first books on programming the author used an A for the first lesson how to write a Variable and then a B for the second lesson. By the time they got to lesson 9 on For Loops he used an "I" and now it's traditional. It's like everybody uses an "I". You could use whatever value you want here you know hey you know although
+
+I kind of divest here. And to observe, let me clear the screen here real quick. Let's just reset the computer, The C64 emulator. There. Note: I'm going to make a new program here 
+line 10
+we'll say... I'm going to make a String: CATS and put the $ sign to signify that it's a String containing text 
+= "MEOW"
+Okay now 20 
+I want you to observe that the Commodore only recognizes the first two letters of this variable name so now I could go CARS Oops!
+I could go PRINT CARS$ There. And when I run it the CAR goes "MEOW" see?
+So when coming up with Variable names you want to be careful not to use more than one variable that begins with the first two letters. The rest of the letters here only for your own convenience, you know. You can read the Variable name and maybe understand what it does by a descriptive name but the C64 emulator is only going to recognize those first two characters.
+Okay, Back to BASICs. Here just reset out of that. Not necessary I guess. Because I'm publishing, whatever from CBM and it would have reset it anyways.
+Observe I hit ENTER and it automatically added a line number because I have line numbering, Toggle Auto Line Numbering on. So that saves having to type a number every time you do a new line in BASIC. The lines have to be numbered. 
+So a For Loop, in case you don't know the way it works, it's going to iterate from this number to that number and each time around it's going to save that value into the Variable i. So let's use that Variable now. I'm going to POKE 1024 (Screen Memory) and + i. So each time it goes: 0 then 1 then 2, this i will be 1024 + 0, + 1, + 2, and should write in consecutive locations in the screen memory. And then let's go ahead and print the value of that to the screen which should give us a screen code character. 
+Okay, so I can just say NEXT since this is the only For Loop. That should be all I need to do but I can be more specific. If you happen to be using more than one For Loop you'd maybe use i on the first Loop, j on the second one. So then you need to specify the For Loop. So okay, let us run that and see how many errors I've made in this simple bit of code there.
+
+You see all of the screen codes from 0 to 255. there's 256 total uh it's kind of a little difficult to distinguish one from another there so I'm just going to say i * 2, like so...
+
+run that...
+
+There. Now it spreads them out, but you're seeing some garbage from whatever was already on the screen. So let us go up here and add
+10 PRINT CHR($) When I hit the parentheses it automatically writes the beginning and the closing parentheses. So I can just go ahead and type and it fills it in there all nicely for you. We'll do that.
+
+There. That's a little cleaner except now when it exits back to BASIC it covers up a few of the letters that we might want to actually look at so let's go add one more line of code to fill up some... add returns or move the cursor down past where we are in the code there on the screen I mean. And so I'll just...
+
+I'm just going to print and we're going to use the Tab and it is more than 255 that I want to add in there so you can't go tab uh 440. you get an error uh you so the number has to be from 0 to 255. So I'm just going to do it twice. We'll go tab 200 okay and then do it again tab 240 like that and then you can just put an empty ""
+It says print nothing. But that's not even necessary. Just the print command should be effective. Let's go run it and see what we get.
+
+There. Nice printout of all the screen codes from 0 to 255. You see the Ready and the Command Prompt appear further down at the end of our printout and doesn't write over it. There you go.
+So that's a handy little code you know to have in your arsenal. If you want a quick reference. Of course I didn't number it, you know. You have to count zero one two three four five and all but that's a whole nother ball game. Just a little quick reference you've always got the Commodore 64 Screen Codes references online as well.

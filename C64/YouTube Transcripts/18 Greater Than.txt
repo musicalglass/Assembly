@@ -1,0 +1,80 @@
+Next I'd like to talk a bit about Branching. I believe we've already used Branching instructions in previous video tutorials. But I'd like to go a little more in depth and talk about the various kinds of Branching that you can use. So let me go over here to CBM. Under Assembly files add a new file we'll call this...
+
+greaterThan
+
+Alright so very first thing, we'll tell it where to start of course * = 2064 and then generate the SYS call. Good to go. Alright, first thing I'm just gonna print something to the screen real quick. We will make that our heart symbol in Immediate Mode value 83. And then let's just print that to the screen. Good to go. Tab. End of program. Let's see what we got.
+
+There's our heart. So now
+
+what I'd like to do...
+
+We're going to do a Comparison here between 2 values. I'm gonna load the value to be compared here. Value of 10. And then we will compare the X register or load X register value of 10. Compare what's in the X register with the value 11. Okay there. And then here's the meat of the program. Branch if Plus. Branch if the value is Positive. If you subtract this from that, and if whatever is left over is positive, then do whatever this says to do, and Branch somewhere in the program. I'm going to create a Label for that. follow that Less Equal, Less Than or Equal To.
+
+Let me copy that. Okay. Here's the end of the program. I can now go down here, and this is where the Label bit is going to be, and I will do something. Or how about I'm gonna colorize my heart with the value of 1 for white, and then store that where my... 55296. There. So that should colorize my heart white. So here, return back to wherever you're program left off. Return from Subroutine.
+Okay now, so if this value is Greater Than...
+
+Here let's let's make it Less Than for starters. There. 
+9. It should Branch down to here. Let's see what happens real quick...
+
+And our heart is white. So that indicates that this value is less than or equal to. Let's just test that shall we? Equal to?
+
+Equal to! See? Now if I go greater than,
+nothing will happen. If I'm not mistaken it will hit that RTS...
+and it doesn't color the heart. It still prints the heart but it's no longer colored. Okay so...
+
+Now so, if this isn't called nothing happens. Well let's make a default something happens feature here. I'm going to call this GRTR for greater than although I'm not going to use the Label. That's just a Label for my own convenience really. LDA #0 for black,
+
+and we'll store it... oh I can... what was it? Ctrl SHIFT drag this here and it copies it to the new location. Handy. I like that. Okay so now if I run that...
+
+I get the black heart indicating that this value is greater than that value. So essentially the default is greater than if this value is greater than. You see? It just keeps going from here on down until it hits the Return from Subroutine. Okay. So now let's beef this up a little bit. Here I will just to mess around make this a little more attractive. I'm going to make the background black here load a value of 0, store that at 53281. 5, 3, 2, 8, 1. That should set my background black. And I'm going to make my text white by storing that in 646. And then, at the beginning of the program, I'm gonna get rid of all of the stuff that's on the screen by calling a Clear Screen command 58692. 
+5 8 6 9 2 which is of course the same as $E544 (Hex)
+
+here
+
+Clear Screen (E544 in Hexadecimal). So now I have a black screen. So a black heart will not be visible on there. What I'm gonna do now down here is use the text feature that I showed you a little earlier instead of printing a heart. So let me just get rid of this heart. There. Now I'm heartless. And I'm going to keep that RTS. But here, let's say load the least significant bit of text greater. Go to Label... copy that. Next line. Load Y with the most significant bit.
+
+There. And then let's define our text bit here. text "greater". Copy that down here.
+
+We've done this before text "greater than" and then we want to terminate it oops!
+
+Go to the end of the line terminate that with a Byte of nothingness. Okay an empty byte. Okay. Same thing down here. Copy all this.
+I'm going to again keep the RTS bit. Paste.
+
+And let's see... So the RTS is no longer at the end of the program. It will print the text.
+
+Here I'm actually jumping out of this grabbing this and then heading back and then ending the program there. You see? Okay. Let's do
+text "less"
+
+That. Copy that. Paste it over that. Paste it over that. And Less Than. That should be quite pretty now.
+
+Okay I get the black screen I get the text. But nothing is printing out.
+
+Branch if less than equal, next less, text less, text less than
+
+aagh, I didn't again... same mistake I made last time. I didn't call Print Line after I did the text. So that is... let's see...
+
+So print line of course is... it was AB1E.
+A B 1 E Not. It looks like able. So that would be
+
+not not return from submarine JUMP to subroutine. $AB1E Okay. Now here, we're going to be using this more than once in the program. So I'm going to do something a little bit different here. Let me copy this, or cut it actually. Same thing for our purposes here I'm going to um declare a Constant.
+
+print_line 
+Print line of text equals this value there. So now I have stored this value in a Variable and it never changes. So it's a constant. There. So now I can Control Shift drag that down heah.
+
+Let me just copy that entire line I guess. Here. Copy that and here print. Okay. So now let's see what we got.
+
+Greater Than! So this value is greater than that value, right? So now if I put a 9 here...
+
+Less Than.
+
+Technically if it's not greater than less than or equal to, yes? So now if I put a 10 in here, run it again...
+
+Less than or equal. See? So there. That is greater than is the default. Less than or equal is... is the Branch. We'll skip over the default of greater than and go straight to less than and equal, and terminate program here. See?
+
+Let's see... So I don't need that bit right? Just verify...
+
+Just a mild error nothing of consequence. There. The Byte 0 already causes it to return from the subroutine. So I guess it's being ignored. Didn't create any errors or anything. But just to be meticulous. So there. Now here, if you want it instead of defaulting to greater than you want it to default to less than or equal to and Branch over to greater than. You know, like this. Cut that there. Put that down there, for whatever purposes then you want the opposite result right? So change that to something that's not equal then all you'd have to do now is switch these two values, 9 and 10. And now you would get the opposite result. You know? You're subtracting the subtract number from the previous number instead of the other way around and now it will Branch to here instead. Like that, you see? So you can do it either way depending on what's convenient for the flow of your program. Let me just back up to where we were.(Undo) There. Program restored to normal. There we used our first Constant, you know, and reused it a couple of times. The what does it say 43806? I could put 4 3 8 0 6 there as well in Decimal and it does the same thing. Okay that is Branch Plus.
+
+Branch if the comparison between these is Positive. 
+Got it?
+Good.

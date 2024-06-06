@@ -1,0 +1,17 @@
+I was a few videos down the line, and I noticed a bit of a discrepancy in my animation code from earlier. So let me, rather than redo the whole video, let's just make those Corrections shall we? So here, if I go... Here let me just launch this program. Everything seems fine.
+
+Yada yada. Originally this was 40. Whatever, Like that. Ah...
+
+There. Seems fine. Goes all the way across the screen and then exits the program. But here let me turn this down to 4. If I turn off the part where I erase the character and then run that...
+
+the first slot is not getting written. Even though I set it to 0 here. And it turns out that the reason for that is... Here, let me turn off the Clear Screen command.
+
+There. It's just fine. So, apparently when you call Clear Screen it takes advantage of the X register and it probably clears the screen by writing a blank consecutively on every slot. All 1000 slots on the screen. Leaving the X register in a state of 1 instead of 0, you see? So probably just the quickest way to correct that... I could go ahead and just store this here. This is one way. Like that, you know, and then down here reload it.
+
+LDA whoops! LDA. Was that 2065? 2065. Alright, and that should take care of it. But to get down and dirty you're probably... Just a simpler way to do that would be just to take this here and move it after the Clear Screen command. Aaaah hah! So let's go back...
+
+There. And it fills in that first spot. Okay. Just a little
+
+slight discrepancy I didn't notice, you know. Because it's moving so fast across the screen you don't notice. It's not being drawn in the first one. Okay, so now it's loading properly. The other thing: I went ahead and did... put some more comments in here in front of each segment. Let me blow that up a bit which if you have a wheel on your mouse you can hold Ctrl and drag the wheel and it will resize your text. Make it easier to read at two o'clock in the morning. So here... Then your code doesn't look so large and intimidating because you've kind of segmented it into little sections. Here I store the graphics in memory. This little bit draws the character. This section here is the timer. Here's where I erase the character, which I'm not doing at the moment for testing purposes. and down here I update the animation. 
+So adding these extra little comments are also useful. 
+So there that fixes that

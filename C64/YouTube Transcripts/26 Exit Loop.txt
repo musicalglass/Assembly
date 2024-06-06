@@ -1,0 +1,66 @@
+I'd like to talk about different ways to exit from an infinite Loop. So why don't we begin by writing one? I'll go to add new file here under BASIC and I'll just call this exit.bas
+
+Okay. So I got, starting at line 10, I'm just gonna pencil in a reminder here for a second. 
+Go to line 20. Let's say I got B = 0 And then let's PRINT B. Then here I'm gonna Increment B. In BASIC that would be B = B + 1 . That will add 1 to B and store it back in the original Variable. We'll go to the final line and create a loop. 
+Go to 30. Okay and let's just run that real quick shall we?
+
+There. And now it endlessly Increments the value by 1 and prints it to the screen. So now I could just hit Escape on my PC and that will exit the program, and I'm free to hit run again and start all over, you know? On your normal Commodore computer there's a Run Stop Key you can hit, and it'll stop, and then you hit it again it'll resume. And if you want to restore the default you can hold the Run Stop Key and hit the Restore key I believe. Don't quote me on that. I am not using an actual hardware C64 here. 
+So now let's say though that we have done some things such as change the color of the text. 
+POKE 646
+I'm going to change the text color to white.
+
+There. Now plugging along everything looks good. I'm going to hit escape and now, see the problem is even though I exited the program now there is system-wide color change in the text. You see? So...
+
+Let's rewrite this so we can fix that shall we? So first thing I want to do on line 1, Clear the Screen. We all know how to do that. CHR$(147), right? Okay, and then let me see... Now you recall when we did input? Write a value into a Variable. However if I use INPUT inside of a loop, the loop will pause there and wait for the user to put in some input. Maybe not desirable inside of a game loop. We want the game to continue and the user can input various values. So the way to do that is using 
+GET A$. Okay? Now I'm going to do a little comparison. If A$ equals a specific value, CHR$ Let's say... and I'm using PETSCII codes here. Let's say the value for A would be 65.
+
+etc. but I'm going to make it 13 here, which would be the Enter key. Okay?
+So if the user presses Enter, then END, end of program.
+Lets see. Where it says get A$ here? We'll go to 20 here I'm just gonna REM that. Go to 20 That should loop it over and over.
+
+There. It clears the screen, and now the program is looping looping looping. It's running endlessly doing nothing. If I hit the Enter key, there you go. It exits back to BASIC, As I said before, I could also put a 65 in there run the same thing.
+
+There. And now if I hit the A key it exits back to BASIC. However as I mentioned earlier, let's say for instance I had made some changes such as POKE 646 comma 1. Let me run that.
+
+It's not printing anything. But I have changed the color of the text. So you see when I exit now the text is all white. See? Not necessarily desirable. Okay, let me go back here. Change this to the Enter key. So let's see. Another way around that would be to... I'm going to restore the defaults, right? So instead of just abruptly ending the program here. Lets say...
+
+here
+
+Cut that. Put that here. I'm going to say then GOTO line 50.
+
+Okay. So this will just continue looping until somebody hits the Enter key. Then it will jump out of the loop to this line 50 and I'm going to call 
+SYS 65532. That should restore all of the defaults. Let's go ahead and run that.
+
+Okay. It's doing its thing. I'm going to hit the Enter key. There. So it's no longer white. We have restored all the defaults. So if you change the background color, the border color, or the text color, or whatever, now it resets all of that. So it's all back to normal again. Great! Let's do the same thing over here in Assembly shall we? I'm going to say exit.asm
+
+Alright. The usual drill. I'm going to say 2064. I'm not going to be using any memory. So I'll just start at the top. We will add our little cheat code. There.
+
+First thing I want to do Clear the Screen. Let's Jump to Subroutine 58692.
+
+Great! That will clear the screen. Now I'm gonna go into our game loop and... Let's run that Get Input Subroutine which is JSR 65508.
+
+That will look for input. Now we want to check the input. So that's a Compare.
+
+# (immediate mode) 13. Compare if it's 13. If it is we're going to Branch out of there. And now this is not the same as END in BASIC. I'm going to write a Label called END. But if it doesn't branch out of there, just continue looping. 
+Jump to Loop. Okay.
+There. I have my endless loop, alright? So now let's write this end routine here.
+Jump to End and for the moment I'm just gonna say, RTS into program. See if it actually does anything.
+
+Okay. Program endlessly doing nothing. I hit Enter and it exits back to BASIC. Lovely! Okay. So now let's create the problem I discussed earlier where... Let's go load a color value here. Color 1 and then make that system wide 646. There.
+
+So now the text color is all white. Yes? Let's see what happens here.
+
+Our text color has been assigned to white and you can see that when I exit now it's all white now, baby it's all white now! So we could fix just the text, you know. I mean I could just LDA, the default text color is 14 see? and go 646 Store that in memory location 646 and that should restore the text color back to normal.
+
+There. So back to BASICs. Alright. And then another thing... well I'll come to the other thing. But the other possibility I discussed is to restore all defaults and that is. JUMP to Subroutine 65532. That should do the same thing as what we just did over in BASIC.
+
+There. Restore all defaults, you know. So here. Let me just give us something to look at so we can verify that this actually works. I'm just going to load a value into X. 0 here and then down here inside the loop we will store X to the screen 1024, and then increment X.
+Okay let's have a look at that.
+
+There. Now something's happening. We have set the text color to white, and we are endlessly cycling between all 256 Commodore 64 Screen Codes. Yeah. So now if I hit Enter. There. You see? It restored the defaults. Everything is not all white any longer. Another way... Let me just do one more thing here for fun. So here when I call END I can do various things to clean up the code. Maybe I want to just add an extra Carriage Return. I can do that by going Load A with the Return. The code for Return. And then Jump to Subroutine 65490 which is the same as... would be the same as $FFD2. But of course that's $ sign to indicate that that's Hex. So you could use this value or that value same result, you know.
+
+And the restore defaults of course would be $FFFC.
+
+Another way to do that just for giggles here instead of restoring the defaults. I could actually JSR 64738 That is a "warm reboot". So that will actually reboot. The same thing as going Soft Reset there. There. So if I hit Enter now it'll wig out for a second and then completely reboot the system. So different ways of dealing with that, you know. So this one in HEX would be $FCE2. So you could use the Hexadecimal value like this. Here, same thing. Yeah. Okay,
+
+So that's various ways of dealing with getting out of a loop.

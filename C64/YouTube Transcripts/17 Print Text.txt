@@ -1,0 +1,43 @@
+In a previous video I mentioned that I had not gotten around to showing you how to do text yet. So I might as well get around to that now. Let me go over here to VICE. I'll just go ALT D for fullscreen. You are familiar with printing text to the screen. PRINT "hello world"
+
+and it prints hello world right? Or also let me just create a new program real quick line 10 A$ =
+
+I was holding shift and got a symbol. hello world close that. 
+Line 20 PRINT A$ There. There's my very complicated program that prints hello world, that is stored in a String Variable. Let's go over to CBM
+
+and let's go add an Assembly file here. printText.
+
+Of course we want to say where we want to start in our program of course 2064. Let's add our SYS call. Good to go.
+
+Okay. So a little bit different handling of our text here. We're basically going to go
+text hello world. But this is too large to store in a normal byte of information that's 256. so spaces let me go over here um so a bite being uh there that's that's one bit two bits three bits four bits one two three four that's a byte uh eight bits of information which can represent anywhere from
+1
+
+Hope I'm not digressing too much here
+2
+
+4 16 you see? 32
+
+64 128 256.
+
+6
+
+1 2 4 8 16 32 64 I'm sorry 128 I got ahead of myself somewhere there. 1, 2, 4, 16, 32, 128 There and...
+
+256. So maximum 256 that you can store in a Byte. So to store more information we will use 2 Bytes. 1,2,3,4, 1,2,3,4, 1,2,3,4, 1,2,3,4. There. So... and the Commodore 64 uses what's called Little Endian which means that this is what's referred to as the Least Significant Bit and this is the Most Significant Bit. Okay. Pretty straightforward. Some computers you have the other way around. Where this is the Most Significant Bit and this is the Least Significant Bit. So that's somewhat confusing. Other topic. I'm not going to get into at this time. 
+Okay, so in order to store this much information I'm going to store it in a Least Significant Bit AND a Most Significant Bit which... Just for reference let me go to a standard calculator. What is 256 times 256? We have this much: Sixty five thousand Bits.
+
+65,536 Bits of information (data) now that we can store that in. So that should be ample space to store our String of text. So, and then when we're done, similar to a subroutine where we type Return or RTS, we're just going to
+
+put an empty bite at the end of this. Okay, now let's go up here.
+
+Okay. So before in the subroutine you know I used a JSR to go to a specific line and then went over to the assembly dump and figured out what line it was I'm sure, as many of you know, I could also use 
+text here. A Label, you know, and then just as easily have called JSR text here you know and it would jump down to the Subroutine. So this time around I'm going to go ahead and do that. Use a Label. myText will be what it's called.
+
+Copy that. Okay, so first I'm going to load A with a value and that will be our Least Significant Bit, and the least significant bit of all of this information. And then in Y (LDY) we will store the Most Significant Bit of that same information. okay? End of program. Pretty down and dirty, straightforward and simple. Let's run it...
+
+Whoop! one more thing! I forgot a line. Here. I need to call the print Subroutine
+
+Jump to Subroutine and that location in the computer's memory is 43806, also known as AB1E in Hexadecimal. There. That will print whatever is loaded into the lower least significant bit and the most significant bit, and executed there. Printed out. So let's try that.
+
+There. Prints out hello world. So... and then of course I could clear the screen up there and everything. But there. Down and dirty simple How to Print Text from Assembly.

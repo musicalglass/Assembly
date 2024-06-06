@@ -1,0 +1,19 @@
+I said earlier I'd show you a workaround for the problem incurred when the difference between the two variables is greater than 128. Let me see here... Just to repeat, be redundant, say the same thing using different words, reiterate. That works fine. Less than or equal to. But if the difference is too far apart...
+
+Nope wrong! wrong wrong wrong! Okay so let's grab all this. Copy that. I'm going to make a new file here. Add new file BCS (Branch on Carry Set).
+
+I talked earlier about Flags being set when you do a mathematical calculation there. Okay, so here instead of BPL Branch on Carry Set
+
+and this will
+
+check whether a flag is set as a result of the mathematics there. And now it works fine. Less than or equal to. Okay? So that's Branch on Carry Set. The opposite of course would be Branch on Carry Clear.
+
+This will...
+
+say the opposite thing essentially. So depending on the situation. Like I said the other one BPL, BMI differences can't be greater than 128 between the two values. So it has limited use. And then this is more somewhat all-encompassing. The condition that checks whether the flag has been set. So just to do this correctly no
+
+X out of that
+
+put it down here. Okay so
+
+Less than or equal to. You know. So you can use them interchangeably. Again, depending on whether you want the default condition to be this or this. Okay?

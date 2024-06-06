@@ -1,0 +1,22 @@
+Next lesson. The author introduces the X register. So quick explanation. Essentially you have these 3 places where you can load and transfer memory before moving them over to a storage memory location or as you saw a screen memory location. You know, and so basically that's it, You have the Accumulator, X register, and Y register that you use to juggle data around. Yeah, and that's it. Except also you can, once you have the data in there, you can put it into a long list of various memory locations and that's what you have to work with in Assembly. It's very rudimentary. Okay, nuff talk. So again, you can go and read a little more in depth explanation of what I am doing I feel it probably helps to have one person's explanation and then go and see someone else's explanation of the same thing. That really helps solidify what you have learned. Copy that little bit. I'm going to make a new file here. Right click
+
+ASM so
+
+here what this is doing is introducing the X register
+
+register okay there we go
+
+and okay I'm just going to paste 828 not like that was a lot of typing I really needed to copy and paste it. But, okay so starting out it's a starting address 828. I'm using that. We learned 2064 might be a better location but this still works so let's go with it. LDA Immediate Mode 1. Tab
+S T A 1024 What does that do, folks? You tell me! 
+STA 55296 What does that do? You should know by now.
+Okay, now what he's going to do here is load the X register using the value that we have just stored in Screen Memory 
+and then we're going to store the X register at screen location 1026.
+
+and then Tab we will store that same
+
+value in the color register for that slot 5 5 2 9 8 
+55298
+
+Okay. Pretty straightforward. RTS end of program, and we are done. Let's see how much I've messed up here. I found repetition really helps, you know. Maybe you make more mistakes at the beginning. But after you've typed the same thing over and over it becomes second nature. So that's why these baby steps can be useful. SYS 828. There it is. There. 
+So this program just introduces the X register. Doesn't do anything fancy you know. Well we pulled a value out of the memory location which is also the same bit of memory that tells it where to print on the screen, you know. But then we've recycled it back into the X register and then used it again. Alright.
+So okay, that is the X register. So as I was saying, you have the Accumulator which we've been using quite a bit already, the X register, and the Y register. Okay so in a nutshell we could just as easily change all of those Xs to a Y and get the same results. You have these two registers that you can use to, like I said, to transfer data around. Yeah that's the whole ball game right there. OK!
