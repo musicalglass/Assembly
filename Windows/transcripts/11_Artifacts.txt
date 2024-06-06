@@ -1,0 +1,140 @@
+Another thing I should probably bring to your attention. 
+Let's say I have some kind of
+little bit more extensive code 
+I've been working with and then
+Let me just go back to what I was doing before. I have made a scratch.asm comes in handy. 
+And let me just go back to this now.
+My more simplified program and Save that. 
+And run that and have a look.
+What have we got? OK. 
+There's Mr. Smiley. OK, good to go.
+Now let me make a few changes here. Let's see. I'm going to maybe change this value to four
+and go back over here. And let's have a look
+
+Whoa! I got 2 Mr. Smileys. What the heck is up with that? 
+Wait a minute.
+What about a 5 here?
+
+Put that. Is it saved? Yes.
+OK and let's have a look
+
+OK we have our character. Some weird symbol and our character again.
+
+Since this repeating thing here does in fact resemble some other code that I had been working on earlier that kind of leads me to this theory that what is actually happening... 
+Let me look at my binary.bin (B TAB) for a second
+
+Let's say we have this program that we're working on and it's x long, right? And then we go back and we write another program. I'm just going to copy and paste this over again for a crude representation
+
+visual
+
+OK, so now there is or our new
+
+I'm sorry there's our old program.
+This is our new program. 
+But somewhere in memory, in RAM, may still be residing some bits of leftover code.
+
+This of course is just as you... not code...
+
+In memory. Yeah. In your actual physical RAM.
+Some thing that has been written in there. 
+It's no longer in your code we have here said to write a bunch of zeros that the computer's going to read. But we have an explicitly like going back and reinitialized any registers or anything. So there may be some remnants of other bits of program
+
+still residing in your memory. So when it's plugging along and it comes to the end of the program and it's just going to keep looking and possibly execute any remaining code. 
+There. I think I've redundantly said the same thing over and over enough times to hope that gels.
+So I guess to make a long story short, one possible way, if my theory was correct, then. 
+If I were to just tell the processor to stop what it's doing immediately afterwards.
+
+I'm gonna give a HLT command here and Save that
+
+and then let me just close this
+
+Save? No.
+
+And then let's go do the
+NASM and QEMU thing.
+
+There.
+Fixed our problem.
+
+So whether that verifies my knowledge of computer science that's another issue. 
+But it has taken care of
+
+saying basically you know, go not beyond this point. 
+That's all she wrote,
+or he or they in whatever case 
+I and that's all the computer's going to do.
+It's not going to go on and read anything beyond there.
+It still of course is going to look here first for the Magic Number before it does anything else, right? 
+But now we have explicitly said end of story.
+There. And I guess end of demonstration.
+
+For my own purposes 
+I just wanted to make sure that my program was still in this state while I hit record.
+
+I wanted to try something else. What if I went...
+
+Here I'm using BX
+
+What if I said
+
+XOR BX with itself?
+Which basically is: subtract or any value that may be in BX from itself resulting in zero.
+Which I guess is an efficient way of initializing a Register.
+Let me see. Just out of my own curiosity
+
+if that might also fix that problem.
+
+It does not. OK OK.
+Hang on here. 
+But not to be daunted...
+
+Is there something else residing in memory somewhere here?
+
+Ooh!
+
+Something to do with quantity.
+Yeah. 
+So on this note, I'm glad I checked while I was recording. 
+This is a learning experience for me as well.
+You know, don't be afraid to tweak some values. 
+So I have noted in the past where
+often in code examples 
+that you see on the internet,
+the first thing they do is 
+clear the registers by doing...
+first we're going to clear AX. Then write the value of
+move
+
+into BX whatever is in AX which is a completely cleared Register, and also 
+do the same with any other Registers.
+There may actually be a shorter way to do this. 
+But essentially, there. Now the Registers are all cleared from the onset, right? So if there does happen to be any residuals in memory then that should take care of it since it's...
+I know that 
+that should now be the same thing. Let's go ahead and just test this for demo purposes. 
+There, yeah. Solved our problem.
+So things that may be still residing in your actual processor's memory from previous code that you have done can come back to haunt you. 
+So good practice, there you go, is to initialize any Registers that you may be using 
+before you use them.
+There you go.
+
+Good sound Computer Science from the well initiated out there who had included something like this at the top of ALL of their code examples. Whereas of course I just have been working in the raw code to keep it simple for you the end user. But now you know. If you have some unexpected error there could be that there is something still lurking around in memory that you should have addressed before you began. 
+For instance OK here, let's say I do a bunch of things with all of this stuff, and now I want to some more things down here, right? We know for a fact now that you know... I mean even assuming that when the program first starts that everything is automatically at zero, that now we know there's stuff in there that we need to go back and clear out, right? 
+before we proceed and do some other things. You see? So
+
+Stuff to be aware of. You know you're working in an Operating System environment it will (in theory) clean up a lot of your garbage behind you, you know when you're....
+
+Oh in the old days garbage collection was a huge thing and C+ I guess right? and then C++ kind of automated a lot of that.
+So today we don't worry so much about that we let our operating system take care of all that. But when you're working at lower lower level like this if you don't write it in there yourself to explicitly go back and write zeros into things you may have...
+Oh, I often note in video modes
+
+Video garbage you know when you're trying to draw something to the screen you get a bunch of garbled pixels or something to the screen.
+That just telling me that some residual garbage ended up in your video memory.
+And so the same garbage could be in any memory. 
+If you don't address it when you're working at the lower level like this.
+
+Let's keep our happy computers.
+
+Ah yes, as soon as I stopped recording I noted that I had changed that to the wrong value when I was talking. We' re moving the cleared value of AX into the BX register and the cleared value of AX also into the CX register.
+
+That should be correct.
+Thank you.
