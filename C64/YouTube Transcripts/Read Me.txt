@@ -1,4 +1,5 @@
 These are the transcripts from my YouTube series on Assembly programming for the Commodore 64. 
+https://www.youtube.com/watch?v=Z8KVZRk7caQ&list=PLJv7Sh0ZDUnosAs61WrUydGvn3I51cwK-&pp=gAQBiAQB
 Posted here in case anybody would care to translate to the language of your choice.
 To save some time you can run Google Translate first, then go back and proofread the errors. You may have to do that in sections to get around the maximum character limit.
 Email the finished folder of translations to me and I can post on the YouTube videos.
