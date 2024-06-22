@@ -1,0 +1,338 @@
+Here I guess I kind of
+jumped to a conclusion, really. 
+I'll show you.
+First let's have a look.
+
+It runs, and then it freezes, actually. It doesn't keep cycling. 
+So something's not quite right there.
+
+What is going on?
+I didn't really count the numbers. 
+You know, I just penciled something in
+and it should have been 11.
+
+And now if we look at it... It's fine.
+Wonderful! 
+It is in an endlessly happy loop there.
+Great. Taken care of.
+
+Let me just pencil this out just for a second here. OK 
+We're on character 2 here.
+What if I do... OK, there.
+
+Character 2. Let's do something besides pink 
+that's kind of nice.
+Something easy on the eyes. 
+I think I'll go just to... make this a light grey. Let's see.
+
+Yeah OK. We've got our happy character.
+OK. So what if character 1?
+
+Yeah, uh huh.
+Outline character. 
+So if anybody after watching the Teletype tutorial decided to play around with some numbers 
+you might have gotten some kind of unexpected results. 
+So I'll talk about that. 
+Essentially, if I go up to say, character number 6 here.
+
+Save, and
+lookie.
+
+I get this symbol thing here.
+And then if I go one higher here
+
+I gets nothing.
+And then if I put an 8 I get nothing, 
+and 9 nothing, and nothing, and...
+Oh! That's not very useful. I only got from 1-6. 
+What's going on?
+Let's have a look a little bit more
+
+a little deeper then. Here
+
+instead...
+
+of an explicit value. Let's use a name.
+We'll say print_loop I guess.
+
+I will highlight,
+CTRL ALT drag that there,
+
+and at the end of it 
+Colon. Turning it into a Label.
+OK so that should still loop. 
+This time
+Let me..
+
+INC AL
+The value of the character here.
+
+So each time it goes around the loop
+it'll add 1 to this value.
+
+Hang on. First
+before I do that , let me check
+
+sorry
+
+Whoops. I closed my window.
+So I have to go copy clipboard. 
+Edit / Copy to Clipboard / Current Directory.
+Go back there.
+
+CD Space, right click,
+Enter.
+
+Back in my directory and
+
+type S TAB
+There's my commands.
+
+Highlight and Enter, and Right click.
+
+OK
+
+I've been running... nothing there to see. OK why is that? Because..
+
+Go back. Because I'm at the end of the printing characters there. 
+Let's go back to character 1 here.
+And just Save. Look at that real quick.
+
+There. OK.
+Looping, looping, looping. OK.
+
+Now this time Increment the character by 1.
+
+Am I Saved? Yeah.
+
+There. So there's all the characters.
+But what's going on is it gets... 
+Starts at 0, goes to 255,
+and then rolls over to 0 again. 
+So you get this endless loop of characters. OK? So we'd like to... 
+somehow if we can
+make it stop!
+
+and the way I am going to do that...
+
+There might be a shorter way. But for learning purposes 
+we no longer are going to need to clear these Registers 
+I believe, because we're going to bring back our beloved CX value. 
+CX... MOV something... Write something into CX.
+
+And let's say it's just 6 for starters.
+
+and then here
+we'll take....
+
+um, hang on, hang on!
+Before I get one ahead of myself 
+I don't need this yet. I'll do it this way
+JNZ (Jump Not Zero)
+
+Let me just run it
+and then I'll explain it.
+
+Bum! That's all of them.
+And then when it gets to the end it stops. 
+So what happens... it goes from 0 to 255, and then rolls over to 0.
+
+Right? And then I said when it's not zero stop looping, essentially. 
+OK? So to explain it a little deeper another way... 
+as I was getting ahead of myself earlier with this... OK
+
+The thing about that is....
+Let's look at it one more time.
+
+You can only make it stop here.
+What if I want to make it stop here or something? 
+How do I control how deep into the loop? You can only print out all the characters. 
+Maybe I want to print out the first 6 characters there.
+
+So we'll introduce CX
+
+Put a value in there: 6.
+And this is traditionally used as a Counter.
+
+Some of the parts of the program will look here in CX automatically to see if there is a value in there to be counted.
+In this case we're going to 
+DEC CX
+That's all we need to do.
+
+and no I didn't explain. Yes I did.
+Jump Not Zero
+
+That Jump Not Zero is going to look at the last mathematical operation, which was here. 
+Increment AL. And when you do that
+
+the computer does some checking for a few different things 
+and among them is whether or not the value is zero or non-zero. 
+Right, and then it stores that
+
+in either a 1 or 0 Binary Bit.
+A Flag it's called.
+
+So when you call Jump Not Zero it looks at whatever the last calculation 
+mathematical operation was to see if a flag was set. 
+Right, so it's looking here in AL
+
+So when that condition changes,
+then that changes here.
+
+OK. This time...
+
+I'll just go
+DEC CX
+
+So now it's going to be checking CX.
+Whether that is true or not. 
+OK, and here we are starting at a value of 6 and counting down. 
+So let me Save that.
+
+There.
+So observe here it didn't print
+
+character number 1. There's only 5 characters here. No there's 6. 1 2 3 4 5 6
+
+But there's no 0 cause I didn't set 0.
+What happens if I put 0 here now?
+
+Bum bum! Zero. There we go. OK so now what if we go...
+
+say
+Counter, say, 12 characters?
+
+OK here. Nah, nah... I'll save some time here.
+I'm just beating around the bush. 8. 
+8 characters.
+
+Close that.
+
+It's still the same 6 characters. Right?
+
+OK and then if we go
+
+9 characters
+
+OK
+
+still looking good. 10 characters.
+
+The Spade has turned into some weird character. 
+And then from here on out
+if I keep adding 10, 11, 12, 13. 
+I get nothing but a bunch of spaces.
+So what's going on with the weirdness? 
+Let me see if I can elaborate a little more by
+changing this to
+
+262
+I think I'll go with
+
+yes
+
+Save, and look at it.
+
+OK, here it has printed all the characters,
+rolled around to zero and started again printing from the top
+and this time 
+let's see there is our club. Let me go 1 more. 263.
+
+There's our Spade. Works fine.
+So the thing is...
+
+All this goes all the way back to the early days when this was a language for a Teletype machine. 
+Even before there was what you would consider a modern day computer.
+
+And so one teletype machine could communicate with another. 
+Let's say you want to send a line of text and then have it stop here. 
+Go to a new line and start printing some more characters or something. 
+How do you tell the other machine to make a new line?
+
+Well that's what's going on in here...
+These other numbers are special 
+Non Printing Characters.
+They are reserved to tell the computer to do one thing or another
+and in our case we got to what was it? 
+8 or whatever was safe, and then 9, 10,
+Something goes wrong. 
+We can kind of see why.
+Let's go to our trusty internet. 
+I'm at asciitable.com
+and there's the full ASCII table 
+and a little more information than I can probably give you on the topic. 
+Here we went to 8, Backspace.
+9 Horizontal Tab. 
+Ah! Backspace is what threw my... yeah
+New Line. See? There's these 
+Non Printing Commands that you can send
+and one of them apparently sent a backspace and messed up the character or something like that.
+But these are not even used anymore. 
+These days they're just
+handled differently now.
+
+So all of that non printing characters from... 
+0 is Null.
+So always zero is nothing. 
+Then you get to 32 is your first actual character it's also... 
+nothing prints.
+But if you're sending text.
+
+A string of text and you want to put a Space in there, then you send a 32.
+
+Because Null might tell the computer something else.
+
+OK so yeah, you could go down to the numbers values. 
+If you want to printout a number you start at 48, see? 
+And then there's some more characters. 
+If you want to print out the Alphabetical value, start at 65, see?
+
+There you go. And capitals first, and then small lowercase letters like that. 
+DEL. 
+Ah! So when you roll around you may delete a character or something as well.
+
+OK so that explains the Non Printing Characters.
+
+There. All of that. So let me go back down to
+
+No I don't have to
+
+So yeah OK,
+I'm going to Save this, I guess.
+
+Save As, in our Lessons folder
+
+That'd be
+06_JumpNotZero.asm
+
+Save
+
+and have I missed anything else in the list?
+No I guess that about covers it. 
+There. So that's all your printable characters, right?
+
+See one letter. Like I said you can also
+
+of course you know
+
+put in letter "H" directly 
+but we'll deal with numbers and such in an upcoming episode.
+
+Real quick let me just to finish marking this up correctly. 
+That would be Jump Not Zero.
+Yeah. 
+Increment Character
+
+and
+
+We'll call it
+Update Countdown
+
+There. And go ahead and just
+set that to 0.
+
+Save as
+05_JumpNotZero.asm
+
+Yeah nice.
+OK, call that a day.

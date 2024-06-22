@@ -1,0 +1,41 @@
+Okay, we have created a very basic Assembly file.
+There's a lot of ways to do that in Windows. But to go any further we're going to need some specialized tools. 
+We are going to want an Assembler. We will want a Hex Editor, and we will need an Emulator.
+
+So I'm going to go with the Netwide Assembler (NASM). 
+Hex Editor, HxD Hex Editor. I've tried a couple and this works, kinda.
+
+And for our Emulator, QEMU.
+Also if you don't have an advanced text editor that recognizes Assembly code and other programming languages, 
+I recommend grabbing Notepad++. I'll be using that as well. Okay so... 
+To get started why don't we just go to the internet and grab all those tools?
+
+How about NASM download. Yeah.
+
+Get out of my way!
+NASM. Here. Okay, so we want nasm.us (or whatever country) download.
+
+The one up closest to the top of the list that's not RC. I guess that's dev. There you go. Win64.Unless you have a really old PC that's running like Windows 98, Windows 95, something like that, you know? Then most likely you want the Win64 version. And there's your installer right there. You can grab that.
+After that we'll want Q E M U. Note it's not Q U. OK. QEMU download. There we go. Download QEMU. Let's go have a look
+
+qemu.org
+
+You want the Windows version 64 bit. There. OK? Go down to the latest year,. Go down the list, and we want the last one that's not SHA here. QEMU 64 setup .exe. So grab that.
+
+Also HxD download.
+
+Here. HxD. They have a... there's the downloads link there. nexus.de Ah! A German company
+
+Wunderbar!
+
+It comes in a variety of languages. Very nice. We want the language of our choice. Grab whatever that may be.
+
+HTTPS. Okay?
+And I am also grabbing Notepad++
+
+Notepad plus plus. You can grab the one at the top there, and, let's see... Click there.
+They have some other things, they want to talk you into replacing your search engine. Here. Down here. 
+That's the one you want. Download Notepad++.
+Okay, and then once you got all that of course, you'll find the apps in your default Downloads folder there. You can unZip HxD. You just double click. It should unZip. And then run your installers. And as you can see I'm running OBS Studio. That's what I'm using to make my desktop recording videos. Very nice.
+
+So there you go. Get those installed, and then we'll get you set up. ☺

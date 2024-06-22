@@ -1,0 +1,538 @@
+In the previous installment we assembled our
+code into a binary file. 
+Next we would like to try to run our binary file. 
+Now when working with Lower Level programming it is possible 
+to write some value to the wrong place in memory and mess up your computer pretty good.
+
+So to prevent that we will be running a virtual computer using software 
+and essentially fake out our program into thinking it's running on a real computer.
+
+Now there are a number of different Emulators out there. 
+We will be using QEMU for this demonstration.
+
+Then we will quickly cover how to make a simple Bootloader. 
+Hopefully without making too big a production out of it.
+
+So let me start by going to our Assembly folder. Right click Assembly. There we go. And I want this path.
+I'm gonna grab that, copy that, get outta here. 
+Let me go to our Command Prompt and change directories. There. 
+I can go ahead and DIR and see there is our binary file that we would like to assemble using QEMU. 
+And let me real quick just grab that name.
+I'm going to go here down to 
+the C disk, Program Files, QEMU.
+And if I go all the way down here
+
+there are all these different flavors of Emulators that you can run 
+you can emulate an ARM processor, an old 386 computer, 
+you can emulate a MIPS, PowerPC, RISC, SPARC,
+all kinds of things. Awesome. 
+You could go in there and play around with those all you want. 
+But right now the one we're interested in is right here.
+
+I'm just going to click once, wait a second, and then click again so it highlights.
+And then copy that.
+
+Let me just now go up to my Documents, Assembly,
+go to my Snippets and
+
+paste that right in there. Save that for later reference. 
+OK, so it's still in memory.
+So we can run it. 
+I'm just going to right click here. There.
+And we want to assemble our (B Tab) binary file.
+
+OK, so QEMU will give you some errors.
+I can't do anything about that.
+
+I'm gonna CTRL ALT F here
+and this is just like if you took a computer and turned it on with nothing on it.
+No operating system. No software. Nothing.
+
+Your computer does have some capabilities
+built into the hardware to print text to the screen and and do various things.
+Check for various devices.
+
+Here it made several attempts to find something to boot from. 
+First it looked in the usual location. Couldn't find anything there. 
+Let's see if there's a floppy. No. 
+CD? Nope.
+It even attempted to boot off of a network. 
+Like if you're an administrator, you know you can... 
+IT administrator. You can have a single operating
+system that you make updates to and then all of the computers on the network boot off of that. You know. 
+So, makes it simpler to make changes over an entire network. 
+The computers themselves have no operating system on them. 
+They go find it off of the network and boot off of that, and run it that way. 
+But I digress. That's another topic.
+I can ALT F4 to get out of there 
+and return back to the Command Prompt.
+Now let's see...
+
+So we tried to run our binary file.
+It didn't run. 
+OK great!
+What was the point of that?
+
+Let's go look at it.
+There is our DB 0 in Notepad++.
+
+Now I seem to be fascinated with zeros.
+Yeah I could write more zeroes here.
+
+DB 0, DB 0, ad infinitum. 
+But you don't really need to do it that way.
+There's also built into the assembler 
+the NASM assembler
+is a way to do that a number of times. 
+So I could just specify I want it to DB 0 five hundred and twelve times. 
+And let me just save that
+and then I will go NASM it.
+
+I haven't done that yet so let's do it this way.
+We will type S for Shortcuts, ENTER 
+and I want this bit out of there.
+I can just copy that, and then paste it there, and it overwrites our binary
+file with the new code. 
+So if I want to look at it we're set up
+(B TAB ENTER) with a binary hex editor
+
+Great, there at all is. Now...
+
+Great! Now I've written 512 zeros.
+What is this pointless exercise all about?
+
+Well, this goes way back to the early days of computing when computers only had this much memory.
+512 total bytes of memory.
+
+Of course it's not like
+this is a zero and this was a one and that's a one and that's zero.
+Each of these of course is 8 Bits as you know. So...
+But that's the total amount of memory that was available on early
+computers. 
+Later of course they upgraded that.
+Today you know you can add RAM and have gigabytes of extra memory on your computer if you want.
+But back then you were limited to this much. So when they made the next generation of computers everybody was like 
+"well what about all the programs we wrote on your old computer? Now they won't run!" you know "We we spent all this time banging our heads against the walls and now they're obsolete!"
+
+And so they made it backwards compatible. So in a nutshell today every computer, or not "every", but every X86 computer will look in this boot sector to see if there's some code that it can boot off of.
+This 512 bytes of memory boot sector. 
+So that's what we're going to start by writing into. 
+Now of course we have just written a bunch of zeros. That's not very useful.
+
+Also even if we have some code in there it won't run. 
+We need a special key to unlock the X86 hardware.
+
+Now, I'm not going to do this the old fashioned way. 
+I think this is also interesting.
+If I go write it in binary 
+DB that would be 01010101b in binary
+followed by DB 10101010b There!
+
+That is the "magic number" as it's often referred to in the programming community 
+that actually unlocks your hardware.
+Your computer would not run without these two essential bytes of code. OK?
+So let's go over here real quick. 
+If I up arrow a couple of times there's NASM
+
+and now we want to try and launch that in QEMU, our emulator. 
+Let me copy that and paste (CTRL V)
+oops wait, did I actually copy?
+
+Highlight, CTRL C, CTRL V There. OK
+and let's run our (B TAB ENTER) binary file.
+
+and no. It's not running. It's not finding a bootable device. 
+OK, and the reason for that
+Let's have a look at our binary file, shall we? 
+Now it's bi... binary there we go.
+The problem is
+
+Whoops! Well for one thing our magic number is
+not in there. Why is that? 
+Did I not save? I didn't save! OK,
+Well that would do it. 
+But no hang on, hang on
+it still won't run in QEMU. OK 
+Let me just ALT F4 out of that window
+and if we look at it (b tab)
+
+Here's the problem. It's not running because these two bytes of magic number need... the key to unlock it needs to be in the right lock.
+
+So just the.... I mean anybody could have hacked into a system just by writing a bunch of random numbers until the computer did something. But it makes it a little 
+harder I suppose if these numbers need to be in a special location. In this case they 
+need to be in these last two bytes of our limited 512 of memory. 
+So I guess an easy way to do that would just be delete two zeros. There. And then I can save right here from our Hex Editor and then get out of there, and if I'm not mistaken I should just be able to run QEMU from here. 
+And now, yes it boots. Of course there's nothing in there. But as you can see it did not go through the usual rigmarole of checking for a hard drive, checking for a floppy, and all that.
+
+It found it right away. Right where it was supposed to be in the 512 byte boot sector, you see? So...
+And of course it didn't write anything. It's just an empty blinking cursor because there's nothing in there. There's a bunch of zeros. 
+But now we have our blank page into which we can write our code. 
+So there you go. That is your bootloader.
+Let me just close this window. 
+Oh, another thing I should probably mention. Let's say oh, I'm doing some changes over here to my code and then I want to go over now and assemble it. I go over here and... what? Where's my Command Line?
+
+It disappeared. Oh! I can't run a program.
+What? Why not? 
+Well QEMU is still in the background which you can't see cause I've conveniently 
+covered it up with this window but here it is. You can find it here. Still running in the 
+background. And I can just click on that, and get outta there, and there. 
+It returns us back to our Command Prompt. You see? So sometimes you can't even run various applications because this is running in the background. So if you're like "why is my system locked up?" There, now you know
+and so here 
+let's see
+We have our magic numbers. 
+We have adjusted it manually and it worked, and then we fixed it, and now it works again. Great! 
+And let's say now I want to write some code in here. 
+And I'm just going to kind of copy and paste some code real quick 
+you know to save time
+
+It's almost not even assembly code.
+I'm just manually "poking" some numbers into some registers here.
+OK, but good enough. And let me save that 
+and then go over here now and NASM it
+and have a look at it and... 
+it's not finding it. Why?
+If anybody was paying attention they probably know why. I'm doing this on purpose of course, but the reason...
+
+let's look at our binary
+
+is here.
+We added some code up here and look now, our magic number is no longer in the proper spot, right? So here let's... 
+How many bytes of memory code did we add?
+one two three four five six bytes of code. 
+OK, so let me just go back back to our application here and fix this 
+so it's 512. 
+This should actually be...
+we made a manual change here 
+where, remember we subtracted two zeros manually in our hex editor? Well we didn't 
+do the same here in our application
+for one thing, that should be zero here. But even so
+Here let me just go ahead and save it
+
+We know that we've overflowed. There's some extra code up here, you know. 
+So let's see if we if it was 512 and we had, what was it? 
+6 bytes of code in there, that would be what?
+
+506 There we go. Let's save that.
+Try to run it and NASM it, QEMU it and...
+
+No. It's still not finding it why is
+that let's have a look at our... why am I typing?
+
+I can just go
+B TAB There. 
+Oh! Missed it by that much.
+Alright?
+
+Of course, you know... So I could go back in there and subtract two more from that but
+
+yeah, so let's do that. I'm going to save it out and let's go back to NASM, there. QEMU and there! There's our happy computer. Ahh! We have some running code. Wonderful! 
+OK so that works. Now let's say...
+OK I'm gonna like to maybe add some more code do some more editing and got it
+working. Great.
+
+There. Maybe add a little bit more code. Let me save that. Remember have to close this first. OK. 
+and let's have a look at it and it's not running
+oh, right right right right. We know why. 
+ALT F4 outta there.
+
+Here, let's look at it just just to be explicit
+B TAB
+
+We went over
+
+again. We added 4 more bytes of code and
+now we're 4 bytes over the magic number 
+being in the right place.
+Well this can be tedious, hmm?
+
+If if every time I add a little bit of code
+I have to go back and adjust this number. 
+Couldn't there just be like a way where you can find 
+how many bytes have been used up to this point?
+
+Well yes, there is actually. So just to
+do it the hard way to prove...
+
+learning curve here going.
+There is a way and if I, 
+inside the parentheses, type ($-$$)
+this bit of code here will return the value of how many bytes have been used in the program so far.
+
+so fortunately for us... this should be 510
+cause remember it's 512 bytes total program minus the last
+2, right? And so we want it to be 510....
+
+cut that out of there,
+
+minus this. However many bytes have been
+used up here, which is minus this.
+
+And this is easy enough to remember, it's...
+
+For every dollar you make you get two dollars in the hole. $-$$. There you go. 
+So now that should be easy enough for you to memorize from now on. 
+So let's save that. Go over here to NASM, run it and, there. 
+Now we have a very happy computer.
+
+It just loves the code that we sent over there right? OK, so let's... 
+I just want play around a little bit more
+
+There's your bootloader. It's working everybody's
+happy. The computer's happy
+
+yeah
+
+next
+
+Here I've written some binary numbers in here.
+You know, just to be cute I guess.
+
+Let's look at that real quick in our
+Hex Editor.
+
+Here it is expressed in Hexadecimal.
+
+This is the value I put in 10101010.
+Which of course is the explicit value 85. You see.
+
+Here it's expressed in Hexadecimal of course, you know. 
+But I could actually put the explicit value 85 in there. 
+Let me just close out of there.
+
+Let see... Yeah, here I'm expressing it in binary, but I could just say 85. 
+You know?
+And what was the other one?
+
+Oops! Already closed it.
+But let me just run that.
+
+Save it.
+Have a look.
+
+NASM it, QEMU it,
+and we have a happy computer! You see?
+
+It's all just numbers to the computer.
+
+(B TAB) Look at it, and you know, this is what
+the computer sees.
+
+It's a bunch of switches. It sees this value is on, this one's off, this one's on, this one's on. 
+On/Off switches. Right?
+So ultimately no matter what value we use... 
+This is for our convenience right here. This is in decimal so we can read it. 
+This value over here that's for the convenience of nerds who 
+can't speak in plain English that the rest of the world can understand. But...
+
+So it's there in a bunch of different formats.
+Observe here it says 55 in hexadecimal.
+
+also
+
+The character U. Right? U huh?
+OK let's try that.
+
+Here instead of the absolute value 55
+what if I just said "U"
+
+save that
+
+NASM it, look at it,
+And what do you know!
+
+Love U
+See that?
+
+What was the other one? Let's see...
+
+Let's look at it from here.
+
+The other one was this odd character ª 
+Now there used to be a way to write that directly from your keyboard but they kinda changed that in Windows 10, I guess.
+To get to that now you have to go to (Search) Character Map here, you know.
+And then there's all these extended characters 
+and there it is right there
+your Feminine Ordinal Indicator ooh! 
+Yeah, so you could just as easily put that in there as well.
+
+Now let me just set this back to 55h in hexadecimal. 
+and the other one of course was AAh in hexadecimal. 
+And no whoops! What happened? Our colors of are different here. 
+The reason for that is fortunately Notepad++ recognizes Assembly and it's telling us
+
+this is recognized as a numerical value.
+But if anything begins with a character 
+your Assembler is going to assume that it is a
+variable name. I believe. You know, 
+so in order to tell it that this is a hex value. A number. 
+you have to put a zero in front of that. OK?
+So let's just go ahead and run that.
+
+I closed my window. So I need to go get my path again. Copy that path,
+
+close that window. ALT F4 to close the active window. 
+Go back to my Command Prompt. CD Paste. OK.
+
+and compile and run this
+
+type (S TAB) my shortcuts.
+There.
+
+I want to compile this.
+
+Let's go up here. CTRL C, CTRL V down there
+and it wrote it and executed it. 
+Because I had copied the return as well.
+So now the binary is overwritten. 
+And let's go ahead and have a look at it
+QEMU B TAB binary and run it.
+
+And everything is just fine. Computer loves that too. 
+It's all just numbers to the computer. Allright? 
+Let's reiterate another lesson that we learned a little earlier here. 
+Here I have expressed two data bytes.
+five five. It's not 55 it's 85. 
+55 hexadecimal or AA hexadecimal
+we could also write a data word in there
+
+which and combine both of these into a single
+numerical value. Let's do it this way go (Zero X) which will tell it that it's hexadecimal AA55, like that. See? So one way 
+I could either put the H there to tell it it's hexadecimal 
+or I could also put 0x in in front of there
+It's actually something more like that, you know. 
+But it's ambiguous we just say 0x and
+whatever follows is hexadecimal. 
+Then I could get rid of this. Save that.
+
+Get out at this happy window here.
+There's no mistakes just happy computers. 
+And run it.
+
+If I up arrow till I find NASM, down arrow one time and it finds QEMU, there is... 
+our computer is still quite happy
+with the code that we're sending there. 
+It's all just numbers.
+Observe though 
+which I probably could have pointed out when I was writing it....
+
+Notepad++, even though I just saved. I can undo and go back, you know. Because it's made for programmers. You're going to need to save your file to go run it, right? 
+But then maybe it didn't run. You want to go back.
+Notepad++ has quite a few levels of undo 
+and you can go way back in your code whether you have saved it once or twice or whatever. It keeps track of all that. Very handy if you're a programmer. 
+But what I wanted to talk about here...
+Here DB 55, DB AA. 
+But remember it's bass ackwards byte order, right? Cause it's little endian x86 processor, right?
+
+So when we send a Word instead of 55AA, it's AA55, right? Bass ackwards. 
+There you go.
+Let's do something else. Here we have now a working bootloader that works with any amount of code in there. That's really nice. 
+Just to play around. Let me copy all of this. Copy that. 
+and then I'm just going to delete this bit
+save my test,asm 
+and then paste it again. Delete that, and save this as
+
+now it's a bootloader
+
+but I'm already using b for my binary so I'm gonna keep that sacred 
+And we'll call this Magic Number.asm
+
+so good enough There. The magic number. So just to look there in my Assembly folder 
+OK we got there's there's our code now which is stripped of the bootloader. But there's 
+our bootloader right? So we should know by now that we can go just
+
+copy our T TAB
+
+plus M TAB
+
+into a new file. I'll just call it combined.asm
+
+alright and enter. One file copied. Let's have a look at the C TAB
+
+There. All of our code has been concatenated. 
+The bit of code in our test file...
+Let me go ahead and open it up.
+
+There. There's our code, you know. So now
+that's one way of working. 
+I might not even do that for the duration of this tutorial 
+but it's there if you want to do it that way. It's kind of nice. You know, you got your code free and clear which you can do other
+
+things too I mean I could use it in other
+ways
+
+I could call it from another location. Use 
+it as a Function etc. This is other things down the road. 
+But there. That code combined with this code, you know. 
+And it writes this thing in here, which is inconsequential, 
+it still runs, it's still recognized by the assembler and by QEMU and everything else. 
+If this weird symbol bothers you, you can just delete it, you know really, 
+and hit save.
+But it doesn't matter 
+and if if there's a way to assemble it and not have that little... 
+feel free to leave that in the comments.
+I'm not gonna go back and fix the whole tutorial just for that
+but if it's in the comments. OK?
+
+One more thing I want to do here
+
+you know i think go
+
+write my T Y P E (S TAB) Shortcuts.
+
+There you know, I got my QUEU shortcu, you know.
+
+You'll memorize all of this eventually, you
+know. But you don't have to in this case.
+
+Im going to do one more thing
+
+Let me just leave this open and go
+Open my File Explorer and go to my QEMU folder 
+local disk, program folders, QEMU
+
+right?
+Oh actually, let me tell you what I want to do first. I want to make a copy of this.
+I mean, I could change the name of this just to QEMU, shorten it, you know. But maybe I want to keep this split for later use or something and it's only 14K, you know. So i'll just make another copy of this and called QEMU and
+
+then it'll be easier to call unfortunately I can't do that from the normal Command Prompt. It will complain.
+You have to be in administrator mode. 
+So you type CMD down here in the Search Bar, ok?
+
+There's a Command Prompt go to Run as Administrator
+
+and it it says "do you want to do this?" Yes
+or No. Which you probably didn't see cause it's not recorded in OBS (screen recorder) But I clicked OK and OK, so now I need to be here, okay? 
+So let me copy the path
+and change directories here.
+
+I'm in the QEMU folder. Let me just DIR. OK.
+Now, where's our application? Right here. 
+This is the application. I'm gonna copy that
+name. CTRL C 
+and then we're going to use the copy command (CTRL C)
+
+CTRL V and change that to just QEMU.exe.
+
+QEMU.exe
+
+Enter. No complaints cause I am in administrator 
+mode. All is swell.
+So now, this is really nice. 
+Let me get out of administrator and go back to our normal Command Prompt. There.
+
+I'll go to my Assembly folder. Copy that path
+and change the directory to the path. DIR. OK.
+
+There's our binary. I'd like to run it.
+So now I can just type QEMU B TAB 
+and it runs.
+There's our happy computer. Nice. 
+Why didn't we do that in the first place?
+I'm giving you different options. Showing you different ways to do it.
+You can choose to work however you want, you know.
+
+But wow! Now we've really set up a streamlined system where we can 
+edit, assemble, and execute our code with just a few simple keystrokes, you know. 
+So that can really make you fly in your development, right? 
+So there you go. Now I guess we're all set up. Ready to rock and roll. 
+Now in future episodes we can focus more on writing some Assembly code.

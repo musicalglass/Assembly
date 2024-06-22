@@ -1,0 +1,67 @@
+So I reckon I've made my point.
+Let's get outta here. 
+Let's see if we can set it into motion next.
+First thing we want to do is 
+set up a draw loop, I guess you'd call it.
+Well that's what I'm gonna call it. draw_loop 
+Some people would call this "main", I guess.
+Colon there and then 
+Copy that. And down here
+just JMP to our draw_loop 
+OK so you know, we had characters just sitting there before. Let's see what we got now. 
+Great! Now it's still sitting there. Only now it's sitting there at a hundred thousand frames per second, I guess. Or whatever the refresh rate is of your operating system technically or video card. I dunno.
+But no motion. 
+In order to do that we want to probably update it a little bit. 
+Let's see if we can move the pixel one place to the right. 
+Right in here. I'm going to write in here with INC DI 
+that should do something
+Let's have a ponder 
+over yonder. Oh! Well that's something. The entire screen went white. Can anybody guess why? 
+Well we have our point
+pixel started animating and it just kept going on and on and on until it reached the end and then flipped back to zero. 
+I did say earlier in the Teletype (video)
+that when the computer got up to 255 and then it flipped over to 0 in 16 Bit. Well, technically it's more like 65,000, you know. 
+But it only went from 0 to 255 printable characters, you know. 
+Here this is in an endless loop and shows endlessly printing pixels to fill the screen. 
+Let's try and bring that to a stop if we can.
+
+And to do that I'm going to introduce a new Jump Command, I reckon. 
+I'm going to say
+JAE here 
+Jump if Equal or Greater, I guess.
+And we're gonna want to jump to somewhere. I guess we want to jumped down here.
+And we'll just call this 
+end_animation:
+There. 
+Colon to make it a label. There. So I can just 
+CTLR ALT Drag that there.
+Doing it that way there you don't have any spelling errors. Copy. I always like to Copy and Paste my variable names and stuff. 
+So let's see what we've got now.
+End the loop. 
+End animation. But first we need to tell it when to end the animation. 
+So we are incrementing DI
+and we want to stop at a certain point. 
+So in order to do that we're going to tell it a value. 
+We're going to compare the value of DI
+to a number that we specify. 
+I want it to go to the middle of the screen or start in the middle of the screen 
+once it's reached the middle of the screen. So that'll be what? 320 
+Wait, I got it up here on here don't I? I'll just copy all this... 
+No no. I'm sorry I got a little confused. I'm going to the end of the screen. 
+I'll make it stop one short of the end of the screen. 
+I'm sorry I was looking at the wrong spot in my notes. 
+hundred there. 200 - 1
+There, yeah. OK so what's going to happen now, 
+as you know your Jump Command will look at the last calculation 
+and here we have done a comparison with our Index Position. Our character's position. 
+Compared it to whatever number, huge value it is in the middle of the screen. 
+OK and when that happens we're going to jump out of the draw loop to here and end the animation, I guess. OK, let's save that. Head over here and see if my prophecy comes true. 
+Yeah, there.
+So that's exactly what happened. 
+It went all the way down to here
+except the very last pixel 
+just so you could tell for sure it didn't go off the screen, right? OK so we have demonstrated control.
+Let's see how much further we can control it. 
+It is in fact animating now, you know. It actually was going "yeeeeerrrm" all the way down to there. It was just doing it so blindingly fast that you didn't see any motion.
+
+Let's next adjust the timing in the next video here.

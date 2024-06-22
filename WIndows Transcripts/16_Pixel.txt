@@ -1,0 +1,124 @@
+Dragging right along here
+Let's see, Jump Not Zero. 
+I'm going to Save this and then go
+Edit / Set Read Only. 
+There. We'll call that sacred.
+Copy all this, and then head over to 
+T TAB here and
+Select All and Paste.
+
+OK good to go.
+So essentially, 
+we're not going to need any of this here Teletype stuff for this lesson. We're going to do some graphics.
+So first thing I want to do... 
+I gotta set some video memory segments. Set up some Segment Registers, I guess. 
+Yeah OK. So first thing I'd like to do is write a value into DS. 
+DS. Data Segment.
+The value of zero.
+
+Unfortunately I can't do that.
+So I gotta do it the long way 
+where you go
+XOR your Accumulator. 
+AX for subtract it from itself. So it's properly zeroed out 
+and then
+you can then move that into DS, OK?
+There. That is cleared. 
+I'm gonna do a similar thing.
+Let me set Data Segment here. 
+OK, and then we'll do a similar thing
+right underneath that. 
+Setting ES here.
+ES 
+So I want to set ES to 0xA000
+But again can't do that. 
+I have to...
+Copy that. Undo 
+I have to move it first into the Accumulator.
+OK there's my value 
+and then now I can put that here into ES.
+So that's pointing to a video memory segment in your computer's memory somewhere.
+OK I need to put a value into DI here. 
+MOV DI, 0
+Good enough. 
+So to draw a pixel
+first we want to define our color. 
+MOV into our Accumulator (well the Lower Register)
+the color. 
+Lower Byte of the AX Register.
+And that would be 
+0x0F also affectionately known as 15.
+OK and now here we're using an Index. 
+OK, so what we've done here... we've defined where in video memory we are beginning. 
+Where in our total amount of memory, where we are beginning. And somewhere in the total amount of memory is some space designated specifically for video memory and that's where we're going there. 
+So now we're starting from here.
+Let me just type it and then I'll explain it a little more.
+Inside these brackets. Not those brackets. These brackets. The square ones.
+[ ES : DI ] 
+So we are going to the Index here. The beginning at the first place in video memory and then starting from there. Starting at zero here. We've initialized it at zero. 
+But we haven't said to write anything in there yet. 
+So into the Index we're going to put our Accumulator 
+or the Lower Register. The color value that we just wrote in here. Great. 
+And just when that's done just
+CLI and HLT 
+clear the Interrupt 
+and
+halt the processor.
+
+Alright.
+...ES to point to segment in video memory 
+I hope I have defined that properly
+Well, clearly I 
+defined it too long. I'm going off the page.
+So let's try and simplify just a bit. There. OK Wordy, wordy, wordy. OK Let's start with that.
+Let me just Save that 
+test.asm I can get rid of jump.asm here.
+And let's have a look at it. OK! 
+We have printed a tiny little pixel up here in the top left hand corner. It's a little difficult to actually see. So instead of zero let's put it in the middle of the screen. 
+We know the screen is what?
+It's 320 by 200, basically. 
+So that means like so...
+Here I'm going from 0 to 319. That's a line and 320 to six something you see is the second line so it's a pretty big number. 
+So we don't have to sit there and do the math. We can let the computer do that part for us. 
+We know it's 320 wide here. 320 wide,
+and we want to be halfway down the screen. 
+So that would be * 100 because the screen is 200 pixels high. 
+And then half way, in the middle of the screen as well. 
+So that would be + another 160
+(+320 / 2), doesn't matter. There you go.. OK. Save and close QEMU. Let's have a look at that.
+There' s our little pixel in the center of the screen.
+Fullscreen CTRL ALT F. 
+There see? So
+of course today pixels are much smaller. Yeah you know, thousands and thousands of them more than back then.
+
+But that was your basic building block in 16 Bit.
+So you can define colors and make your little robots and pac-man and whatever, you know, out of these like little squares. OK so let's continue doing some more of that.
+Let me just Save that As... File/ 
+Save that in my Lessons. We're on 06, so we'll make it 
+07_pixel.asm
+There. A simple graphics example.
+OK here 
+Set position to center screen
+yeah 
+character color
+
+and here
+
+Write color into index
+
+Let's do it this way.
+Index position, I guess 
+yup
+Starting from... our Index starts at zero on the screen from what we're seeing.
+That's good I guess. Let me Save that 
+and we're going to mark that as Read Only.
+That's what we'll do. Copy that. 
+Then we'll go back to our test file
+test.asm 
+Paste it over that. If it wasn't already exactly the same. 
+There we go. Oh yeah
+Copy 
+Basically this command, these two commands together, clear the screen, right? As we know calling the Interrupt just says
+"make it so". Yeah OK I'm being nit picky now. 
+Save. Alright get rid of pixel.asm
+and we're ready for the next lesson.

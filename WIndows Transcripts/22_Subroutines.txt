@@ -1,0 +1,54 @@
+Next I'd like to define a Subroutine.
+Let me just simplify some of this. 
+Let's come up with a reason to have a Subroutine.
+Let's say I want to print a character. 
+Whoops, I'm sorry. Should be MOV.
+MOVing a value into AL to print. Character Value.
+
+Right?
+OK.
+
+So let's say I got a bunch of code here. 
+Right? And it calculates something and then it prints this value out to the screen, using this Teletype.
+OK, and then later on in the program I got a bunch more code here.
+Down here saying 
+that prints out a 3, you know, and
+down here later on in my program 
+even more code and... whatever. It prints uh, 85. OK, so you can see 
+right away there's a lot of redundant code going on in here. 
+We're doing the same thing over and over.
+
+The only thing different is the value of the character, right? 
+So essentially anytime you do anything 
+over and over in programming there is probably an easier way.
+
+So the way we're going to do this
+is to define a Subroutine. 
+Like in in this part what we do is we print it.
+Yeah, right? OK, so to turn this into a Subroutine is relatively simple.
+We're just going to turn it into a name 
+and much like the Label
+whoops. Colon. 
+Just like a Label we'll tell it that this is a place you can jump to, right? 
+But we're going to do it a little bit differently.
+So like here instead of Jump 
+we call it.
+call print_it 
+See? Enter and it just types it for you.
+And then so now it'll jump down here, right? 
+And then we want it to return back to wherever we left off. So you go RET. 
+There. Like that. OK, so now we can call print_it here 
+and 
+print_it here. Well I could just let it flow through in this case. See? Um... Yeah that's exactly what would happen.
+Except I don't know if RET would throw it. 
+So let's just do it right.
+We'll call the Subroutine here. 
+And then to prevent the program from going chug chug chug, getting to the end of this, and then continuing and doing something down here, we just make a little roadblock. 
+We'll put a HLT command here. There.
+So there. That's the end of program here. 
+So now you can jump out, run the Subroutine, return back to your code. 
+Let's just see if it does it's thing shall we?
+There.
+
+Good to go.
+So that is Subroutines. ☺

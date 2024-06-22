@@ -1,0 +1,114 @@
+we've written a binary program and it runs and is free of errors and bugs and i believe i mentioned once or twice that it is possible to run your computer solely off of your binary program that means no windows no lynch 
+six no operating system nada only what you wrote in order to do that we want to set it up as bootable media 
+ 
+so you couldn't write it to a hard drive but that's not really necessary it is possible for your computer to boot off of other types of media such as a cd or USB flash so prerequisite for this assignment is a USB flash drive and of course a computer that 
+ 
+you're not too concerned about messing around with you know nothing to worry about of course i mean what could possibly go wrong you are dealing with a seasoned professional here back out 
+oh okay so 
+ 
+let's see where was i oh we're going to look 
+first let's look in our assembly folder there's our binary and there's my USB but you can't just drag this over there under the USB and boot off of it unfortunately no you have to like write it to the disk itself so it's not like encapsulated in file 
+oh 
+ 
+so one thing first you might want to check on your USB make sure there's nothing important that is going to get wiped out okay good to go and without waiting any longer folks first thing i'm gonna do click down here in the search and type disk part 
+ 
+the disk partitioning tool that comes with windows and you have to type the full name and then it pops up appear you know and you can hit enter and then i got a yes or no dialogue that you probably didn't see and but you just click ok and you're in diskpart okay first thing we want to do 
+ 
+lists 
+disc 
+ 
+yeah and there is our list of media i have supposedly a five hundred gigabyte ssd drive super fast very nice and thirty two gigabyte 
+flashed that i put in there says twenty nine here but close enough so you want to we want to select this disk to do that you can type select or just use the shortcut disc one 
+and of course you want to select whatever disk number is your flash drive don't just type disk one because i did make sure you have the correct number i am not responsible for 
+i wash my hands of any mistakes you make here 
+ 
+okay disc is now selected and now if it does not say the this do not proceed any further because you could stand the chance of wiping out something you don't want to do you can also verify you will type list does 
+disk a second time and you can see that there's an asterisk next to them 
+our flash drive okay good we are selected so we are free and clear to go clean 
+and that was that was fast will wipe out everything your master boot record any hidden files or microsoft data or anything it is completely empty if you were to quit the program now it would no longer pop up on your desktop it is gone 
+until we put a little bit of info on there for the the system can see so we need to create upright partition first and again you can type the full name but you don't have to you can go create par titian and it's a primary partition and we can also specify the size 
+and i'm just going to make a teeny tiny sixty four y sixty four because i tried other sizes nessa smallest i could get away with and just double check your typing always in this program this is not where you want to make any errors okay okay successful case 
+now we want to make it active 
+ 
+so we can type active or we we can just act like we're typing active and that makes it the assigns it is the bootable drive now okay so next we're going to format it 
+ 
+and the file system equals a c fat thirty two 
+okay and while we're here we can put a label on it and this label won't persist later will be gone but it will come in handy 
+ 
+interstitial early in a moment 
+so and also very important you want to add quick and 
+and let me just double check everything in the spelling and you definitely want to divulge everything twice because if you don't say quick here let me just hit enter but about there that took about one second if you didn't say quicker would have taken maybe forty minutes sir time to go out for pizza or something 
+ 
+and next it is formatted we can assign it you can type assign or just use the expletive and it pops up the our system no recognizes boot me as a disk i can alt effort to close the active window and so that is 
+is a teeny tiny little partition millet we can create another partition to use on the use up the rest of the disk 
+ 
+partition primary and we don't have to specify the size we're just going to use up all the rest that's left for matt 
+file system equals now i could go with the if it was windows only you could say n tfs yet you know 
+ 
+not that freaking swift but if we're true i like to use x extra fat you know cause i like extra fat extra salt extra gluten and peanuts on top you know but the difference what's nice about this is it's readable by both 
+linux and windows so 
+ 
+you can go either way and label equals we'll call this one stormy weather 
+ 
+and again don't forget to make it snappy and don't forget to double check your spelling before you commit good to go we're all formatted we have dual partition on our flash we can assign that and 
+ 
+and good alt f four out of there so both of them are recognized by windows and we may now exit type exit and hit enter and we are out of there okay so next thing we want to do is find 
+ 
+in our binary 
+what 
+ 
+i assembly notice what a stir double click and open it up in 
+ 
+our hex editor or ah we want to look down here and make sure that we haven't any overflows that it's only five hundred and twelve bytes which is it is you could start down here at the bottom and start dragging up or just click anywhere here and go control a they are all dakota selected and you 
+ 
+can control c or i'll just use the visual aid here for your benefit i can copy and then we'll go over here under tools open disk or you can go control shift d 
+ 
+and here we go there's where the boot me part came in handy when you can verify that that's the bootable disk also 
+you want a d select this check box because we don't want read only we're going to write on it 
+ 
+jar you go beyond this point have been forewarning 
+ 
+we are not responsible for damage and neither i or am i yes ye have been forewarned and if you do not want to be forewarned again in the future you may 
+ 
+put your mark here you know 
+okay so whew bunch of intimidating code was all this this is your 
+partitioned 
+ 
+disk there's your boot me see and there you go there's a fat thirty two and you're copyrighted by m s doss of yeah microsoft puts their copyright on everything technically anything you've ever written on your pc might my copyrighted by microsoft here we go 
+ 
+so if we were to just try to boot off of this now it would give us the disk error press any key to restart that's all that's on there well we would like something more on there than just that something we can actually boot off of observe here 
+ 
+i don't know if you're going to see this on your monitors on youtube it is like a fine gray line here on the last line under one fo that indicates a five twelve byte sector and if i go down a little more there is another gray line one another magic number and some mystery code 
+ 
+road area and there's another five twelve and we go down a bit more there is our next partition you see 
+okay so back to the top all the way up to the top 
+starting here 
+ 
+okay i'm just going to drag across all of that and double check make sure i got only the magic number and i got all that and then we're going to go paste right or you can go control b 
+ 
+ariel 
+and it is pasted over will go save 
+ 
+there is no undo there is no safety net here you are past the point of no return and 
+ 
+there is most certainly not in an undo button when you're working in lower level programming here you are on your own taking matters into your own hands i wash my hands of the situation when you click yes alright so there you go believe it or not this should be a bootable USB 
+ 
+flash those of you that know how to boot off of a flash can just plow right on ahead my wish will first mention i 
+as you know 
+ 
+before you know we'd have our little harder happy face or whatever on the screen and we would just hit control alt or i'm sorry altar for to get out of the window while we don't have that anymore and your computer's not going to alter four unless you program it in there 
+ 
+so as you know you're just going to have to turn the computer off and then restart again when you're done no when you do of course you'll boot back into windows right and 
+ 
+then you put put your USB back in and right away windows may tell you there's a problem with this disk. Do you want to format it? Just say no. See the thing is, we have just wiped out all of the microsoft data on there. You know. The whatever data 
+ 
+it needs to want to look at. Yeah. To tell what type of disc it is and whatever else hidden code they have in there. And they don't like that. You know, microsoft has to have their © on everything, you know. So yeah, it may cause it to raise a stink. You know about that. But don't worry about, it's not a problem with your computer. You're just printing a ☺ to the screen, you know? Okay so there you go folks! For those of you that know how to boot off of a USB, go right on ahead. You don't need to listen to me anymore in this video. For those of you that don't know how to boot off a USB. It's fairly... it's hardware specific to your system, and each is different. So i can't just do 1 tutorial. And so you basically have to look up (BIOS)+ your computer model number. So like if you have an HP, look up HP, you know? If you have a Dell look up dell. But that's not good enough. You need the model number. Like Inspiron you know, and still not good enough. Because you know like a company may have an inspiron laptop, and then they have an inspiron desktop and a small form small form factor. And they may not have the same BIOS, you know. So you want to make sure you have your model number as well 
+and then you might as well add (BIOS)+ USB into the search, you know. And then there you go. You know, so then you find 
+ 
+"boot from USB" Alright! And then there'll be a bunch of guys you can't understand a word they're saying. And it's always all shaky, you know. Because some guy's trying to work with one hand, and film it with his cell phone. Why is that? Well, because you can't restart your computer and be recording your desktop, you know. Your desktop recording software doesn't go there. You know? So it's always a... yes, some glare on the screen. You can't see what's going on there. Like that one. 
+So yeah, you know... Here, that was a good example right there. Windows is constantly trying to set itself to the top of the list there, you know? 
+ 
+So you have to go and specify "Yes! I want to boot off of my Flash!". And then of course next time you start up Windows it'll set itself back to the top of the list again. You can't depend on it staying that way. So you gotta kind of know how to work your BIOS. Again it's specific to your system. But there you go. Go look up your computer, BIOS, how to boot from USB, and you should be able to run your computer off of your binary code.
+ 
+And good luck to you, 
+and hopefully we can continue with the next tutorial when (and if) you return successfully back to Windows ☺

@@ -1,0 +1,95 @@
+OK, so let's see where we are in the grand scheme of things here. 
+We have printed a value to the screen that we have stored in memory and then fetched it out of there. 
+And I hope this part was apparent.
+What was going on there. 
+Let me be a little more explicit. Maybe if I marked up in my code a little better here. 
+So we're writing a value into memory
+then we're going to 
+fetch the character value from memory.
+
+There. Yeah, and here then here
+add an Offset for text. 
+There, OK.
+There. You can Save that under the name of your choice.
+I like to... 
+You know at 2 AM sometimes it isn't always obvious why you did something, you know. Whatever. 
+Next, let me just for a visual reference go over here and open 
+go back to in Lessons\ JumpNotZero
+Yeah, this is the one that 
+prints out everything on the screen isn't it?
+Just paste it all over that. 
+Save that. Have a look real quick.
+Yeah. Now it's a bit grainy. Why? 
+Cause we're in 256 color mode. Let me set that to 7.
+
+There.
+Yeah.
+
+Save that.
+Yeah. Looking good. 
+So there is our reference there. Let me also...
+Jump Not Zero if... I'm looking for something 
+I'm going to save a second copy of this here in case I'm looking for how to 
+PrintAllChars.asm
+Yeah. 
+Then I'll have that reference in there. Much easier to find when I'm looking for answers. 
+OK so there's a reference. Here...
+Let me go back. 
+There. That's where we were.
+Like that... Yeah oops sorry 
+Add offset for text. Yes.
+So as you know we have a value here. 
+If we use that value to pull one of our Character Codes 
+we would get 0, 1, 2.
+Mr. Happy here, right? 
+So if I wanted to print a number I'd want to be
+all the way down here in the Character Codes, right?
+So I'd want to add this many spaces to get there. 
+But I didn't know how many spaces it was.
+SO here I just kind of penciled it in. 
+But of course as you know we can go look it up.
+There's the ASCII table 
+and it starts out with a bunch of Command Codes. Control Characters at the beginning and then we get down to some symbols.
+Here we go. "0" starts at 48. 
+So I could have just as easily have put the explicit value 
+for the computer in there. 48 you know, and got the same results. 
+Likewise if I wanted to say start at "A" here. You know, I could put in 65, right? 
+Or I could just as easily say
+starting at 
+"A" right there.
+And one more thing. 
+If I want small letters
+I can start at 97. "a" See there. 
+Get this out of the way for now.
+There. So yeah. So if I want it 
+CTRL ALT G to release grab.
+OK. There. So this is an Offset value, right? I'm saying how many spaces to get to the number.
+What did I say 45.
+
+Gosh darn! Boy, do not click in here. It just drags everything to a halt. 
+Capital "A". I can say starting from "A"
+and then if I print the value I'll get 
+"A" would be 0, right? 1, 2, "C". See?
+If I started from here 
+I could use the numerical value
+or I could put "A" in there. 
+Save that.
+And I don't need the reference any longer. 
+So it should print "c" in the lower case, right?
+So in each case I'm changing the Offset, you know. 
+I'm describing the...
+here like for instance, 
+before we were using an Index
+where I said Index:Position 
+But that's not really the correct terminology.
+Should be Segment:Offset, right? 
+Like that. Right, so here we're defining a segment. Were going to a segment in memory, right? And then here these are...
+each line of this is an Offset from that Segment see? So likewise...
+just to use the correct terminology here, 
+This is our Offset
+An Offset of 2 starting at the Segment of text, of printable characters there.
+This value there. 
+So the memory thing works in a similar way.
+We jumped to a Segment in memory and then define how many places over for various code examples.
+So let's move on here. 
+I should just stop there and make the next one it's own recording.

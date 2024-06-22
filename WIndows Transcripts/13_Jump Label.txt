@@ -1,0 +1,60 @@
+The next kind of Jump Command 
+if you've done any programming at all I'm sure you're familiar with the Label. 
+So instead of counting Bytes
+I just want to jump to say, here. 
+So let's say ( here: )
+and shift. 
+That's Colon.
+Not a semicolon.
+
+And now there is a Label there.
+So now I can say, 
+instead of jump to a numerical value
+I can say just JMP to "here:"
+
+Let's try that. Save that.
+Go over there and 
+have a look.
+There.
+
+So it jumps over the first character to the second character. 
+So then of course likewise I could from there jump back to there. I guess, right?
+
+and then down here go
+JMP to there.
+
+Yeah see? That should create a loop, right? Some goofy loop. Figure 8 loop, I guess.
+
+Up arrow
+
+yeah yeah.
+
+It's kind of like it's Little Endian.
+It's in reverse. 
+It prints the second character first
+and the first one second.
+
+So then you know of course
+
+I can just say
+Halt there.
+
+CLI
+HLT
+
+For whatever reason. Just a quick demo.
+There. So
+
+I'll just ALT F4 outta there.
+
+So program's comin along. La la la.
+The computer's reading. It gets to here. 
+It says jump to down there
+and skip over the first character. 
+And then it reads that.
+And then when it gets to the bottom of that,
+jump back up there, 
+and la la then it reads and then
+end of program.
+
+And end of video.

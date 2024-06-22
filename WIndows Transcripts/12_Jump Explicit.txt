@@ -1,0 +1,159 @@
+Now that you are familiar with the use of the Teletype 
+we can go on to use this for some other examples. 
+Observe I have just made some edits to what I would consider to be a template.
+
+So now I'm going to go ahead and Save this.
+But generally I like to 
+keep my templates sacred once they're created.
+So what I'm gonna do here is set this to Read Only 
+and now it won't let me make any edits. I can copy it back over to my test.asm or whatever. 
+But now it will stay the way it is.
+I'm gonna open test.asm
+
+Up one, test.
+Now I can close my template
+
+and of course you know
+
+There. We want to be specific. 
+Which we do really.
+We're going to next... 
+I was just going to set this character back to 3 I think and color 4.
+
+In this next example...
+
+Let me see here. Let me just quickly Save test.asm and I'm going to...
+
+No, I didn't want to open a new Command Prompt.
+
+Oh, apparently I do. I must have inadvertently closed it before. Let me just copy my path
+the current directory path. 
+Go to CD paste.
+There. I'm back where I belong, I guess.
+
+Alright so that means
+if I want to
+
+just NASM -f bin T TAB -o B TAB
+
+There. We have compiled this. So I can look at B TAB
+
+Assembled it, compiled it. It's all the same.
+OK, that's kind of a bit of a jumble of numbers. 
+What I would like to do
+as you know
+
+We can go here and call Interrupt numerous times and it will 
+do the same thing over and over, right?
+It'll print the character and 
+then print it again and print it again. Yes? We know that. 
+We could also from here jump back to this point and then repeat the same command. 
+That's what I'd like to do. And here it's not exactly obvious where that jump point is. 
+So what I'm gonna do is, right here create a little roadblock, I guess. 
+Data Word FF
+Yeah FFFF 
+but it's going to be in Hex. 0xFFFF
+Like that. Hexadecimal value. 
+So now if I Save that and then go to my Command Prompt and I just want to NASM it.
+
+and then look at it. We're not going to run it and QEMU. There's my little
+
+bookmark.
+Yeah.
+
+So normally the CD 10 would begin here.
+CD 10 of course, hopefully you recognize by now that INT 16 in Hexadecimal is CD 10.
+You'll come to recognize the various commands just by looking at them in your Hex Editor after a while. 
+Which is convenient if you're doing your Lower Level Assembly working in Binary and Hex. 
+OK, here's where we want to be.
+So if I click here 
+well it tells us here but it also if the code were somewhere way down here it tells us the offset down here, which can be convenient. So I want to jump to 0C. 
+Now here everything is in Hex
+there's a way to also set it so like under Tools / Options / View / Base Decimal.
+Yeah. Look now everything's in Decimal here. 
+Look there's the real numbers.
+So if I wanted to jump to 12, 
+see? That's where we're going
+in real value right?
+
+But either way, you know? Let me just for the moment set that back to Hexadecimal. Yeah. But it's in there, you know. You can look at it either way.
+
+OK. So it doesn't say 12 here though. Why is that? Because these lines are not spaced accordingly to the amount of Bytes they use up. As we can see here MOV AX Word... 
+Let me click here and then here.
+Ah! It takes up 3 Bytes, right? 
+But on the screen it only takes one line. 
+So what if I... whoops
+added a little extra space there so now
+
+this begins...
+
+We're not counting the 0. That's actually... I mean 
+if this was 3 spaces it would be like that.
+But we're going to pretend that there's a 0 line in this editor okay?
+So we want the next command here to begin at 3.
+OK, there. Now it does.
+
+And the next command after that...
+This takes up 2 Bytes. OK? 
+So we're good down to here. To the 5. OK there's the next command. 
+How many Bytes does that take up?
+That takes up 2 Bytes. So 1 2 Enter. There. 
+So then the next command begins at 7. Click here.
+
+That takes up another 2 Bytes.
+You see?
+
+So the 9 MOV BX is this one, I guess.
+If I click here... 
+Ah! That takes up 3 Bytes, you see.
+So after MOV BX then...
+
+Boom! Like that.
+
+Until our FF.
+OK, so now
+
+this comes in...
+Let me remove our little
+
+note to self here.
+
+OK so now...
+
+Oh what did I say? This is 3 Bytes. There.
+So now this comes in at line 12 right? Which is C. 
+So I can now from here jump back to here using a Jump Command. 
+And let's just go ahead and write it in Hex. 
+0x0C
+OK?
+
+Let's Save that
+
+and we will go over here. We will NASM and QEMU our binary (B TAB).
+
+There. So now there.
+It's expressing it's endless love to you. Yeah. 
+We're in an Endless Loop. You know?
+It's printing the heart over and over and over and over.
+Not like it's going to fritz out your computer. 
+That's what your computer does.
+It's printing the screen on your computer over and over and over and over and over continuously you know. And that's what allows your mouse to move and create animation and such.
+So there you go. That is in an Explicit Jump. We're jumping to a specific point in memory.
+Let me just again set this back to Decimal. 
+OK, yeah. We are jumping to
+again CD 10 is the command that we know as 
+INT 16. Call an Interrupt.
+And here I've set it to decimal so we can see it begins at line
+12. So instead of using Hex 
+I could just as easily say in decimal
+jump back to line 12, like that. Save that.
+
+Not like that's a huge difference but why don't we just look at it anyways?
+
+There you go. And I might as well CTRL ALT F for fullscreen. There.
+
+So there you go. You can show this to your significant other and go 
+"Here look! This is all that's running on my computer. My endless love for you!"
+
+OK folks.
+OK, so that is Explicit Jump

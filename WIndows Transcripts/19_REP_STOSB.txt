@@ -1,0 +1,90 @@
+So you know you go on the internet, you grab some bits of code here and they're poorly commented. 
+So you're like "OK what does this do?"
+Well good way to find out is just turn it off and see what breaks, I guess.
+Got to Save here first. Go over there... 
+Ah, nothing broke.
+So I don't even know why I have that in there. 
+Maybe just some bit of code I copied.
+If anything breaks I can always put it back. 
+Some little bit that had something to do with something else. 
+I distill all of this down into the least amount of code possible. Yeah. 
+OK. So I believe I said in an earlier video here that there wasn't a single command to just clear the entire screen. 
+That's not entirely correct.
+Let me demonstrate one here. 
+I'll go all the way up to here
+and just delete all that for the time being. 
+OK so it's a string operation.
+REP STOSB
+
+Yeah that should fill the video memory
+with the color specified. 
+So we'll want to specify a color
+Let's see. 
+So I'm going to MOV into AL
+0x03 
+which I'm sure just 3 will do just fine.
+Let's see. Oh, and we have to tell it to how many times to repeat.
+So we're going to use our traditional counter. Into there,
+since it's the entire screen, 
+we want to calculate the entire screen.
+MOV CX 320 * 200 like that. Uh huh, and let's see. And we want to tell it to start at the beginning too. 
+So XOR DI 
+DI Let's see what happens. I'm just going to Save that. 
+yeah
+okay 
+I am hitting Enter here. Why is it not entering?
+There. Have to hit Enter twice. OK. 
+There. We have cleared the entire screen the color blue which we have set here. 
+Color 3.
+So you know I could change that to something else
+
+Whoops, I did the booboo there.
+CTRL ALT G then ALT F4 
+What do we got? Yeah that's another color, see?
+Let me just go back to 3 here 
+but I'm going to take this.
+Copy this whole thing 
+and then Undo a bit till I get back to where we were before. 
+There, that's the whole thing. So we can therefore put 
+up here before the Draw Loop
+I'm going to clear the screen here. 
+Paste. 
+Save that. Have a look.
+Ah, we cleared the screen. 
+Hang on here.
+Where's our animation though? 
+Let me guess.
+I'm reusing DI here 
+oops. I'm gonna Copy this
+and then right down here clear it again.
+
+There's our animation 
+but the pixel is still clearing the screen in the old background color here. 
+So where do we set that background mouse color?
+3 
+There.
+Animated pixel on a background. 
+OK but we cleared the screen outside of the
+draw loop there. So observe here...
+
+So where do we set that background Mask Color?
+3 
+There. Animated pixel on a background.
+OK. But we cleared the screen outside the Draw Loop.
+So observe there 
+Here we put a value into CX, yeah? But we never decrease CX see? 
+This function, whatever you want to call it, automatically looks in CX and does the counting for you.
+You just have to have a value in there. 
+So that is built in. 
+OK, so that is Clear Screen
+Ah, I see where made a slight error here. 
+I didn't need to XOR DI a second time there.
+I just needed to set... 
+I should've pasted this above that.
+So it would be like that. 
+There. I don't think I need this either.
+Let's try that. 
+Yeah. Starts from the initial position,
+animates against the background.
+
+There you go.

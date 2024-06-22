@@ -1,0 +1,105 @@
+OK once again for reference let's have a look at that. There it's fairly slow. 
+Let's say you wanted to make it just a bit slower than that. 
+You'd want to increase this some more. Not a problem. You can do that. 
+However, let's say we put in about
+one hundred thousand. 
+Then suddenly past a certain point it doesn't seem to be increasing the duration any longer. 
+So what the problem is
+We've gone over here 
+Well to make a long story short
+the max limit would be 65535, I believe. 
+And then once you get to go over that, it's not going to give you an error or anything, but it doesn't go any faster than that. You can put two hundred thousand there. You're still going to get 65535 as your max value. How do you get slower than that? 
+Well, what we're going to do is we're going to copy our entire delay loop here. OK. 
+And then inside our delay loop...
+Let me go TAB one time and Paste. 
+OK there's... and I'll just inset everything for clarity. 
+And of course we're reusing some variables here. We want to rename them. 
+Instead of CX I'm going to go to DX here
+and here, DX. 
+We have two loops with the same name. That will cause a conflict. So we will call this our inner_loop
+inner_loop Copy that right over this one. 
+There. OK so now we have two loops going on. Now this is astronomically slow. 
+In fact it would probably be so slow you would not see any movement. 
+I'm going to bring this back down to say
+15000 and maybe 100 here. 
+And we'll Save that and see what happens.
+Not bad. 
+OK. So that's a reasonable speed. Still a little speedy depending on what kind of game you're writing.
+Let's bring that down to 200. 
+Now of course all of this will be different
+with a faster processor, slower processor. 
+You can't just time this out and then necessarily send it to your friends to view, or something. You would deal with all that a little differently.
+But just for simplicity's sake. For learning, you know. We're just kind of penciling something in there real quick. 
+Adjusting the timing. Beyond that is somewhat more complex. But gets our foot in the door, okay? 
+There. That's pretty good speed. OK so I'm sure you may remember the Snake game, where everywhere you go you leave a trail? You can kind of get an idea of how the programmer came up with that idea now. He got this far and
+couldn't figure out how to make just a dot, you know. So he was like "Oh, I'll just make a game where you leave trails everywhere you go!"
+and yeah Snake was born.
+
+So we want to get rid of the trails if we can next, I guess. 
+So let's see... we'll call that
+NestedLoop here I think. We're all saved 
+Save As up in Lessons.
+I did a dry run apparently and already did NestedLoop
+But for your benefit 08_NestedLoop.asm 
+Yeah, put it right in there. Yeah, overwrite that. 
+There you go.
+OK
+
+OK so NestedLoop should be saved
+there 
+Set duration....
+Set the timing here. Yeah. 
+OK 
+Check to see if value
+is reached.
+
+If yes, bail.
+There. Good to go. 
+Let me Save NestedLoop
+Edit / Set Read Only 
+Read Only. There. So now you can't edit it. You can only Select All, Copy it over to test.asm 
+CTRL A, CTRL V
+and I'm going to Save test.asm 
+Close that. OK, good.
+Alright so just one more lookie here. 
+What's going on?
+We're leaving trails. You can see how Snake, you remember that game where everywhere you go you leave a trail and you try and box in your opponent?
+You can see how he came up with the idea for that. 
+Programmer got up to this point was like "Oh man I can't figure out how to just make a pixel. Well let me make a game out of this." 
+and Snake was born.
+There you go.
+
+But we want to see if we can make the trails go away. 
+And the way you would do that...
+We want to kind of erase 
+what's already been drawn there.
+The way I'm going to do that... 
+I'm gonna Copy this and then
+I'm going to change this to the background color. 
+And then down here after the exit_animation
+CMP exit animation 
+paste it back in
+OK so now that's the character color. 
+But this is the background color.
+Background color 
+and we're making a Mask, essentially.
+Let me just Save that real quick. 
+See what happens.
+There. 
+So the trails are being erased because we are...
+So the very very first pixel is not drawn. 
+That's an unfortunate drawback of this.
+Yeah we erase position 1. 
+We start at 0 and then draw it the background color. So that it never gets seen and then 
+Then we increment. See?
+And then we draw our first character. So our first character technically it comes in at 1 instead of at 0 in this scenario. 
+That's a little drawback. If you really really had to have it there's ways to get around that too. Draw it up there before the loop, you know. But there. 
+That is your basic animation.
+Let me just bring it up again here. 
+Yeah. Now normally I don't know if you've programmed games in Javascript, or whatever. You know you clear the entire screen and then draw your character. 
+This is just kind of a down and dirty way to get something happening. 
+Because there's not a simple Clear Screen Command at this level. It's kind of complex, you know. 
+And trying to do that ends up in some choppiness 
+in the animation. Flickering, right?
+And then the way around that is to make a Frame Buffer and all that. But a little more complicated than this level of the tutorial. 
+But there. We've got our very rudimentary animation going now. Animated Pixel.

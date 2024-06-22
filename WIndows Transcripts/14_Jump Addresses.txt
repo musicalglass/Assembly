@@ -1,0 +1,206 @@
+Let me attempt to clarify something here. 
+So here I have a Jump Command. It says to jump to here.
+
+I'm gonna lose this and this
+for now.
+
+There. I'm going to Save that. Let's go NASM, see what we got. 
+There. It jumps over the first character to here and prints out the second character. 
+Straightforward enough. OK
+
+Let's look at our Binary here.
+OK. 
+So let me see if I can get everything visible a little bit here.
+
+Let's see, what do we got here?
+It's a bunch of numbers. 
+What do we got for reference?
+Well, we know INT 16 is CD 10. Don't we? 
+So if I go to the end of CD 10 scroll down here.
+What is that? MOV AH? There's MOV AH. 
+E must be 14.
+Yep sure enough. 14 in Hex
+
+Jump here. Ah, here's what I'm really looking for.
+I want the other INT 16. 
+I'm sorry the second INT 16.
+End of INT 16. 
+CLI. There's CLI see?
+Now just a little bit more that way there.
+
+INT 16
+
+FA equals CLI
+I'm gonna click here for a second. 
+It just takes 1 Byte. Interesting.
+OK, so now if I right arrow
+
+from here FA... whatever!
+I get F4 is HLT right? 
+And then right arrow. I got MOV AL. See? Between there is no "here:" 
+in the code. In the Assembly code. No.
+Instead let's find the actual Jump Command. 
+INT 16 where was the first INT?
+INT and then MOV AH
+
+That's the number 14...There.
+Here. Jump Short 
+B
+What is B in Hex? It is 9 10 11. 
+OK so this is saying jump 11 places from here.
+See it does the calculation. 
+Let's do the math. 2 3 4 5 6 7 8
+We know this is 1. We just saw that. 
+9 and then the Jump Command itself is 2 more. Isn't it?
+
+Where was our Jump Command?
+Oh, right there. There's our Jump Command. 
+So JMP 11 will get you to here.
+Well, let's try that then. 
+We know that when it's
+Jump Relative from here 
++11
+There. Save that and head
+
+close that
+
+NASM
+Look at it.
+
+Yeah see? So it jumps...
+It does the math
+
+when you create a Label, in other words.
+It does that part for you.
+
+OK so 
+I don't need any of this now.
+I don't need any of this. 
+Let me go back to the other Infinite Loop example, I guess.
+
+which was -2.
+-2 right? 
+So that should make it jump right back to here and call the Interrupt over and over. 
+Let me first see if that works.
+I have to close this.
+
+NASM it.
+There.
+
+There's our
+Infinite Happy Character there.
+
+Oh gosh, get out of there!
+ALT F4.
+
+Let's look at the B TAB
+
+over here.
+OK
+
+Where is our Jump Command? There's INT 16
+there's our INT 16. So after that comes Jump Word. OK
+Now this is where it gets kind of strange.
+
+Instead of -2 now
+
+it turns into FBFF
+
+word like that
+
+so does that mean I can
+
+replace that with that and it still works?
+Well it should
+
+Save that .
+
+Try it.
+
+No!
+
+There is some weirdness
+OK so you remember in an earlier example, 
+my much more popular than expected
+"Writing a Program Using Ones and Zeros" 
+Right after that I did some disassembly
+and was able to go into
+
+Let's look at our B TAB
+Go into here and go down here 
+and grab some stuff right?
+And reverse engineer it, right? 
+Doesn't always work 
+as illustrated here.
+Here I took what was supposed to be the correct code, put it in there and I got an unexpected result. Now 
+and what came back is yet another number and it doesn't go 
+it's like translating into one language but it won't translate back see?
+
+Very odd. So I dunno if that's a discrepancy with the HD Hex Editor or just another fine example of my lack of understanding of Computer Science.
+Most likely the latter you know but
+
+Yeah just a note to the viewers following this course. 
+That's not a reliable method of decompiling a program. 
+If you're out to be a hacker or whatever there are more efficient programs for decompiling made especially for that.
+
+I probably won't go into that.
+If I do way much further down the line.
+
+I believe Nick Blundell has a short video on that on YouTube.
+
+OK, so yeah.
+So what's going on here now?
+
+Let's see if I can back up to where it was before. Yeah -2. Save that.
+
+It's working again.
+ALT F4 
+Let me look at the B TAB
+
+Click in here...What's going on here now? It says Jump Word instead of the -2 I put in
+
+right so you remember when we
+instead of jumping back 2 places this way relative
+if we went explicit
+
+Save that and
+
+verify it runs. ALT F4.
+B TAB
+
+here now
+
+I wrote a 12 But here's the thing I'm not getting 12 here. 
+I'm getting these
+
+I'm getting
+FF55
+
+you see?
+
+And what it breaks down to
+
+it's saying Jump Far I believe
+Offset : Segment 
+And to try and oversimplify that as much as possible 
+Let's say
+you have a maximum value that you can store in 16 bit. Up to from zero to 255. Yeah right? Let's say just as a crude example you have a hard drive and it's got 1024 spaces in it and you want to access #750. 
+How do you represent the number 750 if you only have 255 spaces ok?
+
+Well what you do is you create an index essentially. 
+Where, let's say you have 
+like a book now with 256 chapters and in each chapter is another 256 pages.
+
+Right see? So now you can say go to chapter whatever, page whatever. You see? That's the way an index works. I'll cover those a little more later on. But that's essentially how you end up with this big number.
+
+It's like rolling around somehow to get back to past 0 to the number or something. If perhaps someone, one of our viewers who is more knowledgeable on this topic... 
+But again it doesn't reverse engineer. If I output it it'll come back a different number. If I try and copy it from down here see? I got... here look. It says FFF5. 
+But here it's telling me it's F8FF see? If I copy that I'll get another number over there 
+and if I copy that I'll get another number. So you know 
+You tell me. I'd I love to learn a bit more about it. 
+But I don't need to go down that avenue too much further.
+
+Like I said we'll deal with Indices
+later on down the line.
+
+But there you go.

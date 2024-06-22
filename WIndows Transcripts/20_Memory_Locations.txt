@@ -1,0 +1,152 @@
+OK, we've been introduced to rudimentary animation. 
+I'm working in the test file. I suppose I no longer have to tell you to save your files under various numbers and names in whatever folder. I'll take off the training wheels and assume you may want to go ahead and do that yourself. Keep a chronology of what you've learned. 
+I find it helpful to be able to quickly go back and 
+"oh how did I do that thing?" make a mask or whatever then you can have that somewhere by name in a file.
+So you know, we did a static pixel, right? 
+And then we took that and did a basic animation where we're leaving trails. You know, your Snake. I called it Snake. I seem to remember in the early days the game was single player and everywhere you went you left trails, and you try not to run into yourself, right? And then later it became Tron, right? Where it was 2 players and you try to box in your opponent. 
+And then now the modern Snake I guess is where you start out as a single pixel and then you go around eating things and each time you do then it adds another pixel to your tail 
+and you get longer and longer. Yeah?
+Anyways I digress. And then we did a Mask. 
+You know, how to just cover up the trails with a single pixel over it, right? 
+We went and did some basic Timing,
+and then we further refined with a Nested Loop. 
+You know, so all good things to Save my name.
+Next I want a copy from Lessons folder our Teletype
+into our working file. 
+Yeah you know, I'll just click over here.
+Yeah we're good or Enter. 
+There so... It prints an "H". It print's "HI".
+We don't need the increment part. 
+I'm just going to go back to a number value here.
+And here let's see. I'll just go with 7 
+Set Text Mode. Like that.
+The Teletype... I'm just gonna call this down here before I call the Interrupt.
+Don't need a color value. 
+We'll just let it be Default.
+Good to go. Let me just go ahead and run that. 
+Whoops!
+"Y" not? 
+I need to go to NASM it
+I got 2. Why do I have 2? Uh, guess why. Because I did
+not clear the 
+Clear C or whatever first. OK. I don't want to worry about that too much. 
+I'll just go... HLT
+
+Yeah.
+For now. 
+Demo. OK, so anyways I got this character
+that we have written in here. 
+Next I would like to... you recall in ...
+maybe if you're following along with this course where
+we Jump to an Explicit value 
+in our program, right? I had you do it the hard way first, you know. 
+Where you went straight to a number instead of the pansy way where you create a name for it. A Label, right? 
+For a reason so as to familiarize you with the numbers. 
+There we jumped to somewhere in our program.
+This time we want to take this value and 
+store it to somewhere in memory here, or whatever.
+So the way I would like to do that...
+
+First I will define where we're beginning in memory 
+just to be explicit.
+And the way you do that is ORG 
+we'll go with 0x7C00
+There. That specifies a Segment of where the program is going to begin in memory. Right? 
+Good to go. So then now that that's defined I know that 
+I can move something into another place in memory.
+And the way you define that is 
+inside the brackets [ ]
+We'll make it a different place. 
+Oh, interesting. It asked me, do I want to go here? 
+You can actually. I've seen examples
+and if I hit Enter it fills it in automatically. 
+On a simple level I could run...
+do that starting from here 
+and the program would run and then it would start overwriting itself when you wrote things in there.
+So you don't wanna do that too much. 
+So we will instead put that a little later in the game. 
+Down here somewhere. In memory, you know.
+We're writing to RAM here 
+and of course we want to say what to write to RAM.
+Our value of 2. Splendid. OK so next 
+I'll just say
+; Write value to explicit memory location. 
+OK/ Next we'll retrieve that value out of memory again. 
+I could write it into AX. But to just to keep it short we'll just go directly to the Lower Byte. 
+Here basically so I don't need to type this again. I'm already doing this. 
+So now I have this value here. You know, in an Explicit location. 
+I can just fetch it outta there by writing it into there. Yeah. 
+Let's see if I have foretold an accurate future here. 
+Let's Save that. Have a look.
+Line 6 Operation size not specified. 
+Oh of course!
+I have to MOV a BYTE. 
+Yeah, let's try that
+Yeah. So there's Mr. Happy. 
+Our program is running.
+So there. Just to introduce to you to memory 
+I've written a BYTE explicitly with a value. Fetched it out. 
+And I know that this is not going to conflict with the program because I have specified. 
+Now you recall here
+for every dollar you spend, right? 
+The way that works
+if I were to now take a... 
+where is it?
+Here. AL equals $ or whatever... 
+This won't print out of course. But you know. 
+If I just print out as the value of AL it would tell me this, you know. 
+I'm not worried about that at this moment.
+And so $$ there 
+is this value plus 1 2 3 4 5... as far as the program... 
+how many lines have progressed since the beginning of the program. 
+So therefore if I subtract this value from this value it tell's me how many lines are in my code at this point when the program is called. There
+Defined that a little more explicitly too. 
+So there.
+Yeah I don't need to put a comment there saying "origin of our code". There it is. ORG, you know?
+There. Let me Save it. Now that I've 
+just to be a glutton for punishment.
+Yeah. Now that I put something in there it no longer writes 2 characters.
+So that is good to go too. 
+That was just a quick pencil in.
+I panicked! 
+Yeah, there you go.
+Writing a value into memory. 
+And then you can do whatever and then later go back and retrieve it.
+
+One more thing real quick I suppose I should add in there. 
+Here... Let me just
+There. I put in the value 2, right? 
+and we get our character.
+What if I actually wanted to print out the 2? 
+Right? As you recall when I printed out all the characters, all of the ASCII characters 
+that it started with a couple of characters, and then 
+heart, spade, diamond, club,
+
+and then a bunch of
+non printing characters, right? 
+And then further down the line there was your text and numbers and stuff, right? 
+So meaning the actual number value, if we wanted to print it out begins much later, you know. 
+So just for a quick trick
+we know that the value of the character 0... 
+Well, we don't know the value for the character 0 do we? 
+But what we can do... We know it's just a number, right? 
+So what we can do now that we have our character value in here 
+we want to convert to a number all we have to do is add to that
+
+"0"
+Like that. And now it'll say: 
+beginning at this number printout + this.
+Right? Hopefully that works. 
+Let me just Save that,
+and let us have a look, shall we? 
+Invalid 10... Whoops! I'm sorry.
+I add zero. 
+I didn't say add zero to what, you know.
+Which of course to add AL. 
+Add to this which value is stored in AL add the zero. 
+There. I'm sorry. I'm trying to talk and type at the same time. 
+There. So now it prints out the actual numerical value. 
+Of course that only works for single digit numbers between zero and nine, you know. 
+But that's just this nifty little quick trick if you want to start seeing the actual number, you know. 
+Starting point.
+Nice.
