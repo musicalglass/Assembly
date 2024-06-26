@@ -1,0 +1,56 @@
+I was encouraged by the number of subscribers I picked up after I decided to post my tutorials for Assembly for the Commodore 64. 
+That was cool. Thank you.
+Wasn't expecting that. 
+I got likes before not subscribers.
+You know, so then I figured oh well ya'll might want some more.
+So I went ahead and posted my Assembly for the PC tutorials as well
+and perhaps some of you are following along with that too.
+But for those who wanted to delve deeper into the Commodore 64 I did have some on my github.
+I went ahead... github/musicalglass/Assembly folder here
+HaydenToC64 
+I posted my further work because I was going through the book and 
+as you recall the Commodore 64 Assembly Programming Language with the Hayden Assembler and it uses a proprietary language, right?
+It's own flavor of Assembly, right? 
+So a lot of the stuff here is where I took
+the programming examples out of there and translated them to normal Assembly for the Commodore 64, you know. 
+So there's a bunch of those examples.
+You can see 2_5. They were listed in the book. 
+2_6, 2_8, you know they had this number convention, you know. 
+So I went quite a bit further than the 12 or so video tutorials I made. 
+But I assume by now you got the hang of it and if you want to go further you can read further in the book and... yeah just read the book. You know, and follow along with the examples I posted, right? 
+So... and then I went pretty far up to Chapter 4 there and 
+so if anybody wants to go even deeper into the book than that you know and do 
+Like I said I'm translating from Dr. Watson Assembly to Commodore 64 Assembly. 
+If you want to continue with that journey and go even deeper 
+it's quite a book. I've read further.
+But I don't have a collection of examples that I've made, right?
+But if you want to do that feel free to shoot me some of those files.
+I would love to just add them to the repository to have handy, you know.
+Also, I don't know if you even noticed but my tutorials have Closed Captioning.
+So if I was stuttering or said something wrong maybe I might have corrected that when I went back and had to hand type the Closed Captioning there. 
+So I notice I picked up a lot of subscribers from round the world. Russia, all over. So that's cool! 
+You know, and so if you wanted to take the Close Captions, you know if you feel the tutorials are worthy to share with others,
+and translate them into your own native language 
+I have included the transcripts.
+There's the transcripts for my Commodore 64 video tutorials and the transcripts for my Assembly for the PC video tutorials as well are up there. 
+And I might later post like a wishlist of things that I'm trying to work on, on the PC Assembly later.
+I'll put that at the end of that video (Playlist)
+
+So if you want
+want to translate these in your native language 
+it's very straightforward you know.
+You just go and 
+you can get most of it done in a translator.
+You know, Google Translate will do like 90% of it. 
+But of course it has trouble with
+programming terms and stuff, you know. 
+So you need to go back and kind of proofread it and everything. 
+And then you can shoot those to me and I can 
+offer Closed Captioning in other languages as well, you know? 
+Very cool! So yeah you know if you want to help out with that it's very much appreciated. 
+I do appreciate that I picked up a bunch of subscribers you know you can feel free to upvote. 
+I'm not out for any fame or glory.
+But of course if or when you do find quality information out there,
+You know giving it a thumbs up does help bring it up in the Search Engines when other people are trying find information as well. 
+So that as well can be helpful, you know.
+So yeah, happy coding. Enjoy ☺
