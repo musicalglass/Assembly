@@ -1,0 +1,19 @@
+OK why don't we see if we can just flip through this kind of quick here? 
+So there's a rough graphic illustration of your Flags that can be set. 
+You can see some are reserved for the system, or unused, or whatever. 
+So these are the only ones we really need to worry about. 
+So when we do a Compare
+CMP 3, 2 
+You know is a subtraction really. There you go
+is what's actually happening there and 
+I'll just kind of flip through these I guess if they are of any value to anyone. 
+A few different math operations.
+Subtraction, different kind of comparison. AND, 
+let's see... Addition. Normal Addition without the Overflow. 
+Addition with Overflow. Here we're in 16 Bit. We start with 127, add too much and it sets a Flag Carry. OK.
+Let's see... Interupt... 
+Please, and if anybody wants to go back and double check my numbers here in case I didn't get something correct when I did the graphics...
+Yeah 
+There you go. Yeah.
+So that's your basic idea with the Flags. So when you call various...
+Once the Flags are set then you can access those with other commands such as your JMP commands. OK. I'll cover that next.

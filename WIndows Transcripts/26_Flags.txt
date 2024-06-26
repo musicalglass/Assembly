@@ -1,0 +1,66 @@
+I already did this video and then I went back to upload it and there was no sound. So I gotta do it all again. Lots of fun.
+So apologies if I tend to repeat if I tend to repeat things I already said in previous video. Just consider it reinforced learning I guess. 
+So where are we in the grand scheme of things?
+We have made a value and checked whether it's one or zero, right?
+Could be a big value. Doesn't matter to us. So next...
+Oh yeah apologies for, in my previous video Jump Zero where I introduced Booleans, you know. It was atrocious. 
+When I was watching it I didn't clearly state the objective, I mumbled a lot, I got lost. Oh my god. I must have been half asleep.
+I do apologize It 's biorhythms for me. I have days where I'm brilliant and other days when I'm dumb as a mud fence post, you know. 
+Nothing I can do about that. Just part of my natural rhythms. 
+I have to accept that, you know? OK so sorry.
+I notice I go back and have to do the markup on the Closed Captioning, my videos have closed captioning you can turn on and see everything that I'm saying and when the Closed Captioning comes back with a bunch of garble you know like (unintelligible) and sometimes I can just correct
+that in the text, you know. 
+But when it gets to the point where I cannot correct in the text whatever mess I said then, well it's time to go back and do the video over. But I made it through that one poorly enough. But we did progress to the point where now we can check ones and zeros and print out a Binary value. So I can proceed on with the next lesson. 
+The topic is Flags.
+Let's talk about 
+Flags not something you wave.
+And people do talk about it when referring to Assembly.
+The need to check Flags or whether or not you set Flags and whilst many, or some you know, seem to understand it, there are many more that seem to just have a more abstract concept of what Flags actually are. 
+So what are they actually? Let's talk about that.
+In the 1s and 0s video there we stored a value in... let's say... big 16 Bit value. I don't know if that's 16. I didn't count. But whatever. Big 16 Bit value and we're storing a 1 or 0.
+That's a huge kind of waste of memory. You know I could put 35,000 in there, you know.
+So let's keep that in mind. Take that on board whilst we proceed a little further.
+So when I do a comparison here, I got a value in AX. I want to compare it to 3.
+Uh! That's a new thing I've been doing lately. 
+Need to move my keyboard slightly to the right, I guess. There. 
+CMP, 3 OK? (should be CMP AX, 3)
+Now when you do a comparison or other mathematical operation certain Flags are set.
+And the way that works is: under the hood... 
+Like for one thing when you compare, it'll subtract one value from the other 
+and that can give you information about the relationship between the two. 
+For instance if they are both the same we know not only that they are equal, but also that they are not greater than, and not less than, and other things. So with a few, you know, I dunno how many quick calculations under the hood, your computer can determine a lot of different things about the relationship between these two values.
+And once those have been determined, it stores it somewhere.
+Now back in the days memory was at a premium, you know.
+So to just store a True or False value in a big Byte was a huge waste. So what you would do is you could store whether one thing is True or False here, and whether another thing is True or False here, just as Binary Bits. 
+You know, you're only affecting this one Bit.
+It's either going to be a 1 or 0. 
+No chance of it overflowing and affecting any of the others. So it's an efficient method of data storage, right?
+And so that goes way back to the days when you had only 4 Registers and memory was... you know, it took too much. 
+Anyways... do not digress too much.
+So anyways, when you do the Compare is stores these
+values about what happened in a Flags Register it's called, right?
+In Binary. So we want to look at that. 
+We know how to take a value and look at the ones and zeros. 
+And so the way we're going to do this...
+First you have to... You can't look at it directly according to Intel.
+You can't look at the value. You can't change the value, you know. But there is a little kind of workaround. 
+I can push the value of the Flags. I can PUSHF
+OK and... for the last calculation, you know I did this thing, OK, and some Flags have been set. So now I'm grabbing that and pushing it onto the Stack. Alright so now that I have that on the Stack I can POP it right back into somewhere where I can look. I'm gonna POP it into BX. And now I no longer need this bit where it converts AX to BX. 
+BX is in the memory and I can run the tests and everything on that now. OK, so let's see what happens if I run this. Cause talking and typing at the same time... 
+or actually saying one thing while you're typing another... Oh yes. OK, what did I do? 
+Compare what?
+Compare AX. There. 
+; CMP 2,
+Let's see what we got. There. 
+So this is the Flags register, right? So let me...
+I can do some quick Subtraction or Division or something and depending on what I do different Flags can be set. 
+So I will do some quick demos of various mathematical operations and demonstrate which Flags are set when you do each of them and what they mean in the next upcoming video. I will do it in a separate video so if I may make any errors it's easy to go back and splice in some changes. OK. There we go. So that is your introduction to Binary. 
+Yeah, both storing Binary, Boolean Operations in a single Bit and introduction to Flags. 
+Let's look at some.
+Ah! Real quick while I'm here. 
+You see this often in code examples on the internet and Notepad++ recognizes that as code. What does it do? This is for the Gnu compiler. The Linux world, if I'm not mistaken. 
+And it tells the compiler that all of this is 16 Bit. 
+But I'm not delving off into using any out of range variables or anything. I am in 16 Bit and am not using Gnu. So like
+half of my emphasis here is stripping down all these different flavors of Assembly you find all over the place and convert it all to 
+Flat Assembly. You know simplify, simplify. You know, and then you can all go back and toss in all that page and a half of unnecessary code at your own leisure. 
+OK so yeah, that's what that means. Like if you're working in 64 Bit. You know, programmers are doing some higher level 64 Bit programming, and then you want to do something in Lower Level Assembly, because it's just plain faster, right? So you can jump from 64 Bit down to 16 Bit and back again and then compile it all together into a single program. That's why that's there. OK just a little aside note to mention.

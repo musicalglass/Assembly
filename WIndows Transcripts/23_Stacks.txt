@@ -1,0 +1,124 @@
+Another way you can store values in memory is using a Stack. 
+Yeah so let's set this up a little differently. Let's say down here in our Print Subroutine 
+Let's just go ahead and make it so it prints the numerical values. 
+Here... oh yeah! So here I'm using quotations " "
+
+Seems like most people just use the ' ' 
+You can do it this way ' '
+as well. It's easier to type. 
+I just seem to prefer hitting Shift and using quotations " " when I do it.
+
+So I'll stick to my paradigm
+you stick to yours. 
+Alright, so now this should print numbers but it will not print 
+a value higher than 9. 
+0 to 9 only, or it will print some other weird character. 
+So for the purposes of our demo here
+let's say we have a situation where we want to print a character and then... or do something in code. 
+And then later on we want to print that.
+Fetch the value. Do it again, you know. 
+But then in between we have something that messes up whatever we have stored in memory. 
+OK here, I'll even go so far as to just...
+Let's just wipe out AX entirely for demo purposes. 
+XOR AX
+OK, there.
+
+So we know whatever was going on in the code is going to get destroyed here. 
+But we want it back again there.
+
+OK, so a quick way to store things in memory
+is Push and Pop. 
+OK, and you can Push a value into a place in memory and then Pop it back out (Onto and Off) the Stack. You know, and yeah Stack is what it sounds like. Like a pile of memory. 
+OK we'll talk more about that when we do it.
+So here I could go Push AL. 
+But the problem actually here is
+we're calling another Subroutine and when you go down in the Subroutine it messes with what's in AX and stuff too. 
+So might be wiser instead to
+copy the data to the Stack 
+up here before we call Print, right?
+and then I can 
+do my destructive code and then
+down here I don't need to move I can just... 
+not Pop that. Sorry
+Pop AL
+
+I should just type it. It's 3 letters instead of copy and paste it. 
+Like I said it prevents spelling errors when you copy and paste them. 
+OK so Pop AL That's all I need to do. There. 
+Let's try that. Whoops, I closed my
+thingy there. I need to go get my path.
+
+Yeah, we'll NASM and QEMU that.
+
+8 invalid. What'd I do?
+Push AL... Oh I got it. My bad, my bad.
+
+I can't just Push the 8 Bit value here.
+So good illustration. You know. 
+This is what I wanted to do.
+I can't do it that way I have to 
+I can only Push the entire 16 Bit value
+so I have to Push AX in there 
+and then I can pull AX back off the Stack. 
+There. Good lesson I hope.
+Let me Save that.
+
+There, 232. You see? That is Push and Pop.
+We are Pushing things onto the Stack. 
+Now another a great thing I could...
+Like if I'm working with an entire deck of cards. I'm making a card game or something. I could put 52 things on there. 
+I could put like 35,000, somewhere in there,
+things on the Stack. But here's the thing. 
+Let's say I'm going to Push a bunch of things onto the Stack here. 
+Here let me go up in here. We'll go
+character value. 
+I'm not going to print it.
+OK so, first character will be 1, second one 2, third one 3.
+There. And we'll Push several things in a row onto the Stack.
+And then down here... 
+let's forget about this bit here
+We'll just go and 
+Pop it and print it.
+We'll do that for the rest of them there 
+and have a look at what's on the Stack.
+OK. 231. There you go.
+
+So keep in mind this goes way back to the early days when all you had was your 4 registers; A, B, C, and D, right?
+
+And of course if that's all you got to work with the you can quickly run out of space. 
+So some programmer's like "Hey! I need somewhere where I take some of these values and store them while I do something else and then retrieve them". 
+And so some engineer's like "Oh no problem I'll just make a circuit where you can throw everything onto the heap and then when you want it you have to pull it out in reverse order" right? 
+I dunno whose brilliant idea that was.
+But I'm sure you can take a wild guess, right?
+
+So the other thing about the Stack is I can also tell it where I want that Stack to be in memory. You see? Down here after ORG I guess is a good place to do that. 
+And the way you do that... First let's...
+I don't know why this is distracting me 
+MOV AX We're just gonna tell it
+where in memory we want our Stack to begin. 
+That will be 0x9000 as you know from the previous video. 
+There's our ORG. So I'm saying start our Stack down here somewhere over here where it won't interfere with our current code
+and MOV SS 
+defining where our Stack begins.
+Whoops! MOV SS. There. 
+Comma AX. This value. OK there. So I have set our Stack, alright? OK. 
+Where it begins in memory and then we want to set the Index value. 
+Remember Segment:Offset right?
+So now we want to say where the Offset is 
+that is MOV SS (Stack Pointer) OK?
+and this is backwards of course. 
+So you start from the last first, right?
+So the Stack is of course an example of LIFO. 
+L I F O meaning Last In First Out.
+You have a deck of cards and you're laying a bunch of them face down on the table and then you want to start pulling them off again. 
+You know, you take the last one off first and so you're working backwards. 
+So that's the way your Stack works.
+Last In First Out. OK? There. That is Stack. 
+Of course this is... Push and Pop. Stacks, yeah, you probably don't use these in Higher Level Programming Languages.
+But you see it all the time in Assembly. 
+For this reason. Because you run out of room.
+You have a limited amount of memory. You want to store it somewhere and retrieve it
+and that saves you having to go in and name the specified places in memory.
+Here of course I've specified a place in memory for the entire Stack and then that way I could have more than one Stack. I could have a Stack of cards over here, and a Stack of something else over there. 
+and call them by name/number. You see?
+OK, I covered all the bases on Stacks then.

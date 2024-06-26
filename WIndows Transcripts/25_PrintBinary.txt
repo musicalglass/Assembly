@@ -1,0 +1,98 @@
+OK next let's say here we have a value of say 42
+and then we would like to print that out in Binary, right?
+Look at the 1s and 0s of it. 
+OK so that should be simple enough. We have some
+processor command we can call and it'll just print it out in binary right?
+If only life were so simple. 
+No I'm afraid we're gonna have to write that ourselves. 
+OK so I'm gonna make a little Subroutine, I guess
+to print in Binary. 
+We've already figured out how to check for 1s and 0s right? 
+So what we need to do next basically is
+just check one slot in the binary spectrum. 
+And the way we do that is using TEST.
+Let's see 
+Hang on. First I'm going to be using AX down here for some other things, and AX here 
+There would be a little confusion.
+So I think right away in print_binary 
+I want to move 
+AX into BX. I'm just going to go MOV
+instead of using Push and Pop. 
+I have BX free. Just quick and down and dirty. There. 
+Great. And so now I can test BX. Great.
+And I want to test a specific location in BX. 
+There, OK. So now I could...
+like if I tested location 0. 
+Let me let me bring up a... Oh gosh!
+I made a... Let's see if this works 
+I made a nice chart but I didn't load it into my (screen capture program). 
+There. Let's go fullscreen.
+That's about as fullscreen as this version gets. 
+OK, there you go. There's the value is there.
+So if I wanted to check value 1 
+I could
+using TEST 
+That would be the Least Significant Bit, right? So if I want to check the Most Significant Bit, the highest number, you know. That would be 1000000.... or if I want to check that first Bit that is 8 which..
+8 in Hex 0x8000 
+which is the actual numerical value 32768.
+Remember in the Stacks tutorial I said 
+I estimated that there was about 35000 in the Stack? There it is exactly. 
+32768 places in the Stack there. Cause it's all Binary. There is your max number,. Right, OK. 
+Let's get outta there.
+I hope that is explanatory enough. 
+So if I wanted to test the ones place I could do that right? 
+But I want to test the top of the list basically, right? 
+So let's see where we are. Jump Not Zero. Print it. MOV AL.. 
+Oh and down here in the...
+Oh one more thing there 
+We're printing 16 characters right? Where is that?
+MOV BX, AX... Here in the print_binary I'm also 
+going to set my counter to 16.
+There. I want to print out all 16 Bits. 
+And here I'm going to create a loop.
+print_loop 
+Like that and then just Copy that.
+We'll go down here into my print command and right after I call the Interrupt
+we will loop print_loop
+
+OK so if all went right this should loop 16 times.
+OK? Let's have a look. I'm going to save this. 
+See how many errors we get.
+Well, look at that. It looped 16 times. 
+Didn't print out any values.
+Why is that?
+
+what am I... 
+One more thing to cover here. Let's say
+I got a binary value 0000000010, alright? OK. 
+So we're looking here in the first and Most Significant Bit. 
+It's actually more like that, you know whatever. Most Significant Bit, right? 
+There right? If it was the Least Significant Bit that would be beginning at 0. OK. 
+Now we are checking this one first, right?
+Then we want to check the next one and the next one and the next one. Well how do we do that? Well you recall our list... don't launch photoshop all over again! Sorry.
+You recall our list 
+where let's say this was the 0x8000 this would be 0x4000, 0x2000, 0x1000 in Hex. 
+So I need to go down that list, right?
+So that means I need this value, and then half that value, and half that value. See? Interesting thing about Binary... 
+here is a value of... let's see
+if this was... Here let's do it this way 
+There's a Binary value of 1, right? If I move this to the left like this, 1 0 is a value of 2, right? 
+I've doubled it. It's twice as much. If I move this there, I have doubled it again. You see? 
+So each time you go 1 to the left you effectively multiply by 2. 
+You know? Just like in Decimal. You know, every time you add a 0 at the end you multiply by 10. 
+If you got 10, you put another 0 you got 100, right? 
+Times 10.
+Well here it's Binary. Power of 2. 
+So every time you add a 0 at the end it moves one to the left. OK so 
+I hope I haven't said that too many times over and over. 
+But what's missing here is the part where I move everything to the left. 
+SHL BX, 1
+There. 
+We're going to move 1 to the left, the binary value. 
+And hopefully that will iterate through the list.
+Let's see what happens here. 
+There we go.
+There is a 42 expressed in Binary. It is 0101010.
+You see? There we go.
+
+So this is a Subroutine we have created to interpret a value and convert it into readable Binary.

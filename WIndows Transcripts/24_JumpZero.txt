@@ -1,0 +1,76 @@
+OK. Push, push, push. Pop pop pop.
+Of course we could have done this been in a loop. 
+Not critical for the lesson.
+Cleaning things up a little here. 
+I'm going to just.. 
+Get rid of stuff I don't really need for the lesson here. 
+Not gonna need to offset the printable number either. 
+Just to verify everything works.
+There's our little alternate happy guy. 
+This time though instead of printing that character 
+I want to print it's actual numerical value
+kinda quick there. 
+There's our 1.
+Now I'd like to set it up with a condition where I'm going to check a value.
+First let me put a value into AX 
+yeah
+of 1, right? And then I want to check whether that is a 1 or 0 and then print it out accordingly down here. 
+So I'm gonna kind of create a little condition. I'm not using the Stack here any longer either. 
+Here basically we just load 1.
+I could use a Label but 
+I'll just comment that.
+load_one There. So here's my Condition, right? 
+It's in there. But I want to check it.
+So first thing I can do is do a Compare. 
+CMP AX
+I'm gonna compare it to zero. 
+Okay? And then if it is zero
+In the past we did Jump Not Zero. right? 
+This time Jump if it IS Zero.
+Were going to skip over 
+load_one and
+go to load_zero 
+which we haven't made yet. But that's easy enough.
+I'll just copy drag that down there. 
+Like so. Put the semicolon in there
+and down in load_zero we'll do exactly that. We will MOV
+into AL the value of 0. There. 
+And call print_it I guess...
+Over here it should be jump over to print_it 
+I'll copy that first.
+Jump down to print_it 
+We'll move 0. MOV and
+print it. Yeah. load-zero... 
+I won't need this. I'm just gonna let it flow through. 
+You know, if it loads 0 it will just immediately proceed down there, right? 
+Let's see if that works.
+There's my "1" because I have a 1in there. 
+What happens if I put a 0 in there?
+Nothing at all. OK so it goes down 
+Let's do this the other way then.
+The way it was before 
+CLI
+HLT
+
+and go print it.
+after I move it in there. 
+Save
+Uh 15 is bad. 
+Oh I see. I call print_it. I redefine the Label.
+
+Change print_it.
+print_it print_it RET 
+Here MOV... Of course it's printing 0 because
+that's exactly what it was. It was Null. 
+See what we got
+info... 15
+
+JMP to print it. Just like that.
+
+Thinking what I wanna do and not how I want to do it. 
+There. There's my zero. OK, so if I put a 1 in here. Save that. 
+There's my 1. OK, so that's a binary decision essentially. 
+However of course if I put
+8 in there as well 
+it still gives me the 1. So it's testing for zero or non-zero, right? But good enough for our purposes here for starters.
+We'll call that a Boolean Operation.
