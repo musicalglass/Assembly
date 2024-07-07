@@ -1,0 +1,35 @@
+So we have covered Jump Commands.
+Different kinds. 
+First Explicit. You know, when you jump to a specific address, 
+and then Jump Relative, Jump using a Label like we're doing here. 
+But then we've also used some Conditional Jumps.
+Here we only jump when a certain condition is met. So we covered Flags. So I can cover the various Jump Commands then and which Flags they check. 
+So here we have a Jump Equal.
+Which basically checks a Flag. If it's set to 1.
+
+Jump Not Equal.
+See? So same Flag. Whether this one is 1 or 0. Jump Not Zero or Jump Not Equal.
+A couple of different ways to represent the same command.
+They're both looking for the same value in the Flags. Let's see...
+Jump if Greater. 
+Jump if Not Less Than or Equal To.
+The same thing. 
+But you can call it the same way. So for whatever your preference may be. 
+Jump if Less. JL or Jump if Not Greater Than or Equal To. See? 
+Jump if the sign Flag is Equal to the Overflow Flags here. 
+So Jump if Greater. It checks to see if these two values are the same. 
+or if this one is different than the other when you call this Jump if Less Than command. You see? 
+Jump Not Greater Than or Equal To, right?
+Let's see. Jump if Carry. If a carry Flag is set. 
+If a Carry Flag is Clear. We'll talk about those a little later, I guess. 
+Jump if Overflow.
+A Signed Overflow. 
+Oh, and these are by the way... Let me backup,
+These are examples of Unsigned. 
+If there's an Unsigned Overflow Carry Flag here,
+If there is not an Unsigned Overflow. 
+And then the next one is Jump if Overflow.
+Flag. JO 
+Those are Signed Overflows or absence of a Signed Overflow.
+
+So that is examples of using Conditional Jumps and the various Flags that they check.

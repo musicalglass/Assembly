@@ -1,0 +1,222 @@
+As a programmer you know from time to time you might want to actually get some sleep. 
+What's nice about Notepad++, you can come back to it and there'll be all your files that you were working on. You don't have to be afraid to shut down your computer. 
+In fact it's ill advised to just use sleep mode all the time I understand. You want to reset your computer from time to time. Reinitialize some variables, you know. 
+Cause some careless programmer may have some endless loop going that will eventually overflow into other areas where you don't want it.
+OK, so here see we made the State Machine. Yeah that was kind of cool, right? We started in mode 3. You could also... 
+Let's say if we went
+main: just main here like that. And then setup our initialization
+like here or something. Right? So whenever you go to main you know it's going to initialize it in this mode. 
+And then down here on state_one we could go to a different video mode, you know. Like 256 color. 
+So you could have a simple text screen: "Welcome to my cheesy game!". You know, and then when you jump into state_one now you can play the actual game. You know, without text. Cause maybe you might have briefly seen where text in 256 color mode is pretty dismal. You have to make your own if you want any text in your game.
+I mean just trying to make a game with the limited graphics is a monumental task anyways. But let us get on. 
+Yes, let's just wipe all this out. Start with a clean slate. 
+So yeah. Oh! I also discovered like... Let me open this. It's already been doing some things and stuff. But
+if I'm in this file. It has an address. There, you can see it, right? But I learned you can just go with 
+Edit / Open Containing Folder / cmd
+and the Command Prompt launches a new window in the folder that you want. OK great timesaver. But of course you don't have, like over here I still have the stuff in memory.
+You know, I've been programming. My commands and such, right? So that you don't get. I tried the macros and stuff and I guess you can record. I did a recording and it worked. But
+then if I open a different file or something it doesn't do the same. So I dunno. If anybody has any ideas on how to make it so I can click a single button. Oh and you can even... look. This is a custom macro or whatever, and make a keyboard shortcut. Oh nice. OK.
+If anybody knows how to make it so it will not only open the Command Prompt but also do the NASM and QEMU thing all with a single click that would be nifty.
+OK but let's get on with the tutorial some mo. 
+Let's just go over some memory basics real quick and then we'll try and get Variables out of the way and get on with our lives.
+Let's just get something printed out to the screen real quick, I guess for starters
+$0E01
+
+Let's have a look at that.
+Yeah. There's a Happy Brother. Alright so next let me try this
+experiment here. We'll just go 
+put a Data Byte in there.
+Have a look at it. 
+Whoops. 
+No Brother. Where did he disappear to?
+Let's have a look at our binary. 
+There. OK so
+What's going on here? OK. There's our 1. 
+Then we got some stuff coming after that. What's fowling it up? 
+OK well, as we know the processor is expecting a command followed by some data. 
+And if we look here at number 1 it actually kind of stands for something see? So the computer is now interpreting that we want to add some values or something. You know, it's making this complicated call or something. You see? So that is kind of overflowing into the next command. So we could... quick remedy would just be put that in there. Or just as easily do it all 
+whoops
+Null terminated. You know. Here we have a value. 
+Null terminated value.
+I don't want to look at it in Binary. I want to look at it.
+No. 
+Now there's a bit of residual. What's up with that? 
+0 causes some print thing.
+Let see. 
+All taken care of. There's our happy brother. Good to go on that. 
+So let me go back here once again and look at our Binary. 
+Got a value here. 1. We know where it is, right? For the most part. We want to 
+here instead of...
+You know I'm MOVing, of course you know E would be 14.
+AH You know, our Teletype, right? 
+And then I'm moving
+E 1 in there. Whoops, sorry. 
+MOV AL, 1
+There. Our value. 
+Right, so same thing.
+But instead I want to get this value down into here, right? .
+OK so how can I do that? 
+I know that according to what we just saw over here in our Binary. It's at 00, right? Well that shouldn't be a problem. But if I put 0 in there I'm just moving value 0 in there. I need to tell it the 0 address or whatever, correct? 
+So that would be in brackets [ ]
+So let's put a 0 in there, see what happens. 
+No not that
+Oh no. That don't really work. 
+Yeah so can't get to that memory address.
+Here we go 
+0x0000
+Invalid. And that is why? 
+MOV AL comma. Let's go back.
+Jumping to concussions here. 
+Bada bing dink dink, ¿Que?
+I don't think... 
+It's swearing at me in Spanish now. Hang on.
+So clearly it's the same thing. That wasn't the problem. It doesn't actually exist... this is a physical address and, hang on. So we need to know the physical address because we don't know where this program is actually being written into in memory.
+So we can be slightly more explicit with that. 
+We'll go up here and define the ORG of our program to 
+0x7C00
+There. So now it is a known value. 
+Once again let me save this. See, that doesn't fix it though. Now it's a physical... now we know the the actual address in memory though. We should be able to pencil that in there. 
+Let's see if we hard code it in. Yeah! All fixed.
+So now we know. You see our program starts physically in memory at this address, right? And now we're pointing to this address. 
+This does not get written into the code of course. That's just a directive to the Assembler, right? 
+Yeah see, it starts at 1. You know, there's not a bunch of labels or any of that stuff getting written in there, right?
+Let's see. So now then I could here. say "H" 
+whoops
+Let me get out of Caps Lock. 
+Yeah "H" there, I guess.
+OK people 
+Nope. No "H" and that is because...
+Oh what did I do?
+
+OK that was an interesting bug to find because it didn't happen to me when I did the files individually.
+So the simple thing that I overlooked is right in here I guess
+Here, let me just make sure I'm saved. 
+We'll have a look.
+Nothing there, right? 
+But if I go back to where I was before with a 1 
+Oh! That's fine. Right?
+So I guess when I put a character in here instead of a value
+apparently I no longer needed to terminate.
+
+Uh huh. Very strange. So then now 0 apparently was messed up with the following code. 
+So odd discrepancy there.
+OK back to actually making this work. So yeah, speaking of making it work. There I removed the Null termination and there's my character. OK working code. So now this is pointing here, right?
+Next thing... So yeah, so let's see what we got? 
+DB... I got some data here at this location. I could also go 
+Let me see if I can actually do that. There's my location. Can I add 1? 
+whoops
+No I can't place an ad. 
+ADD to this 1.
+Value of 1. Let me see what happens here.
+
+Operation size not specified. OK so 
+add a Byte. There.
+Byte me. 
+Mmm hmm. There. We have increased the value of the referenced bit of memory that we wrote an "H" in. At the first location. And now we have gone back and overwritten the "H". Awesome. 
+So another thing. Let's say
+I'll put a label there. 
+my_text. My Label. OK.
+Let's get rid of the ADD Byte 
+and here I should be able to just
+point to the Label. Let's try that. 
+Yeah. See? And then of course as we have discussed previously... 
+You know, there's no pointer in the code.
+You know it doesn't end up in the final render or anything.
+decrease AX... 
+That's interesting "H" means DEC AX if it were used in a different context. Very cool. 
+MOV AH yeah. So there's no Label in there to point to. 
+Instead it does the math and it says later to Jump, or whatever. OK. Jump to that address. OK, to that specific place in memory, which we know is here, right? 
+OK so furthermore, I guess I could go like that. Let me go my_text. 
++ 1. See if that works. Maybe it does. Let's find out. 
+Yeah, see? So it prints. So then you could use a loop to iterate through the contents there. 
+Right, I could go...also I could say...
+Here's my... this is the end right here. Whoops. I don't think I can use "end". It appears to be because it immediately turned blue. It tells me that it already means something else. OK so 
+whatever. not_blue. I don't care. There. OK great.
+So now I could likewise from here, 
+it is just merely a reference to a place in memory. 
+I could say not_blue - 2
+Yeah? 
+Yeah, why not? Then there's my second "L" here.
+-2 from this place. Yeah, OK. So... 
+We're good on a few things
+So also, let's see. Yeah. Again, I know where this is. It is
+at the beginning of my program. 
+whoop
+another one... 
+Ah, I wasn't typing $
+$$ for some reason.
+
+Yeah. 
+We know our program begins at $$.
+So that's another way to say [go there]. 
+OK so then I could also...
+Oh yeah! 
+This is an interesting thing too.
+So let's say you're watching the tutorials and I'm not going fast enough for you, and you're like
+"OK I'm gonna go find some other code examples out there on the internet" and you find something that looks like this:
+
+section .data
+
+And so the tutorial's telling you it's imperative that everything be there, and you have to clearly define your
+section .text like that. OK cool. OK so now good to go.
+So my data is where it's supposed to be. 
+My text is where it's supposed to be.
+So let's run that code. Good to go.
+
+And whoops!
+Not so good to go. I got some faulty character. 
+OK so this is Rosetta Stone territory. You know, we're taking code works fine in FASM I guess. Here, but let us have a look shall we while we're here? 
+I'm going to check it.
+Have a look at our binary.
+
+OK, now what's happened?
+There's our "hello". 
+It's outside the boot sector now, right?
+So apparently NASM recognizes it. 
+NASM here, as soon as I type this it recognizes it as... 
+well, we're in Notepad++.
+But NASM apparently knew what to do with it too. It says when you do this and... Oh! if this isn't here 
+not a problem, right? So section .data followed by .text causes your 
+data to be stored outside of the boot sector.
+Very odd. OK, so... 
+Now it's at a new address.
+OK, but also... hang on. 
+So I could go... where's my Label example? my_text, right? 
+Let's do this.
+Jump to my_text. Let's see what happens. 
+Oh! I got it. I have to say that it's a memory address. [ ]
+
+No. That's fine.
+See? 
+But if we're going to go grab some example off the internet written for TASM... 
+Here let me just copy it from off screen.
+my section .data and section .text 
+There. See? Now it's all gonna break it, right?
+No workie!
+
+There you go. That's what I'm trying to do. I'm trying to reconcile all these flavors of Assembly that you find all over the place, right?
+
+So that is how you gotta rescue it. Furthermore, let's see. So 
+I've also run into some instances... 
+Oh! OK. Let me just continue with our tutorial just a little bit further here.
+
+Also in addition to using a Label we can turn this into a Variable named bob. 
+OK so as you know like here I could do like "H"
+"e" 
+that way. We just...
+Let me speed things up. 
+That way individually. Wah wah.
+That way, alright? 
+Or as in the previous here combine them.
+Yeah, OK. A side thing... 
+but it all comes out the same over here in the binary. OK, now let's see. 
+So I've got this defined as a Variable.
+Let's just have a look at our Variable [bob]. 
+Yeah bob. That's fine. So likewise we could go [bob + 1]. There. 
+Yeah. Oh wait. 1s. 1s is unknown.
+"e" see? 
+Yeah. So that's working with a Variable. 
+Now I have run into instances as well where for some reason my Variable names would not work up here and it was safer to declare my Variables down here. 
+I don't know what was the reason for that. I'd have to go back and take everything apart piece by piece. But so therefore it's kind of safe to just stick your Variable names down there. 
+There. So that is covering how to deal with Variables. 
+There more. But kind of getting you in the ballpark so we can continue with some lessons involving the use of Variables.

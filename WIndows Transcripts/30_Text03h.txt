@@ -1,0 +1,220 @@
+OK so now you know more than you ever wanted or needed to know about Flags and Conditional Jumps and such. So we can move on with our lives, I guess. 
+Now a few things here.
+Here I added this loop. Whoomp! So now it loops around in this area, right?
+So that made this obsolete. 
+Unless of course I was actually going to use this as a Subroutine. 
+You know where it would be... From up here we're gonna say... 
+Jump to print_binary there.
+Yeah. Enter. 
+OK and then we'll say end of program here. So this also does not need to be here. 
+We'll put it here. End of program.
+That and the other thing. Yeah before 
+Let's see... I was going to just flow through here. 
+Let me just do another thing here. 
+print_one: Label.
+Just creating an empty Label. 
+Not jumping to it or anything.
+Just using it like a comment. 
+But now it matches the other one.
+Nice and neat. 
+OK so here we have a Condition.
+We jump over print_one if it's 0. 
+And then after that we no longer need to call the print character because it can just flow through. 
+Now I started to do that before when I was
+setting it up, and then I looked down here and there's that RET right? And I was like "Oh no. I'm gonna need that" 
+But in this case no. Because as you can see
+Now it flows through, you know. You set the value and then it goes right on through down to there.
+Yeah, yeah. In both cases. Yeah, it'll loop and so 
+no longer needed
+here 
+right? Whoops I accidentally set a... Don't need that. 
+No longer needed here you know. If it was just flowing straight 
+through like that it'll end the program, you know. But if you call it. JMP to print_binary. I'm sorry. CALL it.
+CALL print_binary 
+Now or it'll treat it like a Subroutine.
+It'll jump down here and go all the way to bottom. Now the return is useful. Because after it finishes looping the designated number of times. 16 times.
+This loop 16 times, it'll come out of there, and end of program.
+Well now it returns back to where it left off. Where you called it, and then ends the program there. 
+So now I have kind of completed the bit where it actually gets turned into an actual usable Subroutine, see?
+OK, so now that we've done that... 
+Yeah you can always Save that.
+It's always something you can use.
+
+Let's do something completely different. I don't need any of that. 
+Just my little boot sector.
+Magic numb stuff. 
+And basically gonna start from scratch.
+
+I wanna work in Text Mode. 
+Just your basic text mode which is by default 3.
+But I want to clear the screen right away. 
+So I can go MOV AX, 3
+and then call that Interrupt. Video Interrupt. 
+So that will clear the screen. Let's just Save that. 
+Do this in bits. There. Clears the screen.
+Then we don't have that default text on there. 
+OK MOV. I want to go to Video Mode. So I need that value so I can set the pointer for the video segment. OK?
+That would be 
+0B800h It's in Hex.
+So now that I have my value set I can load it. I can go ahead and set my pointer.
+MOV BX my index. My "Segment". Yes. Video Segment. 
+And then now that I have that let's set the
+value of the "Offset".
+
+I don't know why I keep having trouble with those 2 terms. 
+Segment:Offset We'll start at 0.
+OK, so next thing. So whereas before 
+you know, we started with a value in a Lower Register (AL) 
+of "A" is good. Yeah you know, just a generic value in the Register. And then we pumped those into our Teletype.
+This time I'm not going to invoke the Teletype. We're going to deal with the placement of the characters a little bit differently. 
+You recall in the Pixel tutorial where we used
+your segment:offset index. Yeah? 
+We are going to use a similar thing for the placement of our characters.
+
+So we'll use the ES
+and the DI 
+that we just set. There, like that.
+
+So we have...
+Set up video Segment. 
+And then the character.
+Now let's just test that real quick. 
+Yeah, OK. So we have our character.
+It's got some default strange colors in there because we haven't specified any.
+So we can just go ahead and do that. 
+To make a long story short here. So
+That's stored in the Higher Register. MOV AH. 
+So I can go like
+0B1 Henobi, I guess 
+Zero not "o" .
+The joke doesn't work if you do it the other way.
+OK yeah. Let's try that for starters. 
+See what happens.
+Now we've changed the color somewhat. But let's get a little more customized here. You're recall in our 
+Flags. Video Modes
+looking on my... 
+VGA Color Palettes. Thank you.
+
+sorry
+Here.
+
+There's your Color Palettes. Limited, that you have to work with. 
+16 colors from 00 to 0F. Or 0 -15. Whichever way you want to look at it. 
+But if we're using the F it's convenient to work in Hex. 
+It wouldn't make a lot of sense if we did it in Decimal. 
+when using a foreground color and background color, right? 
+So let's say we wanted a red background and a green character. 
+That would be 4A in Hex, yeah.
+Let's see here. 
+4A in Hex here.
+4A in Hex... Whoops, I didn't Save. My bad. 
+There. So I got the red background with the green character, right? So next thing I want to do... 
+I would like... I'm going to
+copy all this bit for a second here. 
+Copy
+like so 
+OK and
+So and now just for the moment I'm going to comment this working bit out.
+I'm gonna work from this. OK so 
+In addition to...
+You know, we have our various characters we went through them. One of them that we can use, I believe it's character 219... Let's have a look 
+is like your block character. Yeah that blocks out the whole thing. There. OK. 
+So in which case actually we didn't really need to worry about the other value for the background color.
+It's just a single color. Works fine. OK. 
+Now what I would like to do is to fill the screen, right? 
+You may recall our REP.
+Where we went repeat String Operation like that: 
+REP STOSW
+There. And then you have to specify a number of times. So I'm going to MOV into CX, my counter.
+I'll just start with 1 here to see what happens. Make sure everything's kosher.
+OK, no it isn't. 
+OK a little bit of residual there. I believe I can take care of that simply by saying, after we're done here to
+don't do any more. Let's see if that fixes it. A quick fix here.
+It is indeed. OK. 
+Good. So far, so good. OK now the next thing I'd like to do... 
+so now there I've got a quantity counter.
+I can put like 8 here.
+
+There. I got 8. Or what did I say? 80 across? 80 characters across. We're not counting in pixels. So 80...
+Is that correct? Let's find out. 
+Yeah. That fills the screen up.
+The top row, right? 
+So we want to go down. It's a fairly large number. We don't have to... I know it's 2000, I think. 
+80*25 characters down. Because they're taller than they are...
+
+Taller than they are wide. There we go. OK, so that fills up the whole screen. Nice. 
+So now 
+Let's uncomment for starters. Here. Let's see...
+That fixed that. But I think the problem was here
+
+I'm gonna want both of these. So gonna go try something here first. 
+When you call your video interrupt it uses a few Registers of it's own and then doesn't clean up its mess. You know, it destroys a few things and DI is one of them. 
+Also your Stack Pointers. You know, if you've set up a custom Stack or something. That's gone.
+Now you must redo that. 
+You can't store it on the Stack.
+OK so the only thing we haven't defined here I guess is DI
+MOV DI 
+somewhere. I'm just going to say
+MOV DI, 4 
+Save.
+There. OK now... 
+Thing about this... This can throw you. OK.
+We did the background it was 80 characters across. But your text character takes up 2 spaces, right?
+So I put in 4 and what I got is... Remember it starting at 0.
+0, 1, 2. 
+OK, it's not a problem. It's just that everything... 
+Here let me show you.
+If I were to put 5 in here. 
+Each character takes up two spaces. See? I get some weird garbage after the character there. It's like an incomplete next character or something because they each take up 2. So you could think of it this way: that every whatever is in multiples of 2, you know? 
+So like 0 of course is still 0, you know.
+But if I go 1... If I wanted to be in the first slot it's 1*2.
+If I want to be in say the 4th slot now it's actually 4*2. See?
+Now I'm in the 4th slot. So if I wanted to be over here it would be what? 80*2, I guess.
+Or would it be 79? Let's see. 
+That would be 79*2 and then 80 starts in the next one. Yeah, of course. 
+But you kind of get the idea. So that's multiples.
+Now you gotta kind of watch when you're dealing with these big numbers and stuff. I'll show you.
+Say I want to be in the middle of the screen. 
+It's at 80 X 25, right? 80 by 25 characters 
+times 2.
+Yeah 
+Let's Save that. I'm just going to do this steps.
+Oop! and something went awry. So yeah. 
+You gotta watch when you're dealing with these video numbers that you don't end up writing some video, intended for video, into some other part of memory. You know, into your system or something. Overwrite something unintended, right? You gotta keep it in range. 
+Let's see here 80*25. So I went most likely one off the screen. I'm not sure. 
+But it should have been halfway.
+Halfway and then the other. 
+OK, now this is the interesting part. OK so I got... 
+I want to go 80 times.
+Halfway plus the other 40, right? 
+OK, you know. But Order of Operations. It's not 100% correct where it ended up. That's because as you know, the multiplication first. We're at 80...
+Right! Alright here's my... well actually... 
+So to make it work, or to make a long story short.
+Here, I could do a better illustration. 
+But, I'm just going to save some time.
+There.
+
+This is all a single calculation before it gets multiplied. 
+Yeah. Let's see what happens. 
+Yeah, yeah. See? That's closer down to the center of the screen. 
+You know, so the thing to remember about Order of Operations...
+
+Yeah the thing to remember about Order of Operations. Had 
+mind melt trying to explain it for there for a second, 
+is if let's say you got 2 + 6 * 5
+You know, while you normally think in school 
+"OK you go 2+6 is 8 times 5". 
+Let's actually make this 10 ten.
+You know 2 times 6 is 8, times 10 is 80, right? 
+But no. There's an Order of Operations.
+This will get multiplied first which is 60 plus 2 resulting in 62.
+So that's quite a bit different. 
+So to circumvent things getting multiplied or whatever, out of place you can put them in parenthesis like that, and that groups it before... 
+the whole group gets multiplied instead of...
+Yeah, whatever. I won't go too far into that.
+
+I'm hoping you might have had a basic introduction to some Algebra. 
+OK so there.
+Character in the middle of the screen, right? 
+OK so yeah, like I said, you gotta watch out with these big numbers. You don't want to multiply the wrong way and end up way over here and then you're actually overwriting your own code somewhere, you know?
+OK, so we'll resume in the next video.

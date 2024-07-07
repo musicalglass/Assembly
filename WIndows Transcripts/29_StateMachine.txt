@@ -1,0 +1,128 @@
+OK so what do we got?
+Let's see here. 
+I made some text.
+It's two different colors. 
+Then I made the background the same color of the text so it's reversed. There I probably should have, you know. Here if I instead make the text an A4 
+There. Now the text background color is the same as the background. You know, effectively making it look like you have a transparency. Alright OK.
+Good. That and the other thing... Let's see here 
+We filled the screen with a bunch of blocks
+so we really don't need this clear screen command any longer. I don't think.
+Let's see. It should be the same thing. Yeah it still fills the screen with blocks now so
+don't need to wipe out all the text because the blocks do that for us. Fabulous.
+Moving right along. OK so this 
+I'm going to cover something called the State Machine next. 
+Which I think is one of the most overlooked things that they should teach you in... 
+You can get hello world, and here's what a variable is, and here's State Machine. 
+You know, way up front. So that's what I'm doing and you know. I've seen kids making video games sometimes and they get pretty deep into it and they're like "hey, I would like to make it now so it has an intro screen, and a credit screen, and all this" And and you look at their code and you're like "oh, this would have been a lot easier if you'd just set it up that way from the get go". 
+There's a lot of other wonderful uses for a State Machine, but let's get into one real quick so you kind of get an idea of what I'm talking about.
+So first things first. 
+I want to put...
+I won't need this because what I'm gonna do is put it all in a loop now instead. So we'll say
+JMP to main_loop 
+OK which we haven't made one yet, but... can we just put this up here somewhere. main_loop. Fill screen with blocks
+and turned that into our Label: 
+OK.
+Alright so 
+Now we fill the screen with blocks over and over and over and print the character over and over and over. Should not be a problem. Let's make sure we don't have some stutter or anything. Yeah, we got no character. Why is that?
+I can't click call... hang on 
+I may have a conundrum here
+cause that will halt the program right?
+
+OK well it's halting the program. It's no longer looping. OK, so what was the point of that?
+Let me try another approach here. 
+What I would like to do if I can
+let me make another loop here. 
+I will actually make another one exactly like this one. So why don't I just copy all this down here. 
+There. And rename it. We'll call this
+state_one 
+Copy that over that. OK so now it's it's own state. 
+You know, independent state.
+
+So now let's say we want to get from this state over to the other state now. 
+OK so what I want to do 
+is look for some keyboard input, you know.
+Wait for a key to be pressed, and when and if then jump to the other state, OK?
+And the way we're going to do that 
+MOV AH, 0
+Make sure there's nothing in there for starters. 
+Clear the keyboard. The bit where it's going to look and then I'm going to go 
+Call an Interrupt. Here's a new one 16H. That will wait for the key to be pressed, and we want once that is pressed then the program will continue, and when it does we want to do a quick CMP on AL here
+and see if it is equal to "1" we'll say. 
+We'll cover other keystrokes later.
+And then if it is 
+Jump if Equal (JE)
+If it is equal to "1", somebody presses 1 on the keyboard, we will jump to state_one
+yeah. 
+I'm gonna save that and.. but oh!
+We won't notice any change though unless we change some colors here.
+So instead of the color A let's go with the color 3.
+And down here we'll also make it the background color 3.
+And whatever 6. Whoops. 
+3 and 6 OK, and one more thing. Instead of "A" it'll just say "B".
+
+OK I hope for all this trouble something actually occurs. Let's have a look. 
+OK I got a screen with an "A" and then I press 1 and it says "B". 
+Well I didn't clear the screen properly. But I have jumped to another state. What is up with that? 
+We have to of course... I think I know the problem. It is first... 
+Here before we clear the screen we have to
+reset our character position. Which is what? DI I believe, right? Here? Let's just try that. Let's go 
+MOV DI, 0
+and see if that is it 
+or if I'm just taking a shot in the dark.
+There OK. Clears the whole screen. 
+So now we have created a second state. OK.
+So from there 
+let's see. Where are we? I would like to
+do the same. I'm sorry. 
+state_one
+Let's do it again. Create a second state. 
+state_two here.
+state_two there. Copy that over that. Now we have a third state, right?
+The other thing... So this one will be... 
+Right under here we're checking... here let's go ahead and Label 
+Comment what we're doing here
+; check for keyboard input 
+If 1 la la la and OK.
+If not it'll continue. So we'll say if 2 here. 
+If 2 jump down to state_two here.
+T W O. Let me just save that. See what happens. 
+O, we know what would happen when you press "1". There's 2 it goes to the same screen. The same color. But that is because it's identical. Let's change it. 
+We'll make the screen a different color. Block color here 5. 
+OK and then this is screen C. See?
+Great, and then. What the heck, 
+We'll say 5 for the background. So 5F. That should be White. Let's see. 
+OK, so if I hit 2... There. "C"?
+I got my magenta screen with my white character. 
+OK I can't get no... Now I'm stuck.
+Why am I stuck? Can anybody tell me? 
+Well because there is no commands in this state to do anything. We're only looking for that up in the the first one,
+to jump to one of those states, right? 
+So if we want to get back then clearly we need some keyboard input. 
+So I'm gonna jump back to main_loop is where I'm going. OK, so I'm gonna go down here to state_one
+Replace this HLT with keyboard 
+and I want to make it ESC.
+So hang on a second here
+
+What are you doing to me? There. OK thank you.
+There's your ASCII stuff. 
+You know, if I want a SPACE that's 32, you know. If I want a number it starts at 48, etc. But over here... There ESC. There's a few other things; DELETE key, ESC key, SHIFT, Backspace. OK. But that is number 27, OK?
+Let us here check for number 27. 
+and we want to jump back to, I called it main_loop. There it is. Enter. And let's see what happens.
+I'm in my intro screen it says. It should say "Please press 1 to continue" or something. There, I pressed 1. OK now to get back to the main screen press ESC. Tada!
+Which I again... What was the problem? I fixed it before. Here MOV DI.
+We need to reinitialize that each time clearly. I thought here I did it here but I don't do it apparently in main. So problem being, like I said, as soon as you... Ah! Well here I do! Here. Undo what I just did. 
+This should be here. Yeah, instead. So right away it initializes it in the loop. Because we're going to need to I believe.
+Let us save and have a look.
+
+I am in my start-up screen. I hit a 1 and then I hit an ESC. Then I'm back at my startup screen where I can hit a 2. But no use to me because I have no commands there. So let's check for our input. Where are we?
+Here state_one. Let's just grab that one. It's pretty handy. It already tells me to jump back to main. And I will put the same thing down here. Replace the HLT command with a keyboard command that says jump back to main. 
+It's the same thing, isn't it? I don't have to change anything there. Great. Let's save that. 
+OK so from my intro screen "To play the game press 1". Oh! Welcome to the game. Blah blah blah. OK and to get back
+hit ESC. Wonderful. Let's go to screen 2. Ah! There's screen 2. And to get back hit ESC.
+There you go. So that is a State Machine that's very useful. Like I said, you can set up, if you know you're going to make a game and it's going to have parts like that, you might as well just set it up right from the get go. 
+That way it's a huge time saver. But this is also useful for, when you think of a game having... not just a game, but a program. Where let's say you got a bunch of stuff to read in here and interactive things to do and then you want to set it to Greek. OK so I can change the state so nothing on the page changes except the text. You know, to whatever, another state. 
+You see? So you can use a State Machine to modify aspects of your program as well. So extremely useful. 
+They should teach it in every beginner's programming class. 
+Not just Assembly, you know. It's just a general principle you can't live without. 
+So there you go.
+That is a State Machine.
