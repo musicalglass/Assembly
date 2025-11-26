@@ -1,3 +1,9 @@
+MSYS2 YouTube Tutorial
+Copy and paste shortcuts for YouTube tutorial:
+
+https://www.youtube.com/playlist?list=PLJv7Sh0ZDUnr7euvXvdMJPqgxbFukivl8
+
+
 Windows Transcripts
 
 Closed Captioning transcripts for my YouTube video series on Assembly for Windows 
