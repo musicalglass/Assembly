@@ -1,0 +1,338 @@
+<html>
+<head>
+<title>MSYS2 Tutorial</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<p>Download msys2-x86_64 installer here:</p>
+<a href="https://www.msys2.org/">https://www.msys2.org/</a> 
+<p>Update and Prepare MSYS2 MINGW64</p>
+<code>pacman -Syu</code>
+<p>When prompted, close the window after it finishes, then reopen MSYS2 MSYS and 
+  run again:</p>
+<code>pacman -Su</code>
+<p>Now everything is fully updated.</p>
+<p> Install Needed Packages;</p>
+<ul>
+  <li>nasm - Assembler</li>
+  <li>qemu - Emulator (we&#146;ll use qemu-system-i386 for 16-bit code)</li>
+  <li>make - simplifies rebuilds, has functions we will call</li>
+  <li>gdb - Gnu Debugger</li>
+  <li>vim - simple built-in editor, has functions we will call</li>
+  <li>bc - convert to binary</li>
+</ul>
+<p><code>pacman -S mingw-w64-x86_64-nasm mingw-w64-x86_64-qemu make gdb vim bc 
+  </code></p>
+<p>Check that they installed correctly:</p>
+<p><code>nasm -v</code><br>
+  <br>
+  <code>qemu-system-i386 --version</code></p>
+<hr>
+<p> Create a Working Directory:</p>
+<code>mkdir -p /c/Users/User/Documents/Assembly</code>
+<p>Change Directory to the working folder:</p>
+<code>cd C:/Users/Tim/Documents/Assembly</code>
+<p>To navigate using Windows folder path use single quotes:</p>
+<code>cd 'C:\Users\Tim\Documents\Assembly'</code>
+<p>Go up one directory:</p>
+<p><code>cd ..</code> </p>
+<p>Let's See contents of current directory:</p>
+<code>ls</code> 
+<p>Go all the way to the root directory:</p>
+<code>cd /</code>
+<p>Open Explorer in the current directory:</p>
+<code>explorer .</code>
+<p>Create a new text document:</p>
+<p><code>notepad machineCode.txt</code> </p>
+<p>write a bunch of 00s or</p>
+<p>Alternatively, generate a text document populated with 512 0s:</p>
+<p><code>yes "00 " | head -n 512 | tr -d '\n' > machineCode.txt</code> </p>
+<p>Close notepad to return to MINGW command line:</p>
+<code>ALT F4</code> 
+<p>Assemble Text File to .bin file:</p>
+<p><code>xxd -r -p machineCode.txt binary.bin </code></p>
+<p>View Hexdump as Data WORDs:</p>
+<code>hexdump (b Tab)</code>
+<p>Hexdump BYTEs:</p>
+<code>hexdump -C (b Tab)</code>
+<p>Run Emulater:</p>
+<code>qemu-system-i386 -fda (b Tab)</code>
+<p>Escape locked up QEMU screen;</p>
+<code>CTRL ALT g</code>
+<p>Open document in text editor:</p>
+<p><code>notepad machineCode.txt</code> </p>
+<p>CTRL s<br><br>ALT F4 </p>
+<p>Assemble ASM to Binary:</p>
+UP ARROW to xxd<br>
+UP ARROW to qemu
+<p>Make qemu error message go away:</p>
+<p><code>qemu-system-i386 -drive format=raw,file=binary.bin</code> </p>
+<p>Read as text from command line:</p>
+<code>cat (b Tab) </code>
+<p>Call Print Function:</p>
+<code>printf hello</code>
+<p>Overwrite text without truncating: </p>
+<code>printf 'B8 02 0E CD 10' | dd of=machineCode.txt bs=1 conv=notrunc</code>
+<p>Clear the command line:</p>
+<p>CTRL u</p>
+<p>Save copied text to Shortcuts file:</p>
+<code>printf &quot;YOUR_TEXT\n\n&quot; &gt; snippets.txt</code> 
+<p>Append text to .txt file without overwriting:</p>
+<code>printf &quot;YOUR_TEXT\n\n&quot; &gt;&gt; snippets.txt</code> 
+<p>Highlighted text to command line:</p>
+<p>SHIFT INSERT</p>
+<p>Append text that contains Quotations:</p>
+<p><code>printf 'She said &quot;Hello&quot; again.' &gt;&gt; snippets.txt</code> 
+</p>
+<p>Select entire line:</p>
+<p>SHIFT END</p>
+<p>CTRL S
+<p> ALT F4 
+<p>Write entire bootloader in Assembly one liner:</p>
+<code>echo -e 'times 510-($-$$) db 0\ndw 0xAA55' &gt; daBootie.asm</code>
+<p>Print .bin as Decimal:</p>
+<code>od -An -t u1 binary.bin</code>
+<p>Hexdump the first 8 bytes</p>
+<p><code>hexdump -n 8 -C binary.bin</code> </p>
+<p>Scroll down the screen:</p>
+<p>CTRL L</p> 
+<p>Simulated Internet Data Stream of first 8 bytes:</p>
+<code>hexdump -n 8 -v -e '1/1 &quot;%02X\n&quot;' binary.bin \<br>
+| while read hex; do<br>
+bin=$(echo &quot;ibase=16; obase=2; $hex&quot; | bc)<br>
+printf &quot;%08s&quot; &quot;$bin&quot;<br>
+done<br>
+echo</code> 
+<p></p>
+<p>Hexdump first 8 bytes of .bin as Binary values:</p>
+<code>hexdump -n 8 -v -e '1/1 &quot;%02X\n&quot;' binary.bin |<br>
+while read hex; do<br>
+bin=$(echo &quot;ibase=16; obase=2; $hex&quot; | bc)<br>
+printf &quot;%08s &quot; &quot;$bin&quot;<br>
+done<br>
+echo</code> 
+<p>With Capital HEX:</p>
+<code>hexdump -n 8 -v -e '1/1 &quot;%02X &quot;' binary.bin</code> 
+<p>Entire dump with Capital Hex Values:</p>
+<code>hexdump -v -e '1/1 &quot;%02X &quot;' binary.bin</code> 
+<p><a href="8086%20Opcode%20Map.html">Opcode Tables</a> </p>
+<p>Make copy of text file:</p>
+<p>cp test.asm happier.asm</p>
+<code>mov ah, 14<br>
+  mov al, 2<br>
+  int 16<br>
+  <br>
+  db 0,0<br>
+
+mov ax, 0x0E02<br>
+  int 16</code>
+<code>nasm -f bin happier.asm -o binary.bin</code>
+<p>Compressed view with Capitals:</p>
+<p><code>hexdump -e '1/1 &quot;%02X &quot;' binary.bin</code> </p>
+<p>Print Hex WORD as 2 binary bytes:</p>
+<code>val=$((0x0E02))<br>
+  hi=$(( (val&gt;&gt;8) &amp; 0xFF ))<br>
+  lo=$(( val &amp; 0xFF ))<br>
+  printf &quot;AX = %s %s\n&quot; \<br>
+  &quot;$(printf &quot;%08d&quot; &quot;$(echo &quot;obase=2;$hi&quot; | bc)&quot; 
+  | tr ' ' 0)&quot; \<br>
+  &quot;$(printf &quot;%08d&quot; &quot;$(echo &quot;obase=2;$lo&quot; | bc)&quot; 
+  | tr ' ' 0)&quot;</code>
+<p>Delete file:</p>
+<code>rm happier.asm</code>
+<p>Command line math function:</p>
+<code>printf $((3*5))</code>
+<p>Print Hex as Decimal:</p>
+<code>printf $((0x7C00))</code> 
+<p>Add total length of bootloader:</p>
+<code>printf $((31744+512))</code>
+<p>Convert Decimal to Hex:</p>
+<code>printf &quot;%X&quot; $((32256))</code>
+<p>To avoid LOCKED UP SCREEN</p>
+<code>start notepad test.asm</code>
+<hr>
+<p>Write a Kernel: </p>
+<p><code>cat &lt;&lt;'EOF' &gt; prog1.asm</code><br>
+  <br>
+  <code>mov ah, 9<br>
+  mov al, 3<br>
+  mov bx, 4<br>
+  mov cx, 1<br>
+  <br>
+  int 16<br>
+  <br>
+  cli<br>
+  hlt<br>
+  EOF</code> </p>
+<hr>
+<p>Bootstrap the Kernel:</p>
+<p>Open test.asm:</p>
+<p><code>notepad (t Tab)</code> </p>
+<p>Open not bound to MINGW:</p>
+<p><code>start notepad test.asm</code> </p>
+<p>WARNING: Do Not experiment without protection!<br>
+  Do not tweak these values and run on a hard drive or Flash drive without an 
+  Emulator. You could overwrite data.</p>
+<p><code>; Define where in memory to load kernel<br>
+  mov ah, 2 ; Function: Read sector from disk<br>
+  mov al, 1 ; Number of sector to read<br>
+  mov cx, 2 ; Cylinder# ch=0x00 / Sector# cl=0x02<br>
+  mov dx, 0 ; Head# dh=0x00 / Drive# dl=0x00<br>
+  mov bx, 0x7E00 ; Load address immediately after this one<br>
+  int 19 ; BIOS disk interrupt<br>
+  jmp bx ; Jump to the loaded extended code</code> </p>
+<p>&nbsp;</p>
+<p></p>
+<p>Assemble Bootloader:</p>
+<code>nasm -f bin test.asm -o binary.bin</code>
+<p>Assemble Kernel:</p>
+<code>nasm -f bin prog1.asm -o kernel.bin</code>
+<p>Concatenate binary files into new .bin:</p>
+<p><code>cat binary.bin kernel.binary &gt; combined.bin</code> </p>
+<p>Combine commands using &amp;&amp;:</p>
+<code>nasm -f bin test.asm -o binary.bin &amp;&amp; nasm -f bin prog1.asm -o kernel.bin 
+&amp;&amp; cat binary.bin kernel.bin &gt; combined.bin</code>
+<p>Boot QEMU in FULLSCREEN mode:</p>
+<p><code>qemu-system-i386 -fda combined.bin -full-screen</code> </p>
+<p>Escape Fullscreen mode</p>
+<code>CTRL ALT f</code><br>
+or <code><br>
+ALT F4</code> to close window<br>
+<p>Hexdump BYTES:</p>
+<code>hexdump -C combined.bin</code> 
+<p>Launch Emulator:</p>
+<p><code>qemu-system-i386 -drive format=raw,file=combined.bin</code> </p>
+<p>Launch Emulator without errors: </p>
+<code>qemu-system-i386 -fda combined.bin</code>
+<p>See ya later Emulator<br>
+  ALT F4</p>
+<hr>
+<p>Disassembly: Decompiling</p>
+<p>ls</p>
+<p>hexdump -C binary.bin<br>
+</p>
+<p>ndisasm binary.bin</p>
+<p>ndisasm binary.bin | less<br>
+  Mouse wheel or Arrow Key up and down<br>
+  Spacebar to page down<br>
+  b to page up<br>
+  q to Escape page view</p>
+<p>ndisasm -b 32 binary.bin | less</p>
+<p>Disassemble to screen without line numbers and hex:</p>
+<p>ndisasm -b 16 binary.bin | awk '{$1=$2=&quot;&quot;; print $0}' | sed 's/^ 
+  *//'</p>
+<p>Disassemble to .asm file without line numbers and hex:</p>
+<p>ndisasm -b 16 binary.bin | awk '{$1=$2=&quot;&quot;; print $0}' | sed 's/^ 
+  *//' &gt; test.asm</p>
+<p>nasm -f bin test.asm -o binary.bin</p>
+<p>qemu-system-i386 -drive format=raw,file=binary.bin</p>
+<hr>
+<p>Another way to print to the screen:</p>
+<code>echo hello</code><br>
+
+<p>Print infinitely:</p>
+<code>yes hello</code>
+<p>CTRL C</p>
+<p>Print specified number of times:</p>
+<code>yes Are we there yet? | head -n 16</code>
+<p>Strip out carriage returns:</p>
+<code>yes 00 | head -n 16 | tr -d '\n'</code>
+<p>Add spaces:</p>
+<code>yes &quot;00 &quot; | head -n 16 | tr -d '\n'</code>
+<p>Overwrite existing text document with 00s:</p>
+<code>yes &quot;00 &quot; | head -n 512 | tr -d '\n' &gt; machineCode.txt</code>
+<br><br>
+<code>cat (m Tab)</code>
+<p>Overwrite existing text document with 0s:</p>
+<code>yes &quot;0&quot; | head -n 510 | tr -d '\n' &gt; machineCode.txt</code>
+<br><br>
+<code>notepad (m Tab)</code>
+<p>Convert Decimal Text to .bin:</p>
+<code>awk '{ <br>
+  for(i=1; i&lt;=NF; i++) <br>
+  printf &quot;%02X&quot;, $i <br>
+  }' machineCode.txt | xxd -r -p &gt; binary.bin</code>
+  <br><br>
+<code>hexdump -C binary.bin</code>
+<p>Export .bin to Decimal text file:</p>
+<code>od -v -An -t u1 binary.bin &gt; machineCode.txt </code>
+<br><br>
+<code>cat machineCode.txt</code>
+<p>Hexdump WORDs:</p>
+<code>hexdump binary.bin</code>
+<p>Hexdump BYTEs:</p>
+<code>hexdump -C binary.bin </code> 
+<p>No need to Calculate byte# and spaces for text.<br>
+  Overwite raw data values without truncating:</p>
+<code>printf '\xB8\x03\x0E\xCD' | dd of=binary.bin bs=1 conv=notrunc</code>
+<br><br>
+<code>hexdump -C binary.bin</code>
+<p>Could have just started with a binary.<br>
+  Create binary file with 510 bytes of value 0x00:</p>
+<code>dd if=/dev/zero of=allZeros.bin bs=510 count=1</code>
+<p>Append to end of binary file:</p>
+<code>printf &quot;\x55\xAA&quot;&gt;&gt; machineCode.bin </code>
+<p>Delete document:</p>
+<code>rm (a Tab)</code>
+<p>Entire dump with Capital Hex Values:</p>
+<p><code>hexdump -v -e '1/1 &quot;%02X &quot;' binary.bin</code> </p>
+<p>No need to Calculate byte# and spaces for text:</p>
+<code>printf &quot;10&quot; | dd of=machineCode.txt bs=1 seek=$((4*3)) conv=notrunc</code>
+<p>Overwrite .bin file with raw data:</p>
+<code>printf &quot;\x10&quot; | dd of=binary.bin bs=1 seek=4 conv=notrunc</code>
+<p>Compressed view with Capitals:</p>
+<code>hexdump -e '1/1 &quot;%02X &quot;' binary.bin</code>
+<p>Hexdump with individual byte #s:</p>
+<code>hexdump -v -e '1/1 &quot;%02X\n&quot;' binary.bin | awk '{ printf &quot;%d 
+  %s\n&quot;, NR-1, $1 }'</code>
+<p>Append raw binary data:</p>
+<code>printf &quot;\x55\xAA&quot; &gt;&gt; myPatch.bin</code>
+<p>Print file length (in Hex):</p>
+<code>hexdump -C binary.bin | tail -n 1
+</code>
+<br>
+<p>Hexdump ONLY the End (Boot Signature Check)</p>
+<code>tail -c 8 binary.bin | hexdump -C </code>
+<p>Create a text Patch of Hex data in Binary file:</p>
+<code>printf '\xB8\x03\x0E\xCD' | dd of=myPatch.bin bs=1</code>
+<p>Overwrite binary file with another binary file:</p>
+<code> dd if=myPatch.bin of=binary.bin bs=1 count=$(stat -c %s myPatch.bin) conv=notrunc</code>
+<p>Search for code bytes:</p>
+<code>hexdump -C binary.bin | grep &quot;55 aa&quot;</code>
+<p>Hexdump with line #s:</p>
+<code>hexdump -C binary.bin | nl -ba</code>
+<p>Hexdump the first 8 BYTES</p>
+<code>hexdump -n 8 -C binary.bin</code>
+<p>Hexdump 8 bit BYTEs:</p>
+<p><code>hexdump -v -e '1/1 &quot;%02X&quot; &quot; &quot;' binary.bin</code> 
+</p>
+<p>Hexdump 16 bit WORDs</p>
+<code>hexdump -v -e '2/1 &quot;%02X&quot; &quot; &quot;' binary.bin </code> 
+<p>Hexdump 32 bit DWORDs</p>
+<p><code>hexdump -v -e '4/1 &quot;%02X&quot; &quot; &quot;' binary.bin </code></p>
+<p>Hexdump 64 bit QWORDs</p>
+<p><code>hexdump -v -e '8/1 &quot;%02X&quot; &quot; &quot;' binary.bin </code></p>
+<p>Display math results:</p>
+<code>printf $((510 * 3))</code> 
+<p>Convert Hex to Decimal:</p>
+<code>printf $((0x0E))</code>
+<p>Decimal to Binary:</p>
+<code>printf &quot;obase=2; 42\n&quot; | bc</code>
+<p>Convert Decimal to Hex:</p>
+<code>printf &quot;%X\n&quot; $((42))</code>
+<p>Convert Binary to Hex:</p>
+<p>printf &quot;%d\n&quot; $((2#0101010))</p>
+<p>This dumps the first 64 bytes, 8 per line, with ASCII equivalents.<br>
+  (%_p = printable ASCII, dots for others.)</p>
+<code>hexdump -n 64 -e '8/1 &quot;%02x &quot; &quot; &quot;' -e '&quot; |&quot; 8/1 
+  &quot;%_p&quot; &quot;|\n&quot;' binary.bin </code>
+<p>Clear the Command Line:</p>
+<p>CTRL U</p>
+<p>Hide previous commands:</p>
+<p>CTRL L</p>
+<p>Clear the screen fresh:</p>
+<code>clear</code>
+<p>&nbsp;</p>
+</body>
+</html>

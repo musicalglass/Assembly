@@ -1,0 +1,933 @@
+<html>
+<head>
+<title>Opcodes Appendix</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<p><font size="3">GRP1 Instructions (ADD/OR/ADC/SBB/AND/SUB/XOR/CMP)<br>
+  Opcodes: 80h, 81h, 82h, 83h<br>
+  Selected by ModR/M reg field (/digit) </font> </p>
+<table border="1" width="659">
+  <tr> 
+    <td width="14%"><font size="4"><a name="300"></a>300</font></td>
+    <td width="18%"><font size="5">GRP1/0</font></td>
+    <td width="20%"><font size="5">ADD</font></td>
+    <td width="48%">add word [val], 5</td>
+  </tr>
+  <tr> 
+    <td width="14%"><font size="4"><a name="301"></a>301</font></td>
+    <td width="18%"><font size="5">GRP1/1</font></td>
+    <td width="20%"><font size="5">OR</font></td>
+    <td width="48%">or byte [val8], 1</td>
+  </tr>
+  <tr> 
+    <td width="14%"><font size="4"><a name="302"></a>302</font></td>
+    <td width="18%"><font size="5">GRP1/2</font></td>
+    <td width="20%"><font size="5">ADC</font></td>
+    <td width="48%">adc word [val], 1234h</td>
+  </tr>
+  <tr> 
+    <td width="14%"><font size="4"><a name="303"></a>303</font></td>
+    <td width="18%"><font size="5">GRP1/3</font></td>
+    <td width="20%"><font size="5">SBB</font></td>
+    <td width="48%">sbb byte [val8], 2</td>
+  </tr>
+  <tr> 
+    <td width="14%"><font size="4"><a name="304"></a>304</font></td>
+    <td width="18%"><font size="5">GRP1/4</font></td>
+    <td width="20%"><font size="5">AND</font></td>
+    <td width="48%">and word [val], 0F0Fh</td>
+  </tr>
+  <tr> 
+    <td width="14%"><font size="4"><a name="305"></a>305</font></td>
+    <td width="18%"><font size="5">GRP1/5</font></td>
+    <td width="20%"><font size="5">SUB</font></td>
+    <td width="48%">sub byte [val8], 1</td>
+  </tr>
+  <tr> 
+    <td width="14%"><font size="4"><a name="306"></a>306</font></td>
+    <td width="18%"><font size="5">GRP1/6</font></td>
+    <td width="20%"><font size="5">XOR</font></td>
+    <td width="48%">xor word [val], 0FFFFh</td>
+  </tr>
+  <tr> 
+    <td width="14%"><font size="4"><a name="307"></a>307</font></td>
+    <td width="18%"><font size="5">GRP1/7</font></td>
+    <td width="20%"><font size="5">CMP</font></td>
+    <td width="48%">cmp byte [val8], 10</td>
+  </tr>
+</table>
+<p><font size="4"><a name="GRP2_Instructions"></a></font><font size="3">GRP2 Instructions 
+  (Shift/Rotate)<br>
+  Opcodes: D0h, D1h, D2h, D3h</font></p>
+<table border="1" width="657">
+  <tr> 
+    <td width="12%"><font size="4"><a name="320"></a>320</font></td>
+    <td width="19%"><font size="5">GRP2/0</font></td>
+    <td width="21%"><font size="5">ROL</font></td>
+    <td width="48%">rol byte [val8], 1</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="321"></a>321</font></td>
+    <td width="19%"><font size="5">GRP2/1</font></td>
+    <td width="21%"><font size="5">ROR</font></td>
+    <td width="48%">ror word [val], cl</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="322"></a>322</font></td>
+    <td width="19%"><font size="5">GRP2/2</font></td>
+    <td width="21%"><font size="5">RCL</font></td>
+    <td width="48%">rcl byte [val8], 1</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="323"></a>323</font></td>
+    <td width="19%"><font size="5">GRP2/3</font></td>
+    <td width="21%"><font size="5">RCR</font></td>
+    <td width="48%">rcr word [val], cl</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="324"></a>324</font></td>
+    <td width="19%"><font size="5">GRP2/4</font></td>
+    <td width="21%"><font size="5">SHL/SAL</font></td>
+    <td width="48%">shl byte [val8], 1</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="325"></a>325</font></td>
+    <td width="19%"><font size="5">GRP2/5</font></td>
+    <td width="21%"><font size="5">SHR</font></td>
+    <td width="48%">shr word [val], cl</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="326"></a>326</font></td>
+    <td width="19%"><font size="5">GRP2/6</font></td>
+    <td width="21%"><font size="5">UNUSED</font></td>
+    <td width="48%">(reserved)</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="327"></a>327</font></td>
+    <td width="19%"><font size="5">GRP2/7</font></td>
+    <td width="21%"><font size="5">SAR</font></td>
+    <td width="48%">sar word [val], 1</td>
+  </tr>
+</table>
+<p><font size="4"><a name="GRP3_Instructions"></a></font><font size="3"> GRP3 
+  Instructions (TEST/NOT/NEG/MUL/IMUL/DIV/IDIV)<br>
+  Opcodes: F6h (byte), F7h (word)</font></p>
+<table width="658" border="1">
+  <tr> 
+    <td width="12%"><font size="4"><a name="340"></a>340</font></td>
+    <td width="19%"><font size="5">GRP3/0</font></td>
+    <td width="21%"><font size="5">TEST</font></td>
+    <td width="48%">test byte [val8], 0FFh</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="341"></a>341</font></td>
+    <td width="19%"><font size="5">GRP3/1</font></td>
+    <td width="21%"><font size="5">UNUSED</font></td>
+    <td width="48%">(reserved)</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="342"></a>342</font></td>
+    <td width="19%"><font size="5">GRP3/2</font></td>
+    <td width="21%"><font size="5">NOT</font></td>
+    <td width="48%">not word [val]</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="343"></a>343</font></td>
+    <td width="19%"><font size="5">GRP3/3</font></td>
+    <td width="21%"><font size="5">NEG</font></td>
+    <td width="48%">neg byte [val8]</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="344"></a>344</font></td>
+    <td width="19%"><font size="5">GRP3/4</font></td>
+    <td width="21%"><font size="5">MUL</font></td>
+    <td width="48%">mul byte [val8]</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="345"></a>345</font></td>
+    <td width="19%"><font size="5">GRP3/5</font></td>
+    <td width="21%"><font size="5">IMUL</font></td>
+    <td width="48%">imul word [val]</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="346"></a>346</font></td>
+    <td width="19%"><font size="5">GRP3/6</font></td>
+    <td width="21%"><font size="5">DIV</font></td>
+    <td width="48%">div word [val]</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="347"></a>347</font></td>
+    <td width="19%"><font size="5">GRP3/7</font></td>
+    <td width="21%"><font size="5">IDIV</font></td>
+    <td width="48%">idiv byte [val8]</td>
+  </tr>
+</table>
+<p><font size="4"><a name="GRP4_Instructions"></a></font><font size="3">GRP4 Instructions 
+  (INC/DEC on Eb)<br>
+  Opcode: FEh</font></p>
+<table width="660" border="1">
+  <tr> 
+    <td width="12%"><font size="4"><a name="360"></a>360</font></td>
+    <td width="19%"><font size="5">GRP4/0</font></td>
+    <td width="21%"><font size="5">INC Eb</font></td>
+    <td width="48%">inc byte [val8]</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="361"></a>361</font></td>
+    <td width="19%"><font size="5">GRP4/1</font></td>
+    <td width="21%"><font size="5">DEC Eb</font></td>
+    <td width="48%">dec byte [val8]</td>
+  </tr>
+</table>
+<p><font size="4"><a name="GRP5_Instructions"></a></font><font size="3">GRP5 Instructions 
+  (INC/DEC/CALL/JMP/PUSH on Ev)<br>
+  Opcode: FFh</font></p>
+<table border="1" width="665">
+  <tr> 
+    <td width="12%"><font size="4"><a name="380"></a>380</font></td>
+    <td width="18%"><font size="5">GRP5/0</font></td>
+    <td width="22%"><font size="5">INC Ev</font></td>
+    <td width="48%">inc word [val]</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="381"></a>381</font></td>
+    <td width="18%"><font size="5">GRP5/1</font></td>
+    <td width="22%"><font size="5">DEC Ev</font></td>
+    <td width="48%">dec word [val]</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="382"></a>382</font></td>
+    <td width="18%"><font size="5">GRP5/2</font></td>
+    <td width="22%"><font size="5">CALL Ev</font></td>
+    <td width="48%">call word [ptr16]</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="383"></a>383</font></td>
+    <td width="18%"><font size="5">GRP5/3</font></td>
+    <td width="22%"><font size="5">CALL Mp</font></td>
+    <td width="48%">call far [ptr_far]</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="384"></a>384</font></td>
+    <td width="18%"><font size="5">GRP5/4</font></td>
+    <td width="22%"><font size="5">JMP Ev</font></td>
+    <td width="48%">jmp word [ptr16]</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="385"></a>385</font></td>
+    <td width="18%"><font size="5">GRP5/5</font></td>
+    <td width="22%"><font size="5">JMP Mp</font></td>
+    <td width="48%">jmp far [ptr_far]</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="386"></a>386</font></td>
+    <td width="18%"><font size="5">GRP5/6</font></td>
+    <td width="22%"><font size="5">PUSH Ev</font></td>
+    <td width="48%">push word [val]</td>
+  </tr>
+</table>
+<p><font size="4"><a name="x86_Instruction_Prefixes"></a></font><font size="3">x86 
+  Instruction Prefixes<br>
+  All prefixes that modify the behavior of the following instruction<br>
+  Note: These do not change instruction flow &#151; they modify encoding or operand 
+  behavior.<br>
+  They stack, and the CPU processes them in a strict order.</font></p>
+<table border="1" width="782">
+  <tr> 
+    <td width="10%"><font size="4"><a name="400"></a>400</font></td>
+    <td width="13%"><font size="5">0xF0</font></td>
+    <td width="32%"><font size="5">LOCK</font></td>
+    <td width="45%"> ; Lock bus for atomic memory operations<br>
+      lock inc word [counter] </td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4"><a name="401"></a>401</font></td>
+    <td width="13%"><font size="5">0xF2</font></td>
+    <td width="32%"><font size="5">REPNE / REPNZ</font></td>
+    <td width="45%"> ; Repeat while ZF = 0<br>
+      repne scasb </td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4"><a name="402"></a>402</font></td>
+    <td width="13%"><font size="5">0xF3</font></td>
+    <td width="32%"><font size="5">REP / REPE / REPZ</font></td>
+    <td width="45%"> ; Repeat while ZF = 1 (or for unconditional REP)<br>
+      rep movsb </td>
+  </tr>
+  <!-- Segment Overrides -->
+  <tr> 
+    <td width="10%"><font size="4"><a name="403"></a>403</font></td>
+    <td width="13%"><font size="5">0x2E</font></td>
+    <td width="32%"><font size="5">CS:</font></td>
+    <td width="45%"> ; Force CS segment for memory access<br>
+      mov al, cs:[bx] </td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4"><a name="404"></a>404</font></td>
+    <td width="13%"><font size="5">0x36</font></td>
+    <td width="32%"><font size="5">SS:</font></td>
+    <td width="45%"> ; Force SS segment<br>
+      mov ax, ss:[bp+4] </td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4"><a name="405"></a>405</font></td>
+    <td width="13%"><font size="5">0x3E</font></td>
+    <td width="32%"><font size="5">DS:</font></td>
+    <td width="45%"> ; Rare: DS is already the default segment<br>
+      mov al, ds:[si] </td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4"><a name="406"></a>406</font></td>
+    <td width="13%"><font size="5">0x26</font></td>
+    <td width="32%"><font size="5">ES:</font></td>
+    <td width="45%"> mov ax, es:[di] </td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4"><a name="407"></a>407</font></td>
+    <td width="13%"><font size="5">0x64</font></td>
+    <td width="32%"><font size="5">FS:</font></td>
+    <td width="45%"> mov ax, fs:[bx] </td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4"><a name="408"></a>408</font></td>
+    <td width="13%"><font size="5">0x65</font></td>
+    <td width="32%"><font size="5">GS:</font></td>
+    <td width="45%"> mov ax, gs:[bx] </td>
+  </tr>
+  <!-- Operand/Address Size Overrides -->
+  <tr> 
+    <td width="10%"><font size="4"><a name="409"></a>409</font></td>
+    <td width="13%"><font size="5">0x66</font></td>
+    <td width="32%"><font size="5">Operand Size Override</font></td>
+    <td width="45%"> ; Switch 16-bit instruction to 32-bit, or vice versa<br>
+      db 0x66<br>
+      mov ax, 0 </td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4"><a name="410"></a>410</font></td>
+    <td width="13%"><font size="5">0x67</font></td>
+    <td width="32%"><font size="5">Address Size Override</font></td>
+    <td width="45%"> ; Switch 16-bit addressing ? 32-bit addressing<br>
+      db 0x67<br>
+      mov ax, [eax] </td>
+  </tr>
+</table>
+
+<p><font size="4"><a name="prefix_summary"></a></font>
+<font size="3"><b>Description Summary — Instruction Prefixes</b></font></p>
+
+<p><font size="3"><b>
+  <!-- SEGMENT OVERRIDES -->
+  Segment Override Prefixes</b></font></p>
+
+<table border="1" width="784">
+  <tr>
+  <td width="10%"><font size="5">0x2E</font></td>
+    <td width="27%"><font size="5">Force CS segment</font></td>
+    <td width="63%">Use <b>CS:</b> instead of the default segment for memory addressing.</td>
+</tr>
+
+<tr>
+    <td width="10%"><font size="5">0x36</font></td>
+    <td width="27%"><font size="5">Force SS segment</font></td>
+    <td width="63%">Uses <b>SS:</b> explicitly (commonly used when accessing stack 
+      variables).</td>
+</tr>
+
+<tr>
+    <td width="10%"><font size="5">0x3E</font></td>
+    <td width="27%"><font size="5">Force DS segment</font></td>
+    <td width="63%">Forces <b>DS:</b> (often redundant because DS is already the 
+      default segment).</td>
+</tr>
+
+<tr>
+    <td width="10%"><font size="5">0x26</font></td>
+    <td width="27%"><font size="5">Force ES segment</font></td>
+    <td width="63%">Uses <b>ES:</b> for memory access (important for MOVS, STOS, 
+      SCAS).</td>
+</tr>
+
+<tr>
+    <td width="10%"><font size="5">0x64</font></td>
+    <td width="27%"><font size="5">Force FS segment</font></td>
+    <td width="63%">Uses <b>FS:</b> (common for thread-local storage in protected 
+      mode).</td>
+</tr>
+
+<tr>
+    <td width="10%"><font size="5">0x65</font></td>
+    <td width="27%"><font size="5">Force GS segment</font></td>
+    <td width="63%">Uses <b>GS:</b> (often used by OS kernels for per-CPU data).</td>
+</tr>
+
+</table>
+
+
+<p><font size="3"><b>
+  <!-- REPEAT PREFIXES -->
+  Repeat Prefixes</b></font></p>
+
+<table border="1">
+  <tr>
+    <td width="9%"><font size="5">0xF2</font></td>
+    <td width="28%"><font size="5">REPNE / REPNZ</font></td>
+    <td width="63%">Repeat the string instruction while <b>ZF = 0</b>; stops when 
+      ZF becomes 1 or CX reaches zero.</td>
+</tr>
+
+<tr>
+    <td width="9%"><font size="5">0xF3</font></td>
+    <td width="28%"><font size="5">REP / REPE / REPZ</font></td>
+    <td width="63%"> 
+      <p>Repeat while <b>ZF = 1</b>, or repeat unconditionally for MOVS/STOS;<br>
+        CX is decremented automatically.</p>
+      </td>
+</tr>
+
+</table>
+
+<p>These prefixes apply only to string instructions such as MOVSB, MOVSW, CMPSB, SCASB, STOSB, and LODSB.</p>
+
+
+<p><font size="3"><b>
+  <!-- LOCK PREFIX -->
+  LOCK Prefix</b></font></p>
+
+<table border="1" width="53%">
+  <tr>
+    <td width="16%"><font size="5">0xF0</font></td>
+    <td width="20%"><font size="5">LOCK</font></td>
+    <td width="64%">Makes the next memory operation <b>atomic</b>, <br>
+      preventing interruption by other processors.</td>
+</tr>
+
+</table>
+
+
+<p><font size="3"><b>
+  <!-- SIZE OVERRIDES -->
+  Size Override Prefixes</b></font></p>
+
+<table border="1" width="67%">
+  <tr>
+  <td width="10%"><font size="5">0x66</font></td>
+    <td width="31%"><font size="5">Operand-size override</font></td>
+    <td width="59%">Switches the instruction’s operand size (e.g., 16-bit ? 32-bit 
+      arithmetic).</td>
+</tr>
+
+<tr>
+    <td width="10%"><font size="5">0x67</font></td>
+    <td width="31%"><font size="5">Address-size override</font></td>
+    <td width="59%">Switches the memory addressing mode (e.g., 16-bit offsets 
+      ? 32-bit offsets).</td>
+</tr>
+
+</table>
+
+
+<p>&nbsp;</p><hr>
+<p><font size="4"><a name="ModR_M"></a></font><font size="3">ModR/M Byte Structure</font></p>
+<p><b>The ModR/M byte</b> is an extra instruction byte used by many x86 opcodes 
+  to specify which register or memory address the instruction operates on. It 
+  contains three fields: <b>mod</b> (addressing mode), <b>reg</b> (register or 
+  sub-opcode selector), and <b>r/m</b> (register or memory addressing method). 
+  Together, these fields allow a single opcode to work with many different operand 
+  types, making the instruction set compact and flexible.</p>
+<p><font size="3">The ModR/M byte is:<br>
+  7 6 | 5 4 3 | 2 1 0<br>
+  --------------------------------<br>
+  | mod | reg | r/m |<br>
+  --------------------------------mod (2 bits) = addressing mode<br>
+  reg (3 bits) = register or sub-opcode selector<br>
+  r/m (3 bits) = register or memory addressing method</font></p>
+
+<table border="1" width="870">
+  <tr> 
+    <td width="10%"><font size="4"><a name="500"></a>500</font></td>
+    <td width="9%"><font size="5">mod</font></td>
+    <td width="35%"><font size="5">Addressing Type</font></td>
+    <td width="46%"> <b>00:</b> Memory, no displacement (except rm=110)<br>
+      <b>01:</b> Memory, 8-bit displacement<br>
+      <b>02:</b> Memory, 16-bit displacement<br>
+      <b>03:</b> Register direct (no memory) </td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4"><a name="501"></a>501</font></td>
+    <td width="9%"><font size="5">reg</font></td>
+    <td width="35%"><font size="5">Register or /digit</font></td>
+    <td width="46%"> In GRP instructions: <b>reg = /digit</b> selects the sub-instruction.<br>
+      Otherwise: selects register operand. </td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4"><a name="502"></a>502</font></td>
+    <td width="9%"><font size="5">r/m</font></td>
+    <td width="35%"><font size="5">Memory/Register specifier</font></td>
+    <td width="46%"> Determines addressing mode when mod&lt;3,<br>
+      or register when mod=3. </td>
+  </tr>
+</table>
+<p><font size="3">16-bit Addressing Modes<br>
+  ? mod = 00 (No displacement, except r/m = 110)</font></p>
+<table border="1" width="586">
+  <tr> 
+    <td width="10%"><font size="4"><a name="520"></a>520</font></td>
+    <td width="17%"><font size="5">mod=00</font></td>
+    <td width="21%"><font size="5">r/m Table</font></td>
+    <td width="52%"> 000 ? [BX + SI]<br>
+      001 &gt; [BX + DI]<br>
+      010 &gt; [BP + SI]<br>
+      011 &gt; [BP + DI]<br>
+      100 &gt; [SI]<br>
+      101 &gt; [DI]<br>
+      110 &gt; <b>direct address (16-bit)</b> [disp16]<br>
+      111 &gt; [BX] </td>
+  </tr>
+</table>
+<p><font size="3">mod = 01 (8-bit signed displacement)</font></p>
+<table border="1" width="587">
+  <tr> 
+    <td width="9%"><font size="4"><a name="521"></a>521</font></td>
+    <td width="18%"><font size="5">mod=01</font></td>
+    <td width="21%"><font size="5">8-bit disp</font></td>
+    <td width="52%"> 000 ? [BX + SI + disp8]<br>
+      001 &gt; [BX + DI + disp8]<br>
+      010 &gt; [BP + SI + disp8]<br>
+      011 &gt; [BP + DI + disp8]<br>
+      100 &gt; [SI + disp8]<br>
+      101 &gt; [DI + disp8]<br>
+      110 &gt; [BP + disp8]<br>
+      111 &gt; [BX + disp8] </td>
+  </tr>
+</table>
+<p><font size="3">mod = 02 (16-bit displacement)</font></p>
+<table border="1" width="591">
+  <tr> 
+    <td width="9%"><font size="4"><a name="522"></a>522</font></td>
+    <td width="18%"><font size="5">mod=02</font></td>
+    <td width="21%"><font size="5">16-bit disp</font></td>
+    <td width="52%"> 000 &gt; [BX + SI + disp16]<br>
+      001 &gt; [BX + DI + disp16]<br>
+      010 &gt; [BP + SI + disp16]<br>
+      011 &gt; [BP + DI + disp16]<br>
+      100 &gt; [SI + disp16]<br>
+      101 &gt; [DI + disp16]<br>
+      110 &gt; [BP + disp16]<br>
+      111 &gt; [BX + disp16] </td>
+  </tr>
+</table>
+<p><font size="3">mod = 03 (Register direct &#151; NOT memory)</font></p>
+<table border="1" width="592">
+  <tr> 
+    <td width="7%"><font size="4"><a name="523"></a>523</font></td>
+    <td width="18%"><font size="5">mod=03</font></td>
+    <td width="30%"><font size="5">Register Mode</font></td>
+    <td width="45%"> 000 &gt; AX<br>
+      001 &gt; CX<br>
+      002 &gt; DX<br>
+      003 &gt; BX<br>
+      004 &gt; SP<br>
+      005 &gt; BP<br>
+      006 &gt; SI<br>
+      007 &gt; DI </td>
+  </tr>
+</table>
+<p><font size="4"><a name="mod_00"></a></font> <font size="3"><b>mod = 00 (No 
+  displacement — except r/m = 110)</b></font><font size="3"></font></p>
+<table width="48%" border="1">
+  <tr> 
+    <td width="9%"><font size="4"><a name="520"></a>520</font></td>
+    <td width="13%"><font size="5">000</font></td>
+    <td width="28%"><font size="5">[BX + SI]</font></td>
+    <td width="50%">Memory addressing using BX+SI</td>
+  </tr>
+  <tr> 
+    <td width="9%"><font size="4"><a name="521"></a>521</font></td>
+    <td width="13%"><font size="5">001</font></td>
+    <td width="28%"><font size="5">[BX + DI]</font></td>
+    <td width="50%">Memory addressing using BX+DI</td>
+  </tr>
+  <tr> 
+    <td width="9%"><font size="4"><a name="522"></a>522</font></td>
+    <td width="13%"><font size="5">002</font></td>
+    <td width="28%"><font size="5">[BP + SI]</font></td>
+    <td width="50%">Memory addressing using BP+SI</td>
+  </tr>
+  <tr> 
+    <td width="9%"><font size="4"><a name="523"></a>523</font></td>
+    <td width="13%"><font size="5">003</font></td>
+    <td width="28%"><font size="5">[BP + DI]</font></td>
+    <td width="50%">Memory addressing using BP+DI</td>
+  </tr>
+  <tr> 
+    <td width="9%"><font size="4"><a name="524"></a>524</font></td>
+    <td width="13%"><font size="5">004</font></td>
+    <td width="28%"><font size="5">[SI]</font></td>
+    <td width="50%">Memory addressing using SI</td>
+  </tr>
+  <tr> 
+    <td width="9%"><font size="4"><a name="525"></a>525</font></td>
+    <td width="13%"><font size="5">005</font></td>
+    <td width="28%"><font size="5">[DI]</font></td>
+    <td width="50%">Memory addressing using DI</td>
+  </tr>
+  <tr> 
+    <td width="9%"><font size="4"><a name="526"></a>526</font></td>
+    <td width="13%"><font size="5">006</font></td>
+    <td width="28%"><font size="5">[disp16]</font></td>
+    <td width="50%"><b>Direct memory address</b> encoded in instruction</td>
+  </tr>
+  <tr> 
+    <td width="9%"><font size="4"><a name="527"></a>527</font></td>
+    <td width="13%"><font size="5">007</font></td>
+    <td width="28%"><font size="5">[BX]</font></td>
+    <td width="50%">Memory addressing using BX</td>
+  </tr>
+</table>
+<p><font size="4"><a name="mod_01"></a></font> <font size="3"><b>mod = 01 (Memory 
+  with 8-bit displacement)</b></font></p>
+<table width="701" border="1">
+  <tr> 
+    <td width="9%"><font size="4"><a name="530"></a>530</font></td>
+    <td width="10%"><font size="5">000</font></td>
+    <td width="34%"><font size="5">[BX + SI + disp8]</font></td>
+    <td width="47%">BX+SI with 8-bit displacement</td>
+  </tr>
+  <tr> 
+    <td width="9%"><font size="4"><a name="531"></a>531</font></td>
+    <td width="10%"><font size="5">001</font></td>
+    <td width="34%"><font size="5">[BX + DI + disp8]</font></td>
+    <td width="47%">BX+DI with 8-bit displacement</td>
+  </tr>
+  <tr> 
+    <td width="9%"><font size="4"><a name="532"></a>532</font></td>
+    <td width="10%"><font size="5">002</font></td>
+    <td width="34%"><font size="5">[BP + SI + disp8]</font></td>
+    <td width="47%">BP+SI with 8-bit displacement</td>
+  </tr>
+  <tr> 
+    <td width="9%"><font size="4"><a name="533"></a>533</font></td>
+    <td width="10%"><font size="5">003</font></td>
+    <td width="34%"><font size="5">[BP + DI + disp8]</font></td>
+    <td width="47%">BP+DI with 8-bit displacement</td>
+  </tr>
+  <tr> 
+    <td width="9%"><font size="4"><a name="534"></a>534</font></td>
+    <td width="10%"><font size="5">004</font></td>
+    <td width="34%"><font size="5">[SI + disp8]</font></td>
+    <td width="47%">SI with displacement</td>
+  </tr>
+  <tr> 
+    <td width="9%"><font size="4"><a name="535"></a>535</font></td>
+    <td width="10%"><font size="5">005</font></td>
+    <td width="34%"><font size="5">[DI + disp8]</font></td>
+    <td width="47%">DI with displacement</td>
+  </tr>
+  <tr> 
+    <td width="9%"><font size="4"><a name="536"></a>536</font></td>
+    <td width="10%"><font size="5">006</font></td>
+    <td width="34%"><font size="5">[BP + disp8]</font></td>
+    <td width="47%">BP + 8-bit offset</td>
+  </tr>
+  <tr> 
+    <td width="9%"><font size="4"><a name="537"></a>537</font></td>
+    <td width="10%"><font size="5">007</font></td>
+    <td width="34%"><font size="5">[BX + disp8]</font></td>
+    <td width="47%">BX + 8-bit offset</td>
+  </tr>
+</table>
+<p><font size="4"><a name="mod_02"></a></font><font size="3"><b>mod = 02 (Memory 
+  with 16-bit displacement)</b></font></p>
+<table border="1" width="699">
+  <tr> 
+    <td width="11%"><font size="4"><a name="540"></a>540</font></td>
+    <td width="12%"><font size="5">000</font></td>
+    <td width="30%"><font size="5">[BX + SI + disp16]</font></td>
+    <td width="47%">BX+SI with 16-bit displacement</td>
+  </tr>
+  <tr> 
+    <td width="11%"><font size="4"><a name="541"></a>541</font></td>
+    <td width="12%"><font size="5">001</font></td>
+    <td width="30%"><font size="5">[BX + DI + disp16]</font></td>
+    <td width="47%">BX+DI with 16-bit displacement</td>
+  </tr>
+  <tr> 
+    <td width="11%"><font size="4"><a name="542"></a>542</font></td>
+    <td width="12%"><font size="5">002</font></td>
+    <td width="30%"><font size="5">[BP + SI + disp16]</font></td>
+    <td width="47%">BP+SI with 16-bit displacement</td>
+  </tr>
+  <tr> 
+    <td width="11%"><font size="4"><a name="543"></a>543</font></td>
+    <td width="12%"><font size="5">003</font></td>
+    <td width="30%"><font size="5">[BP + DI + disp16]</font></td>
+    <td width="47%">BP+DI with 16-bit displacement</td>
+  </tr>
+  <tr> 
+    <td width="11%"><font size="4"><a name="544"></a>544</font></td>
+    <td width="12%"><font size="5">004</font></td>
+    <td width="30%"><font size="5">[SI + disp16]</font></td>
+    <td width="47%">SI with displacement</td>
+  </tr>
+  <tr> 
+    <td width="11%"><font size="4"><a name="545"></a>545</font></td>
+    <td width="12%"><font size="5">005</font></td>
+    <td width="30%"><font size="5">[DI + disp16]</font></td>
+    <td width="47%">DI with displacement</td>
+  </tr>
+  <tr> 
+    <td width="11%"><font size="4"><a name="546"></a>546</font></td>
+    <td width="12%"><font size="5">006</font></td>
+    <td width="30%"><font size="5">[BP + disp16]</font></td>
+    <td width="47%">BP + 16-bit displacement</td>
+  </tr>
+  <tr> 
+    <td width="11%"><font size="4"><a name="547"></a>547</font></td>
+    <td width="12%"><font size="5">007</font></td>
+    <td width="30%"><font size="5">[BX + disp16]</font></td>
+    <td width="47%">BX + 16-bit displacement</td>
+  </tr>
+</table>
+<p><font size="4"><a name="mod_03"></a></font> <font size="3"><b>mod = 03 (Register 
+  direct — NOT memory)</b></font></p>
+<table border="1" width="536">
+  <tr> 
+    <td width="12%"><font size="4"><a name="550"></a>550</font></td>
+    <td width="14%"><font size="5">000</font></td>
+    <td width="16%"><font size="5">AX</font></td>
+    <td width="58%">Operand is the AX register</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="551"></a>551</font></td>
+    <td width="14%"><font size="5">001</font></td>
+    <td width="16%"><font size="5">CX</font></td>
+    <td width="58%">Operand is the CX register</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="552"></a>552</font></td>
+    <td width="14%"><font size="5">002</font></td>
+    <td width="16%"><font size="5">DX</font></td>
+    <td width="58%">Operand is the DX register</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="553"></a>553</font></td>
+    <td width="14%"><font size="5">003</font></td>
+    <td width="16%"><font size="5">BX</font></td>
+    <td width="58%">Operand is the BX register</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="554"></a>554</font></td>
+    <td width="14%"><font size="5">004</font></td>
+    <td width="16%"><font size="5">SP</font></td>
+    <td width="58%">Operand is the SP register</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="555"></a>555</font></td>
+    <td width="14%"><font size="5">005</font></td>
+    <td width="16%"><font size="5">BP</font></td>
+    <td width="58%">Operand is the BP register</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="556"></a>556</font></td>
+    <td width="14%"><font size="5">006</font></td>
+    <td width="16%"><font size="5">SI</font></td>
+    <td width="58%">Operand is the SI register</td>
+  </tr>
+  <tr> 
+    <td width="12%"><font size="4"><a name="557"></a>557</font></td>
+    <td width="14%"><font size="5">007</font></td>
+    <td width="16%"><font size="5">DI</font></td>
+    <td width="58%">Operand is the DI register</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p><hr>
+<p><font size="4"><a name="sib_structure"></a></font> <font size="3"><b>SIB Byte 
+  Structure (Scale-Index-Base)</b></font></p>
+<p><b>The SIB byte</b> is an extra addressing byte used in 32-bit x86 instructions 
+  to describe complex memory addresses. It contains three fields: <b>scale</b> 
+  (multiplier for the index), <b>index</b> (the register to be scaled), and <b>base</b> 
+  (the starting register). Together, these fields let an instruction access memory 
+  using the formula <b>Base + Index×Scale + displacement</b>. The SIB byte only 
+  appears in 32-bit and 64-bit addressing modes and is never used in 16-bit real 
+  mode.</p>
+
+<table border="1" width="542">
+  <tr> 
+    <td width="10%"><font size="4">600</font></td>
+    <td width="16%"><font size="5">[7:6]</font></td>
+    <td width="17%"><font size="5">scale</font></td>
+    <td width="57%">Multiplier for index register: 1, 2, 4, 8</td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">601</font></td>
+    <td width="16%"><font size="5">[5:3]</font></td>
+    <td width="17%"><font size="5">index</font></td>
+    <td width="57%">Index register (ESP invalid)</td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">602</font></td>
+    <td width="16%"><font size="5">[2:0]</font></td>
+    <td width="17%"><font size="5">base</font></td>
+    <td width="57%">Base register (EBP special case)</td>
+  </tr>
+</table>
+<p><font size="4"><a name="sib_scale"></a></font> <font size="3"><b>SIB scale 
+  field (bits 7–6)</b></font></p>
+<table border="1" width="532">
+  <tr> 
+    <td width="10%"><font size="4">610</font></td>
+    <td width="15%"><font size="5">00</font></td>
+    <td width="18%"><font size="5">×1</font></td>
+    <td width="57%">No scaling</td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">611</font></td>
+    <td width="15%"><font size="5">01</font></td>
+    <td width="18%"><font size="5">×2</font></td>
+    <td width="57%">Scale index by 2</td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">612</font></td>
+    <td width="15%"><font size="5">10</font></td>
+    <td width="18%"><font size="5">×4</font></td>
+    <td width="57%">Scale index by 4</td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">613</font></td>
+    <td width="15%"><font size="5">11</font></td>
+    <td width="18%"><font size="5">×8</font></td>
+    <td width="57%">Scale index by 8</td>
+  </tr>
+</table>
+<p><font size="4"><a name="sib_index"></a></font> <font size="3"><b>SIB index 
+  field (bits 5–3)</b></font></p>
+<table border="1" width="532">
+  <tr> 
+    <td width="10%"><font size="4">620</font></td>
+    <td width="15%"><font size="5">000</font></td>
+    <td width="17%"><font size="5">EAX</font></td>
+    <td width="58%">Index = EAX</td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">621</font></td>
+    <td width="15%"><font size="5">001</font></td>
+    <td width="17%"><font size="5">ECX</font></td>
+    <td width="58%">Index = ECX</td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">622</font></td>
+    <td width="15%"><font size="5">010</font></td>
+    <td width="17%"><font size="5">EDX</font></td>
+    <td width="58%">Index = EDX</td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">623</font></td>
+    <td width="15%"><font size="5">011</font></td>
+    <td width="17%"><font size="5">EBX</font></td>
+    <td width="58%">Index = EBX</td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">624</font></td>
+    <td width="15%"><font size="5">100</font></td>
+    <td width="17%"><font size="5">—</font></td>
+    <td width="58%"><b>No index</b> (special encoding)</td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">625</font></td>
+    <td width="15%"><font size="5">101</font></td>
+    <td width="17%"><font size="5">EBP</font></td>
+    <td width="58%">Index = EBP</td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">626</font></td>
+    <td width="15%"><font size="5">110</font></td>
+    <td width="17%"><font size="5">ESI</font></td>
+    <td width="58%">Index = ESI</td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">627</font></td>
+    <td width="15%"><font size="5">111</font></td>
+    <td width="17%"><font size="5">EDI</font></td>
+    <td width="58%">Index = EDI</td>
+  </tr>
+</table>
+<p><font size="4"><a name="sib_base"></a></font> <font size="3"><b>SIB base field 
+  (bits 2–0)</b></font></p>
+<table width="533" border="1">
+  <tr> 
+    <td width="10%"><font size="4">630</font></td>
+    <td width="14%"><font size="5">000</font></td>
+    <td width="19%"><font size="5">EAX</font></td>
+    <td width="57%">Base = EAX</td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">631</font></td>
+    <td width="14%"><font size="5">001</font></td>
+    <td width="19%"><font size="5">ECX</font></td>
+    <td width="57%">Base = ECX</td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">632</font></td>
+    <td width="14%"><font size="5">010</font></td>
+    <td width="19%"><font size="5">EDX</font></td>
+    <td width="57%">Base = EDX</td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">633</font></td>
+    <td width="14%"><font size="5">011</font></td>
+    <td width="19%"><font size="5">EBX</font></td>
+    <td width="57%">Base = EBX</td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">634</font></td>
+    <td width="14%"><font size="5">100</font></td>
+    <td width="19%"><font size="5">ESP</font></td>
+    <td width="57%">Base = ESP (also triggers use of SIB)</td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">635</font></td>
+    <td width="14%"><font size="5">101</font></td>
+    <td width="19%"><font size="5">EBP*</font></td>
+    <td width="57%"> If mod = 00 ? <b>[disp32]</b><br>
+      Else ? EBP is base </td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">636</font></td>
+    <td width="14%"><font size="5">110</font></td>
+    <td width="19%"><font size="5">ESI</font></td>
+    <td width="57%">Base = ESI</td>
+  </tr>
+  <tr> 
+    <td width="10%"><font size="4">637</font></td>
+    <td width="14%"><font size="5">111</font></td>
+    <td width="19%"><font size="5">EDI</font></td>
+    <td width="57%">Base = EDI</td>
+  </tr>
+</table>
+<p><font size="4"><a name="sib_summary"></a></font> <font size="3"><b>SIB Summary</b></font></p>
+<table border="1" width="459">
+  <tr> 
+    <td width="24%"><b>scale</b></td>
+    <td width="76%">1, 2, 4, 8</td>
+  </tr>
+  <tr> 
+    <td width="24%"><b>index</b></td>
+    <td width="76%">Any register except ESP (100 = no index)</td>
+  </tr>
+  <tr> 
+    <td width="24%"><b>base</b></td>
+    <td width="76%"> Normal: register<br>
+      Special: mod=00 & base=101 ? <b>[disp32]</b> </td>
+  </tr>
+  <tr> 
+    <td width="24%"><b>Effective Address</b></td>
+    <td width="76%"> EA = base + (index × scale) + displacement </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

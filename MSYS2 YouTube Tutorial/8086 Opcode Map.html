@@ -1,0 +1,4089 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0036)#tbl_oper -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<link href="file:///C|/Users/Tim/Documents/Stuff/./8086%20Opcode%20Map_files/map.css" type="text/css" rel="stylesheet">
+		<title>8086 Opcode Map</title>
+	</head>
+	<body>
+		<div class="menu">
+			<ul>
+				<li><a href="#tbl_map1">Opcode Map</a></li>
+				<li><a href="#tbl_ext">Extensions</a></li>
+				<li><a href="#tbl_addr">Addressing</a></li>
+				<li><a href="#tbl_oper">Operands</a></li>
+				<li><a href="#tbl_spcl">Special</a></li>
+				<li><a href="#examples">Examples</a></li>
+				<li><a href="Appendix.htm">Appendix</a></li>
+				<li><a href="Appendix.htm">GRP1 Instructions</a></li>
+				<li><a href="Appendix.htm#GRP2_Instructions">GRP2 Instructions</a></li>
+				<li><a href="Appendix.htm#GRP3_Instructions">GRP3 Instructions</a></li>
+				<li><a href="Appendix.htm#GRP4_Instructions">GRP4 Instructions</a></li>
+				<li><a href="Appendix.htm#GRP5_Instructions">GRP5 Instructions</a></li>
+				<li><a href="Appendix.htm#x86_Instruction_Prefixes">x86 Instruction Prefixes</a></li>
+				<li><a href="Appendix.htm#ModR_M">ModR/M Byte Structure</a></li>
+				<li><a href="Appendix.htm#sib_structure">SIB Byte Structures</a></li>
+			</ul>
+		</div>
+		
+<div class="copy">
+
+			</div>
+		
+		
+<table width="90%" align="right">
+  <caption><span><a name="tbl_map1">Opcode Map<br>
+  </a></span></caption>
+  <tbody> 
+  <tr> 
+    <td> 
+      <div align="center"><font size="4"><font size="3"><font size="4"><font size="3"><font size="3"><font size="2"><font size="2"><font size="2"><font size="2"></font></font></font></font></font></font></font></font></font> 
+      </div>
+    </td>
+    <td class="col_header"><font size="2"> 0x*0 </font></td>
+    <td class="col_header"><font size="2"> 0x*1 </font></td>
+    <td class="col_header"><font size="2"> 0x*2 </font></td>
+    <td class="col_header"><font size="2"> 0x*3 </font></td>
+    <td class="col_header"><font size="2"> 0x*4 </font></td>
+    <td class="col_header"><font size="2"> 0x*5 </font></td>
+    <td class="col_header"><font size="2"> 0x*6 </font></td>
+    <td class="col_header"><font size="2"> 0x*7 </font></td>
+    <td class="col_header"><font size="2"> 0x*8 </font></td>
+    <td class="col_header"><font size="2"> 0x*9 </font></td>
+    <td class="col_header"><font size="2"> 0x*A </font></td>
+    <td class="col_header"><font size="2"> 0x*B </font></td>
+    <td class="col_header"><font size="2"> 0x*C </font></td>
+    <td class="col_header"><font size="2"> 0x*D </font></td>
+    <td class="col_header"><font size="2"> 0x*E </font></td>
+    <td class="col_header"><font size="2"> 0x*F </font></td>
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p align="center"><font size="2">0x0*</font></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>ADD<br>
+        <span><a href="#addr_E">E</a><a href="#oper_b">b</a></span> 
+        <span><a href="#addr_G">G</a><a href="#oper_b">b<br>
+        </a></span><a href="#00_add_Eb_Gb">0x00</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>ADD<br>
+        <span><a href="#addr_E">E</a><a href="#oper_v">v</a></span> 
+        <span><a href="#addr_G">G</a><a href="#oper_v">v</a></span> 
+        <br>
+        <a href="#01_add_Ev_Gv">0x01</a> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>ADD<br>
+        <span><a href="#addr_G">G</a><a href="#oper_b">b</a></span> 
+        <span><a href="#addr_E">E</a><a href="#oper_b">b<br>
+        </a></span><a href="#02_add_Gb_Eb">0x02</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>ADD<br>
+        <span><a href="#addr_G">G</a><a href="#oper_v">v</a></span> 
+        <span><a href="#addr_E">E</a><a href="#oper_v">v</a><a href="#oper_b"><br>
+        </a></span><a href="#03_add_Gv_Ev">0x03</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>ADD<br>
+        <span><a href="#arg_AL">AL</a></span> <span><a href="#addr_I">I</a><a href="#oper_b">b</a></span> 
+        <span><a href="#oper_b"><br>
+        </a></span><a href="#04_add_al">0x04</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>ADD<br>
+        <span><a href="#arg_AX">AX</a></span> <span><a href="#addr_I">I</a><a href="#oper_v">v</a></span> 
+        <span><a href="#oper_b"><br>
+        </a></span><a href="#05_add_eax">0x05</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>PUSH<br>
+        <span><a href="#arg_ES">ES</a></span> <span><a href="#oper_b"><br>
+        </a></span><a href="#06_push_es">0x06</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>POP<br>
+        <span><a href="#arg_ES">ES</a></span> <span><a href="#oper_b"><br>
+        </a></span><a href="#07_pop_es">0x07</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>OR<br>
+        <span><a href="#addr_E">E</a><a href="#oper_b">b</a></span> 
+        <span><a href="#addr_G">G</a><a href="#oper_b">b</a></span> 
+        <span><a href="#oper_b"><br>
+        </a></span><a href="#08_or_Eb_Gb">0x08</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>OR<br>
+        <span><a href="#addr_E">E</a><a href="#oper_v">v</a></span> 
+        <span><a href="#addr_G">G</a><a href="#oper_v">v</a></span> 
+        <span><a href="#oper_b"><br>
+        </a></span><a href="#09_or_Ev_Gv">0x09</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>OR<br>
+        <span><a href="#addr_G">G</a><a href="#oper_b">b</a></span> 
+        <span><a href="#addr_E">E</a><a href="#oper_b">b</a></span> 
+        <span><a href="#oper_b"><br>
+        </a></span><a href="#10_or_Gb_Eb">0x0A</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>OR<br>
+        <span><a href="#addr_G">G</a><a href="#oper_v">v</a></span> 
+        <span><a href="#addr_E">E</a><a href="#oper_v">v</a></span> 
+        <span><a href="#oper_b"><br>
+        </a></span><a href="#11_or_Gv_Ev">0x0B</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>OR<br>
+        <span><a href="#arg_AL">AL</a></span> <span><a href="#addr_I">I</a><a href="#oper_b">b</a></span> 
+        <span><a href="#oper_b"><br>
+        </a></span><a href="#12_or_al_Ib">0x0C</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>OR<br>
+        <span><a href="#arg_AX">AX</a></span> <span><a href="#addr_I">I</a><a href="#oper_v">v</a></span> 
+        <span><a href="#oper_b"><br>
+        </a></span><a href="#13_or_eax_Iv">0x0D</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>PUSH<br>
+        <span><a href="#arg_CS">CS</a></span> <span><a href="#oper_b"><br>
+        </a></span><a href="#14_push_cs">0x0E</a></p>
+    </td>
+    <td class="bad_cell0"> 
+      <p></p>
+      <p> </p>
+    </td>
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p align="center"><font size="2">0x1*</font></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>ADC<br>
+        <span><a href="#addr_E">E</a><a href="#oper_b">b</a></span> 
+        <span><a href="#addr_G">G</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#16_adc_Eb_Gb">0x10</a> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>ADC<br>
+        <span><a href="#addr_E">E</a><a href="#oper_v">v</a></span> 
+        <span><a href="#addr_G">G</a><a href="#oper_v">v</a></span> 
+        <span><a href="#oper_b"></a></span> <br>
+        <a href="#17_adc_Ev_Gv">0x11</a> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>ADC<br>
+        <span><a href="#addr_G">G</a><a href="#oper_b">b</a></span> 
+        <span><a href="#addr_E">E</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#18_adc_Gb_Eb">0x12</a> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>ADC<br>
+        <span><a href="#addr_G">G</a><a href="#oper_v">v</a></span> 
+        <span><a href="#addr_E">E</a><a href="#oper_v">v</a></span> 
+        <span><a href="#oper_b"></a></span> <br>
+        <a href="#19_adc_Gv_Ev">0x13</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>ADC<br>
+        <span><a href="#arg_AL">AL</a></span> <span><a href="#addr_I">I</a><a href="#oper_b">b</a></span><span><a href="#oper_b"></a></span> 
+        <br>
+        <a href="#20_adc_al_Ib">0x14</a> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>ADC<br>
+        <span><a href="#arg_AX">AX</a></span> <span><a href="#addr_I">I</a><a href="#oper_v">v</a></span> 
+        <span><a href="#oper_b"></a></span> <br>
+        <a href="#21_adc_eax_Iv">0x15</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>PUSH<br>
+        <span><a href="#arg_SS">SS</a></span> <span><a href="#oper_b"></a></span> 
+        <br>
+        <a href="#22_push_ss">0x16</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>POP<br>
+        <span><a href="#arg_SS">SS</a></span> <span><a href="#oper_b"></a></span> 
+        <br>
+        <a href="#23_pop_ss">0x17</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>SBB<br>
+        <span><a href="#addr_E">E</a><a href="#oper_b">b</a></span> 
+        <span><a href="#addr_G">G</a><a href="#oper_b">b</a></span><span><a href="#oper_b"></a></span> 
+        <br>
+        <a href="#24_sbb_Eb_Gb">0x18</a> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>SBB<br>
+        <span><a href="#addr_E">E</a><a href="#oper_v">v</a></span> 
+        <span><a href="#addr_G">G</a><a href="#oper_v">v</a></span><span><a href="#oper_b"></a></span> 
+        <br>
+        <a href="#25_sbb_Ev_Gv">0x19</a> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>SBB<br>
+        <span><a href="#addr_G">G</a><a href="#oper_b">b</a></span> 
+        <span><a href="#addr_E">E</a><a href="#oper_b">b</a></span><span><a href="#oper_b"></a></span> 
+        <br>
+        <a href="#26_sbb_Gb_Eb">0x1A</a> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>SBB<br>
+        <span><a href="#addr_G">G</a><a href="#oper_v">v</a></span> 
+        <span><a href="#addr_E">E</a><a href="#oper_v">v</a></span> 
+        <span><a href="#oper_b"></a></span> <br>
+        <a href="#27_sbb_Gv_Ev">0x1B</a> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>SBB<br>
+        <span><a href="#arg_AL">AL</a></span> <span><a href="#addr_I">I</a><a href="#oper_b">b</a></span><span><a href="#oper_b"></a></span> 
+        <br>
+        <a href="#28_sbb_al_ib">0x1C</a> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>SBB<br>
+        <span><a href="#arg_AX">AX</a></span> <span><a href="#addr_I">I</a><a href="#oper_v">v</a></span><span><a href="#oper_b"></a></span> 
+        <br>
+        <a href="#29_sbb_eax_iv">0x1D</a> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>PUSH<br>
+        <span><a href="#arg_DS">DS</a></span> <span><a href="#oper_b"></a></span> 
+        <br>
+        <a href="#30_push_ds">0x1E</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>POP<br>
+        <span><a href="#arg_DS">DS</a></span><span><a href="#oper_b"></a></span> 
+        <br>
+        <a href="#31_pop_ds">0x1F</a> </p>
+    </td>
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p align="center"><font size="2">0x2*</font></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>AND<br>
+        <span><a href="#addr_E">E</a><a href="#oper_b">b</a></span> 
+        <span><a href="#addr_G">G</a><a href="#oper_b">b</a></span><span><a href="#oper_b"></a></span> 
+        <br>
+        <a href="#32_and_Eb_Gb">0x20</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>AND<br>
+        <span><a href="#addr_E">E</a><a href="#oper_v">v</a></span> 
+        <span><a href="#addr_G">G</a><a href="#oper_v">v</a></span><br>
+        <a href="#33_and_Ev_Gv">0x21</a> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>AND<br>
+        <span><a href="#addr_G">G</a><a href="#oper_b">b</a></span> 
+        <span><a href="#addr_E">E</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#34_and_Gb_Eb">0x22</a> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>AND<br>
+        <span><a href="#addr_G">G</a><a href="#oper_v">v</a></span> 
+        <span><a href="#addr_E">E</a><a href="#oper_v">v</a></span> 
+        <br>
+        <a href="#35_and_Gv_Ev">0x23</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>AND<br>
+        <span><a href="#arg_AL">AL</a></span> <span><a href="#addr_I">I</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#36_and_al_ib">0x24</a> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>AND<br>
+        <span><a href="#arg_AX">AX</a></span> <span><a href="#addr_I">I</a><a href="#oper_v">v</a></span> 
+        <br>
+        <a href="#37_and_eax_iv">0x25</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>ES:<br>
+        <br>
+        <a href="#38_es">0x26</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>DAA<br>
+        <br>
+        <a href="#39_daa">0x27</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>SUB<br>
+        <span><a href="#addr_E">E</a><a href="#oper_b">b</a></span> 
+        <span><a href="#addr_G">G</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#40_sub_Eb_Gb">0x28</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>SUB<br>
+        <span><a href="#addr_E">E</a><a href="#oper_v">v</a></span> 
+        <span><a href="#addr_G">G</a><a href="#oper_v">v</a></span> 
+        <br>
+        <a href="#41_sub_Ev_Gv">0x29</a> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>SUB<BR>
+        <span><a href="#addr_G">G</a><a href="#oper_b">b</a></span> 
+        <span><a href="#addr_E">E</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#42_sub_Gb_Eb">0x2A</a> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>SUB<BR>
+        <span><a href="#addr_G">G</a><a href="#oper_v">v</a></span> 
+        <span><a href="#addr_E">E</a><a href="#oper_v">v</a></span> 
+        <br>
+        <a href="#43_sub_Gv_Ev">0x2B</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>SUB<BR>
+        <span><a href="#arg_AL">AL</a></span> <span><a href="#addr_I">I</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#44_sub_al_ib">0x2C</a> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>SUB<BR>
+        <span><a href="#arg_AX">AX</a></span> <span><a href="#addr_I">I</a><a href="#oper_v">v</a></span> 
+        <br>
+        <a href="#45_sun_eax_iv">0x2D</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>CS:<br>
+        <br>
+        <a href="#46_cs">0x2E</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>DAS<br>
+        <br>
+        <a href="#47_das">0x2F</a></p>
+    </td>
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p align="center"><font size="2">0x3*</font></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>XOR<br>
+        <span><a href="#addr_E">E</a><a href="#oper_b">b</a></span> 
+        <span><a href="#addr_G">G</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#48_xor_Eb_Gb">0x30</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>XOR<br>
+        <span><a href="#addr_E">E</a><a href="#oper_v">v</a></span> 
+        <span><a href="#addr_G">G</a><a href="#oper_v">v</a></span> 
+        <br>
+        <a href="#49_xor_Ev_Gv">0x31</a> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>XOR<BR>
+        <span><a href="#addr_G">G</a><a href="#oper_b">b</a></span> 
+        <span><a href="#addr_E">E</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#50_xor_Gb_Eb">0x32</a> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>XOR<BR>
+        <span><a href="#addr_G">G</a><a href="#oper_v">v</a></span> 
+        <span><a href="#addr_E">E</a><a href="#oper_v">v</a></span> 
+        <br>
+        <a href="#51_xor_Gv_Ev">0x33</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>XOR<BR>
+        <span><a href="#arg_AL">AL</a></span> <span><a href="#addr_I">I</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#52_xor_al_ib">0x34</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>XOR<BR>
+        <span><a href="#arg_AX">AX</a></span> <span><a href="#addr_I">I</a><a href="#oper_v">v</a></span> 
+        <br>
+        <a href="#53_xor_eax_iv">0x35</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>SS:<br>
+        <br>
+        <a href="#54_ss">0x36</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>AAA<br>
+        <br>
+        <a href="#55_aaa">0x37</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>CMP<BR>
+        <span><a href="#addr_E">E</a><a href="#oper_b">b</a></span> 
+        <span><a href="#addr_G">G</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#57_cmp_eb_gb">0x38</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>CMP<BR>
+        <span><a href="#addr_E">E</a><a href="#oper_v">v</a></span> 
+        <span><a href="#addr_G">G</a><a href="#oper_v">v</a></span> 
+        <br>
+        <a href="#57_cmp_ev_gv">0x39</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>CMP<BR>
+        <span><a href="#addr_G">G</a><a href="#oper_b">b</a></span> 
+        <span><a href="#addr_E">E</a><a href="#oper_b">b</a></span><br>
+        <a href="#58_cmp_gb_eb">0x3A</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>CMP<BR>
+        <span><a href="#addr_G">G</a><a href="#oper_v">v</a></span> 
+        <span><a href="#addr_E">E</a><a href="#oper_v">v</a></span><br>
+        <a href="#59_cmp_gv_ev">0x3B</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>CMP<BR>
+        <span><a href="#arg_AL">AL</a></span> <span><a href="#addr_I">I</a><a href="#oper_b">b 
+        </a><br>
+        <a href="#60_cmp_al_ib">0x3C</a></span></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>CMP<BR>
+        <span><a href="#arg_AX">AX</a></span> <span><a href="#addr_I">I</a><a href="#oper_v">v</a></span> 
+        <br>
+        <a href="#61_cmp_eax_iv">0x3D</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>DS:<br>
+        <br>
+        <a href="#62_ds">0x3E</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>AAS<br>
+        <br>
+        <a href="#63_aas">0x3F</a></p>
+    </td>
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p align="center"><font size="2">0x4*</font></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>INC<br>
+        <span><a href="#arg_AX">AX</a></span> <br>
+        <a href="#64_inc_ax">0x40</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>INC<br>
+        <span><a href="#arg_CX">CX</a></span> <br>
+        <a href="#65_inc_cx">0x41</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>INC<br>
+        <span><a href="#arg_DX">DX</a></span> <br>
+        <a href="#66_inc_dx">0x42</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>INC<br>
+        <span><a href="#arg_BX">BX</a></span> <br>
+        <a href="#67_inc_bx">0x43</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>INC<br>
+        <span><a href="#arg_SP">SP</a></span> <br>
+        <a href="#68_inc_sp">0x44</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>INC<br>
+        <span><a href="#arg_BP">BP</a></span> <br>
+        <a href="#69_inc_bp">0x45</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>INC<br>
+        <span><a href="#arg_SI">SI</a></span> <br>
+        <a href="#70_inc_si">0x46</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>INC<br>
+        <span><a href="#arg_DI">DI</a></span> <br>
+        <a href="#71_inc_di">0x47</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>DEC<br>
+        <span><a href="#arg_AX">AX</a></span> <br>
+        <a href="#72_dec_ax">0x48</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>DEC<br>
+        <span><a href="#arg_CX">CX</a></span> <br>
+        <a href="#73_dec_cx">0x49</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>DEC<br>
+        <span><a href="#arg_DX">DX</a></span> <br>
+        <a href="#74_dec_dx">0x4A</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>DEC<br>
+        <span><a href="#arg_BX">BX</a></span> <br>
+        <a href="#75_dec_bx">0x4B</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>DEC<br>
+        <span><a href="#arg_SP">SP</a></span> <br>
+        <a href="#76_dec_sp">0x4C</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>DEC<br>
+        <span><a href="#arg_BP">BP</a></span> <br>
+        <a href="#77_dec_bp">0x4D</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>DEC<br>
+        <span><a href="#arg_SI">SI</a></span> <br>
+        <a href="#78_dec_si">0x4E</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>DEC<br>
+        <span><a href="#arg_DI">DI</a></span> <br>
+        <a href="#79_dec_di">0x4F</a></p>
+    </td>
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p align="center"><font size="2">0x5*</font></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>PUSH<br>
+        <span><a href="#arg_AX">AX</a></span> <br>
+        <a href="#80_push_ax">0x50</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>PUSH<br>
+        <span><a href="#arg_CX">CX</a></span> <br>
+        <a href="#81_push_cx">0x51</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>PUSH<br>
+        <span><a href="#arg_DX">DX</a></span> <br>
+        <a href="#82_push_dx">0x52</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>PUSH<br>
+        <span><a href="#arg_BX">BX</a></span> <br>
+        <a href="#83_push_bx">0x53</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>PUSH<br>
+        <span><a href="#arg_SP">SP</a></span> <br>
+        <a href="#84_push_sp">0x54</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>PUSH<br>
+        <span><a href="#arg_BP">BP</a></span> <br>
+        <a href="#85_push_bp">0x55</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>PUSH<br>
+        <span><a href="#arg_SI">SI</a></span> <br>
+        <a href="#86_push_si">0x56</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>PUSH<br>
+        <span><a href="#arg_DI">DI</a></span> <br>
+        <a href="#87_push_di">0x57</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>POP<br>
+        <span><a href="#arg_AX">AX</a></span> <br>
+        <a href="#88_pop_ax">0x58</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>POP<br>
+        <span><a href="#arg_CX">CX</a></span> <br>
+        <a href="#89_pop_cx">0x59</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>POP<br>
+        <span><a href="#arg_DX">DX</a></span> <br>
+        <a href="#90_pop_dx">0x5A</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>POP<br>
+        <span><a href="#arg_BX">BX</a></span> <br>
+        <a href="#91_pop_bx">0x5B</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>POP<br>
+        <span><a href="#arg_SP">SP</a></span> <br>
+        <a href="#92_pop_sp">0x5C</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>POP<br>
+        <span><a href="#arg_BP">BP</a></span> <br>
+        <a href="#93_pop_bp">0x5D</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>POP<br>
+        <span><a href="#arg_SI">SI</a></span> <br>
+        <a href="#94_pop_si">0x5E</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>POP<br>
+        <span><a href="#arg_DI">DI</a></span> <br>
+        <a href="#95_pop_di">0x5F</a></p>
+    </td>
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p align="center"><font size="2">0x6*</font></p>
+    </td>
+    <td class="bad_cell0"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell0"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell0"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell0"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell0"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell0"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell0"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell0"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p align="center"><font size="2">0x7*</font></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>JO<br>
+        <span><a href="#addr_J">J</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#112_jo">0x70</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>JNO<br>
+        <span><a href="#addr_J">J</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#113_jno">0x71</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>JB<br>
+        <span><a href="#addr_J">J</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#114_jb_jc_jnae">0x72</a> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>JNB<br>
+        <span><a href="#addr_J">J</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#115_jae_jnb_jnc">0x73</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>JZ<br>
+        <span><a href="#addr_J">J</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#116_je_jz">0x74</a> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>JNZ<br>
+        <span><a href="#addr_J">J</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#117_jne_jnz">0x75</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>JBE<br>
+        <span><a href="#addr_J">J</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#118_jbe_jna">0x76</a></p>
+    </td>
+    <td class="cell checker1"> 
+      <p>JA<br>
+        <span><a href="#addr_J">J</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#119_ja_jnbe">0x77</a></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>JS<br>
+        <span><a href="#addr_J">J</a><a href="#oper_b">b</a></span> 
+        <br>
+        <a href="#120_js">0x78</a></p>
+    </td>
+<td class="cell checker1"> 
+  <p>JNS<br>
+    <span><a href="#addr_J">J</a><a href="#oper_b">b</a></span> 
+    <br>
+    <a href="#121_jns">0x79</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>JPE<br>
+    <span><a href="#addr_J">J</a><a href="#oper_b">b</a></span><br>
+        <a href="#122_jp_jpe">0x7A</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>JPO<br>
+    <span><a href="#addr_J">J</a><a href="#oper_b">b</a></span> 
+    <br>
+        <a href="#123_jnp_jpo">0x7B</a> </p>
+</td>
+
+<td class="cell checker0"> 
+  <p>JL<br>
+    <span><a href="#addr_J">J</a><a href="#oper_b">b</a></span><br>
+        <a href="#124_jl_jnge">0x7C</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>JGE<br>
+    <span><a href="#addr_J">J</a><a href="#oper_b">b</a></span> 
+    <br>
+        <a href="#125_jge_jnl">0x7D</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>JLE<br>
+    <span><a href="#addr_J">J</a><a href="#oper_b">b</a></span> 
+    <br>
+        <a href="#126_jle_jng">0x7E</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>JG<br>
+    <span><a href="#addr_J">J</a><a href="#oper_b">b</a></span> 
+    <br>
+        <a href="#127_jg_jnle">0x7F</a></p>
+</td>
+  </tr>
+  
+<tr> 
+  <td class="row_header"><p align="center"><font size="2">0x8*</font></p></td>
+
+  <td class="cell checker0"> 
+    <p><a href="#grp_GRP1">GRP1</a><br>
+      <span><a href="#addr_E">E</a><a 
+      href="#oper_b">b</a></span> 
+      <span><a href="#addr_I">I</a><a 
+      href="#oper_b">b</a></span> 
+      <br>
+        <a href="#128_grp1_80">0x80</a></p>
+  </td>
+  
+ <td class="cell checker1"> 
+    <p><a href="#grp_GRP1">GRP1</a><br>
+      <span><a href="#addr_E">E</a><a 
+      href="#oper_v">v</a></span> 
+      <span><a href="#addr_I">I</a><a 
+      href="#oper_v">v</a></span> 
+      <br>
+        <a href="#129_grp1_81">0x81</a></p>
+  </td>
+
+  <td class="cell checker0"> 
+    <p><a href="#grp_GRP1">GRP1</a><br>
+      <span><a href="#addr_E">E</a><a 
+      href="#oper_b">b</a></span> 
+      <span><a href="#addr_I">I</a><a 
+      href="#oper_b">b</a></span> 
+      <br>
+        <a href="#130_grp1_82">0x82</a></p>
+  </td>
+
+  <td class="cell checker1"> 
+    <p><a href="#grp_GRP1">GRP1</a><br>
+      <span><a href="#addr_E">E</a><a 
+      href="#oper_v">v</a></span> 
+      <span><a href="#addr_I">I</a><a 
+      href="#oper_b">b</a></span> 
+      <br>
+        <a href="#131_grp1_83">0x83</a></p>
+  </td>
+  
+  <td class="cell checker0"> 
+    <p>TEST<br>
+      <span><a href="#addr_G">G</a><a 
+      href="#oper_b">b</a></span> 
+      <span><a href="#addr_E">E</a><a 
+      href="#oper_b">b</a></span> 
+      <br>
+        <a href="#132_test_eb_gb">0x84</a></p>
+  </td>
+
+  <td class="cell checker1"> 
+    <p>TEST<br>
+      <span><a href="#addr_G">G</a><a 
+      href="#oper_v">v</a></span> 
+      <span><a href="#addr_E">E</a><a 
+      href="#oper_v">v</a></span> 
+      <br>
+        <a href="#133_test_ev_gv">0x85</a></p>
+  </td>
+
+  <td class="cell checker0"> 
+    <p>XCHG<br>
+      <span><a href="#addr_G">G</a><a 
+      href="#oper_b">b</a></span> 
+      <span><a href="#addr_E">E</a><a 
+      href="#oper_b">b</a></span><br>
+        <a href="#134_xchg_eb_gb">0x86</a></p>
+  </td>
+  
+  <td class="cell checker1"> 
+    <p>XCHG<br>
+      <span><a href="#addr_G">G</a><a 
+      href="#oper_v">v</a></span> 
+      <span><a href="#addr_E">E</a><a 
+      href="#oper_v">v</a></span> 
+      <br>
+        <a href="#135_xchg_ev_gv">0x87</a></p>
+  </td>
+
+  <td class="cell checker0"> 
+    <p>MOV<br>
+      <span><a href="#addr_E">E</a><a 
+      href="#oper_b">b</a></span> 
+      <span><a href="#addr_G">G</a><a 
+      href="#oper_b">b</a></span><br>
+      <a href="#136_mov_eb_gb">0x88</a></p>
+  </td>
+
+  <td class="cell checker1"> 
+    <p>MOV<br>
+      <span><a href="#addr_E">E</a><a 
+      href="#oper_v">v</a></span> 
+      <span><a href="#addr_G">G</a><a 
+      href="#oper_v">v</a></span> 
+      <br><a href="#137_mov_ev_gv">0x89</a></p>
+  </td>
+  
+<td class="cell checker0"> 
+    <p>MOV<br>
+      <span><a href="#addr_G">G</a><a 
+      href="#oper_b">b</a></span> 
+      <span><a href="#addr_E">E</a><a 
+      href="#oper_b">b</a></span> 
+      <br><a href="#138_mov_gb_eb">0x8A</a></p>
+  </td>
+
+  <td class="cell checker1"> 
+    <p>MOV<br>
+      <span><a href="#addr_G">G</a><a 
+      href="#oper_v">v</a></span> 
+      <span><a href="#addr_E">E</a><a 
+      href="#oper_v">v</a></span> 
+      <br><a href="#139_mov_gv_ev">0x8B</a></p>
+  </td>
+
+  <td class="cell checker0"> 
+    <p>MOV<br>
+      <span><a href="#addr_E">E</a><a 
+      href="#oper_w">w</a></span> 
+      <span><a href="#addr_S">S</a><a 
+      href="#oper_w">w</a></span> 
+      <br>
+        <a href="#140_mov_ew_sw">0x8C</a></p>
+  </td>
+
+  <td class="cell checker1"> 
+    <p>LEA<br>
+      <span><a href="#addr_G">G</a><a 
+      href="#oper_v">v</a></span> 
+      <span><a href="#arg_M">M</a></span> <br>
+      <a href="#141_lea_gv_m">0x8D</a></p>
+  </td>
+  
+  <td class="cell checker0"> 
+    <p>MOV<br>
+      <span><a href="#addr_S">S</a><a 
+      href="#oper_w">w</a></span> 
+      <span><a href="#addr_E">E</a><a 
+      href="#oper_w">w</a></span><br>
+        <a href="#142_mov_sw_ew">0x8E</a></p>
+  </td>
+
+  <td class="cell checker1"> 
+    <p>POP<br> 
+      <span><a href="#addr_E">E</a><a 
+      href="#oper_v">v</a></span><br>
+      <a href="#143_pop_ev">0x8F</a></p>
+  </td>
+  
+  <tr> 
+    <td class="row_header"> 
+      <p align="center"><font size="2">0x9*</font></p>
+    </td>
+<td class="cell checker0"> 
+  <p>NOP<br><br>
+    <a href="#144_nop">0x90</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>XCHG<br>
+    <span><a href="#arg_CX">CX</a></span> 
+    <span><a href="#arg_AX">AX</a></span><br>
+        <a href="#145_xchg_ax_cx">0x91</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>XCHG<br>
+    <span><a href="#arg_DX">DX</a></span> 
+    <span><a href="#arg_AX">AX</a></span><br>
+        <a href="#146_xchg_ax_dx">0x92</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>XCHG<br>
+    <span><a href="#arg_BX">BX</a></span> 
+    <span><a href="#arg_AX">AX</a></span><br>
+        <a href="#147_xchg_ax_bx">0x93</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>XCHG<br>
+    <span><a href="#arg_SP">SP</a></span> 
+    <span><a href="#arg_AX">AX</a></span><br>
+        <a href="#148_xchg_ax_sp">0x94</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>XCHG<br>
+    <span><a href="#arg_BP">BP</a></span> 
+    <span><a href="#arg_AX">AX</a></span><br>
+        <a href="#149_xchg_ax_bp">0x95</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>XCHG<br>
+    <span><a href="#arg_SI">SI</a></span> 
+    <span><a href="#arg_AX">AX</a></span><br>
+        <a href="#150_xchg_ax_si">0x96</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>XCHG<br>
+    <span><a href="#arg_DI">DI</a></span> 
+    <span><a href="#arg_AX">AX</a></span><br>
+        <a href="#151_xchg_ax_di">0x97</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>CBW<br><br>
+    <a href="#152_cbw">0x98</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>CWD<br><br>
+    <a href="#153_cwd">0x99</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>CALL<br>
+    <span><a href="#addr_A">A</a><a 
+      href="#oper_p">p</a></span><br>
+    <a href="#154_call_ap">0x9A</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>WAIT<br><br>
+    <a href="#155_wait">0x9B</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>PUSHF<br><br>
+    <a href="#156_pushf">0x9C</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>POPF<br><br>
+    <a href="#157_popf">0x9D</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>SAHF<br><br>
+    <a href="#158_sahf">0x9E</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>LAHF<br><br>
+    <a href="#159_lahf">0x9F</a></p>
+</td>
+
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p align="center"><font size="2">0xA*</font></p>
+    </td>
+<td class="cell checker0"> 
+  <p>MOV<br>
+    <span><a href="#arg_AL">AL</a></span>
+    <span><a href="#addr_O">O</a>
+    <a href="#oper_b">b</a></span><br>
+    <a href="#160_mov_al_ob">0xA0</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>MOV<br>
+    <span><a href="#arg_AX">AX</a></span>
+    <span><a href="#addr_O">O</a>
+    <a href="#oper_v">v</a></span><br>
+    <a href="#161_mov_ax_ov">0xA1</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>MOV<br>
+    <span><a href="#addr_O">O</a>
+    <a href="#oper_b">b</a></span>
+    <span><a href="#arg_AL">AL</a></span><br>
+    <a href="#162_mov_ob_al">0xA2</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>MOV<br>
+    <span><a href="#addr_O">O</a>
+    <a href="#oper_v">v</a></span>
+    <span><a href="#arg_AX">AX</a></span><br>
+    <a href="#163_mov_ov_ax">0xA3</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>MOVSB<br><br>
+    <a href="#164_movsb">0xA4</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>MOVSW<br><br>
+    <a href="#165_movsw">0xA5</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>CMPSB<br><br>
+    <a href="#166_cmpsb">0xA6</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>CMPSW<br><br>
+    <a href="#167_cmpsw">0xA7</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>TEST<br>
+    <span><a href="#arg_AL">AL</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_b">b</a></span><br>
+    <a href="#168_test_al_ib">0xA8</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>TEST<br>
+    <span><a href="#arg_AX">AX</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_v">v</a></span><br>
+    <a href="#169_test_ax_iv">0xA9</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>STOSB<br><br>
+    <a href="#170_stosb">0xAA</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>STOSW<br><br>
+    <a href="#171_stosw">0xAB</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>LODSB<br><br>
+    <a href="#172_lodsb">0xAC</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>LODSW<br><br>
+    <a href="#173_lodsw">0xAD</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>SCASB<br><br>
+    <a href="#174_scasb">0xAE</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>SCASW<br><br>
+    <a href="#175_scasw">0xAF</a></p>
+</td>
+
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p align="center"><font size="2">0xB*</font></p>
+    </td>
+<td class="cell checker0"> 
+  <p>MOV<br>
+    <span><a href="#arg_AL">AL</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_b">b</a></span><br>
+    <a href="#176_mov_al_ib">0xB0</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>MOV<br>
+    <span><a href="#arg_CL">CL</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_b">b</a></span><br>
+    <a href="#177_mov_cl_ib">0xB1</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>MOV<br>
+    <span><a href="#arg_DL">DL</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_b">b</a></span><br>
+    <a href="#178_mov_dl_ib">0xB2</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>MOV<br>
+    <span><a href="#arg_BL">BL</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_b">b</a></span><br>
+    <a href="#179_mov_bl_ib">0xB3</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>MOV<br>
+    <span><a href="#arg_AH">AH</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_b">b</a></span><br>
+    <a href="#180_mov_ah_ib">0xB4</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>MOV<br>
+    <span><a href="#arg_CH">CH</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_b">b</a></span><br>
+    <a href="#181_mov_ch_ib">0xB5</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>MOV<br>
+    <span><a href="#arg_DH">DH</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_b">b</a></span><br>
+    <a href="#182_mov_dh_ib">0xB6</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>MOV<br>
+    <span><a href="#arg_BH">BH</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_b">b</a></span><br>
+    <a href="#183_mov_bh_ib">0xB7</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>MOV<br>
+    <span><a href="#arg_AX">AX</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_v">v</a></span><br>
+    <a href="#184_mov_ax_iv">0xB8</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>MOV<br>
+    <span><a href="#arg_CX">CX</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_v">v</a></span><br>
+    <a href="#186_mov_cx_iv">0xB9</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>MOV<br>
+    <span><a href="#arg_DX">DX</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_v">v</a></span><br>
+    <a href="#187_mov_dx_iv">0xBA</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>MOV<br>
+    <span><a href="#arg_BX">BX</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_v">v</a></span><br>
+    <a href="#188_mov_bx_iv">0xBB</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>MOV<br>
+    <span><a href="#arg_SP">SP</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_v">v</a></span><br>
+    <a href="#189_mov_sp_iv">0xBC</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>MOV<br>
+    <span><a href="#arg_BP">BP</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_v">v</a></span><br>
+    <a href="#190_mov_bp_iv">0xBD</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>MOV<br>
+    <span><a href="#arg_SI">SI</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_v">v</a></span><br>
+    <a href="#191_mov_si_iv">0xBE</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>MOV<br>
+    <span><a href="#arg_DI">DI</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_v">v</a></span><br>
+    <a href="#192_mov_di_iv">0xBF</a></p>
+</td>
+
+	
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p align="center"><font size="2">0xC*</font></p>
+    </td>
+    <td class="bad_cell0"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+	
+	
+<td class="cell checker0"> 
+  <p>RET<br>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_w">w</a></span><br>
+    <a href="#194_ret_iw">0xC2</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>RET<br><br>
+    <a href="#195_ret">0xC3</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>LES<br>
+    <span><a href="#addr_G">G</a>
+    <a href="#oper_v">v</a></span>
+    <span><a href="#addr_M">M</a>
+    <a href="#oper_p">p</a></span><br>
+    <a href="#196_les_gv_mp">0xC4</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>LDS<br>
+    <span><a href="#addr_G">G</a>
+    <a href="#oper_v">v</a></span>
+    <span><a href="#addr_M">M</a>
+    <a href="#oper_p">p</a></span><br>
+    <a href="#197_lds_gv_mp">0xC5</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>MOV<br>
+    <span><a href="#addr_E">E</a>
+    <a href="#oper_b">b</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_b">b</a></span><br>
+    <a href="#198_mov_eb_ib">0xC6</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>MOV<br>
+    <span><a href="#addr_E">E</a>
+    <a href="#oper_v">v</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_v">v</a></span><br>
+    <a href="#199_mov_ev_iv">0xC7</a></p>
+</td>
+
+<td class="bad_cell0"></td>
+<td class="bad_cell1"></td>
+
+<td class="cell checker0"> 
+  <p>RETF<br>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_w">w</a></span><br>
+    <a href="#202_retf_iw">0xCA</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>RETF<br><br>
+    <a href="#203_retf">0xCB</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>INT<br>
+    <span><a href="#arg_3">3</a></span><br>
+    <a href="#204_int3">0xCC</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>INT<br>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_b">b</a></span><br>
+    <a href="#205_int_ib">0xCD</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>INTO<br><br>
+    <a href="#206_into">0xCE</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>IRET<br><br>
+    <a href="#207_iret">0xCF</a></p>
+</td>
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p align="center"><font size="2">0xD*</font></p>
+    </td>
+	
+	
+    <td class="cell checker0"> 
+  <p><a href="#grp_GRP2">GRP2</a><br>
+    <span><a href="#addr_E">E</a>
+    <a href="#oper_b">b</a></span>
+    <span><a href="#arg_1">1</a></span><br>
+    <a href="#208_grp2_eb_1">0xD0</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p><a href="#grp_GRP2">GRP2</a><br>
+    <span><a href="#addr_E">E</a>
+    <a href="#oper_v">v</a></span>
+    <span><a href="#arg_1">1</a></span><br>
+    <a href="#209_grp2_ev_1">0xD1</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p><a href="#grp_GRP2">GRP2</a><br>
+    <span><a href="#addr_E">E</a>
+    <a href="#oper_b">b</a></span>
+    <span><a href="#arg_CL">CL</a></span><br>
+    <a href="#210_grp2_eb_cl">0xD2</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p><a href="#grp_GRP2">GRP2</a><br>
+    <span><a href="#addr_E">E</a>
+    <a href="#oper_v">v</a></span>
+    <span><a href="#arg_CL">CL</a></span><br>
+    <a href="#211_grp2_ev_cl">0xD3</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>AAM<br>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_0">0</a></span><br>
+        <a href="#212_aam">0xD4</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>AAD<br>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_0">0</a></span><br>
+        <a href="#213_aad">0xD5</a></p>
+</td>
+
+<td class="bad_cell0"></td>
+
+<td class="cell checker1"> 
+  <p>XLAT<br><br>
+    <a href="#215_xlat">0xD7</a></p>
+</td>
+
+    <td class="bad_cell0"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell0"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell0"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell0"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p align="center"><font size="2">0xE*</font></p>
+    </td>
+	
+	
+<td class="cell checker0"> 
+  <p>LOOPNZ<br>
+    <span><a href="#addr_J">J</a>
+    <a href="#oper_b">b</a></span><br>
+    <a href="#224_loopnz_jb">0xE0</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>LOOPZ<br>
+    <span><a href="#addr_J">J</a>
+    <a href="#oper_b">b</a></span><br>
+        <a href="#225_loope">0xE1</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>LOOP<br>
+    <span><a href="#addr_J">J</a>
+    <a href="#oper_b">b</a></span><br>
+        <a href="#226_loop">0xE2</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>JCXZ<br>
+    <span><a href="#addr_J">J</a>
+    <a href="#oper_b">b</a></span><br>
+        <a href="#227_jcxz">0xE3</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>IN<br>
+    <span><a href="#arg_AL">AL</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_b">b</a></span><br>
+    <a href="#228_in_al_ib">0xE4</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>IN<br>
+    <span><a href="#arg_AX">AX</a></span>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_b">b</a></span><br>
+    <a href="#229_in_ax_ib">0xE5</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>OUT<br>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_b">b</a></span>
+    <span><a href="#arg_AL">AL</a></span><br>
+    <a href="#230_out_ib_al">0xE6</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>OUT<br>
+    <span><a href="#addr_I">I</a>
+    <a href="#oper_b">b</a></span>
+    <span><a href="#arg_AX">AX</a></span><br>
+    <a href="#231_out_ib_ax">0xE7</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>CALL<br>
+    <span><a href="#addr_J">J</a>
+    <a href="#oper_v">v</a></span><br>
+        <a href="#232_call_rel16">0xE8</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>JMP<br>
+    <span><a href="#addr_J">J</a>
+    <a href="#oper_v">v</a></span><br>
+        <a href="#233_jmp_rel16">0xE9</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>JMP<br>
+    <span><a href="#addr_A">A</a>
+    <a href="#oper_p">p</a></span><br>
+    <a href="#234_jmp_ap">0xEA</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>JMP<br>
+    <span><a href="#addr_J">J</a>
+    <a href="#oper_b">b</a></span><br>
+        <a href="#235_jmp_rel8">0xEB</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>IN<br>
+    <span><a href="#arg_AL">AL</a></span>
+    <span><a href="#arg_DX">DX</a></span><br>
+    <a href="#236_in_al_dx">0xEC</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>IN<br>
+    <span><a href="#arg_AX">AX</a></span>
+    <span><a href="#arg_DX">DX</a></span><br>
+    <a href="#237_in_ax_dx">0xED</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>OUT<br>
+    <span><a href="#arg_DX">DX</a></span>
+    <span><a href="#arg_AL">AL</a></span><br>
+    <a href="#238_out_dx_al">0xEE</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>OUT<br>
+    <span><a href="#arg_DX">DX</a></span>
+    <span><a href="#arg_AX">AX</a></span><br>
+    <a href="#239_out_dx_ax">0xEF</a></p>
+</td>
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p align="center"><font size="2">0xF*</font></p>
+    </td>
+	
+	
+<td class="cell checker0"> 
+  <p>LOCK<br><br>
+    <a href="#240_lock">0xF0</a></p>
+</td>
+
+<td class="bad_cell1"></td>
+
+<td class="cell checker0"> 
+  <p>REPNZ<br><br>
+        <a href="#242_repne">0xF2</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>REPZ<br><br>
+        <a href="#243_rep_repe">0xF3</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>HLT<br><br>
+    <a href="#244_hlt">0xF4</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>CMC<br><br>
+    <a href="#245_cmc">0xF5</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p><a href="#grp_GRP3a">GRP3a</a><br>
+    <span><a href="#addr_E">E</a>
+    <a href="#oper_b">b</a></span><br>
+        <a href="#246_grp3_eb">0xF6</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p><a href="#grp_GRP3b">GRP3b</a><br>
+    <span><a href="#addr_E">E</a>
+    <a href="#oper_v">v</a></span><br>
+        <a href="#247_grp3_ev">0xF7</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>CLC<br><br>
+    <a href="#248_clc">0xF8</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>STC<br><br>
+    <a href="#249_stc">0xF9</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>CLI<br><br>
+    <a href="#250_cli">0xFA</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>STI<br><br>
+        <a href="#251_sti">0xFB</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p>CLD<br><br>
+        <a href="#252_cld">0xFC</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p>STD<br><br>
+        <a href="#253_std">0xFD</a></p>
+</td>
+
+<td class="cell checker0"> 
+  <p><a href="#grp_GRP4">GRP4</a><br>
+    <span><a href="#addr_E">E</a>
+    <a href="#oper_b">b</a></span><br>
+        <a href="#254_grp4_eb">0xFE</a></p>
+</td>
+
+<td class="cell checker1"> 
+  <p><a href="#grp_GRP5">GRP5</a><br>
+    <span><a href="#addr_E">E</a>
+    <a href="#oper_v">v</a></span><br>
+        <a href="#255_grp5_ev">0xFF</a></p>
+</td>
+
+	
+	
+  </tr>
+  </tbody> 
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table>
+  <caption> <span><a name="tbl_ext">Opcode Map (Opcode Extensions)</a></span> 
+  </caption>
+  <tbody> 
+  <tr> 
+    <td><font size="4"></font> </td>
+    <td class="col_header"><font size="4"> 0 </font></td>
+    <td class="col_header"><font size="4"> 1 </font></td>
+    <td class="col_header"><font size="4"> 2 </font></td>
+    <td class="col_header"><font size="4"> 3 </font></td>
+    <td class="col_header"><font size="4"> 4 </font></td>
+    <td class="col_header"><font size="4"> 5 </font></td>
+    <td class="col_header"><font size="4"> 6 </font></td>
+    <td class="col_header"><font size="4"> 7 </font></td>
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p><font size="3"><a name="grp_GRP1">GRP1</a></font></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>ADD</p>
+      <p> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>OR</p>
+      <p> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>ADC</p>
+      <p> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>SBB</p>
+      <p> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>AND</p>
+      <p> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>SUB</p>
+      <p> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>XOR</p>
+      <p> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>CMP</p>
+      <p> </p>
+    </td>
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p><font size="3"><a name="grp_GRP2">GRP2</a></font></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>ROL</p>
+      <p> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>ROR</p>
+      <p> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>RCL</p>
+      <p> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>RCR</p>
+      <p> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>SHL</p>
+      <p> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>SHR</p>
+      <p> </p>
+    </td>
+    <td class="bad_cell0"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>SAR</p>
+      <p> </p>
+    </td>
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p><font size="3"><a name="grp_GRP3a">GRP3a</a></font></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>TEST<br>
+        <span><a href="#addr_E">E</a><a href="#oper_b">b</a></span> 
+        <span><a href="#addr_I">I</a><a href="#oper_b">b</a></span> 
+      </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>NOT</p>
+      <p> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>NEG</p>
+      <p> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>MUL</p>
+      <p> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>IMUL</p>
+      <p> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>DIV</p>
+      <p> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>IDIV</p>
+      <p> </p>
+    </td>
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p><font size="3"><a name="grp_GRP3b">GRP3b</a></font></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>TEST<br>
+        <span><a href="#addr_E">E</a><a href="#oper_v">v</a></span> 
+        <span><a href="#addr_I">I</a><a href="#oper_v">v</a></span> 
+      </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>NOT</p>
+      <p> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>NEG</p>
+      <p> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>MUL</p>
+      <p> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>IMUL</p>
+      <p> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>DIV</p>
+      <p> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>IDIV</p>
+      <p> </p>
+    </td>
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p><font size="3"><a name="grp_GRP4">GRP4</a></font></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>INC</p>
+      <p> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>DEC</p>
+      <p> </p>
+    </td>
+    <td class="bad_cell0"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell0"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell0"> 
+      <p></p>
+      <p> </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+  </tr>
+  <tr> 
+    <td class="row_header"> 
+      <p><font size="3"><a name="grp_GRP5">GRP5</a></font></p>
+    </td>
+    <td class="cell checker0"> 
+      <p>INC</p>
+      <p> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>DEC</p>
+      <p> </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>CALL</p>
+      <p> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>CALL<br>
+        <span><a href="#addr_M">M</a><a href="#oper_p">p</a></span> 
+      </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>JMP</p>
+      <p> </p>
+    </td>
+    <td class="cell checker1"> 
+      <p>JMP<br>
+        <span><a href="#addr_M">M</a><a href="#oper_p">p</a></span> 
+      </p>
+    </td>
+    <td class="cell checker0"> 
+      <p>PUSH</p>
+      <p> </p>
+    </td>
+    <td class="bad_cell1"> 
+      <p></p>
+      <p> </p>
+    </td>
+  </tr>
+  </tbody> 
+</table>
+		<p>&nbsp;</p><table>
+			<caption>
+				<span><a name="tbl_addr">Argument Addressing Codes</a></span>
+			</caption>
+			<tbody><tr>
+				<td class="row_header">
+					<p><a name="addr_A">A</a></p>
+				</td>
+				<td class="long_cell">
+					<p>Direct address.  The instruction has no ModR/M byte; the address of the operand is encoded in the instruction.  Applicable, e.g., to far JMP (opcode EA).</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="addr_E">E</a></p>
+				</td>
+				<td class="long_cell">
+					<p>A ModR/M byte follows the opcode and specifies the operand. The operand is either a general-purpose register or a memory address.  If it is a memory address, the address is computed from a segment register and any of the following values: a base register, an index register, a displacement.</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="addr_G">G</a></p>
+				</td>
+				<td class="long_cell">
+					<p>The reg field of the ModR/M byte selects a general register.</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="addr_I">I</a></p>
+				</td>
+				<td class="long_cell">
+					<p>Immediate data.  The operand value is encoded in subsequent bytes of the instruction.</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="addr_J">J</a></p>
+				</td>
+				<td class="long_cell">
+					<p>The instruction contains a relative offset to be added to the address of the subsequent instruction.  Applicable, e.g., to short JMP (opcode EB), or LOOP.</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="addr_M">M</a></p>
+				</td>
+				<td class="long_cell">
+					<p>The ModR/M byte may refer only to memory.  Applicable, e.g., to LES and LDS.</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="addr_O">O</a></p>
+				</td>
+				<td class="long_cell">
+					<p>The instruction has no ModR/M byte; the offset of the operand is encoded as a WORD in the instruction.  Applicable, e.g., to certain MOVs (opcodes A0 through A3).</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="addr_S">S</a></p>
+				</td>
+				<td class="long_cell">
+					<p>The reg field of the ModR/M byte selects a segment register.</p>
+				</td>
+			</tr>
+		</tbody></table>
+		<table>
+			<caption>
+				<span><a name="tbl_oper">Argument Operand Codes</a></span>
+			</caption>
+			<tbody><tr>
+				<td class="row_header">
+					<p><a name="oper_0">0</a></p>
+				</td>
+				<td class="long_cell">
+					<p>Byte argument.  Unusual in that arguments of this type are suppressed in ASM output when they have the default value of 10 (0xA). Applicable, e.g., to AAM and AAD.</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="oper_b">b</a></p>
+				</td>
+				<td class="long_cell">
+					<p>Byte argument.</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="oper_p">p</a></p>
+				</td>
+				<td class="long_cell">
+					<p>32-bit segment:offset pointer.</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="oper_w">w</a></p>
+				</td>
+				<td class="long_cell">
+					<p>Word argument.</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="oper_v">v</a></p>
+				</td>
+				<td class="long_cell">
+					<p>Word argument.  (The 'v' code has a more complex meaning in later x86 opcode maps, from which this was derived, but here it's just a synonym for the 'w' code.)</p>
+				</td>
+			</tr>
+		</tbody></table>
+		<p>&nbsp;</p><table>
+			<caption>
+				<span><a name="tbl_spcl">Special Argument Codes</a></span>
+			</caption>
+			<tbody><tr>
+				<td class="row_header">
+					<p><a name="arg_AL">AL</a></p>
+				</td>
+				<td class="long_cell">
+					<p>8-bit register:  The low byte of AX</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_CL">CL</a></p>
+				</td>
+				<td class="long_cell">
+					<p>8-bit register:  The low byte of CX</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_DL">DL</a></p>
+				</td>
+				<td class="long_cell">
+					<p>8-bit register:  The low byte of DX</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_BL">BL</a></p>
+				</td>
+				<td class="long_cell">
+					<p>8-bit register:  The low byte of BX</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_AH">AH</a></p>
+				</td>
+				<td class="long_cell">
+					<p>8-bit register:  The high byte of AX</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_CH">CH</a></p>
+				</td>
+				<td class="long_cell">
+					<p>8-bit register:  The high byte of CX</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_DH">DH</a></p>
+				</td>
+				<td class="long_cell">
+					<p>8-bit register:  The high byte of DX</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_BH">BH</a></p>
+				</td>
+				<td class="long_cell">
+					<p>8-bit register:  The high byte of BX</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_AX">AX</a></p>
+				</td>
+				<td class="long_cell">
+					<p>16-bit register:  The 'accumulator' register</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_CX">CX</a></p>
+				</td>
+				<td class="long_cell">
+					<p>16-bit register:  The 'counter' register</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_DX">DX</a></p>
+				</td>
+				<td class="long_cell">
+					<p>16-bit register:  The 'data' register</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_BX">BX</a></p>
+				</td>
+				<td class="long_cell">
+					<p>16-bit register:  The 'base' register</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_SP">SP</a></p>
+				</td>
+				<td class="long_cell">
+					<p>16-bit register:  The 'stack pointer' register</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_BP">BP</a></p>
+				</td>
+				<td class="long_cell">
+					<p>16-bit register:  The 'base pointer' register</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_SI">SI</a></p>
+				</td>
+				<td class="long_cell">
+					<p>16-bit register:  The 'source index' register</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_DI">DI</a></p>
+				</td>
+				<td class="long_cell">
+					<p>16-bit register:  The 'destination index' register</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_ES">ES</a></p>
+				</td>
+				<td class="long_cell">
+					<p>16-bit register:  The 'extra' segment register</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_CS">CS</a></p>
+				</td>
+				<td class="long_cell">
+					<p>16-bit register:  The 'code' segment register</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_SS">SS</a></p>
+				</td>
+				<td class="long_cell">
+					<p>16-bit register:  The 'stack' segment register</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_DS">DS</a></p>
+				</td>
+				<td class="long_cell">
+					<p>16-bit register:  The 'data' segment register</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_1">1</a></p>
+				</td>
+				<td class="long_cell">
+					<p>A constant argument of 1, implicit in the opcode, and not represented elsewhere in the instruction.  This argument *is* displayed in assembly code.</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_3">3</a></p>
+				</td>
+				<td class="long_cell">
+					<p>A constant argument of 3, implicit in the opcode, and not represented elsewhere in the instruction.  This argument *is* displayed in assembly code.</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="row_header">
+					<p><a name="arg_M">M</a></p>
+				</td>
+				<td class="long_cell">
+					<p>The ModR/M byte refers to a memory location, however the contents of that memory location are irrelevant; the address itself is the operand of the instruction.  Applicable, e.g., to LEA.</p>
+				</td>
+			</tr>
+		</tbody></table>
+	
+
+<p>&nbsp;</p>
+<h1><font size="4"><a name="examples"></a>Examples:</font></h1>
+<table width="90%" border="4" cellpadding="6" cellspacing="2">
+  <tr> 
+    <td width="7%"><font size="4">Opcode #</font></td>
+    <td width="9%"><font size="4">HEX</font></td>
+    <td width="24%"><font size="4"></font></td>
+    <td width="60%"><font size="4">Assembly example for NASM</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="00_add_Eb_Gb"></a>0</font></td>
+    <td width="9%"><font size="5">00</font></td>
+    <td width="24%"><font size="5">ADD Eb Gb</font></td>
+    <td width="60%"><font size="4">byte_var db 5<br>
+      mov bl, 3<br>
+      add [byte_var], bl ; byte_var = 5 + 3 = 8</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="01_add_Ev_Gv"></a>1</font></td>
+    <td width="9%"><font size="5">01</font></td>
+    <td width="24%"><font size="5">ADD Ev Gv</font></td>
+    <td width="60%"><font size="4">word_var dw 100<br>
+      mov bx, 20<br>
+      add [word_var], bx ; word_var = 100 + 20 = 120</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="02_add_Gb_Eb"></a>2</font></td>
+    <td width="9%"><font size="5">02</font></td>
+    <td width="24%"><font size="5">ADD Gb Eb</font></td>
+    <td width="60%"><font size="4">byte_var db 7<br>
+      mov al, 5<br>
+      add al, [byte_var] ; AL = 5 + 7 = 12</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="03_add_Gv_Ev"></a>3</font></td>
+    <td width="9%"><font size="5">03 </font></td>
+    <td width="24%"><font size="5">ADD Gv Ev</font></td>
+    <td width="60%"><font size="4">word_var dw 30<br>
+      mov ax, 10<br>
+      add ax, [word_var] ; AX = 10 + 30 = 40</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="04_add_al"></a>4</font></td>
+    <td width="9%"><font size="5">04 </font></td>
+    <td width="24%"><font size="5">ADD AL Ib</font></td>
+    <td width="60%"><font size="4">mov al, 10<br>
+      add al, 5 ; AL = 10 + 5 = 15</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="05_add_eax"></a>5</font></td>
+    <td width="9%"><font size="5">05 </font></td>
+    <td width="24%"><font size="5">ADD eAX Iv</font></td>
+    <td width="60%"><font size="4"> mov ax, 100<br>
+      add ax, 200 ; AX = 300</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="06_push_es"></a>6</font></td>
+    <td width="9%"><font size="5">06 </font></td>
+    <td width="24%"><font size="5">PUSH ES</font></td>
+    <td width="60%"><font size="4">push es ; pushes segment register ES</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="07_pop_es"></a>7</font></td>
+    <td width="9%"><font size="5">07 </font></td>
+    <td width="24%"><font size="5">POP ES</font></td>
+    <td width="60%"><font size="4">mov ax, 0xB800<br>
+      push ax<br>
+      pop es ; ES = 0xB800</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="08_or_Eb_Gb"></a>8</font></td>
+    <td width="9%"><font size="5">08 </font></td>
+    <td width="24%"><font size="5">OR Eb Gb</font></td>
+    <td width="60%"><font size="4">byte_var db 0b00000101 ; 5<br>
+      mov bl, 0b00001000 ; 8<br>
+      or [byte_var], bl ; result = 1101b = 13</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="09_or_Ev_Gv"></a>9</font></td>
+    <td width="9%"><font size="5">09 </font></td>
+    <td width="24%"><font size="5">OR Ev Gv</font></td>
+    <td width="60%"><font size="4">word_var dw 0x0003 ; 0000 0000 0000 0011<br>
+      mov bx, 0x0004 ; 0000 0000 0000 0100<br>
+      or [word_var], bx ; result = 0000 0111</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="10_or_Gb_Eb"></a>10</font></td>
+    <td width="9%"><font size="5">0A </font></td>
+    <td width="24%"><font size="5">OR Gb Eb</font></td>
+    <td width="60%"><font size="4">byte_var db 0b00000010<br>
+      mov al, 0b00001000<br>
+      or al, [byte_var] ; AL = 1010b</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="11_or_Gv_Ev"></a>11</font></td>
+    <td width="9%"><font size="5">0B </font></td>
+    <td width="24%"><font size="5">OR Gv Ev</font></td>
+    <td width="60%"><font size="4">word_var dw 0b0001_0000_0000_0000<br>
+      mov ax, 0b0100_0000_0000_0000<br>
+      or ax, [word_var] ; AX = 0101...</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="12_or_al_Ib"></a>12</font></td>
+    <td width="9%"><font size="5">0C </font></td>
+    <td width="24%"><font size="5">OR AL Ib</font></td>
+    <td width="60%"><font size="4">mov al, 0b0101_0000<br>
+      or al, 0b0000_1111 ; AL = 0101_1111</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="13_or_eax_Iv"></a>13</font></td>
+    <td width="9%"><font size="5">0D </font></td>
+    <td width="24%"><font size="5">OR eAX Iv</font></td>
+    <td width="60%"><font size="4">mov ax, 0x00F0<br>
+      or ax, 0x0F00 ; AX = 0x0FF0</font></td>
+  </tr>
+  <tr> 
+    <td width="7%" height="2"><font size="4"><a name="14_push_cs"></a>14</font></td>
+    <td width="9%" height="2"><font size="5">0E </font></td>
+    <td width="24%" height="2"><font size="5">PUSH CS</font></td>
+    <td width="60%" height="2"><font size="4">push cs</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="15_--"></a>15</font></td>
+    <td width="9%"><font size="5">0F </font></td>
+    <td width="24%"><font size="5">--</font></td>
+    <td width="60%"><font size="4"></font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="16_adc_Eb_Gb"></a>16</font></td>
+    <td width="9%"><font size="5">10 </font></td>
+    <td width="24%"><font size="5">ADC Eb Gb</font></td>
+    <td width="60%"><font size="4">gdt_store dq 0<br>
+      sgdt [gdt_store] ; uses opcode 0F 01 /0</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="17_adc_Ev_Gv"></a>17</font></td>
+    <td width="9%"><font size="5">11 </font></td>
+    <td width="24%"><font size="5">ADC Ev Gv</font></td>
+    <td width="60%"><font size="4">byte_val db 0xFE ; 254<br>
+      stc ; CF = 1<br>
+      mov bl, 1<br>
+      adc [byte_val], bl ; FE + 01 + 1 = 0x100 ? 00 with CF=1</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="18_adc_Gb_Eb"></a>18</font></td>
+    <td width="9%"><font size="5">12 </font></td>
+    <td width="24%"><font size="5">ADC Gb Eb</font></td>
+    <td width="60%"><font size="4">word_val dw 0xFFFF<br>
+      stc ; CF = 1<br>
+      mov bx, 1<br>
+      adc [word_val], bx ; FFFF + 0001 + 1 = 0001 (CF=1)</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="19_adc_Gv_Ev"></a>19</font></td>
+    <td width="9%"><font size="5">13 </font></td>
+    <td width="24%"><font size="5">ADC Gv Ev</font></td>
+    <td width="60%"><font size="4">byte_val db 5<br>
+      clc ; CF = 0<br>
+      mov al, 10<br>
+      adc al, [byte_val] ; AL = 10 + 5 + 0 = 15</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="20_adc_al_Ib"></a>20</font></td>
+    <td width="9%"><font size="5">14 </font></td>
+    <td width="24%"><font size="5">ADC AL Ib</font></td>
+    <td width="60%"><font size="4">mov al, 0x0F<br>
+      stc ; CF=1<br>
+      adc al, 0x01 ; 0F + 01 + 1 ? 11h</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="21_adc_eax_Iv"></a>21</font></td>
+    <td width="9%"><font size="5">15 </font></td>
+    <td width="24%"><font size="5">ADC eAX Iv</font></td>
+    <td width="60%"><font size="4">mov ax, 0x000F<br>
+      clc ; CF = 0<br>
+      adc ax, 0x0010 ; AX = 000F + 0010 + 0 = 001F</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="22_push_ss"></a>22</font></td>
+    <td width="9%"><font size="5">16 </font></td>
+    <td width="24%"><font size="5">PUSH SS</font></td>
+    <td width="60%"><font size="4">push ss</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="23_pop_ss"></a>23</font></td>
+    <td width="9%"><font size="5">17 </font></td>
+    <td width="24%"><font size="5">POP SS</font></td>
+    <td width="60%"><font size="4">mov ax, 0x7000<br>
+      push ax<br>
+      pop ss ; sets SS = 7000h</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="24_sbb_Eb_Gb"></a>24</font></td>
+    <td width="9%"><font size="5">18 </font></td>
+    <td width="24%"><font size="5">SBB Eb Gb</font></td>
+    <td width="60%"><font size="4">byte_val db 10<br>
+      stc ; CF = 1 (borrow)<br>
+      mov bl, 3<br>
+      sbb [byte_val], bl ; 10 - 3 - 1 = 6</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="25_sbb_Ev_Gv"></a>25</font></td>
+    <td width="9%"><font size="5">19 </font></td>
+    <td width="24%"><font size="5">SBB Ev Gv</font></td>
+    <td width="60%"><font size="4">clc ; CF = 0<br>
+      mov bx, 100<br>
+      sbb [word_val], bx ; 500 - 100 = 400</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="26_sbb_Gb_Eb"></a>26</font></td>
+    <td width="9%"><font size="5">1A </font></td>
+    <td width="24%"><font size="5">SBB Gb Eb</font></td>
+    <td width="60%"><font size="4">stc ; CF=1<br>
+      mov al, 10<br>
+      sbb al, [byte_val] ; AL = 10 - 20 - 1 = 0xF5 (wrap)</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="27_sbb_Gv_Ev"></a>27</font></td>
+    <td width="9%"><font size="5">1B </font></td>
+    <td width="24%"><font size="5">SBB Gv Ev</font></td>
+    <td width="60%"><font size="4">word_val dw 50<br>
+      clc<br>
+      mov ax, 100<br>
+      sbb ax, [word_val] ; AX = 100 - 50 = 50</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="28_sbb_al_ib"></a>28</font></td>
+    <td width="9%"><font size="5">1C </font></td>
+    <td width="24%"><font size="5">SBB AL Ib</font></td>
+    <td width="60%"><font size="4">mov al, 9<br>
+      stc ; CF = 1<br>
+      sbb al, 5 ; AL = 9 - 5 - 1 = 3</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="29_sbb_eax_iv"></a>29</font></td>
+    <td width="9%"><font size="5">1D </font></td>
+    <td width="24%"><font size="5">SBB eAX Iv</font></td>
+    <td width="60%"><font size="4">mov ax, 1000<br>
+      clc<br>
+      sbb ax, 200 ; AX = 800</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="30_push_ds"></a>30</font></td>
+    <td width="9%"><font size="5">1E </font></td>
+    <td width="24%"><font size="5">PUSH DS</font></td>
+    <td width="60%"><font size="4">push ds</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="31_pop_ds"></a>31</font></td>
+    <td width="9%"><font size="5">1F </font></td>
+    <td width="24%"><font size="5">POP DS</font></td>
+    <td width="60%"><font size="4">mov ax, 0x9000<br>
+      push ax<br>
+      pop ds ; DS = 9000h</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="32_and_Eb_Gb"></a>32</font></td>
+    <td width="9%"><font size="5">20 </font></td>
+    <td width="24%"><font size="5">AND Eb Gb</font></td>
+    <td width="60%"><font size="4">byte_val db 0b11110000<br>
+      mov bl, 0b00001111<br>
+      and [byte_val], bl ; result = 00000000</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="33_and_Ev_Gv"></a>33</font></td>
+    <td width="9%"><font size="5">21 </font></td>
+    <td width="24%"><font size="5">AND Ev Gv</font></td>
+    <td width="60%"><font size="4">word_val dw 0xFF00<br>
+      mov bx, 0x00FF<br>
+      and [word_val], bx ; result = 0x0000</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="34_and_Gb_Eb"></a>34</font></td>
+    <td width="9%"><font size="5">22 </font></td>
+    <td width="24%"><font size="5">AND Gb Eb</font></td>
+    <td width="60%"><font size="4">byte_val db 0b10101010<br>
+      mov al, 0b11001100<br>
+      and al, [byte_val] ; AL = 10001000b</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="35_and_Gv_Ev"></a>35</font></td>
+    <td width="9%"><font size="5">23 </font></td>
+    <td width="24%"><font size="5">AND Gv Ev</font></td>
+    <td width="60%"><font size="4">word_val dw 0b1111_0000_1111_0000<br>
+      mov ax, 0b1100_1100_1100_1100<br>
+      and ax, [word_val] ; AX = 1100_0000_1100_0000</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="36_and_al_ib"></a>36</font></td>
+    <td width="9%"><font size="5">24 </font></td>
+    <td width="24%"><font size="5">AND AL Ib</font></td>
+    <td width="60%"><font size="4">mov al, 0b11110000<br>
+      and al, 0b00001111 ; AL = 00000000</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="37_and_eax_iv"></a>37</font></td>
+    <td width="9%"><font size="5">25 </font></td>
+    <td width="24%"><font size="5">AND eAX Iv</font></td>
+    <td width="60%"><font size="4">mov ax, 0xF0F0<br>
+      and ax, 0x0FF0 ; AX = 00F0h</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="38_es"></a>38</font></td>
+    <td width="9%"><font size="5">26 </font></td>
+    <td width="24%"><font size="5">ES:</font></td>
+    <td width="60%"><font size="4">mov es, 0xB800<br>
+      mov di, 0<br>
+      mov al, es:[di] ; same as: 26 8A 05</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="39_daa"></a>39</font></td>
+    <td width="9%"><font size="5">27 </font></td>
+    <td width="24%"><font size="5">DAA</font></td>
+    <td width="60%"><font size="4">mov al, 0x15 ; 15 (BCD)<br>
+      add al, 0x27 ; +27 (BCD)<br>
+      daa ; AL becomes 0x42 (BCD of 42)</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="40_sub_Eb_Gb"></a>40</font></td>
+    <td width="9%"><font size="5">28 </font></td>
+    <td width="24%"><font size="5">SUB Eb Gb</font></td>
+    <td width="60%"><font size="4">byte_val db 20<br>
+      mov bl, 5<br>
+      sub [byte_val], bl ; byte_val = 15</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="41_sub_Ev_Gv"></a>41</font></td>
+    <td width="9%"><font size="5">29 </font></td>
+    <td width="24%"><font size="5">SUB Ev Gv</font></td>
+    <td width="60%"><font size="4">word_val dw 1000<br>
+      mov bx, 250<br>
+      sub [word_val], bx ; result = 750</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="42_sub_Gb_Eb"></a>42</font></td>
+    <td width="9%"><font size="5">2A </font></td>
+    <td width="24%"><font size="5">SUB Gb Eb</font></td>
+    <td width="60%"><font size="4">byte_val db 5<br>
+      mov al, 20<br>
+      sub al, [byte_val] ; AL = 15</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="43_sub_Gv_Ev"></a>43</font></td>
+    <td width="9%"><font size="5">2B </font></td>
+    <td width="24%"><font size="5">SUB Gv Ev</font></td>
+    <td width="60%"><font size="4">word_val dw 200 <br>
+      mov ax, 500<br>
+      sub ax, [word_val] ; AX = 300<br>
+      </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="44_sub_al_ib"></a>44</font></td>
+    <td width="9%"><font size="5">2C </font></td>
+    <td width="24%"><font size="5">SUB AL Ib</font></td>
+    <td width="60%"><font size="4">mov al, 50<br>
+      sub al, 7 ; AL = 43</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="45_sun_eax_iv"></a>45</font></td>
+    <td width="9%"><font size="5">2D </font></td>
+    <td width="24%"><font size="5">SUB eAX Iv</font></td>
+    <td width="60%"><font size="4">mov ax, 1000<br>
+      sub ax, 250 ; AX = 750</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="46_cs"></a>46</font></td>
+    <td width="9%"><font size="5">2E </font></td>
+    <td width="24%"><font size="5">CS:</font></td>
+    <td width="60%"><font size="4">mov al, cs:[bp+4] ; uses prefix 2E</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="47_das"></a>47</font></td>
+    <td width="9%"><font size="5">2F </font></td>
+    <td width="24%"><font size="5">DAS</font></td>
+    <td width="60%"><font size="4">mov al, 0x42 ; 42 (BCD)<br>
+      sub al, 0x17 ; subtract 17 (BCD)<br>
+      das ; AL becomes 0x25 (BCD of 25)</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="48_xor_Eb_Gb"></a>48</font></td>
+    <td width="9%"><font size="5">30 </font></td>
+    <td width="24%"><font size="5">XOR Eb Gb</font></td>
+    <td width="60%"><font size="4">byte_val db 0b10101010<br>
+      mov bl, 0b11110000<br>
+      xor [byte_val], bl ; result = 01011010b</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="49_xor_Ev_Gv"></a>49</font></td>
+    <td width="9%"><font size="5">31 </font></td>
+    <td width="24%"><font size="5">XOR Ev Gv</font></td>
+    <td width="60%"><font size="4">word_val dw 0xAAAA<br>
+      mov bx, 0x00FF<br>
+      xor [word_val], bx ; result = AA55h</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="50_xor_Gb_Eb"></a>50</font></td>
+    <td width="9%"><font size="5">32 </font></td>
+    <td width="24%"><font size="5">XOR Gb Eb</font></td>
+    <td width="60%"><font size="4">byte_val db 0b11000011<br>
+      mov al, 0b10101010<br>
+      xor al, [byte_val] ; AL = 01101001b</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="51_xor_Gv_Ev"></a>51</font></td>
+    <td width="9%"><font size="5">33 </font></td>
+    <td width="24%"><font size="5">XOR Gv Ev</font></td>
+    <td width="60%"><font size="4">word_val dw 0xF0F0<br>
+      mov ax, 0x0FF0<br>
+      xor ax, [word_val] ; AX = 0F00h</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="52_xor_al_ib"></a>52</font></td>
+    <td width="9%"><font size="5">34 </font></td>
+    <td width="24%"><font size="5">XOR AL Ib</font></td>
+    <td width="60%"><font size="4">mov al, 0x55<br>
+      xor al, 0xAA ; AL = FFh</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="53_xor_eax_iv"></a>53</font></td>
+    <td width="9%"><font size="5">35 </font></td>
+    <td width="24%"><font size="5">XOR eAX Iv</font></td>
+    <td width="60%"><font size="4">mov ax, 0x1234<br>
+      xor ax, 0xFFFF ; AX = EDCBh</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="54_ss"></a>54</font></td>
+    <td width="9%"><font size="5">36 </font></td>
+    <td width="24%"><font size="5">SS:</font></td>
+    <td width="60%"><font size="4">mov al, ss:[si] ; opcode begins with 36</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="55_aaa"></a>55</font></td>
+    <td width="9%"><font size="5">37 </font></td>
+    <td width="24%"><font size="5">AAA</font></td>
+    <td width="60%"><font size="4">mov al, '4'<br>
+      add al, '5' ; produces 0x99<br>
+      aaa ; AL corrected to '9', AH incremented</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="57_cmp_eb_gb"></a>56</font></td>
+    <td width="9%"><font size="5">38 </font></td>
+    <td width="24%"><font size="5">CMP Eb Gb</font></td>
+    <td width="60%"><font size="4">byte_val db 7<br>
+      mov bl, 7<br>
+      cmp [byte_val], bl ; sets ZF=1</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="57_cmp_ev_gv"></a>57</font></td>
+    <td width="9%"><font size="5">39 </font></td>
+    <td width="24%"><font size="5">CMP Ev Gv</font></td>
+    <td width="60%"><font size="4">word_val dw 300<br>
+      mov bx, 200<br>
+      cmp [word_val], bx ; sets flags based on 300 - 200</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="58_cmp_gb_eb"></a>58</font></td>
+    <td width="9%"><font size="5">3A </font></td>
+    <td width="24%"><font size="5">CMP Gb Eb</font></td>
+    <td width="60%"><font size="4">byte_val db 3<br>
+      mov al, 5<br>
+      cmp al, [byte_val] ; AL &gt; byte_val</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="59_cmp_gv_ev"></a>59</font></td>
+    <td width="9%"><font size="5">3B </font></td>
+    <td width="24%"><font size="5">CMP Gv Ev</font></td>
+    <td width="60%"><font size="4">word_val dw 1234h<br>
+      mov ax, 1234h<br>
+      cmp ax, [word_val] ; ZF = 1</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="60_cmp_al_ib"></a>60</font></td>
+    <td width="9%"><font size="5">3C </font></td>
+    <td width="24%"><font size="5">CMP AL Ib</font></td>
+    <td width="60%"><font size="4">mov al, 10<br>
+      cmp al, 12 ; sets CF=1 (AL &lt; imm8)</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="61_cmp_eax_iv"></a>61</font></td>
+    <td width="9%"><font size="5">3D </font></td>
+    <td width="24%"><font size="5">CMP eAX Iv</font></td>
+    <td width="60%"><font size="4">mov ax, 500<br>
+      cmp ax, 250 ; AX &gt; imm16</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="62_ds"></a>62</font></td>
+    <td width="9%"><font size="5">3E </font></td>
+    <td width="24%"><font size="5">DS:</font></td>
+    <td width="60%"> 
+      <p><font size="4">; used rarely because DS is already default<br>
+        mov al, ds:[bx] ; prefix 3E inserted anyway</font></p>
+    </td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="63_aas"></a>63</font></td>
+    <td width="9%"><font size="5">3F </font></td>
+    <td width="24%"><font size="5">AAS</font></td>
+    <td width="60%"><font size="4">mov al, '9'<br>
+      sub al, '3'<br>
+      aas ; adjust AL back to valid ASCII digit</font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="64_inc_ax"></a>64</font></td>
+    <td width="9%"><font size="5">40 </font></td>
+    <td width="24%"><font size="5">INC AX</font></td>
+    <td width="60%"><font size="4"> mov ax, 10<br>
+      inc ax </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="65_inc_cx"></a>65</font></td>
+    <td width="9%"><font size="5">41 </font></td>
+    <td width="24%"><font size="5">INC CX</font></td>
+    <td width="60%"><font size="4"> mov cx, 5<br>
+      inc cx </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="66_inc_dx"></a>66</font></td>
+    <td width="9%"><font size="5">42 </font></td>
+    <td width="24%"><font size="5">INC DX</font></td>
+    <td width="60%"><font size="4"> mov dx, 100<br>
+      inc dx </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="67_inc_bx"></a>67</font></td>
+    <td width="9%"><font size="5">43 </font></td>
+    <td width="24%"><font size="5">INC BX</font></td>
+    <td width="60%"><font size="4"> mov bx, 1<br>
+      inc bx </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="68_inc_sp"></a>68</font></td>
+    <td width="9%"><font size="5">44 </font></td>
+    <td width="24%"><font size="5">INC SP</font></td>
+    <td width="60%"><font size="4"> mov sp, 0x1000<br>
+      inc sp </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="69_inc_bp"></a>69</font></td>
+    <td width="9%"><font size="5">45 </font></td>
+    <td width="24%"><font size="5">INC BP</font></td>
+    <td width="60%"><font size="4"> mov bp, 200<br>
+      inc bp </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="70_inc_si"></a>70</font></td>
+    <td width="9%"><font size="5">46 </font></td>
+    <td width="24%"><font size="5">INC SI</font></td>
+    <td width="60%"><font size="4"> mov si, 0x0200<br>
+      inc si </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="71_inc_di"></a>71</font></td>
+    <td width="9%"><font size="5">47 </font></td>
+    <td width="24%"><font size="5">INC DI</font></td>
+    <td width="60%"><font size="4"> mov di, 0x0300<br>
+      inc di </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="72_dec_ax"></a>72</font></td>
+    <td width="9%"><font size="5">48 </font></td>
+    <td width="24%"><font size="5">DEC AX</font></td>
+    <td width="60%"><font size="4"> mov ax, 10<br>
+      dec ax </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="73_dec_cx"></a>73</font></td>
+    <td width="9%"><font size="5">49 </font></td>
+    <td width="24%"><font size="5">DEC CX</font></td>
+    <td width="60%"><font size="4"> mov cx, 5<br>
+      dec cx </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="72_dec_dx"></a>74</font></td>
+    <td width="9%"><font size="5">4A </font></td>
+    <td width="24%"><font size="5">DEC DX</font></td>
+    <td width="60%"><font size="4"> mov dx, 100<br>
+      dec dx </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="75_dec_bx"></a>75</font></td>
+    <td width="9%"><font size="5">4B </font></td>
+    <td width="24%"><font size="5">DEC BX</font></td>
+    <td width="60%"><font size="4"> mov bx, 1<br>
+      dec bx </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="76_dec_sp"></a>76</font></td>
+    <td width="9%"><font size="5">4C </font></td>
+    <td width="24%"><font size="5">DEC SP</font></td>
+    <td width="60%"><font size="4"> mov sp, 0x1000<br>
+      dec sp </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="77_dec_bp"></a>77</font></td>
+    <td width="9%"><font size="5">4D </font></td>
+    <td width="24%"><font size="5">DEC BP</font></td>
+    <td width="60%"><font size="4"> mov bp, 200<br>
+      dec bp </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="78_dec_si"></a>78</font></td>
+    <td width="9%"><font size="5">4E </font></td>
+    <td width="24%"><font size="5">DEC SI</font></td>
+    <td width="60%"><font size="4"> mov si, 0x0200<br>
+      dec si </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="79_dec_di"></a>79</font></td>
+    <td width="9%"><font size="5">4F </font></td>
+    <td width="24%"><font size="5">DEC DI</font></td>
+    <td width="60%"><font size="4"> mov di, 0x0300<br>
+      dec di </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="80_push_ax"></a>80</font></td>
+    <td width="9%"><font size="5">50 </font></td>
+    <td width="24%"><font size="5">PUSH AX</font></td>
+    <td width="60%"><font size="4"> mov ax, 1234h<br>
+      push ax </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="81_push_cx"></a>81</font></td>
+    <td width="9%"><font size="5">51 </font></td>
+    <td width="24%"><font size="5">PUSH CX</font></td>
+    <td width="60%"><font size="4"> mov cx, 0ABCDh<br>
+      push cx </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="82_push_dx"></a>82</font></td>
+    <td width="9%"><font size="5">52 </font></td>
+    <td width="24%"><font size="5">PUSH DX</font></td>
+    <td width="60%"><font size="4"> mov dx, 0F00Dh<br>
+      push dx </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="83_push_bx"></a>83</font></td>
+    <td width="9%"><font size="5">53 </font></td>
+    <td width="24%"><font size="5">PUSH BX</font></td>
+    <td width="60%"><font size="4"> mov bx, 9090h<br>
+      push bx </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="84_push_sp"></a>84</font></td>
+    <td width="9%"><font size="5">54 </font></td>
+    <td width="24%"><font size="5">PUSH SP</font></td>
+    <td width="60%"><font size="4"> ; SP after push is the original SP value<br>
+      push sp </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="85_push_bp"></a>85</font></td>
+    <td width="9%"><font size="5">55 </font></td>
+    <td width="24%"><font size="5">PUSH BP</font></td>
+    <td width="60%"><font size="4"> mov bp, 2000h<br>
+      push bp </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="86_push_si"></a>86</font></td>
+    <td width="9%"><font size="5">56 </font></td>
+    <td width="24%"><font size="5">PUSH SI</font></td>
+    <td width="60%"><font size="4"> mov si, 0400h<br>
+      push si </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="87_push_di"></a>87</font></td>
+    <td width="9%"><font size="5">57 </font></td>
+    <td width="24%"><font size="5">PUSH DI</font></td>
+    <td width="60%"><font size="4"> mov di, 0800h<br>
+      push di </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="88_pop_ax"></a>88</font></td>
+    <td width="9%"><font size="5">58 </font></td>
+    <td width="24%"><font size="5">POP AX</font></td>
+    <td width="60%"><font size="4"> push 1234h<br>
+      pop ax </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="89_pop_cx"></a>89</font></td>
+    <td width="9%"><font size="5">59 </font></td>
+    <td width="24%"><font size="5">POP CX</font></td>
+    <td width="60%"><font size="4"> push 0ABCDh<br>
+      pop cx </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="90_pop_dx"></a>90</font></td>
+    <td width="9%"><font size="5">5A </font></td>
+    <td width="24%"><font size="5">POP DX</font></td>
+    <td width="60%"><font size="4"> push 0F00Dh<br>
+      pop dx </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="91_pop_bx"></a>91</font></td>
+    <td width="9%"><font size="5">5B </font></td>
+    <td width="24%"><font size="5">POP BX</font></td>
+    <td width="60%"><font size="4"> push 9090h<br>
+      pop bx </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="92_pop_sp"></a>92</font></td>
+    <td width="9%"><font size="5">5C </font></td>
+    <td width="24%"><font size="5">POP SP</font></td>
+    <td width="60%"><font size="4"> ; Very unusual: overwrites the stack pointer<br>
+      push 1234h<br>
+      pop sp </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="93_pop_bp"></a>93</font></td>
+    <td width="9%"><font size="5">5D </font></td>
+    <td width="24%"><font size="5">POP BP</font></td>
+    <td width="60%"><font size="4"> push 2000h<br>
+      pop bp </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="94_pop_si"></a>94</font></td>
+    <td width="9%"><font size="5">5E </font></td>
+    <td width="24%"><font size="5">POP SI</font></td>
+    <td width="60%"><font size="4"> push 0400h<br>
+      pop si </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="95_pop_di"></a>95</font></td>
+    <td width="9%"><font size="5">5F </font></td>
+    <td width="24%"><font size="5">POP DI</font></td>
+    <td width="60%"><font size="4"> push 0800h<br>
+      pop di </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="96_pusha"></a>96</font></td>
+    <td width="9%"><font size="5">0x60 </font></td>
+    <td width="24%"><font size="5">PUSHA</font></td>
+    <td width="60%"><font size="4"> ; Push AX, CX, DX, BX, SP, BP, SI, DI<br>
+      pusha </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="97_popa"></a>97</font></td>
+    <td width="9%"><font size="5">0x61 </font></td>
+    <td width="24%"><font size="5">POPA</font></td>
+    <td width="60%"><font size="4"> ; Pop DI, SI, BP, ignore SP, BX, DX, CX, AX<br>
+      popa </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="98_bound"></a>98</font></td>
+    <td width="9%"><font size="5">0x62 </font></td>
+    <td width="24%"><font size="5">BOUND Gv, Ev</font></td>
+    <td width="60%"><font size="4"> bounds dw 10, 30<br>
+      mov ax, 20<br>
+      bound ax, [bounds] </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="99_arpl"></a>99</font></td>
+    <td width="9%"><font size="5">0x63 </font></td>
+    <td width="24%"><font size="5">ARPL Ew, Gw</font></td>
+    <td width="60%"><font size="4"> ; Adjust RPL (protected mode only)<br>
+      arpl bx, ax </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="100_fs"></a>100</font></td>
+    <td width="9%"><font size="5">0x64 </font></td>
+    <td width="24%"><font size="5">FS:</font></td>
+    <td width="60%"><font size="4"> mov ax, fs:[si] </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="101_gs"></a>101</font></td>
+    <td width="9%"><font size="5">0x65 </font></td>
+    <td width="24%"><font size="5">GS:</font></td>
+    <td width="60%"><font size="4"> mov ax, gs:[di] </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="102_opsize"></a>102</font></td>
+    <td width="9%"><font size="5">0x66 </font></td>
+    <td width="24%"><font size="5">Operand-Size Override</font></td>
+    <td width="60%"><font size="4"> ; Create a 32-bit XOR in 16-bit mode<br>
+      db 0x66<br>
+      xor ax, ax </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="103_addrsize"></a>103</font></td>
+    <td width="9%"><font size="5">0x67 </font></td>
+    <td width="24%"><font size="5">Address-Size Override</font></td>
+    <td width="60%"><font size="4"> ; Force 32-bit addressing in real mode<br>
+      db 0x67<br>
+      mov ax, [eax] </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="104_push_iv"></a>104</font></td>
+    <td width="9%"><font size="5">0x68 </font></td>
+    <td width="24%"><font size="5">PUSH Iv</font></td>
+    <td width="60%"><font size="4"> push 1234h </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="105_imul_gv_ev_iv"></a>105</font></td>
+    <td width="9%"><font size="5">0x69 </font></td>
+    <td width="24%"><font size="5">IMUL Gv, Ev, Iv</font></td>
+    <td width="60%"><font size="4"> val dw 7<br>
+      imul ax, [val], 10 ; AX = 70 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="106_push_ib"></a>106</font></td>
+    <td width="9%"><font size="5">0x6A </font></td>
+    <td width="24%"><font size="5">PUSH Ib</font></td>
+    <td width="60%"><font size="4"> push byte 5 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="107_imul_gv_ev_ib"></a>107</font></td>
+    <td width="9%"><font size="5">0x6B </font></td>
+    <td width="24%"><font size="5">IMUL Gv, Ev, Ib</font></td>
+    <td width="60%"><font size="4"> val db 8<br>
+      imul ax, [val], byte 3 ; AX = 24 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="108_insb"></a>108</font></td>
+    <td width="9%"><font size="5">0x6C </font></td>
+    <td width="24%"><font size="5">INSB</font></td>
+    <td width="60%"><font size="4"> insb ; ES:[DI] = INB DX </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="109_insw"></a>109</font></td>
+    <td width="9%"><font size="5">0x6D </font></td>
+    <td width="24%"><font size="5">INSW</font></td>
+    <td width="60%"><font size="4"> insw ; ES:[DI] = INW DX </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="110_outsb"></a>110</font></td>
+    <td width="9%"><font size="5">0x6E </font></td>
+    <td width="24%"><font size="5">OUTSB</font></td>
+    <td width="60%"><font size="4"> outsb ; OUTB DX, DS:[SI] </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="111_outsw"></a>111</font></td>
+    <td width="9%"><font size="5">0x6F </font></td>
+    <td width="24%"><font size="5">OUTSW</font></td>
+    <td width="60%"><font size="4"> outsw ; OUTW DX, DS:[SI] </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="112_jo"></a>112</font></td>
+    <td width="9%"><font size="5">0x70 </font></td>
+    <td width="24%"><font size="5">JO rel8</font></td>
+    <td width="60%"><font size="4"> add al, 0x80 ; might set OF<br>
+      jo label_overflow </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="113_jno"></a>113</font></td>
+    <td width="9%"><font size="5">0x71 </font></td>
+    <td width="24%"><font size="5">JNO rel8</font></td>
+    <td width="60%"><font size="4"> add al, 1<br>
+      jno ok_branch </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="114_jb_jc_jnae"></a>114</font></td>
+    <td width="9%"><font size="5">0x72 </font></td>
+    <td width="24%"><font size="5">JB/JC/JNAE rel8</font></td>
+    <td width="60%"><font size="4"> cmp al, bl<br>
+      jb lower_value </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="115_jae_jnb_jnc"></a>115</font></td>
+    <td width="9%"><font size="5">0x73 </font></td>
+    <td width="24%"><font size="5">JAE/JNB/JNC rel8</font></td>
+    <td width="60%"><font size="4"> cmp al, bl<br>
+      jae not_lower </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="116_je_jz"></a>116</font></td>
+    <td width="9%"><font size="5">0x74 </font></td>
+    <td width="24%"><font size="5">JE/JZ rel8</font></td>
+    <td width="60%"><font size="4"> cmp ax, 100<br>
+      je equal_case </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="117_jne_jnz"></a>117</font></td>
+    <td width="9%"><font size="5">0x75 </font></td>
+    <td width="24%"><font size="5">JNE/JNZ rel8</font></td>
+    <td width="60%"><font size="4"> cmp ax, 100<br>
+      jne not_equal </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="118_jbe_jna"></a>118</font></td>
+    <td width="9%"><font size="5">0x76 </font></td>
+    <td width="24%"><font size="5">JBE/JNA rel8</font></td>
+    <td width="60%"><font size="4"> cmp ax, bx<br>
+      jbe less_or_equal </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="119_ja_jnbe"></a>119</font></td>
+    <td width="9%"><font size="5">0x77 </font></td>
+    <td width="24%"><font size="5">JA/JNBE rel8</font></td>
+    <td width="60%"><font size="4"> cmp ax, bx<br>
+      ja greater </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="120_js"></a>120</font></td>
+    <td width="9%"><font size="5">0x78 </font></td>
+    <td width="24%"><font size="5">JS rel8</font></td>
+    <td width="60%"><font size="4"> test al, 0x80<br>
+      js negative_case </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="121_jns"></a>121</font></td>
+    <td width="9%"><font size="5">0x79 </font></td>
+    <td width="24%"><font size="5">JNS rel8</font></td>
+    <td width="60%"><font size="4"> test al, 0x80<br>
+      jns positive_case </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="122_jp_jpe"></a>122</font></td>
+    <td width="9%"><font size="5">0x7A </font></td>
+    <td width="24%"><font size="5">JP/JPE rel8</font></td>
+    <td width="60%"><font size="4"> ; Jump if parity even<br>
+      jp parity_even </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="123_jnp_jpo"></a>123</font></td>
+    <td width="9%"><font size="5">0x7B </font></td>
+    <td width="24%"><font size="5">JNP/JPO rel8</font></td>
+    <td width="60%"><font size="4"> ; Jump if parity odd<br>
+      jnp parity_odd </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="124_jl_jnge"></a>124</font></td>
+    <td width="9%"><font size="5">0x7C </font></td>
+    <td width="24%"><font size="5">JL/JNGE rel8</font></td>
+    <td width="60%"><font size="4"> cmp ax, bx<br>
+      jl signed_less </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="125_jge_jnl"></a>125</font></td>
+    <td width="9%"><font size="5">0x7D </font></td>
+    <td width="24%"><font size="5">JGE/JNL rel8</font></td>
+    <td width="60%"><font size="4"> cmp ax, bx<br>
+      jge signed_ge </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="126_jle_jng"></a>126</font></td>
+    <td width="9%"><font size="5">0x7E </font></td>
+    <td width="24%"><font size="5">JLE/JNG rel8</font></td>
+    <td width="60%"><font size="4"> cmp ax, bx<br>
+      jle signed_le </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="127_jg_jnle"></a>127</font></td>
+    <td width="9%"><font size="5">0x7F </font></td>
+    <td width="24%"><font size="5">JG/JNLE rel8</font></td>
+    <td width="60%"><font size="4"> cmp ax, bx<br>
+      jg signed_gt </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="128_grp1_80"></a>128</font></td>
+    <td width="9%"><font size="5">0x80 </font></td>
+    <td width="24%"><font size="5">GRP1 Eb, Ib</font></td>
+    <td width="60%"><font size="4"> ; Example: SUB byte ptr<br>
+      byte_val db 20<br>
+      sub byte [byte_val], 5 ; opcode group 80 /5 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="129_grp1_81"></a>129</font></td>
+    <td width="9%"><font size="5">0x81 </font></td>
+    <td width="24%"><font size="5">GRP1 Ev, Iv</font></td>
+    <td width="60%"><font size="4"> ; Example: ADD word ptr<br>
+      word_val dw 100<br>
+      add word [word_val], 200 ; opcode group 81 /0 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="130_grp1_82"></a>130</font></td>
+    <td width="9%"><font size="5">0x82 </font></td>
+    <td width="24%"><font size="5">GRP1 Eb, Ib<br>
+      <font size="3">(old duplicate)</font></font></td>
+    <td width="60%"><font size="4"> ; Same as opcode 80h, rarely generated by 
+      assemblers<br>
+      cmp byte [byte_val], 10 ; opcode group 82 /7 possible </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="131_grp1_83"></a>131</font></td>
+    <td width="9%"><font size="5">0x83 </font></td>
+    <td width="24%"><font size="5">GRP1 Ev, Ib</font></td>
+    <td width="60%"><font size="4"> ; Example: SUB word ptr with 8-bit immediate<br>
+      word_val dw 500<br>
+      sub word [word_val], byte 10 ; opcode group 83 /5 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="132_test_eb_gb"></a>132</font></td>
+    <td width="9%"><font size="5">0x84 </font></td>
+    <td width="24%"><font size="5">TEST Eb, Gb</font></td>
+    <td width="60%"><font size="4"> byte_val db 0b10101010<br>
+      mov bl, 0b10000000<br>
+      test [byte_val], bl </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="133_test_ev_gv"></a>133</font></td>
+    <td width="9%"><font size="5">0x85 </font></td>
+    <td width="24%"><font size="5">TEST Ev, Gv</font></td>
+    <td width="60%"><font size="4"> word_val dw 0xF0F0<br>
+      mov bx, 0x00F0<br>
+      test [word_val], bx </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="134_xchg_eb_gb"></a>134</font></td>
+    <td width="9%"><font size="5">0x86 </font></td>
+    <td width="24%"><font size="5">XCHG Eb, Gb</font></td>
+    <td width="60%"><font size="4"> byte_val db 1<br>
+      mov bl, 2<br>
+      xchg bl, [byte_val] ; bl=1, byte_val=2 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="135_xchg_ev_gv"></a>135</font></td>
+    <td width="9%"><font size="5">0x87 </font></td>
+    <td width="24%"><font size="5">XCHG Ev, Gv</font></td>
+    <td width="60%"><font size="4"> word_val dw 5<br>
+      mov bx, 10<br>
+      xchg bx, [word_val] ; bx=5, mem=10 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="136_mov_eb_gb"></a>136</font></td>
+    <td width="9%"><font size="5">0x88 </font></td>
+    <td width="24%"><font size="5">MOV Eb, Gb</font></td>
+    <td width="60%"><font size="4"> byte_val db 0<br>
+      mov al, 7<br>
+      mov [byte_val], al </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="137_mov_ev_gv"></a>137</font></td>
+    <td width="9%"><font size="5">0x89 </font></td>
+    <td width="24%"><font size="5">MOV Ev, Gv</font></td>
+    <td width="60%"><font size="4"> word_val dw 0<br>
+      mov ax, 1234h<br>
+      mov [word_val], ax </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="138_mov_gb_eb"></a>138</font></td>
+    <td width="9%"><font size="5">0x8A </font></td>
+    <td width="24%"><font size="5">MOV Gb, Eb</font></td>
+    <td width="60%"><font size="4"> byte_val db 9<br>
+      mov al, [byte_val] </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="139_mov_gv_ev"></a>139</font></td>
+    <td width="9%"><font size="5">0x8B </font></td>
+    <td width="24%"><font size="5">MOV Gv, Ev</font></td>
+    <td width="60%"><font size="4"> word_val dw 3456h<br>
+      mov ax, [word_val] </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="140_mov_ew_sw"></a>140</font></td>
+    <td width="9%"><font size="5">0x8C </font></td>
+    <td width="24%"><font size="5">MOV Ew, Sw</font></td>
+    <td width="60%"><font size="4"> mov [word_val], ds ; move segment register 
+      to memory </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="141_lea_gv_m"></a>141</font></td>
+    <td width="9%"><font size="5">0x8D </font></td>
+    <td width="24%"><font size="5">LEA Gv, M</font></td>
+    <td width="60%"><font size="4"> lea ax, [bp+4] </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="142_mov_sw_ew"></a>142</font></td>
+    <td width="9%"><font size="5">0x8E </font></td>
+    <td width="24%"><font size="5">MOV Sw, Ew</font></td>
+    <td width="60%"><font size="4"> mov ds, [word_val] </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="143_pop_ev"></a>143</font></td>
+    <td width="9%"><font size="5">0x8F </font></td>
+    <td width="24%"><font size="5">POP Ev</font></td>
+    <td width="60%"><font size="4"> push 1234h<br>
+      pop [word_val] </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="144_nop"></a>144</font></td>
+    <td width="9%"><font size="5">0x90 </font></td>
+    <td width="24%"><font size="5">NOP</font></td>
+    <td width="60%"><font size="4"> nop </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="145_xchg_ax_cx"></a>145</font></td>
+    <td width="9%"><font size="5">0x91 </font></td>
+    <td width="24%"><font size="5">XCHG AX, CX</font></td>
+    <td width="60%"><font size="4"> xchg ax, cx </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="146_xchg_ax_dx"></a>146</font></td>
+    <td width="9%"><font size="5">0x92 </font></td>
+    <td width="24%"><font size="5">XCHG AX, DX</font></td>
+    <td width="60%"><font size="4"> xchg ax, dx </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="147_xchg_ax_bx"></a>147</font></td>
+    <td width="9%"><font size="5">0x93 </font></td>
+    <td width="24%"><font size="5">XCHG AX, BX</font></td>
+    <td width="60%"><font size="4"> xchg ax, bx </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="148_xchg_ax_sp"></a>148</font></td>
+    <td width="9%"><font size="5">0x94 </font></td>
+    <td width="24%"><font size="5">XCHG AX, SP</font></td>
+    <td width="60%"><font size="4"> xchg ax, sp </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="149_xchg_ax_bp"></a>149</font></td>
+    <td width="9%"><font size="5">0x95 </font></td>
+    <td width="24%"><font size="5">XCHG AX, BP</font></td>
+    <td width="60%"><font size="4"> xchg ax, bp </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="150_xchg_ax_si"></a>150</font></td>
+    <td width="9%"><font size="5">0x96 </font></td>
+    <td width="24%"><font size="5">XCHG AX, SI</font></td>
+    <td width="60%"><font size="4"> xchg ax, si </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="151_xchg_ax_di"></a>151</font></td>
+    <td width="9%"><font size="5">0x97 </font></td>
+    <td width="24%"><font size="5">XCHG AX, DI</font></td>
+    <td width="60%"><font size="4"> xchg ax, di </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="152_cbw"></a>152</font></td>
+    <td width="9%"><font size="5">0x98 </font></td>
+    <td width="24%"><font size="5">CBW</font></td>
+    <td width="60%"><font size="4"> ; Sign-extend AL into AX<br>
+      cbw </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="153_cwd"></a>153</font></td>
+    <td width="9%"><font size="5">0x99 </font></td>
+    <td width="24%"><font size="5">CWD</font></td>
+    <td width="60%"><font size="4"> ; Sign-extend AX into DX:AX<br>
+      cwd </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="154_call_ap"></a>154</font></td>
+    <td width="9%"><font size="5">0x9A </font></td>
+    <td width="24%"><font size="5">CALL Ap</font></td>
+    <td width="60%"><font size="4"> ; Far call: CALL segment:offset<br>
+      call far 0x1234:0x5678 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="155_wait"></a>155</font></td>
+    <td width="9%"><font size="5">0x9B </font></td>
+    <td width="24%"><font size="5">WAIT</font></td>
+    <td width="60%"><font size="4"> wait ; synchronize with FPU </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="156_pushf"></a>156</font></td>
+    <td width="9%"><font size="5">0x9C </font></td>
+    <td width="24%"><font size="5">PUSHF</font></td>
+    <td width="60%"><font size="4"> pushf </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="157_popf"></a>157</font></td>
+    <td width="9%"><font size="5">0x9D </font></td>
+    <td width="24%"><font size="5">POPF</font></td>
+    <td width="60%"><font size="4"> popf </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="158_sahf"></a>158</font></td>
+    <td width="9%"><font size="5">0x9E </font></td>
+    <td width="24%"><font size="5">SAHF</font></td>
+    <td width="60%"><font size="4"> ; Load FLAGS low 8 bits from AH<br>
+      sahf </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="159_lahf"></a>159</font></td>
+    <td width="9%"><font size="5">0x9F </font></td>
+    <td width="24%"><font size="5">LAHF</font></td>
+    <td width="60%"><font size="4"> ; Load AH with FLAGS low 8 bits<br>
+      lahf </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="160_mov_al_ob"></a>160</font></td>
+    <td width="9%"><font size="5">0xA0 </font></td>
+    <td width="24%"><font size="5">MOV AL, Ob</font></td>
+    <td width="60%"><font size="4"> mov al, [data8] ; load byte from absolute 
+      memory<br>
+      data8 db 42 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="161_mov_ax_ov"></a>161</font></td>
+    <td width="9%"><font size="5">0xA1 </font></td>
+    <td width="24%"><font size="5">MOV AX, Ov</font></td>
+    <td width="60%"><font size="4"> mov ax, [data16] ; load word from absolute 
+      memory<br>
+      data16 dw 1234h </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="162_mov_ob_al"></a>162</font></td>
+    <td width="9%"><font size="5">0xA2 </font></td>
+    <td width="24%"><font size="5">MOV Ob, AL</font></td>
+    <td width="60%"><font size="4"> mov al, 99<br>
+      mov [data8], al </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="163_mov_ov_ax"></a>163</font></td>
+    <td width="9%"><font size="5">0xA3 </font></td>
+    <td width="24%"><font size="5">MOV Ov, AX</font></td>
+    <td width="60%"><font size="4"> mov ax, 4567h<br>
+      mov [data16], ax </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="164_movsb"></a>164</font></td>
+    <td width="9%"><font size="5">0xA4 </font></td>
+    <td width="24%"><font size="5">MOVSB</font></td>
+    <td width="60%"><font size="4"> ; Copy DS:[SI] ? ES:[DI]<br>
+      movsb </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="165_movsw"></a>165</font></td>
+    <td width="9%"><font size="5">0xA5 </font></td>
+    <td width="24%"><font size="5">MOVSW</font></td>
+    <td width="60%"><font size="4"> ; Copy DS:[SI] ? ES:[DI] (word)<br>
+      movsw </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="166_cmpsb"></a>166</font></td>
+    <td width="9%"><font size="5">0xA6 </font></td>
+    <td width="24%"><font size="5">CMPSB</font></td>
+    <td width="60%"><font size="4"> ; Compare DS:[SI] with ES:[DI]<br>
+      cmpsb </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="167_cmpsw"></a>167</font></td>
+    <td width="9%"><font size="5">0xA7 </font></td>
+    <td width="24%"><font size="5">CMPSW</font></td>
+    <td width="60%"><font size="4"> ; Compare words DS:[SI] and ES:[DI]<br>
+      cmpsw </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="168_test_al_ib"></a>168</font></td>
+    <td width="9%"><font size="5">0xA8 </font></td>
+    <td width="24%"><font size="5">TEST AL, Ib</font></td>
+    <td width="60%"><font size="4"> mov al, 0b10101010<br>
+      test al, 0b00001111 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="169_test_ax_iv"></a>169</font></td>
+    <td width="9%"><font size="5">0xA9 </font></td>
+    <td width="24%"><font size="5">TEST AX, Iv</font></td>
+    <td width="60%"><font size="4"> mov ax, 0F0Fh<br>
+      test ax, 00FFh </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="170_stosb"></a>170</font></td>
+    <td width="9%"><font size="5">0xAA </font></td>
+    <td width="24%"><font size="5">STOSB</font></td>
+    <td width="60%"><font size="4"> ; Store AL ? ES:[DI]<br>
+      stosb </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="171_stosw"></a>171</font></td>
+    <td width="9%"><font size="5">0xAB </font></td>
+    <td width="24%"><font size="5">STOSW</font></td>
+    <td width="60%"><font size="4"> ; Store AX ? ES:[DI]<br>
+      stosw </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="172_lodsb"></a>172</font></td>
+    <td width="9%"><font size="5">0xAC </font></td>
+    <td width="24%"><font size="5">LODSB</font></td>
+    <td width="60%"><font size="4"> ; Load DS:[SI] ? AL<br>
+      lodsb </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="173_lodsw"></a>173</font></td>
+    <td width="9%"><font size="5">0xAD </font></td>
+    <td width="24%"><font size="5">LODSW</font></td>
+    <td width="60%"><font size="4"> ; Load DS:[SI] ? AX<br>
+      lodsw </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="174_scasb"></a>174</font></td>
+    <td width="9%"><font size="5">0xAE </font></td>
+    <td width="24%"><font size="5">SCASB</font></td>
+    <td width="60%"><font size="4"> ; Compare AL with ES:[DI]<br>
+      scasb </font></td>
+  <tr> 
+    <td width="7%"><font size="4"><a name="175_scasw"></a>175</font></td>
+    <td width="9%"><font size="5">0xAF </font></td>
+    <td width="24%"><font size="5">SCASW</font></td>
+    <td width="60%"><font size="4"> ; Compare AX with ES:[DI]<br>
+      scasw </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="176_mov_al_ib"></a>176</font></td>
+    <td width="9%"><font size="5">0xB0 </font></td>
+    <td width="24%"><font size="5">MOV AL, Ib</font></td>
+    <td width="60%"><font size="4"> mov al, 5 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="177_mov_cl_ib"></a>177</font></td>
+    <td width="9%"><font size="5">0xB1 </font></td>
+    <td width="24%"><font size="5">MOV CL, Ib</font></td>
+    <td width="60%"><font size="4"> mov cl, 12 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="178_mov_dl_ib"></a>178</font></td>
+    <td width="9%"><font size="5">0xB2 </font></td>
+    <td width="24%"><font size="5">MOV DL, Ib</font></td>
+    <td width="60%"><font size="4"> mov dl, 99 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="179_mov_bl_ib"></a>179</font></td>
+    <td width="9%"><font size="5">0xB3 </font></td>
+    <td width="24%"><font size="5">MOV BL, Ib</font></td>
+    <td width="60%"><font size="4"> mov bl, 200 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="180_mov_ah_ib"></a>180</font></td>
+    <td width="9%"><font size="5">0xB4 </font></td>
+    <td width="24%"><font size="5">MOV AH, Ib</font></td>
+    <td width="60%"><font size="4"> mov ah, 1 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="181_mov_ch_ib"></a>181</font></td>
+    <td width="9%"><font size="5">0xB5 </font></td>
+    <td width="24%"><font size="5">MOV CH, Ib</font></td>
+    <td width="60%"><font size="4"> mov ch, 2 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="182_mov_dh_ib"></a>182</font></td>
+    <td width="9%"><font size="5">0xB6 </font></td>
+    <td width="24%"><font size="5">MOV DH, Ib</font></td>
+    <td width="60%"><font size="4"> mov dh, 3 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="183_mov_bh_ib"></a>183</font></td>
+    <td width="9%"><font size="5">0xB7 </font></td>
+    <td width="24%"><font size="5">MOV BH, Ib</font></td>
+    <td width="60%"><font size="4"> mov bh, 4 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="184_mov_ax_iv"></a>184</font></td>
+    <td width="9%"><font size="5">0xB8 </font></td>
+    <td width="24%"><font size="5">MOV AX, Iv</font></td>
+    <td width="60%"><font size="4"> mov ax, 1234h </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="185_mov_cx_iv"></a>185</font></td>
+    <td width="9%"><font size="5">0xB9 </font></td>
+    <td width="24%"><font size="5">MOV CX, Iv</font></td>
+    <td width="60%"><font size="4"> mov cx, 0ABCDh </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="186_mov_dx_iv"></a>186</font></td>
+    <td width="9%"><font size="5">0xBA </font></td>
+    <td width="24%"><font size="5">MOV DX, Iv</font></td>
+    <td width="60%"><font size="4"> mov dx, 0F00Dh </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="187_mov_bx_iv"></a>187</font></td>
+    <td width="9%"><font size="5">0xBB </font></td>
+    <td width="24%"><font size="5">MOV BX, Iv</font></td>
+    <td width="60%"><font size="4"> mov bx, 9090h </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="188_mov_sp_iv"></a>188</font></td>
+    <td width="9%"><font size="5">0xBC </font></td>
+    <td width="24%"><font size="5">MOV SP, Iv</font></td>
+    <td width="60%"><font size="4"> mov sp, 4000h </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="189_mov_bp_iv"></a>189</font></td>
+    <td width="9%"><font size="5">0xBD </font></td>
+    <td width="24%"><font size="5">MOV BP, Iv</font></td>
+    <td width="60%"><font size="4"> mov bp, 3000h </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="190_mov_si_iv"></a>190</font></td>
+    <td width="9%"><font size="5">0xBE </font></td>
+    <td width="24%"><font size="5">MOV SI, Iv</font></td>
+    <td width="60%"><font size="4"> mov si, 0200h </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="191_mov_di_iv"></a>191</font></td>
+    <td width="9%"><font size="5">0xBF </font></td>
+    <td width="24%"><font size="5">MOV DI, Iv</font></td>
+    <td width="60%"><font size="4"> mov di, 0300h </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="192_grp2_eb_ib"></a>192</font></td>
+    <td width="9%"><font size="5">0xC0 </font></td>
+    <td width="24%"><font size="5">GRP2 Eb, Ib</font></td>
+    <td width="60%"><font size="4"> ; Example: SHL byte ptr by immediate<br>
+      byte_val db 3<br>
+      shl byte [byte_val], 1 ; opcode group C0 /4 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="193_grp2_ev_ib"></a>193</font></td>
+    <td width="9%"><font size="5">0xC1 </font></td>
+    <td width="24%"><font size="5">GRP2 Ev, Ib</font></td>
+    <td width="60%"><font size="4"> word_val dw 100<br>
+      shr word [word_val], 1 ; opcode group C1 /5 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="194_ret_iw"></a>194</font></td>
+    <td width="9%"><font size="5">0xC2 </font></td>
+    <td width="24%"><font size="5">RET Iw</font></td>
+    <td width="60%"><font size="4"> ret 4 ; pop IP and add 4 to SP </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="195_ret"></a>195</font></td>
+    <td width="9%"><font size="5">0xC3 </font></td>
+    <td width="24%"><font size="5">RET</font></td>
+    <td width="60%"><font size="4"> ret </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="196_les_gv_mp"></a>196</font></td>
+    <td width="9%"><font size="5">0xC4 </font></td>
+    <td width="24%"><font size="5">LES Gv, Mp</font></td>
+    <td width="60%"><font size="4"> ; Load ES:BX from memory pointer<br>
+      les bx, [ptr_ds_es]<br>
+      ptr_ds_es dw 0, 0 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="197_lds_gv_mp"></a>197</font></td>
+    <td width="9%"><font size="5">0xC5 </font></td>
+    <td width="24%"><font size="5">LDS Gv, Mp</font></td>
+    <td width="60%"><font size="4"> ; Load DS:BX from memory pointer<br>
+      lds bx, [ptr_ds]<br>
+      ptr_ds dw 0, 0 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="198_mov_eb_ib"></a>198</font></td>
+    <td width="9%"><font size="5">0xC6 </font></td>
+    <td width="24%"><font size="5">MOV Eb, Ib</font></td>
+    <td width="60%"><font size="4"> byte_val db 0<br>
+      mov byte [byte_val], 10 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="199_mov_ev_iv"></a>199</font></td>
+    <td width="9%"><font size="5">0xC7 </font></td>
+    <td width="24%"><font size="5">MOV Ev, Iv</font></td>
+    <td width="60%"><font size="4"> word_val dw 0<br>
+      mov word [word_val], 1234h </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="200_enter"></a>200</font></td>
+    <td width="9%"><font size="5">0xC8 </font></td>
+    <td width="24%"><font size="5">ENTER Iw, Ib</font></td>
+    <td width="60%"><font size="4"> enter 32, 0 ; create stack frame </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="201_leave"></a>201</font></td>
+    <td width="9%"><font size="5">0xC9 </font></td>
+    <td width="24%"><font size="5">LEAVE</font></td>
+    <td width="60%"><font size="4"> leave ; BP?SP, pop BP </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="202_retf_iw"></a>202</font></td>
+    <td width="9%"><font size="5">0xCA </font></td>
+    <td width="24%"><font size="5">RETF Iw</font></td>
+    <td width="60%"><font size="4"> retf 4 ; far return, pop IP, CS, add 4 to 
+      SP </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="203_retf"></a>203</font></td>
+    <td width="9%"><font size="5">0xCB </font></td>
+    <td width="24%"><font size="5">RETF</font></td>
+    <td width="60%"><font size="4"> retf ; far return </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="204_int3"></a>204</font></td>
+    <td width="9%"><font size="5">0xCC </font></td>
+    <td width="24%"><font size="5">INT 3</font></td>
+    <td width="60%"><font size="4"> int 3 ; debugger breakpoint </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="205_int_ib"></a>205</font></td>
+    <td width="9%"><font size="5">0xCD </font></td>
+    <td width="24%"><font size="5">INT Ib</font></td>
+    <td width="60%"><font size="4"> int 10h ; BIOS video interrupt </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="206_into"></a>206</font></td>
+    <td width="9%"><font size="5">0xCE </font></td>
+    <td width="24%"><font size="5">INTO</font></td>
+    <td width="60%"><font size="4"> ; Trigger interrupt 4 if OF = 1<br>
+      add al, 0x80<br>
+      into </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="207_iret"></a>207</font></td>
+    <td width="9%"><font size="5">0xCF </font></td>
+    <td width="24%"><font size="5">IRET</font></td>
+    <td width="60%"><font size="4"> iret ; return from interrupt </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="208_grp2_eb_1"></a>208</font></td>
+    <td width="9%"><font size="5">0xD0 </font></td>
+    <td width="24%"><font size="5">GRP2 Eb, 1</font></td>
+    <td width="60%"><font size="4"> ; Example: ROL byte ptr by 1<br>
+      byte_val db 1<br>
+      rol byte [byte_val], 1 ; opcode D0 /0 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="209_grp2_ev_1"></a>209</font></td>
+    <td width="9%"><font size="5">0xD1 </font></td>
+    <td width="24%"><font size="5">GRP2 Ev, 1</font></td>
+    <td width="60%"><font size="4"> word_val dw 2<br>
+      shr word [word_val], 1 ; opcode D1 /5 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="210_grp2_eb_cl"></a>210</font></td>
+    <td width="9%"><font size="5">0xD2 </font></td>
+    <td width="24%"><font size="5">GRP2 Eb, CL</font></td>
+    <td width="60%"><font size="4"> byte_val db 0Fh<br>
+      mov cl, 3<br>
+      shl byte [byte_val], cl ; opcode D2 /4 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="211_grp2_ev_cl"></a>211</font></td>
+    <td width="9%"><font size="5">0xD3 </font></td>
+    <td width="24%"><font size="5">GRP2 Ev, CL</font></td>
+    <td width="60%"><font size="4"> word_val dw 100<br>
+      mov cl, 2<br>
+      sar word [word_val], cl ; opcode D3 /7 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="212_aam"></a>212</font></td>
+    <td width="9%"><font size="5">0xD4 </font></td>
+    <td width="24%"><font size="5">AAM</font></td>
+    <td width="60%"><font size="4"> ; ASCII adjust after multiply<br>
+      aam ; divides AL by 10 ? AH:AL </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="213_aad"></a>213</font></td>
+    <td width="9%"><font size="5">0xD5 </font></td>
+    <td width="24%"><font size="5">AAD</font></td>
+    <td width="60%"><font size="4"> ; ASCII adjust before divide<br>
+      aad ; AH*10 + AL ? AL </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="214_salc"></a>214</font></td>
+    <td width="9%"><font size="5">0xD6 </font></td>
+    <td width="24%"><font size="5">SALC<br>
+      <font size="3">(undocumented)</font></font></td>
+    <td width="60%"><font size="4"> ; AL = FF if CF=1, else AL = 00<br>
+      salc </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="215_xlat"></a>215</font></td>
+    <td width="9%"><font size="5">0xD7</font></td>
+    <td width="24%"><font size="5">XLAT</font></td>
+    <td width="60%"><font size="4"> ; Translate AL using lookup table at DS:BX<br>
+      xlat </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4" color="#009900"></font></td>
+    <td width="9%"><font size="4" color="#009900"></font></td>
+    <td width="24%"><font size="4" color="#009900">! FPU ESC OPCODES D8&#150;DF</font></td>
+    <td width="60%"><font size="4" color="#009900"></font> </td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="219_esc_db"></a>219</font></td>
+    <td width="9%"><font size="5">0xDB </font></td>
+    <td width="24%"><font size="5">ESC 3 (FPU)</font></td>
+    <td width="60%"><font size="4"> ; Example: FILD dword ptr [mem]<br>
+      db 0xDB, 0x06 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="220_esc_dc"></a>220</font></td>
+    <td width="9%"><font size="5">0xDC </font></td>
+    <td width="24%"><font size="5">ESC 4 (FPU)</font></td>
+    <td width="60%"><font size="4"> ; Example: FADD qword ptr [mem]<br>
+      db 0xDC, 0x06 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="221_esc_dd"></a>221</font></td>
+    <td width="9%"><font size="5">0xDD </font></td>
+    <td width="24%"><font size="5">ESC 5 (FPU)</font></td>
+    <td width="60%"><font size="4"> ; Example: FLD qword ptr [mem]<br>
+      db 0xDD, 0x06 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="222_esc_de"></a>222</font></td>
+    <td width="9%"><font size="5">0xDE </font></td>
+    <td width="24%"><font size="5">ESC 6 (FPU)</font></td>
+    <td width="60%"><font size="4"> ; Example: FIADD word ptr [mem]<br>
+      db 0xDE, 0x06 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="223_esc_df"></a>223</font></td>
+    <td width="9%"><font size="5">0xDF </font></td>
+    <td width="24%"><font size="5">ESC 7 (FPU)</font></td>
+    <td width="60%"><font size="4"> ; Example: FIST word ptr [mem]<br>
+      db 0xDF, 0x06 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="224_loopne"></a>224</font></td>
+    <td width="9%"><font size="5">0xE0 </font></td>
+    <td width="24%"><font size="5">LOOPNE / LOOPNZ rel8</font></td>
+    <td width="60%"><font size="4"> mov cx, 5<br>
+      loopne loop_label </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="225_loope"></a>225</font></td>
+    <td width="9%"><font size="5">0xE1 </font></td>
+    <td width="24%"><font size="5">LOOPE / LOOPZ rel8</font></td>
+    <td width="60%"><font size="4"> mov cx, 5<br>
+      loope loop_label </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="226_loop"></a>226</font></td>
+    <td width="9%"><font size="5">0xE2 </font></td>
+    <td width="24%"><font size="5">LOOP rel8</font></td>
+    <td width="60%"><font size="4"> mov cx, 10<br>
+      loop loop_here </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="227_jcxz"></a>227</font></td>
+    <td width="9%"><font size="5">0xE3 </font></td>
+    <td width="24%"><font size="5">JCXZ rel8</font></td>
+    <td width="60%"><font size="4"> mov cx, 0<br>
+      jcxz zero_case </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="228_in_al_ib"></a>228</font></td>
+    <td width="9%"><font size="5">0xE4 </font></td>
+    <td width="24%"><font size="5">IN AL, Ib</font></td>
+    <td width="60%"><font size="4"> in al, 60h ; keyboard port </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="229_in_ax_ib"></a>229</font></td>
+    <td width="9%"><font size="5">0xE5 </font></td>
+    <td width="24%"><font size="5">IN AX, Ib</font></td>
+    <td width="60%"><font size="4"> in ax, 40h ; timer counter </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="230_out_ib_al"></a>230</font></td>
+    <td width="9%"><font size="5">0xE6 </font></td>
+    <td width="24%"><font size="5">OUT Ib, AL</font></td>
+    <td width="60%"><font size="4"> out 43h, al ; PIT command port </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="231_out_ib_ax"></a>231</font></td>
+    <td width="9%"><font size="5">0xE7 </font></td>
+    <td width="24%"><font size="5">OUT Ib, AX</font></td>
+    <td width="60%"><font size="4"> out 42h, ax ; write timer value </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="232_call_rel16"></a>232</font></td>
+    <td width="9%"><font size="5">0xE8 </font></td>
+    <td width="24%"><font size="5">CALL rel16</font></td>
+    <td width="60%"><font size="4"> call near_function </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="233_jmp_rel16"></a>233</font></td>
+    <td width="9%"><font size="5">0xE9 </font></td>
+    <td width="24%"><font size="5">JMP rel16</font></td>
+    <td width="60%"><font size="4"> jmp far_away_label </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="234_jmp_ap"></a>234</font></td>
+    <td width="9%"><font size="5">0xEA </font></td>
+    <td width="24%"><font size="5">JMP Ap (far)</font></td>
+    <td width="60%"><font size="4"> jmp far 0x1234:0x0000 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="235_jmp_rel8"></a>235</font></td>
+    <td width="9%"><font size="5">0xEB </font></td>
+    <td width="24%"><font size="5">JMP rel8</font></td>
+    <td width="60%"><font size="4"> jmp short skip_ahead </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="236_in_al_dx"></a>236</font></td>
+    <td width="9%"><font size="5">0xEC </font></td>
+    <td width="24%"><font size="5">IN AL, DX</font></td>
+    <td width="60%"><font size="4"> mov dx, 60h<br>
+      in al, dx </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="237_in_ax_dx"></a>237</font></td>
+    <td width="9%"><font size="5">0xED </font></td>
+    <td width="24%"><font size="5">IN AX, DX</font></td>
+    <td width="60%"><font size="4"> mov dx, 40h<br>
+      in ax, dx </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="238_out_dx_al"></a>238</font></td>
+    <td width="9%"><font size="5">0xEE </font></td>
+    <td width="24%"><font size="5">OUT DX, AL</font></td>
+    <td width="60%"><font size="4"> mov dx, 43h<br>
+      out dx, al </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="239_out_dx_ax"></a>239</font></td>
+    <td width="9%"><font size="5">0xEF </font></td>
+    <td width="24%"><font size="5">OUT DX, AX</font></td>
+    <td width="60%"><font size="4"> mov dx, 42h<br>
+      out dx, ax </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="240_lock"></a>240</font></td>
+    <td width="9%"><font size="5">0xF0 </font></td>
+    <td width="24%"><font size="5">LOCK</font></td>
+    <td width="60%"><font size="4"> ; Bus lock prefix<br>
+      lock inc word [counter] </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="241_undefined_f1"></a>241</font></td>
+    <td width="9%"><font size="5">0xF1 </font></td>
+    <td width="24%"><font size="5">Undefined</font></td>
+    <td width="60%"><font size="4"> ; Reserved, usually causes #UD </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="242_repne"></a>242</font></td>
+    <td width="9%"><font size="5">0xF2 </font></td>
+    <td width="24%"><font size="5">REPNE / REPNZ</font></td>
+    <td width="60%"><font size="4"> mov cx, 10<br>
+      repne scasb </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="243_rep_repe"></a>243</font></td>
+    <td width="9%"><font size="5">0xF3 </font></td>
+    <td width="24%"><font size="5">REP / REPE / REPZ</font></td>
+    <td width="60%"><font size="4"> mov cx, 20<br>
+      rep movsb </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="244_hlt"></a>244</font></td>
+    <td width="9%"><font size="5">0xF4 </font></td>
+    <td width="24%"><font size="5">HLT</font></td>
+    <td width="60%"><font size="4"> hlt ; halt CPU until next interrupt </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="245_cmc"></a>245</font></td>
+    <td width="9%"><font size="5">0xF5 </font></td>
+    <td width="24%"><font size="5">CMC</font></td>
+    <td width="60%"><font size="4"> cmc ; complement carry flag </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="246_grp3_eb"></a>246</font></td>
+    <td width="9%"><font size="5">0xF6 </font></td>
+    <td width="24%"><font size="5">GRP3 Eb</font></td>
+    <td width="60%"><font size="4"> ; Example: TEST byte<br>
+      byte_val db 0AAh<br>
+      test byte [byte_val], 0FFh ; opcode F6 /0 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="247_grp3_ev"></a>247</font></td>
+    <td width="9%"><font size="5">0xF7 </font></td>
+    <td width="24%"><font size="5">GRP3 Ev</font></td>
+    <td width="60%"><font size="4"> ; Example: DIV word ptr<br>
+      word_val dw 1000<br>
+      mov ax, 5000<br>
+      div word [word_val] ; opcode F7 /6 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="248_clc"></a>248</font></td>
+    <td width="9%"><font size="5">0xF8 </font></td>
+    <td width="24%"><font size="5">CLC</font></td>
+    <td width="60%"><font size="4"> clc ; clear carry </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="249_stc"></a>249</font></td>
+    <td width="9%"><font size="5">0xF9 </font></td>
+    <td width="24%"><font size="5">STC</font></td>
+    <td width="60%"><font size="4"> stc ; set carry </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="250_cli"></a>250</font></td>
+    <td width="9%"><font size="5">0xFA </font></td>
+    <td width="24%"><font size="5">CLI</font></td>
+    <td width="60%"><font size="4"> cli ; disable interrupts </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="251_sti"></a>251</font></td>
+    <td width="9%"><font size="5">0xFB </font></td>
+    <td width="24%"><font size="5">STI</font></td>
+    <td width="60%"><font size="4"> sti ; enable interrupts </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="252_cld"></a>252</font></td>
+    <td width="9%"><font size="5">0xFC </font></td>
+    <td width="24%"><font size="5">CLD</font></td>
+    <td width="60%"><font size="4"> cld ; DF=0: forward string ops </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="253_std"></a>253</font></td>
+    <td width="9%"><font size="5">0xFD </font></td>
+    <td width="24%"><font size="5">STD</font></td>
+    <td width="60%"><font size="4"> std ; DF=1: backwards string ops </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="254_grp4_eb"></a>254</font></td>
+    <td width="9%"><font size="5">0xFE </font></td>
+    <td width="24%"><font size="5">GRP4 Eb (INC/DEC)</font></td>
+    <td width="60%"><font size="4"> ; Example: INC byte ptr<br>
+      inc byte [byte_val] ; opcode FE /0 </font></td>
+  </tr>
+  <tr> 
+    <td width="7%"><font size="4"><a name="255_grp5_ev"></a>255</font></td>
+    <td width="9%"><font size="5">0xFF </font></td>
+    <td width="24%"><font size="5">GRP5 Ev<br>
+      <font size="3">(INC/DEC/CALL/JMP/PUSH)</font></font></td>
+    <td width="60%"><font size="4"> ; Example: word INC<br>
+      inc word [word_val] ; opcode FF /0<br>
+      <br>
+      ; Example: CALL word ptr<br>
+      call word [ptr16] ; opcode FF /2<br>
+      <br>
+      ptr16 dw 0000h </font></td>
+  </tr>
+</table>
+<p>More in the <font size="3"><a href="Appendix.htm">Appendix</a></font></p>
+<p>&nbsp;</p>
+</body></html>
